@@ -1,0 +1,3239 @@
+[
+  {
+    "productId" : "G-1",
+    "name" : "Grains",
+    "categories": [
+      {
+        "productId": "G-2",
+        "name": "Corn",
+        "varieties": [
+          {
+            "productsId" : "G-3",
+            "name" : "Dent",
+            "offerings": [
+              {
+                "type" : "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-4",
+                    "quantity": 12,
+                    "price" :  14
+                  },
+                  {
+                    "productId": "G-5",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-6",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-7",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-8",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-9",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-10",
+            "name": "Flint",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-11",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-12",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-13",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-14",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-15",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-16",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-17",
+            "name": "Sweet",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-18",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-19",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-20",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-21",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-22",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-23",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-24",
+            "name": "Popcorn",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-25",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-26",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-27",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-28",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-29",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-30",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "productId": "G-31",
+        "name": "Wheat",
+        "varieties": [
+          {
+            "productsId": "G-32",
+            "name": "Hard Red Winter",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-33",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-34",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-35",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-36",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-37",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-38",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-10",
+            "name": "Hard Red Spring",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-39",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-40",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-41",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-42",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-43",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-44",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-45",
+            "name": "Soft Red Winter",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-46",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-47",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-48",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-49",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-50",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-51",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-52",
+            "name": "Soft White",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-53",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-54",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-55",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-56",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-57",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-58",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-59",
+            "name": "Hard White",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-60",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-61",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-62",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-63",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-64",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-65",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-66",
+            "name": "Durum",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-67",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-68",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-69",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-70",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-71",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-72",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "productId": "G-73",
+        "name": "Couscous",
+        "varieties": [
+          {
+            "productsId": "G-74",
+            "name": "Moroccan",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-75",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-76",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-77",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-78",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-79",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-80",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-81",
+            "name": "Israeli",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-82",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-83",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-84",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-85",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-86",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-87",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-88",
+            "name": "Labense",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-89",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-90",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-91",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-92",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-93",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-94",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "productId": "G-95",
+        "name": "Rice",
+        "varieties": [
+          {
+            "productsId": "G-96",
+            "name": "Carolina Gold",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-97",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-98",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-99",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-100",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-101",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-102",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-103",
+            "name": "Charleston Gold",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-104",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-105",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-106",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-107",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-108",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-109",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-110",
+            "name": "Blue Rose",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-111",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-112",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-113",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-114",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-115",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-116",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-117",
+            "name": "Earl",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-118",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-119",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-120",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-121",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-122",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-123",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-124",
+            "name": "Mercury",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-125",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-126",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-127",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-128",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-129",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-130",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-131",
+            "name": "Nato",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-132",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-133",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-134",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-135",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-136",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-137",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-138",
+            "name": "Pecan",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-139",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-140",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-141",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-142",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-143",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-144",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-145",
+            "name": "Popcorn",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-146",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-147",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-148",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-149",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-150",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-151",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-152",
+            "name": "Vista",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-153",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-154",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-155",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-156",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-157",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-158",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-159",
+            "name": "Calmati",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-160",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-161",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-162",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-163",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-164",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-165",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-166",
+            "name": "Calrose",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-167",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-168",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-169",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-170",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-171",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-172",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-173",
+            "name": "Wehani",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-174",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-175",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-176",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-177",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-178",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-179",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "productId": "G-180",
+        "name": "Couscous",
+        "varieties": [
+          {
+            "productsId": "G-181",
+            "name": "Brown",
+            "offerings": [
+              {
+                "type": "182",
+                "offerings": [
+                  {
+                    "productId": "G-183",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-184",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-185",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-186",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-187",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-188",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-189",
+            "name": "White",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-190",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-191",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-192",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-193",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-194",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-195",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-196",
+            "name": "Black",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-197",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-198",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-199",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-200",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-201",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-202",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "G-203",
+            "name": "Red",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "G-204",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-205",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "G-206",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-207",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "G-208",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "G-209",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "productId" : "F-1",
+    "name": "Fruits",
+    "categories": [
+      {
+        "productId": "F-2",
+        "name": "Apples",
+        "varieties": [
+          {
+            "productsId": "F-3",
+            "name": "Red Delicious",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-4",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-5",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-6",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-7",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-8",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-9",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-10",
+            "name": "Gala",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-11",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-12",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-13",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-14",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-15",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-16",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-17",
+            "name": "Fuji",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-18",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-19",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-20",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-21",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-22",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-23",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-24",
+            "name": "Granny Smith",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-25",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-26",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-27",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-28",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-29",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-30",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-31",
+            "name": "Honeycrisp",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-32",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-33",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-34",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-35",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-36",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-37",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-38",
+            "name": "Cripps Pink cv.",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-39",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-40",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-41",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-42",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-43",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-44",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-45",
+            "name": "Golden Delicious",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-46",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-47",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-48",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-49",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-50",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-51",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "productId": "F-52",
+        "name": "Cherries",
+        "varieties": [
+          {
+            "productsId": "F-53",
+            "name": "Bing",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-54",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-55",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-56",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-57",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-58",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-59",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-60",
+            "name": "Rainier",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-61",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-62",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-63",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-64",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-65",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-66",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-67",
+            "name": "Queen Anne",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-68",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-69",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-70",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-71",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-72",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-73",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-74",
+            "name": "Montmorency",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-75",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-76",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-77",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-78",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-79",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-80",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-81",
+            "name": "Morello",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-82",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-83",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-84",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-85",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-86",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-87",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-88",
+            "name": "Chlean",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-89",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-90",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-91",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-92",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-93",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-94",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-95",
+            "name": "Lapins",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-96",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-97",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-98",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-99",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-100",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-101",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-102",
+            "name": "Tulare",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-103",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-104",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-105",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-106",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-107",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-108",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-109",
+            "name": "Lambert",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-110",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-111",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-112",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-113",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-114",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-115",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "productId": "F-116",
+        "name": "Pear",
+        "varieties": [
+          {
+            "productsId": "F-117",
+            "name": "Green Anjou",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-118",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-119",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-120",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-121",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-122",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-123",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-124",
+            "name": "Red Anjou",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-125",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-126",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-127",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-128",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-129",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-130",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-131",
+            "name": "Bartlett",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-132",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-133",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-134",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-135",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-136",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-137",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-138",
+            "name": "Red Barlett",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-139",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-140",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-141",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-142",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-143",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-144",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-145",
+            "name": "Bosc",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-146",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-147",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-148",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-149",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-150",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-151",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-152",
+            "name": "Comice",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-153",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-154",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-155",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-156",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-157",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-158",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-159",
+            "name": "Concorde",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-160",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-161",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-162",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-163",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-164",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-165",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-166",
+            "name": "Forelle",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-167",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-168",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-169",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-170",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-171",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-172",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-173",
+            "name": "Seckel",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-174",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-175",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-176",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-177",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-178",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-179",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-180",
+            "name": "Starkrimson",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-181",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-182",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-183",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-184",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-185",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-186",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "productId": "F-2",
+        "name": "Apples",
+        "varieties": [
+          {
+            "productsId": "F-3",
+            "name": "Red Delicious",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-4",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-5",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-6",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-7",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-8",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-9",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-10",
+            "name": "Gala",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-11",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-12",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-13",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-14",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-15",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-16",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-17",
+            "name": "Fuji",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-18",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-19",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-20",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-21",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-22",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-23",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-24",
+            "name": "Granny Smith",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-25",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-26",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-27",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-28",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-29",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-30",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-31",
+            "name": "Honeycrisp",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-32",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-33",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-34",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-35",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-36",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-37",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-38",
+            "name": "Cripps Pink cv.",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-39",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-40",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-41",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-42",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-43",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-44",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "productsId": "F-45",
+            "name": "Golden Delicious",
+            "offerings": [
+              {
+                "type": "Seeds",
+                "offerings": [
+                  {
+                    "productId": "F-46",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-47",
+                    "quantity": 26,
+                    "price": 19
+                  }
+                ]
+              },
+              {
+                "type": "Seedlings",
+                "offerings": [
+                  {
+                    "productId": "F-48",
+                    "quantity": 12,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-49",
+                    "quantity": 24,
+                    "price": 22
+                  }
+                ]
+              },
+              {
+                "type": "#1",
+                "offerings": [
+                  {
+                    "productId": "F-50",
+                    "quantity": 1,
+                    "price": 14
+                  },
+                  {
+                    "productId": "F-51",
+                    "quantity": 12,
+                    "price": 22
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "productId" : "H-1",
+    "name": "Herbs"
+  },
+  {
+    "productId" : "V-1",
+    "name" : "Vegetables"
+  }
+]
