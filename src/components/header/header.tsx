@@ -1,19 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import * as styles from'./header.module.css'
-import HeaderProps from './interface'
+import HeaderProps, { HeaderTheme } from './interface'
 
 const Header = (props: HeaderProps) => (
   <nav role= "navigation" >
     <ul className={styles.navigation}>
-      <li className={[styles.navigationItem, props.theme].join(' ')}>
+      <li className={props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
         <Link to="/" > Home </Link>
       </li>
-      <li className={styles.navigationItem}>
+      <li className={props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
         <Link to="/vegetables">Vegetables</Link>
       </li>
-      <li className={styles.navigationItem}>
+      <li className={props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
         <Link to="/articles">Articles</Link>
+      </li>
+      <li className={props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
+        <Link to="/recipes">Recipes</Link>
       </li>
     </ul>
   </nav>

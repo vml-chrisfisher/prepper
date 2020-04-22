@@ -16,10 +16,12 @@ const Layout = ({ location, children }: Props) => {
   console.log(children)
   const rootPath = '/'
   let theme: HeaderProps = { theme: HeaderTheme.DARK} 
+  console.log("TRUST: ", location.pathname)
 
   if (location.pathname === rootPath) {
     theme = {theme: HeaderTheme.LIGHT}
   }
+  console.log(theme)
 
   return (
     <Container>
