@@ -12,11 +12,10 @@ class ArticleIndex extends React.Component<any> {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulArticle.edges')
-    console.log(posts)
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
+        <div style={{ background: '#fff', paddingTop: '144px' }}>
           <Helmet title={siteTitle} />
           <h1>Articles</h1>
           <div className={baseStyles.wrapper}>
