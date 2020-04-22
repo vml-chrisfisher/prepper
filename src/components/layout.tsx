@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import Container from './container'
-import Header from './header'
+import Header from './header/header'
 import Footer from './footer'
 import Helmet from 'react-helmet'
+import HeaderProps, { HeaderTheme } from "./header/interface"
 
 interface Props {
   location: Location
@@ -14,41 +15,10 @@ const Layout = ({ location, children }: Props) => {
   console.log(location)
   console.log(children)
   const rootPath = '/'
-  let header
+  let theme: HeaderProps = { theme: HeaderTheme.DARK} 
 
   if (location.pathname === rootPath) {
-    header = (
-      <h1>
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-        </Link>
-      </h3>
-    )
+    theme = {theme: HeaderTheme.LIGHT}
   }
 
   return (
@@ -56,7 +26,7 @@ const Layout = ({ location, children }: Props) => {
       <Helmet>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap" rel="stylesheet" />
       </Helmet>
-      <Header />
+      <Header {...theme} />
       {children}
       <Footer />
     </Container>

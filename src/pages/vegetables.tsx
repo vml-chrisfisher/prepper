@@ -7,23 +7,28 @@ import * as baseStyles from '../components/base.module.css'
 import Layout from '../components/layout'
 import ArticleSummary from '../components/articleSummary'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
+import VegetablesSummary from '../components/vegetableSummary'
+import VegetablesSummaryInterface from '../components/vegetableSummary/interface'
 
-class ArticleIndex extends React.Component<any> {
+class VegetablesIndex extends React.Component<any> {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulArticle.edges')
+    const posts = get(this, 'props.data.allContentfulVegetable.edges')
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff', paddingTop: '144px' }}>
           <Helmet title={siteTitle} />
-          <h1>Articles</h1>
+          <h1>Vegetables</h1>
           <div className={baseStyles.wrapper}>
             <div className="article-list">
               {posts.map((node: any) => {
-                const props: ArticleSummaryInterface = {... node.node, imagePath: node.node.bannerImage.file.url}
+                const props: VegetablesSummaryInterface = { ...node.node, 
+                  imagePath: node.node.bannerImage.file.url,
+                  parentVegetable: node.node.parentVegetable.name
+                }
                 return (
-                  <ArticleSummary {... props}></ArticleSummary>
+                  <VegetablesSummary {...props}></VegetablesSummary>
                 )
               })}
             </div>
@@ -34,21 +39,23 @@ class ArticleIndex extends React.Component<any> {
   }
 }
 
-export default ArticleIndex
+export default VegetablesIndex
 
 export const pageQuery = graphql`
-  query AllArticlesQuery {
-  allContentfulArticle(sort: {fields: createdAt, order: DESC}) {
+  query AllVegetablesQuery {
+  allContentfulVegetable(sort: {fields: createdAt, order: DESC}) {
     edges {
       node {
         bannerImage {
           file {
             url
           }
-          title
         }
         title
         slug
+        parentVegetable {
+          name
+        }
       }
     }
   }

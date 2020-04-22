@@ -1,17 +1,9 @@
-@font-face {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
-  font-display: swap;
-}
-
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
-  background: #eee;
+  background: #FFF;
   margin: 0;
 }
 
@@ -24,6 +16,7 @@ h1 {
   font-size: 4.5em;
   font-weight: normal;
   font-family: 'Playfair Display', serif;
+  letter-spacing: 1.0px;;
   line-height: 1.0em;
   text-align: center;
   margin: 0;
@@ -33,6 +26,7 @@ h2 {
   font-size: 1.5em;
   font-weight: normal;
   font-family: 'Playfair Display', serif;
+  margin: 0;
 }
 
 h3 {
@@ -40,13 +34,17 @@ h3 {
   font-weight: normal;
   font-family: 'Playfair Display', serif;
   line-height: 1.0em;
-  letter-spacing: -0.5px;
+  letter-spacing: 1.0px;
+  margin: 0;
 }
 
 h4 {
-  font-size: 1.5em;
-  font-weight: normal;
+  font-size: 0.75em;
+  font-weight: 600;
   font-family: 'Nunito', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin: 0;
 }
 
 a {
@@ -57,6 +55,14 @@ a {
   width: calc(100% - 10vmin);
   margin: 0 auto;
   padding: 5vmin 0;
+}
+
+.dark-text {
+  color: #484848;
+}
+
+.white-text{
+  color: #FFFFFF;
 }
 
 /**
