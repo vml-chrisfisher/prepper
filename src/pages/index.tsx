@@ -1,32 +1,24 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import React from 'react';
+import Helmet from 'react-helmet';
+import Layout from '../components/layout';
+import VideoBackground from '../components/videoBackground';
+import VideoBackgroundProps from '../components/videoBackground/interface';
 
 class RootIndex extends React.Component<any> {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const posts = get(this, 'props.data.allContentfulHomePage.edges')
+    const post = posts[0]
+    const videoPath = post.node.backgroundVideo.file.url
+    const headline = post.node.headline.childMarkdownRemark.rawMarkdownBody
+    const searchQuestion = post.node.searchQuestion
+    const searchPlaceholder = post.node.searchPlaceholder
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map((node: any) => {
-                return (
-                  <li key={node.slug}>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
+        <div style={{ background: '#fff', display: 'list-item' }}>
+          <VideoBackground {...{videoPath, headline, searchPlaceholder, searchQuestion} }/>
         </div>
       </Layout>
     )
@@ -37,51 +29,21 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulHomePage {
       edges {
         node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+          backgroundVideo {
+            file {
+              url
             }
           }
-          description {
+          headline {
             childMarkdownRemark {
-              html
+              rawMarkdownBody
             }
           }
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
+          searchPlaceholder
+          searchQuestion
         }
       }
     }
