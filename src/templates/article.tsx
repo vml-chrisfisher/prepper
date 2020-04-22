@@ -1,13 +1,13 @@
-import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import get from 'lodash/get'
 import Img from 'gatsby-image'
+import get from 'lodash/get'
+import React from 'react'
+import Helmet from 'react-helmet'
+import '../components/hero.module.css'
 import Layout from '../components/layout'
 
-import '../components/hero.module.css'
 
-class VegetableTemplate extends React.Component<any> {
+class ArticleTemplate extends React.Component<any> {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -44,28 +44,42 @@ class VegetableTemplate extends React.Component<any> {
   }
 }
 
-export default VegetableTemplate
+export default ArticleTemplate
 
 export const pageQuery = graphql`
-  query VegetableBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
+  query ArticleBySlug($slug: String!) {
+    contentfulArticle(slug: {eq: $slug}) {
+    bodyCopy {
+      childMarkdownRemark {
+        rawMarkdownBody
       }
     }
-    contentfulBlogPost(slug: { eq: $slug }) {
+    heroImage {
+      file {
+        url
+      }
       title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-      body {
+    }
+    subtitle
+    tags {
+      tag
+    }
+    title
+    sections {
+      bodyCopy {
         childMarkdownRemark {
-          html
+          rawMarkdownBody
         }
       }
+      images {
+        file {
+          url
+        }
+        description
+      }
+      isTwoColumn
     }
   }
+  }
+
 `

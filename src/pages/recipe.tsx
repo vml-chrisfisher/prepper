@@ -35,31 +35,20 @@ class RecipeIndex extends React.Component<any> {
 export default RecipeIndex
 
 export const pageQuery = graphql`
-  query RecipeIndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allContentfulRecipePost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
+  query AllRecipesQuery {
+  allContentfulRecipe(sort: {fields: createdAt, order: DESC}) {
+    edges {
+      node {
+        bannerImage {
+          file {
+            url
+          }
           title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
         }
+        title
+        slug
       }
     }
   }
+}
 `

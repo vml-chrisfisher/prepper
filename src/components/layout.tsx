@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import Container from './container'
 import Header from './header'
 import Footer from './footer'
+import Helmet from 'react-helmet'
 
 interface Props {
   location: Location
@@ -10,6 +11,8 @@ interface Props {
 }
 
 const Layout = ({ location, children }: Props) => {
+  console.log(location)
+  console.log(children)
   const rootPath = '/'
   let header
 
@@ -50,6 +53,9 @@ const Layout = ({ location, children }: Props) => {
 
   return (
     <Container>
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap" rel="stylesheet" />
+      </Helmet>
       <Header />
       {children}
       <Footer />

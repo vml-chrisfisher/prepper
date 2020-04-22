@@ -47,25 +47,38 @@ class RecipeTemplate extends React.Component<any> {
 export default RecipeTemplate
 
 export const pageQuery = graphql`
-  query RecipeBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
+  query RecipeBySlug($slug: String) {
+    contentfulArticle(slug: {eq: $slug}) {
+    bodyCopy {
+      childMarkdownRemark {
+        rawMarkdownBody
       }
     }
-    contentfulBlogPost(slug: { eq: $slug }) {
+    heroImage {
+      file {
+        url
+      }
       title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
     }
+    subtitle
+    tags {
+      tag
+    }
+    title
+    sections {
+      bodyCopy {
+        childMarkdownRemark {
+          rawMarkdownBody
+        }
+      }
+      images {
+        file {
+          url
+        }
+        description
+      }
+      isTwoColumn
+    }
+  }
   }
 `

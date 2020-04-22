@@ -20,11 +20,33 @@ img {
   width: 100%;
 }
 
-h1,
-h2,
-h3 {
-  font-size: 2em;
+h1 {
+  font-size: 4.5em;
   font-weight: normal;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.0em;
+  text-align: center;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: normal;
+  font-family: 'Playfair Display', serif;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: normal;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.0em;
+  letter-spacing: -0.5px;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: normal;
+  font-family: 'Nunito', sans-serif;
 }
 
 a {
