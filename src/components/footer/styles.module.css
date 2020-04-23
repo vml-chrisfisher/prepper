@@ -1,0 +1,24 @@
+.footer-title {
+  color: #FFFFFF;
+  font-size: 1.5em;
+  letter-spacing: -0.5px;
+  padding-bottom: 50px
+}
+
+.footer-paragraph {
+  color: #FFFFFF;
+  font-size: .8125em;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: -0.5px;
+  padding-bottom: 66px;
+}
+
+.footer-link-main {
+  color: #FFFFFF;
+  font-size: .875em;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+
+}

@@ -136,6 +136,7 @@ a {
 
 .col-3-sm {
   width: 21%;
+  padding-right: 4%
 }
 
 .col-4-sm {
@@ -201,6 +202,7 @@ a {
 
   .col-3 {
     width: 21%;
+    padding-right: 4%;
   }
 
   .col-4 {

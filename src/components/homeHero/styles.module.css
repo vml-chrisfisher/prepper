@@ -32,6 +32,7 @@
 }
 
 .questionOverlay {
+  width: 100%;
   margin: 15% 25% 0;
   display: inline-block;
 }
@@ -48,7 +49,7 @@
   background-color: transparent;
   border: none;
   border-bottom: solid .5px #FFFFFF;
-  font-size: 20px;
+  font-size: 19px;
   color: #FFFFFF;
   font-family: 'Nunito', sans-serif;
 }
