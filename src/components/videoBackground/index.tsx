@@ -9,15 +9,6 @@ const VideoBackground = (props: VideoBackgroundProps) => (
     <div className={styles.videoOverlay}>
       <div></div>
     </div>
-    <div className={styles.overlay}>
-      <div className={styles.questionOverlay}>
-        <h1 className={baseStyles.whiteText} dangerouslySetInnerHTML={
-        {__html: props.headline}
-      }></h1>
-      <input className={styles.questionInput} placeholder={props.searchPlaceholder} />}
-      </div>
-    
-    </div>
   </div>)
 )
 

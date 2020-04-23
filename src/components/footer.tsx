@@ -1,15 +1,22 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import { Link } from 'gatsby';
+import React from 'react';
+import * as baseStyles from './base.module.css';
 
 export default () => (
-  <div>
-    <ul className="navigation">
-      <li className="navigationItem">
-        <Link to="/" > Home </Link>
-      </li>
-      <li className="navigationItem">
-        <Link to="/blog/">Blog</Link>
-      </li>
-    </ul>
+  <div className={baseStyles.container}>
+  <div className={baseStyles.row}>
+    <div className={baseStyles.col3}>
+      sdfds
+    </div>
+    <div className={baseStyles.col3}>
+      sdfds
+    </div>
+    <div className={baseStyles.col3}>
+      sdfds
+    </div>
+    <div className={baseStyles.col3}>
+      sdfds
+    </div>
+  </div>
   </div>
 )

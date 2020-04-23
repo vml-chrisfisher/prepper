@@ -1,10 +1,10 @@
-import React from "react"
-import { Link } from "gatsby"
-import Container from './container'
-import Header from './header/header'
-import Footer from './footer'
-import Helmet from 'react-helmet'
-import HeaderProps, { HeaderTheme } from "./header/interface"
+import { Link } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
+import Container from './container';
+import Header from './header/header';
+import HeaderProps, { HeaderTheme } from './header/interface';
+
 
 interface Props {
   location: Location
@@ -30,7 +30,6 @@ const Layout = ({ location, children }: Props) => {
       </Helmet>
       <Header {...theme} />
       {children}
-      <Footer />
     </Container>
   )
 }

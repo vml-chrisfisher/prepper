@@ -1,10 +1,7 @@
 .container {
-  position: fixed;
+  position: relative;
   height: 100vh;
   overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100vw;
 }
 
 .heroVideo {
@@ -30,16 +27,36 @@
   top: 0;
 }
 
+.headline {
+  text-align: left;;
+}
+
 .questionOverlay {
-  margin: 15% auto 0;
+  margin: 15% 25% 0;
+  display: inline-block;
+}
+
+.question {
+  padding-top: 60px;
+  color: #FFF;;
+  font-style: italic;
 }
 
 .questionInput {
-  width: 50%;
+  width: 100%;
   height: 50px;
   background-color: transparent;
   border: none;
   border-bottom: solid .5px #FFFFFF;
-  margin-left: 25%;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: 'Nunito', sans-serif;
+}
 
+.questionInput::placeholder {
+  color: #8D8B8B;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'Nunito', sans-serif;
 }

@@ -2,9 +2,12 @@ import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import React from 'react';
 import Helmet from 'react-helmet';
+import * as baseStyles from '../components/base.module.css';
+import Footer from '../components/footer';
+import HomeHero from '../components/homeHero';
 import Layout from '../components/layout';
 import VideoBackground from '../components/videoBackground';
-import VideoBackgroundProps from '../components/videoBackground/interface';
+import * as styles from './blog.module.css';
 
 class RootIndex extends React.Component<any> {
   render() {
@@ -18,7 +21,13 @@ class RootIndex extends React.Component<any> {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff', display: 'list-item' }}>
-          <VideoBackground {...{videoPath, headline, searchPlaceholder, searchQuestion} }/>
+          <VideoBackground {...{videoPath} }/>
+        </div>
+        <div className={styles.homeContent}>
+          <div className={baseStyles.container}>
+            <HomeHero {...{headline, searchPlaceholder, searchQuestion}}></HomeHero>
+            <Footer />
+          </div>
         </div>
       </Layout>
     )
