@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import * as baseStyles from '../base.module.css';
 import * as styles from './styles.module.css';
