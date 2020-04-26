@@ -33,7 +33,8 @@ const FeaturedVegetableRow = () => {
         <div className={baseStyles.row}>
           <div className={baseStyles.col12}>
             <div className={styles.vegetablePricingSummaryContainer}>
-              sdfds
+              <img src={} />
+              
             </div>
           </div>
         </div>
