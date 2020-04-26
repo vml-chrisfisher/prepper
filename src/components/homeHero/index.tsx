@@ -15,7 +15,7 @@ const HomeHero = (props: VideoBackgroundProps) => (
               <h1 className={[styles.headline, baseStyles.whiteText].join(' ')} dangerouslySetInnerHTML={
                 { __html: props.headline }
               }></h1>
-              <h2 className={styles.question}>{props.searchQuestion}</h2>
+              <h3 className={styles.question}>{props.searchQuestion}</h3>
               <input className={styles.questionInput} placeholder={props.searchPlaceholder} />
       </div>
           </div>

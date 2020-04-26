@@ -11,6 +11,7 @@ import * as styles from './blog.module.css';
 import FeaturedContentRow from '../components/featuredContentRow'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import FeaturedVegetableRow from '../components/featuredVegetableRow'
 
 class RootIndex extends React.Component<any> {
   render() {
@@ -88,6 +89,7 @@ class RootIndex extends React.Component<any> {
         <div className={styles.homeContent}>
           <div className={baseStyles.container}>
             <HomeHero {...{headline, searchPlaceholder, searchQuestion}}></HomeHero>
+            <FeaturedVegetableRow />
             <FeaturedContentRow {...recipeFeatures} />
             <FeaturedContentRow {...articleFeatures} />
             <Footer />
