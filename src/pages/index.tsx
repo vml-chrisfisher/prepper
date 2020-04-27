@@ -2,16 +2,17 @@ import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import React from 'react';
 import Helmet from 'react-helmet';
+import ArticleSummaryInterface from '../components/articleSummary/interface';
 import * as baseStyles from '../components/base.module.css';
+import FeaturedContentRow from '../components/featuredContentRow';
+import FeatureContentRowProps from '../components/featuredContentRow/interface';
+import FeaturedVegetableRow from '../components/featuredVegetableRow';
 import Footer from '../components/footer';
+import GeneralContentRow from '../components/generalContentRow';
 import HomeHero from '../components/homeHero';
 import Layout from '../components/layout';
 import VideoBackground from '../components/videoBackground';
 import * as styles from './blog.module.css';
-import FeaturedContentRow from '../components/featuredContentRow'
-import ArticleSummaryInterface from '../components/articleSummary/interface'
-import FeatureContentRowProps from '../components/featuredContentRow/interface'
-import FeaturedVegetableRow from '../components/featuredVegetableRow'
 
 class RootIndex extends React.Component<any> {
   render() {
@@ -92,6 +93,7 @@ class RootIndex extends React.Component<any> {
             <FeaturedVegetableRow />
             <FeaturedContentRow {...recipeFeatures} />
             <FeaturedContentRow {...articleFeatures} />
+            <GeneralContentRow />
             <Footer />
           </div>
         </div>

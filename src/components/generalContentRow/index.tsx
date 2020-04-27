@@ -3,14 +3,14 @@ import ArticleSummary from '../articleSummary';
 import * as baseStyles from '../base.module.css';
 import * as styles from './styles.module.css';
 
-const FeaturedVegetableRow = () => {
+const GeneralContentRow = () => {
   return (
     <div className={[baseStyles.row, styles.container].join(' ')}>
       <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
         <div className={styles.vegetableContainer}>
           <div className={styles.vegetableBackground}>
             <div className={styles.vegetableImage}>
-              <img src={'/perkins-okra.jpg'} />
+              <img src={'/story-background.png'} />
             </div>
             <div className={styles.vegetableOverlay}>
               <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
@@ -33,23 +33,20 @@ const FeaturedVegetableRow = () => {
       <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
         <div className={baseStyles.row}>
           <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-            <div className={styles.ratio1Point5Height}>
-              <div className={styles.vegetablePricingSummaryContainer}>
-                < img className={styles.vegetablePricingImage} src={'/okra_square.jpg'} />
-                <div className={styles.vegetablePricingCategory}>Seeds</div>
-                <div className={styles.vegetablePricingPrice}>$12</div>
-                <div className={styles.vegetableProductContainer}>
-                  <div className={[styles.vegetablePricingProduct, styles.selected].join(' ')}>12 seeds</div>
-                  <div className={styles.vegetablePricingProduct}>36 seeds</div>
-                </div>
-              </div>
-            </div>
+          <ArticleSummary {...
+            {
+              title: 'A guide to gardening tools',
+              description: 'sdfsdfds sdf  sdf sdf',
+              slug: 'sdfds',
+              imagePath: '/tools-background.png'
+            }
+          } />
           </div>
           
         <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
           <ArticleSummary {...
             {
-              title: 'Okra Corn',
+              title: 'A guide to gardening tools',
               description: 'sdfsdfds sdf  sdf sdf',
               slug: 'sdfds',
               imagePath: '/okra-corn.png'
@@ -71,4 +68,4 @@ const FeaturedVegetableRow = () => {
   )
 }
 
-export default FeaturedVegetableRow
+export default GeneralContentRow

@@ -26,13 +26,14 @@
 }
 
 .vegetable-title {
-  color: #FFFFFF;
+  color: #464646;
   padding-bottom: 20px;
   text-align: center;
 }
 
 .vegetable-description {
   padding-bottom: 20px;
+  color: #464646;
 }
 
 .vegetable-image {

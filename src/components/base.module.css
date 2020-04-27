@@ -13,9 +13,13 @@ body {
   font-size: 100%;
 }
 
+div {
+  vertical-align: top;
+}
+
 p {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.825em;
+  font-size: 0.75em;
   color: #FFFFFF;
   letter-spacing: 2px;
 }
@@ -295,9 +299,11 @@ a {
 }
 
 .primary-button {
+  background-color: #FFFFFF;
+  border: none;
   font-family: 'Nunito', sans-serif;
   font-size: 0.75em;
-  color: #FFFFFF;
+  color: #464646;
   text-align: center;
   margin: 0 auto;
   display: block;
@@ -310,4 +316,5 @@ a {
 .outline {
   background-color: transparent;
   border: #FFFFFF solid 0.5px;
+  color: #FFFFFF;
 }
