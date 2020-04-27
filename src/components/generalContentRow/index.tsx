@@ -17,11 +17,8 @@ const GeneralContentRow = () => {
                 <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
                   <div className={styles.vegetableDetailContainer}>
                     <h2 className={styles.vegetableTitle}>
-                      Perkins Long Pod Okra
+                      This is the story of Seedlings
                   </h2>
-                    <p className={styles.vegetableDescription}>
-                      I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage.
-                  </p>
                     <button className={[baseStyles.primaryButton, baseStyles.outline].join(' ')}>Learn More</button>
                   </div>
                 </div>
@@ -53,15 +50,6 @@ const GeneralContentRow = () => {
             }
           } />
         </div>
-      </div>
-      <div className={baseStyles.row}>
-          <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
-          <div className={[baseStyles.col6, styles.col6Full].join(' ')} style={{paddingTop: '15%'}}>
-            <h3 className={[baseStyles.center, baseStyles.whiteText].join(' ')}>Okra</h3>
-            <p>I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage </p>
-            <button className={baseStyles.primaryButton}>Learn More</button>
-          </div>
-          <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
       </div>
     </div>
   </div>
