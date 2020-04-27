@@ -12,6 +12,10 @@
   padding-top: 100px;
 }
 
+.story-container {
+  padding-top: 50%;
+}
+
 .vegetable-background {
   display: block;
   height: 150%;

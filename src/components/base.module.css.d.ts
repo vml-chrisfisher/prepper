@@ -35,5 +35,7 @@ export const hiddenSm: string;
 export const articleList: string;
 export const sectionHeadline: string;
 export const listInline: string;
+export const eyebrow: string;
 export const primaryButton: string;
 export const outline: string;
+export const darkOutline: string;

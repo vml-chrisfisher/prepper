@@ -1,6 +1,7 @@
 export const container: string;
 export const vegetableContainer: string;
 export const vegetableDetailContainer: string;
+export const storyContainer: string;
 export const vegetableBackground: string;
 export const vegetableOverlay: string;
 export const vegetableTitle: string;

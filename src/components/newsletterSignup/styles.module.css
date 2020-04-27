@@ -1,0 +1,20 @@
+.newsletter-signup--container {
+    background-color: #1B3414;
+    padding-top: 150%;
+    width: 100%;
+}
+
+.newsletter-signup--scroll {
+    position: absolute;
+    top: 0;
+}
+
+.newsletter-signup--form {
+    padding-top: 30%;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.newsletter-signup-title {
+    font-size: 1.5em;
+}
