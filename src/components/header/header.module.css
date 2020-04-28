@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.col6--full {
+  width: 49%;
+  padding: 0;
+}
+
 .col3-full-last {
   width: 24%;
   padding: 0;
@@ -102,11 +107,16 @@ nav {
 .header-close {
   position: relative;
   padding-top: 13.5%;
-  padding-left: 3.9%;
+  padding-left: 13.9%;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  color: #CCC;
 }
 
 .header-main-nav {
-  padding: 30px 20px 20px;
+  padding: 30px 30px 30px;
 }
 
 .header-nav-item {
@@ -125,5 +135,27 @@ nav {
 .header-nav-detail {
   width: 80%;
   margin-left: 10%;
-  padding-top: 20%;
+}
+
+.header-detail-item {
+  font-family: 'Nunito', sans-serif;
+  font-size: .85em;
+  font-weight: 600;
+  list-style: none;
+}
+
+.columnns {
+  width: 44%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.menu-up {
+  transform: translateY(-100%);
+  transition: all .5s cubic-bezier(.77,0,.175,1);
+}
+
+.menu-down {
+  transform: translateY(0%);
+  transition: all .5s cubic-bezier(.77,0,.175,1);
 }

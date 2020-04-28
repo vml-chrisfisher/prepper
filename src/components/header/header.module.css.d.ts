@@ -1,4 +1,5 @@
 export const col3Full: string;
+export const col6Full: string;
 export const col3FullLast: string;
 export const col12Full: string;
 export const navigation: string;
@@ -11,3 +12,7 @@ export const headerMainNav: string;
 export const headerNavItem: string;
 export const detailSection: string;
 export const headerNavDetail: string;
+export const headerDetailItem: string;
+export const columnns: string;
+export const menuUp: string;
+export const menuDown: string;
