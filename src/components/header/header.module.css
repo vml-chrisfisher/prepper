@@ -119,9 +119,17 @@ nav {
   padding: 30px 30px 30px;
 }
 
-.header-nav-item {
-  font-family: 'Playfair Display', serif;
+.header-nav-header {
+  font-family: 'Nunito', sans-serif;
   font-size: 1.25em;
+  color: #464646;
+  list-style: none;
+  padding-bottom: 20px;;
+}
+
+.header-nav-item {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
   color: #464646;
   list-style: none;
   padding-bottom: 20px;;
@@ -158,4 +166,12 @@ nav {
 .menu-down {
   transform: translateY(0%);
   transition: all .5s cubic-bezier(.77,0,.175,1);
+}
+
+.menu-show {
+  display: block;
+}
+
+.menu-hide {
+  display: none;
 }
