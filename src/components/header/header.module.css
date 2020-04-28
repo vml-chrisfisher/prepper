@@ -1,3 +1,18 @@
+.col3--full {
+  width: 25%;
+  padding: 0;
+}
+
+.col3-full-last {
+  width: 24%;
+  padding: 0;
+}
+
+.col12--full {
+  width: 100%;
+  padding: 0;
+}
+
 nav {
   background: transparent;
   position: fixed;
@@ -79,16 +94,36 @@ nav {
 }
 
 .header--inner {
-  width: 25%;
-  margin-right: 0;
+  background-color: #FFFFFF;
+  height: 90vh;
+  max-height: 520px;;
 }
 
 .header-close {
-  position: absolute;
-  top: 13.5%;
-  left: 3.9%;
+  position: relative;
+  padding-top: 13.5%;
+  padding-left: 3.9%;
 }
 
 .header-main-nav {
   padding: 30px 20px 20px;
+}
+
+.header-nav-item {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25em;
+  color: #464646;
+  list-style: none;
+  padding-bottom: 20px;;
+}
+
+.detail-section {
+  border-left: solid #464646 0.5px;
+  min-height: 100%;
+}
+
+.header-nav-detail {
+  width: 80%;
+  margin-left: 10%;
+  padding-top: 20%;
 }

@@ -1,3 +1,6 @@
+export const col3Full: string;
+export const col3FullLast: string;
+export const col12Full: string;
 export const navigation: string;
 export const navigationItem: string;
 export const navigationItemWhite: string;
@@ -5,3 +8,6 @@ export const headerOuter: string;
 export const headerInner: string;
 export const headerClose: string;
 export const headerMainNav: string;
+export const headerNavItem: string;
+export const detailSection: string;
+export const headerNavDetail: string;
