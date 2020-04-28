@@ -35,7 +35,7 @@ nav {
   font-size: .6em;
   font-weight: 600;
   transition: color 1.0s ease;
-  margin-right: 20px;
+  margin-right: 40px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -58,7 +58,7 @@ nav {
   font-size: .6em;
   font-weight: 600;
   transition: color 1.0s ease;
-  margin-right: 20px;
+  margin-right: 40px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -71,4 +71,24 @@ nav {
 .navigationItemWhite a:hover {
   color: #999999;
   transition: color 1.0s ease;
+}
+
+.header--outer {
+  position: relative;
+  z-index: 99999;
+}
+
+.header--inner {
+  width: 25%;
+  margin-right: 0;
+}
+
+.header-close {
+  position: absolute;
+  top: 13.5%;
+  left: 3.9%;
+}
+
+.header-main-nav {
+  padding: 30px 20px 20px;
 }

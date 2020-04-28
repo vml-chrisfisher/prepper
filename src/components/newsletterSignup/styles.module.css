@@ -18,3 +18,23 @@
 .newsletter-signup-title {
     font-size: 1.5em;
 }
+
+.newsletter-input {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid .5px #FFFFFF;
+  font-size: 19px;
+  color: #FFFFFF;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 20px;
+}
+
+.newsletter-input::placeholder {
+  color: #8D8B8B;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  font-family: 'Nunito', sans-serif;
+}

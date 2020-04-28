@@ -4,6 +4,7 @@ import * as styles from'./header.module.css'
 import HeaderProps, { HeaderTheme } from './interface'
 
 const Header = (props: HeaderProps) => (
+  <div>
   <nav role= "navigation" >
     <ul className={styles.navigation}>
       <li className={props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
@@ -20,6 +21,15 @@ const Header = (props: HeaderProps) => (
       </li>
     </ul>
   </nav>
+  <div className={styles.headerOuter}>
+    <div className={styles.headerInner}>
+      <div className={styles.headerClose}>sdfdsf</div>
+      <div className={styles.headerMainNav}>
+
+      </div>
+    </div>
+  </div>
+  </div>
 )
 
 export default Header

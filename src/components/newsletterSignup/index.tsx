@@ -9,6 +9,7 @@ const NewsletterSignup = () => {
                  <div className={styles.newsletterSignupForm}>
                  <h3 className={[baseStyles.whiteText, styles.newsletterSignupTitle].join(' ')}>Get our latest updates</h3>
                 <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
+                <input className={styles.newsletterInput} placeholder="seedlings@seedlings.com" />
                 <button className={[baseStyles.primaryButton].join(' ')}>Sign up</button>
                  </div>
                 
