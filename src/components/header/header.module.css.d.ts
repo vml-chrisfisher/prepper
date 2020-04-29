@@ -19,3 +19,5 @@ export const menuUp: string;
 export const menuDown: string;
 export const menuShow: string;
 export const menuHide: string;
+export const logoImage: string;
+export const logoContainer: string;

@@ -175,3 +175,14 @@ nav {
 .menu-hide {
   display: none;
 }
+
+.logo-image {
+  display: inline-block;
+  width: 75px;
+}
+
+.logo-container {
+  width: 100%;
+  position: relative;
+  text-align: center;;
+}

@@ -9,7 +9,7 @@ const Footer = () => (
       <div className={baseStyles.col3}>
           <div className={styles.footerTitle}>Shop</div>
           <div className={styles.footerParagraph}>
-            Sign up to our newsletter and get exclusive. Seedlip news, updates and offers.
+            Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
           </div>
           <a href="" className={styles.footerLinkMain}>
             Shop Now
@@ -18,7 +18,7 @@ const Footer = () => (
       <div className={baseStyles.col3}>
           <div className={styles.footerTitle}>Recipes</div>
           <div className={styles.footerParagraph}>
-            Sign up to our newsletter and get exclusive. Seedlip news, updates and offers.
+            Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
           </div>
           <a href="" className={styles.footerLinkMain}>
             Get Recipes
@@ -27,7 +27,7 @@ const Footer = () => (
       <div className={baseStyles.col3}>
           <div className={styles.footerTitle}>Story</div>
           <div className={styles.footerParagraph}>
-            Sign up to our newsletter and get exclusive. Seedlip news, updates and offers.
+            Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
           </div>
           <a href="" className={styles.footerLinkMain}>
             Read

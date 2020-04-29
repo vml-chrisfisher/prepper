@@ -51,9 +51,6 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   <nav role= "navigation" >
     <ul className={styles.navigation}>
       <li className={this.props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
-        <Link to="/" > Home </Link>
-      </li>
-      <li className={this.props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
         <a onClick={() => {this.onSeedsClick()}}>Plants</a>
       </li>
       <li className={this.props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
@@ -64,6 +61,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
       </li>
     </ul>
   </nav>
+  <div className={styles.logoContainer}>
+      <Link to="/" > <img className={styles.logoImage} src={'/logo.svg'} /> </Link>
+  </div>
     <div className={[styles.headerOuter, baseStyles.row, this.state.menuUp ? styles.menuUp : styles.menuDown].join(' ')}>
       
       <div className={[baseStyles.col12, styles.col12Full, styles.headerInner, this.state.menuType === HeaderMenuType.PLANTS ? styles.menuShow : styles.menuHide].join(' ')}>
