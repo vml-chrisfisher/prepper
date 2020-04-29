@@ -120,24 +120,33 @@ nav {
 }
 
 .header-nav-header {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.25em;
-  color: #464646;
+  font-style: italic;
+  color: #CCCCCC;
   list-style: none;
   padding-bottom: 20px;;
 }
 
 .header-nav-item {
+  color: #464646;
+  cursor: pointer;
   font-family: 'Nunito', sans-serif;
   font-size: 1em;
-  color: #464646;
   list-style: none;
-  padding-bottom: 20px;;
+  padding-bottom: 20px;
+  transition: color 1.0s ease;
+}
+
+.header-nav-item:hover {
+  color: #CCCCCC;
+  transition: color 1.0s ease;
 }
 
 .detail-section {
   border-left: solid #464646 0.5px;
   min-height: 100%;
+  position: relative;
 }
 
 .header-nav-detail {
@@ -146,16 +155,26 @@ nav {
 }
 
 .header-detail-item {
+  color: #464646;
+  cursor: pointer;
   font-family: 'Nunito', sans-serif;
-  font-size: .85em;
-  font-weight: 600;
+  font-size: 1.0em;
+  line-height: 2.5em;
   list-style: none;
+  transition: color 1.0s ease;
+}
+
+.header-detail-item:hover {
+  color: #CCCCCC;
+  transition: color 1.0s ease;
 }
 
 .columnns {
-  width: 44%;
-  vertical-align: top;
-  display: inline-block;
+  padding-left: 10%;
+  padding-top: 15%;
+  width: 80%;
+  height: 60%;
+  column-count: 2;
 }
 
 .menu-up {
@@ -178,11 +197,14 @@ nav {
 
 .logo-image {
   display: inline-block;
+  margin-top: 90px;
   width: 75px;
 }
 
 .logo-container {
   width: 100%;
-  position: relative;
-  text-align: center;;
+  position: fixed;
+  text-align: center;
+  z-index: 99;
 }
+

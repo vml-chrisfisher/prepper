@@ -1,7 +1,12 @@
 import { Link } from 'gatsby';
 import React, { PureComponent } from 'react';
 import * as baseStyles from '../base.module.css';
-import { HeaderProps, HeaderTheme, HeaderState, HeaderMenuType } from './interface';
+import {
+  HeaderMenuType,
+  HeaderProps,
+  HeaderState,
+  HeaderTheme
+  } from './interface';
 import * as styles from'./header.module.css'
 
 const onVegetableClick = () => {
@@ -62,7 +67,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     </ul>
   </nav>
   <div className={styles.logoContainer}>
-      <Link to="/" > <img className={styles.logoImage} src={'/logo.svg'} /> </Link>
+  <img className={styles.logoImage} src={'/logo.svg'} />
   </div>
     <div className={[styles.headerOuter, baseStyles.row, this.state.menuUp ? styles.menuUp : styles.menuDown].join(' ')}>
       
@@ -80,25 +85,23 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
           </div>
         </div>
           <div className={[baseStyles.col6, styles.col6Full, styles.detailSection].join(' ')}>
-            <ul className={styles.columnns}>
-              <li className={styles.headerDetailItem}>Artichokes</li>
-              <li className={styles.headerDetailItem}>Beans</li>
-              <li className={styles.headerDetailItem}>Field Peas</li>
-              <li className={styles.headerDetailItem}>Broccoli</li>
-              <li className={styles.headerDetailItem}>Cabbage</li>
-              <li className={styles.headerDetailItem}>Carrots</li>
-              <li className={styles.headerDetailItem}>Cucumbers</li>
-              <li className={styles.headerDetailItem}>Green Beans</li>
-              <li className={styles.headerDetailItem}>Hot Peppers</li>
-            </ul>
-            <ul className={styles.columnns}>
-              <li className={styles.headerDetailItem}>Lettuce</li>
-              <li className={styles.headerDetailItem}>Peppers</li>
-              <li className={styles.headerDetailItem}>Spinach</li>
-              <li className={styles.headerDetailItem}>Squash</li>
-              <li className={styles.headerDetailItem}>Tomato</li>
-              <li className={styles.headerDetailItem}>Zucchini</li>
-            </ul>
+            <div className={styles.columnns}>
+              <div className={styles.headerDetailItem}>Artichokes</div>
+              <div className={styles.headerDetailItem}>Beans</div>
+              <div className={styles.headerDetailItem}>Field Peas</div>
+              <div className={styles.headerDetailItem}>Broccoli</div>
+              <div className={styles.headerDetailItem}>Cabbage</div>
+              <div className={styles.headerDetailItem}>Carrots</div>
+              <div className={styles.headerDetailItem}>Cucumbers</div>
+              <div className={styles.headerDetailItem}>Green Beans</div>
+              <div className={styles.headerDetailItem}>Hot Peppers</div>
+              <div className={styles.headerDetailItem}>Lettuce</div>
+              <div className={styles.headerDetailItem}>Peppers</div>
+              <div className={styles.headerDetailItem}>Spinach</div>
+              <div className={styles.headerDetailItem}>Squash</div>
+              <div className={styles.headerDetailItem}>Tomato</div>
+              <div className={styles.headerDetailItem}>Zucchini</div>
+            </div>
           </div>
         <div className={[baseStyles.col3, styles.col3Full, styles.detailSection].join(' ')}>
           <img className={styles.headerNavDetail} src={'/okra_square.jpg'} />
