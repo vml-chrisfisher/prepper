@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.col4--full {
+  width: 33%;
+  padding: 0;
+}
+
 .col6--full {
   width: 49%;
   padding: 0;
@@ -154,6 +159,10 @@ nav {
   margin-left: 10%;
 }
 
+.paddingFor {
+  padding-left: 70px;
+}
+
 .header-detail-item {
   color: #464646;
   cursor: pointer;
@@ -161,6 +170,7 @@ nav {
   font-size: 1.0em;
   line-height: 2.5em;
   list-style: none;
+  text-align: left;
   transition: color 1.0s ease;
 }
 
@@ -170,8 +180,8 @@ nav {
 }
 
 .columnns {
-  padding-left: 10%;
-  padding-top: 15%;
+  margin-left: 10%;
+  padding-top: 13%;
   width: 80%;
   height: 60%;
   column-count: 2;

@@ -96,6 +96,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               <div className={styles.headerDetailItem}>Green Beans</div>
               <div className={styles.headerDetailItem}>Hot Peppers</div>
               <div className={styles.headerDetailItem}>Lettuce</div>
+              <div className={styles.headerDetailItem}>Okra</div>
               <div className={styles.headerDetailItem}>Peppers</div>
               <div className={styles.headerDetailItem}>Spinach</div>
               <div className={styles.headerDetailItem}>Squash</div>
@@ -105,87 +106,49 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
           </div>
         <div className={[baseStyles.col3, styles.col3Full, styles.detailSection].join(' ')}>
           <img className={styles.headerNavDetail} src={'/okra_square.jpg'} />
-          <p className={[baseStyles.darkText, styles.headerNavDetail].join(' ')}>I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu. Portland raw denim flannel godard. +1 organic umami occaecat vaporware, shabby chic fugiat YOLO mixtape  vape nulla quinoa  Kombucha jean shorts 90’s cold-pressed.</p>
+          <p className={[baseStyles.darkText, styles.headerNavDetail].join(' ')}>I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu.</p>
         </div>
       </div>
 
-      <div className={[baseStyles.col12, styles.col12Full, styles.headerInner, this.state.menuType === HeaderMenuType.ARTICLES ? styles.menuShow : styles.menuHide].join(' ')}>
-        <div className={[baseStyles.col3, styles.col3Full].join(' ')}>
+      <div className={[baseStyles.col3, styles.col3Full, styles.headerInner, this.state.menuType === HeaderMenuType.ARTICLES ? styles.menuShow : styles.menuHide].join(' ')}>
+        <div className={[baseStyles.col3, styles.col12Full].join(' ')}>
           <div onClick={() => { this.onCloseClick() }} className={styles.headerClose}>X</div>
-          <div className={styles.headerMainNav}>
-            <ul>
-              <li className={styles.headerNavHeader}>Articles</li>
-              <li className={styles.headerNavItem}>Fruits</li>
-              <li className={styles.headerNavItem}>Grains</li>
-              <li className={styles.headerNavItem}>Herbs</li>
-              <li className={styles.headerNavItem}>Vegetables</li>
-            </ul>
+          <div className={[styles.headerMainNav, styles.paddingFor].join(' ')}>
+            <div className={styles.headerNavHeader}>Articles</div>
+            <div className={baseStyles.row}>
+              <div className={baseStyles.col6}>
+                <div className={styles.headerDetailItem}>Soil</div>
+                <div className={styles.headerDetailItem}>Planting</div>
+                <div className={styles.headerDetailItem}>Gardening</div>
+                <div className={styles.headerDetailItem}>Harvesting</div>
+                <div className={styles.headerDetailItem}>Storage</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={[baseStyles.col6, styles.col6Full, styles.detailSection].join(' ')}>
-          <ul className={styles.columnns}>
-            <li className={styles.headerDetailItem}>Artichokes</li>
-            <li className={styles.headerDetailItem}>Beans</li>
-            <li className={styles.headerDetailItem}>Field Peas</li>
-            <li className={styles.headerDetailItem}>Broccoli</li>
-            <li className={styles.headerDetailItem}>Cabbage</li>
-            <li className={styles.headerDetailItem}>Carrots</li>
-            <li className={styles.headerDetailItem}>Cucumbers</li>
-            <li className={styles.headerDetailItem}>Green Beans</li>
-            <li className={styles.headerDetailItem}>Hot Peppers</li>
-          </ul>
-          <ul className={styles.columnns}>
-            <li className={styles.headerDetailItem}>Lettuce</li>
-            <li className={styles.headerDetailItem}>Peppers</li>
-            <li className={styles.headerDetailItem}>Spinach</li>
-            <li className={styles.headerDetailItem}>Squash</li>
-            <li className={styles.headerDetailItem}>Tomato</li>
-            <li className={styles.headerDetailItem}>Zucchini</li>
-          </ul>
-        </div>
-        <div className={[baseStyles.col3, styles.col3Full, styles.detailSection].join(' ')}>
-          <img className={styles.headerNavDetail} src={'/okra_square.jpg'} />
-          <p className={[baseStyles.darkText, styles.headerNavDetail].join(' ')}>I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu. Portland raw denim flannel godard. +1 organic umami occaecat vaporware, shabby chic fugiat YOLO mixtape  vape nulla quinoa  Kombucha jean shorts 90’s cold-pressed.</p>
         </div>
       </div>
 
-      <div className={[baseStyles.col12, styles.col12Full, styles.headerInner, this.state.menuType === HeaderMenuType.RECIPES ? styles.menuShow : styles.menuHide].join(' ')}>
-        <div className={[baseStyles.col3, styles.col3Full].join(' ')}>
+      <div className={[baseStyles.col3, styles.col4Full, styles.headerInner, this.state.menuType === HeaderMenuType.RECIPES ? styles.menuShow : styles.menuHide].join(' ')}>
+        <div className={[baseStyles.col12, styles.col12Full].join(' ')}>
           <div onClick={() => { this.onCloseClick() }} className={styles.headerClose}>X</div>
-          <div className={styles.headerMainNav}>
-            <ul>
-              <li className={styles.headerNavHeader}>Recipes</li>
-              <li className={styles.headerNavItem}>Fruits</li>
-              <li className={styles.headerNavItem}>Grains</li>
-              <li className={styles.headerNavItem}>Herbs</li>
-              <li className={styles.headerNavItem}>Vegetables</li>
-            </ul>
+          <div className={[styles.headerMainNav, styles.paddingFor].join(' ')}>
+            <div className={styles.headerNavHeader}>Recipes</div>
+            <div className={baseStyles.row}>
+              <div className={baseStyles.col6}>
+                <div className={styles.headerDetailItem}>Breakfast</div>
+                <div className={styles.headerDetailItem}>Brunch</div>
+                <div className={styles.headerDetailItem}>Lunch</div>
+                <div className={styles.headerDetailItem}>Supper</div>
+              </div>
+              <div className={baseStyles.col6}>
+                <div className={styles.headerDetailItem}>Charcuterie</div>
+                <div className={styles.headerDetailItem}>Baking</div>
+                <div className={styles.headerDetailItem}>Pickling</div>
+                <div className={styles.headerDetailItem}>Fermentation</div>
+                <div className={styles.headerDetailItem}>Condiments</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={[baseStyles.col6, styles.col6Full, styles.detailSection].join(' ')}>
-          <ul className={styles.columnns}>
-            <li className={styles.headerDetailItem}>Artichokes</li>
-            <li className={styles.headerDetailItem}>Beans</li>
-            <li className={styles.headerDetailItem}>Field Peas</li>
-            <li className={styles.headerDetailItem}>Broccoli</li>
-            <li className={styles.headerDetailItem}>Cabbage</li>
-            <li className={styles.headerDetailItem}>Carrots</li>
-            <li className={styles.headerDetailItem}>Cucumbers</li>
-            <li className={styles.headerDetailItem}>Green Beans</li>
-            <li className={styles.headerDetailItem}>Hot Peppers</li>
-          </ul>
-          <ul className={styles.columnns}>
-            <li className={styles.headerDetailItem}>Lettuce</li>
-            <li className={styles.headerDetailItem}>Peppers</li>
-            <li className={styles.headerDetailItem}>Spinach</li>
-            <li className={styles.headerDetailItem}>Squash</li>
-            <li className={styles.headerDetailItem}>Tomato</li>
-            <li className={styles.headerDetailItem}>Zucchini</li>
-          </ul>
-        </div>
-        <div className={[baseStyles.col3, styles.col3Full, styles.detailSection].join(' ')}>
-          <img className={styles.headerNavDetail} src={'/okra_square.jpg'} />
-          <p className={[baseStyles.darkText, styles.headerNavDetail].join(' ')}>I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu. Portland raw denim flannel godard. +1 organic umami occaecat vaporware, shabby chic fugiat YOLO mixtape  vape nulla quinoa  Kombucha jean shorts 90’s cold-pressed.</p>
         </div>
       </div>
     </div>
