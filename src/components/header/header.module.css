@@ -218,3 +218,9 @@ nav {
   z-index: 99;
 }
 
+.logo-text {
+  color: #FFFFFF;
+  font-size: 1.25em;
+  letter-spacing: -.5px;
+}
+

@@ -23,3 +23,4 @@ export const menuShow: string;
 export const menuHide: string;
 export const logoImage: string;
 export const logoContainer: string;
+export const logoText: string;

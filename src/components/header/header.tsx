@@ -67,7 +67,11 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     </ul>
   </nav>
   <div className={styles.logoContainer}>
-  <img className={styles.logoImage} src={'/logo.svg'} />
+    <div>
+        <img className={styles.logoImage} src={'/logo.svg'} />
+        <div className={styles.logoText}>Zephyr & Hare</div>
+    </div>
+    
   </div>
     <div className={[styles.headerOuter, baseStyles.row, this.state.menuUp ? styles.menuUp : styles.menuDown].join(' ')}>
       
