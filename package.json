@@ -68,7 +68,7 @@
     "setup": "node ./bin/setup.js",
     "start": "npm run develop",
     "type-check": "tsc --noEmit",
-    "heroku-postbuild": "gatsby build",
+    "heroku-postbuild": "rm package-lock.json && rm -rf node_modules && gatsby build",
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   }
 }
