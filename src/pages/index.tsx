@@ -1,9 +1,6 @@
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import React from 'react';
-import Helmet from 'react-helmet';
-import ArticleSummaryInterface from '../components/articleSummary/interface';
-import * as baseStyles from '../components/base.module.css';
 import FeaturedContentRow from '../components/featuredContentRow';
 import FeatureContentRowProps from '../components/featuredContentRow/interface';
 import FeaturedVegetableRow from '../components/featuredVegetableRow';
@@ -12,7 +9,7 @@ import GeneralContentRow from '../components/generalContentRow';
 import HomeHero from '../components/homeHero';
 import Layout from '../components/layout';
 import VideoBackground from '../components/videoBackground';
-import * as styles from './blog.module.css';
+import styles from './blog.css';
 
 class RootIndex extends React.Component<any> {
   render() {
@@ -88,7 +85,7 @@ class RootIndex extends React.Component<any> {
           <VideoBackground {...{videoPath} }/>
         </div>
         <div className={styles.homeContent}>
-          <div className={baseStyles.container}>
+          <div className='container'>
             <HomeHero {...{headline, searchPlaceholder, searchQuestion}}></HomeHero>
             <FeaturedVegetableRow />
             <FeaturedContentRow {...recipeFeatures} />

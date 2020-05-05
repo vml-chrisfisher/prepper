@@ -1,13 +1,13 @@
 import { Link } from 'gatsby';
 import React, { PureComponent } from 'react';
-import * as baseStyles from '../base.module.css';
+import baseStyles from '../base.css';
 import {
   HeaderMenuType,
   HeaderProps,
   HeaderState,
   HeaderTheme
   } from './interface';
-import * as styles from'./header.module.css'
+import styles from'./header.css'
 
 const onVegetableClick = () => {
   console.log("hello")

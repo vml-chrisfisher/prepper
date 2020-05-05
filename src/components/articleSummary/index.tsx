@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleSummaryInterface from "./interface"
-import * as styles from './styles.module.css'
+import styles from './styles.css'
 
 const ArticleSummary = (props: ArticleSummaryInterface) => (
   <div className={styles.article} key={props.slug}>

@@ -5,8 +5,6 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
-import '../components/hero.module.css'
-
 class BlogPostTemplate extends React.Component<any> {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')

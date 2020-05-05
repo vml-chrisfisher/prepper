@@ -3,7 +3,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Container from './container';
 import Header from './header/header';
-import HeaderProps, { HeaderTheme } from './header/interface';
+import { HeaderProps, HeaderTheme } from './header/interface';
 
 
 interface Props {
@@ -12,11 +12,8 @@ interface Props {
 }
 
 const Layout = ({ location, children }: Props) => {
-  console.log(location)
-  console.log(children)
   const rootPath = '/'
   let theme: HeaderProps = { theme: HeaderTheme.DARK} 
-  console.log("TRUST: ", location.pathname)
 
   if (location.pathname === rootPath) {
     theme = {theme: HeaderTheme.LIGHT}

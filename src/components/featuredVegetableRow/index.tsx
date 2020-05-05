@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleSummary from '../articleSummary';
-import * as baseStyles from '../base.module.css';
-import * as styles from './styles.module.css';
+import baseStyles from '../base.css';
+import styles from './styles.css';
 
 const FeaturedVegetableRow = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import * as styles from './styles.module.css'
-import * as baseStyles from '../base.module.css'
+import styles from './styles.css'
+import baseStyles from '../base.css'
 import ArticleSummaryInterface from '../articleSummary/interface'
 import ArticleSummary from '../articleSummary'
 import FeatureContentRowProps from './interface'

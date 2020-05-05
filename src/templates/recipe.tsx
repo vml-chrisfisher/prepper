@@ -3,7 +3,6 @@ import Img from 'gatsby-image';
 import get from 'lodash/get';
 import React from 'react';
 import Helmet from 'react-helmet';
-import '../components/hero.module.css';
 import Layout from '../components/layout';
 
 

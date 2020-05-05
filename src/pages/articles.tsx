@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import * as styles from './blog.module.css'
-import * as baseStyles from '../components/base.module.css'
 import Layout from '../components/layout'
 import ArticleSummary from '../components/articleSummary'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
@@ -18,7 +16,7 @@ class ArticlesIndex extends React.Component<any> {
         <div style={{ background: '#fff', paddingTop: '144px' }}>
           <Helmet title={siteTitle} />
           <h1>Articles</h1>
-          <div className={baseStyles.wrapper}>
+          <div className='wrapper'>
             <div className="article-list">
               {posts.map((node: any) => {
                 const props: ArticleSummaryInterface = {... node.node, imagePath: node.node.bannerImage.file.url}

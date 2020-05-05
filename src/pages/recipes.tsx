@@ -2,7 +2,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import './blog.module.css'
 import Layout from '../components/layout'
 
 class RecipeIndex extends React.Component<any> {

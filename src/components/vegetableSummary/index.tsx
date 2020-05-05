@@ -1,7 +1,7 @@
 import React from 'react';
 import VegetablesSummaryInterface from "./interface"
-import * as styles from './styles.module.css'
-import * as baseStyles from '../base.module.css'
+import styles from './styles.css'
+import baseStyles from '../base.css'
 
 const VegetablesSummary = (props: VegetablesSummaryInterface) => (
   <div className={styles.article} key={props.slug}>

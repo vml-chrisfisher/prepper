@@ -1,7 +1,7 @@
 import React from 'react';
-import * as baseStyles from '../base.module.css';
+import baseStyles from '../base.css';
 import VideoBackgroundProps from './interface';
-import * as styles from './styles.module.css';
+import styles from './styles.css';
 
 const HomeHero = (props: VideoBackgroundProps) => (
   <div>

@@ -1,6 +1,5 @@
 import React from 'react'
-import * as baseStyles from '../../base.module.css'
-import * as styles from './styles.module.css'
+import styles from './styles.css'
 import FeatureContentRowDetailProps from "./interface"
 
 const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
