@@ -1,10 +1,10 @@
+import styled from '@emotion/styled';
 import React from 'react';
-import styled from '@emotion/styled'
 
 const Footer = () => (
   <div>
     <div className="row" style={{paddingBottom: '175px'}}>
-      <div className="col3}" />
+      <div className="col3" />
       <div className="col3">
           <FooterTitle>Shop</FooterTitle>
           <FooterParagraph>
