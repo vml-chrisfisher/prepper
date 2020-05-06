@@ -75,8 +75,8 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   </div>
     <HeaderOuter className={["row", this.state.menuUp ? styles.menuUp : styles.menuDown].join(' ')}>
       
-      <HeaderInner12 className={['col-12', this.state.menuType === HeaderMenuType.PLANTS ? 'menuShow' : 'menuHide'].join(' ')}>
-        <Col3Full className="col-3">
+      <HeaderInner12 className={['col12', this.state.menuType === HeaderMenuType.PLANTS ? 'menuShow' : 'menuHide'].join(' ')}>
+        <Col3Full className="col3">
           <div onClick={() => {this.onCloseClick()}} className={styles.headerClose}>X</div>
           <div className={styles.headerMainNav}>
             <ul>
@@ -88,7 +88,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
             </ul>
           </div>
         </Col3Full>
-          <DetailSection6 className="col-6">
+          <DetailSection6 className="col6">
             <div className={styles.columnns}>
               <div className={styles.headerDetailItem}>Artichokes</div>
               <div className={styles.headerDetailItem}>Beans</div>
@@ -108,19 +108,19 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               <div className={styles.headerDetailItem}>Zucchini</div>
             </div>
           </DetailSection6>
-        <DetailSection3 className="col-3">
+        <DetailSection3 className="col3">
           <img className={styles.headerNavDetail} src={'/okra_square.jpg'} />
           <p className={["dark-text", styles.headerNavDetail].join(' ')}>I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu.</p>
         </DetailSection3>
       </HeaderInner12>
 
-      <HeaderInner3 className={["col-3", this.state.menuType === HeaderMenuType.ARTICLES ? styles.menuShow : styles.menuHide].join(' ')}>
-        <Col12Full className="col-3">
+      <HeaderInner3 className={["col3", this.state.menuType === HeaderMenuType.ARTICLES ? styles.menuShow : styles.menuHide].join(' ')}>
+        <Col12Full className="col3">
           <div onClick={() => { this.onCloseClick() }} className={styles.headerClose}>X</div>
           <div className={[styles.headerMainNav, styles.paddingFor].join(' ')}>
             <div className={styles.headerNavHeader}>Articles</div>
             <div className="row">
-              <div className="col-6">
+              <div className="col6">
                 <div className={styles.headerDetailItem}>Soil</div>
                 <div className={styles.headerDetailItem}>Planting</div>
                 <div className={styles.headerDetailItem}>Gardening</div>
@@ -132,19 +132,19 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
         </Col12Full>
       </HeaderInner3>
 
-      <HeaderInner4 className={["col-3", this.state.menuType === HeaderMenuType.RECIPES ? styles.menuShow : styles.menuHide].join(' ')}>
-        <Col12Full className="col-12">
+      <HeaderInner4 className={["col3", this.state.menuType === HeaderMenuType.RECIPES ? styles.menuShow : styles.menuHide].join(' ')}>
+        <Col12Full className="col12">
           <div onClick={() => { this.onCloseClick() }} className={styles.headerClose}>X</div>
           <div className={[styles.headerMainNav, styles.paddingFor].join(' ')}>
             <div className={styles.headerNavHeader}>Recipes</div>
             <div className="row">
-              <div className="col-6">
+              <div className="col6">
                 <div className={styles.headerDetailItem}>Breakfast</div>
                 <div className={styles.headerDetailItem}>Brunch</div>
                 <div className={styles.headerDetailItem}>Lunch</div>
                 <div className={styles.headerDetailItem}>Supper</div>
               </div>
-              <div className="col-6">
+              <div className="col6">
                 <div className={styles.headerDetailItem}>Charcuterie</div>
                 <div className={styles.headerDetailItem}>Baking</div>
                 <div className={styles.headerDetailItem}>Pickling</div>

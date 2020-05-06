@@ -82,11 +82,11 @@ a {
   padding: 5vmin 0;
 }
 
-.dark-text {
+.darkText {
   color: #484848;
 }
 
-.white-text{
+.whiteText{
   color: #FFFFFF;
 }
 
