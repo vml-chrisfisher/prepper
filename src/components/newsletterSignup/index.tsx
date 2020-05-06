@@ -1,20 +1,18 @@
+import styled from '@emotion/styled';
 import React from 'react';
-import styles from './styles.css';
-import styled from '@emotion/styled'
 
 const NewsletterSignup = () => {
     return (
-        <div className={styles.newsletterSignupContainer}>
-             <div className={styles.newsletterSignupScroll}>
-                 <div className={styles.newsletterSignupForm}>
-                 <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
-                <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
-                <NewsletterSignupInput placeholder="seedlings@seedlings.com" />
-                <button className="primaryButton">Sign up</button>
-                 </div>
-                
-            </div>
-        </div>
+        <NewsletterSignupContainer>
+             <NewsletterSignupScroll>
+                 <NewsletterSignupForm>
+                    <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
+                    <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
+                    <NewsletterSignupInput placeholder="seedlings@seedlings.com" />
+                    <button className="primaryButton">Sign up</button>
+                 </NewsletterSignupForm>
+            </NewsletterSignupScroll>
+        </NewsletterSignupContainer>
        
     )
 }
@@ -24,7 +22,7 @@ const NewsletterSignupTitle = styled.h3`
 `
 
 const NewsletterSignupInput = styled.input`
-    width: 100%;
+  width: 100%;
   height: 50px;
   background-color: transparent;
   border: none;
@@ -33,6 +31,30 @@ const NewsletterSignupInput = styled.input`
   color: #FFFFFF;
   font-family: 'Nunito', sans-serif;
   margin-bottom: 20px;
+  &:placeholder {
+    color: #8D8B8B;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Nunito', sans-serif;
+  }
+`
+
+const NewsletterSignupContainer = styled.div`
+  background-color: #1B3414;
+  padding-top: 150%;
+  width: 100%;
+`
+
+const NewsletterSignupScroll = styled.div`
+  position: absolute;
+  top: 0;
+`
+
+const NewsletterSignupForm = styled.div`
+  padding-top: 30%;
+  margin-left: 10%;
+  width: 80%;
 `
 
 export default NewsletterSignup

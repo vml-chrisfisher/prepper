@@ -1,26 +1,23 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import VideoBackgroundProps from './interface';
-import styled from '@emotion/styled'
 
 const HomeHero = (props: VideoBackgroundProps) => (
   <div>
     <HomeHeroContainer>
       <HomeHeroOverlay>
         <div className="row">
-          <div className="col-3">
-          </div>
-          <div className="col-6">
+          <div className="col3"/>
+          <div className="col6">
             <QuestionOverlay>
-              <Headline className="white-text" dangerouslySetInnerHTML={
+              <Headline className="whiteText" dangerouslySetInnerHTML={
                 { __html: props.headline }
               }></Headline>
               <HomeHeroQuestion>{props.searchQuestion}</HomeHeroQuestion>
               <HomeHeroQuestionInput placeholder={props.searchPlaceholder} />
             </QuestionOverlay>
           </div>
-          <div className="col-3">
-
-          </div>
+          <div className="col3"/>
         </div>
       </HomeHeroOverlay>
     </HomeHeroContainer>

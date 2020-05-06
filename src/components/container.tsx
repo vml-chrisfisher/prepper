@@ -1,5 +1,5 @@
+import { css, Global } from '@emotion/core';
 import React from 'react';
-import { Global, css } from "@emotion/core"
 
 export default ({ children }) => (
   <div>
@@ -325,7 +325,7 @@ nav {
   letter-spacing: 2px;
 }
 
-.primary-button {
+.primaryButton {
   background-color: #FFFFFF;
   border: none;
   font-family: 'Nunito', sans-serif;
@@ -346,7 +346,7 @@ nav {
   color: #FFFFFF;
 }
 
-.dark-outline {
+.darkOutline {
   background-color: transparent;
   border: #464646 solid 0.5px;
   color: #464646;

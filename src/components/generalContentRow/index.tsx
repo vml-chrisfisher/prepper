@@ -1,33 +1,32 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import ArticleSummary from '../articleSummary';
 import NewsletterSignup from '../newsletterSignup';
-import styles from './styles.css';
-import styled from '@emotion/styled'
 
 const GeneralContentRow = () => {
   return (
-    <Container className="row">
+    <GeneralContentContainer className="row">
       <Col6Full className="col6">
-        <div className={styles.vegetableContainer}>
-          <div className={styles.vegetableBackground}>
-            <div className={styles.vegetableImage}>
+        <ContentContainer>
+          <ContentBackground>
+            <ContentImage>
               <img src={'/story-background.png'} />
-            </div>
-            <div className={styles.vegetableOverlay}>
+            </ContentImage>
+            <ContentOverlay>
               <Col3Full className="col3" />
                 <Col6Full className="col6">
-                  <div className={styles.storyContainer}>
+                  <StoryContainer>
                     <div className="eyebrow">Story</div>
-                    <h2 className={styles.vegetableTitle}>
+                    <StoryTitle>
                       This is the story of Seedlings
-                  </h2>
+                    </StoryTitle>
                     <button className="primaryButton darkOutline">Our Story</button>
-                  </div>
+                  </StoryContainer>
                 </Col6Full>
               <Col3Full className="col3" />
-            </div>
-          </div>
-        </div>
+            </ContentOverlay>
+          </ContentBackground>
+        </ContentContainer>
       </Col6Full>
       <Col6Full className="col6">
         <div className="row">
@@ -47,11 +46,11 @@ const GeneralContentRow = () => {
         </Col6Full>
       </div>
     </Col6Full>
-  </Container>
+  </GeneralContentContainer>
   )
 }
 
-const Container = styled.div`
+const GeneralContentContainer = styled.div`
   padding-bottom: 200px;
 `
 
@@ -65,4 +64,37 @@ const Col6Full = styled.div`
   padding: 0;
 `
 
+const ContentContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`
+
+const ContentBackground = styled.div`
+  display: block;
+  height: 150%;
+`
+
+const ContentImage = styled.div`
+  width: 100%;
+  min-height: 150%;
+`
+
+const ContentOverlay = styled.div`
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1003;
+`
+
+const StoryContainer = styled.div`
+  padding-top: 50%;
+`
+
+const StoryTitle = styled.h2`
+  color: #464646;
+  padding-bottom: 20px;
+  text-align: center;
+`
 export default GeneralContentRow
