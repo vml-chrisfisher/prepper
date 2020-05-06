@@ -60,6 +60,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   render() {
     console.log("AT FIRST", this.props.theme)
     const themeValue = this.props.theme
+    let menuUp = this.state.menuUp
   return(<div>
   <nav role="navigation" >
     <Navigation>
@@ -81,7 +82,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     </div>
     
   </LogoContainer>
-    <HeaderOuter {...{isUp: this.state.menuUp}} className="row">
+    <HeaderOuter {...{isUp: menuUp}} className="row">
       <HeaderInner12 {...{isMenu: this.state.menuType === HeaderMenuType.PLANTS}} className="col12">
         <Col3Full className="col3">
           <HeaderClose onClick={() => {this.onCloseClick()}}>X</HeaderClose>
@@ -115,10 +116,10 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               <HeaderDetailItem>Zucchini</HeaderDetailItem>
             </Columns>
           </DetailSection6>
-        <DetailSection3 className="col3">
+        <DetailSection23 className="col3">
           <HeaderNavDetailImg src={'/okra_square.jpg'} />
           <HeaderNavDetailP className="darkText">I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu.</HeaderNavDetailP>
-        </DetailSection3>
+        </DetailSection23>
       </HeaderInner12>
 
       <HeaderInner3 {...{isMenu: this.state.menuType === HeaderMenuType.ARTICLES}} className="col3">
@@ -299,6 +300,14 @@ const DetailSection3 = styled.div`
   min-height: 100%;
   position: relative;
   width: 25%;
+  padding: 0;
+`
+
+const DetailSection23 = styled.div`
+  border-left: solid #464646 0.5px;
+  min-height: 100%;
+  position: relative;
+  width: 23%;
   padding: 0;
 `
 
