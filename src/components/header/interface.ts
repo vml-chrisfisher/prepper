@@ -12,6 +12,7 @@ export enum HeaderMenuType {
 
 export interface HeaderProps {
   theme: HeaderTheme
+  isUp?: boolean
 }
 
 export interface HeaderState {

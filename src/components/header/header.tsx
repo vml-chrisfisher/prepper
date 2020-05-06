@@ -11,6 +11,10 @@ interface menuProps {
   isUp: boolean
 }
 
+interface themeProps {
+  theme: string
+}
+
 interface subMenuProps {
   isMenu: boolean
 }
@@ -54,17 +58,19 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   }
 
   render() {
+    console.log("AT FIRST", this.props.theme)
+    const themeValue = this.props.theme
   return(<div>
   <nav role="navigation" >
     <Navigation>
       <li>
-          <NavigationItem {... this.props.theme} onClick={() => { this.onSeedsClick() }}>Plants</NavigationItem>
+          <NavigationItem theme={themeValue} onClick={() => { this.onSeedsClick() }}>Plants</NavigationItem>
       </li>
       <li>
-          <NavigationItem {... this.props.theme} onClick={() => { this.onArticlesClick() }}>Articles</NavigationItem>
+          <NavigationItem theme={themeValue} onClick={() => { this.onArticlesClick() }}>Articles</NavigationItem>
       </li>
       <li>
-          <NavigationItem {... this.props.theme} onClick={() => { this.onRecipesClick() }}>Recipes</NavigationItem>
+          <NavigationItem theme={themeValue} onClick={() => { this.onRecipesClick() }}>Recipes</NavigationItem>
       </li>
     </Navigation>
   </nav>
@@ -298,7 +304,7 @@ const DetailSection3 = styled.div`
 
 const HeaderInner3 = styled.div<subMenuProps>`
   display: ${props => 
-    props.isMenu ? 'block' : 'none'}
+    props.isMenu ? 'block;' : 'none;'}
   width: 25%;
   padding: 0;
   background-color: #FFFFFF;
@@ -308,7 +314,7 @@ const HeaderInner3 = styled.div<subMenuProps>`
 
 const HeaderInner4 = styled.div<subMenuProps>`
   display: ${props => 
-    props.isMenu ? 'block' : 'none'}
+    props.isMenu ? 'block;' : 'none;'}
   width: 33%;
   padding: 0;
   background-color: #FFFFFF;
@@ -318,7 +324,7 @@ const HeaderInner4 = styled.div<subMenuProps>`
 
 const HeaderInner12 = styled.div<subMenuProps>`
   display: ${props => 
-    props.isMenu ? 'block' : 'none'}
+    props.isMenu ? 'block;' : 'none;'}
   width: 100%;
   padding: 0;
   background-color: #FFFFFF;
@@ -345,11 +351,11 @@ const Navigation = styled.ul`
   font-size: 1.25em;
 `
 
-const NavigationItem = styled.a<string>`
+const NavigationItem = styled("a")`
   font-family: 'Nunito', sans-serif;
-  color: ${(props: string) => {
-    console.log(props)
-    return (props === HeaderTheme.LIGHT ? '#FFFFFF' : '#464646')}};
+  color: ${(props) => {
+    console.log(`HELLLOPROPS:  ${props.theme}`)
+    return (props.theme === {theme: 'LIGHT'} ? '#FFFFFF' : '#464646')}};
   text-decoration: none;
   text-transform: uppercase;
   font-size: .6em;
