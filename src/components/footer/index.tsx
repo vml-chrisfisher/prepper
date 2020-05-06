@@ -49,14 +49,14 @@ const Footer = () => (
         </div>
         <div className="col8">
           <FooterBottomLinkContainer>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Plants</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Recipes</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Contact Us</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Shipping</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Returns</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Privacy</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Terms</FooterLinkBottom>
-            <FooterLinkBottom href="" className={styles.footerLinkBottom}>Careers</FooterLinkBottom>
+            <FooterLinkBottom href="">Plants</FooterLinkBottom>
+            <FooterLinkBottom href="">Recipes</FooterLinkBottom>
+            <FooterLinkBottom href="">Contact Us</FooterLinkBottom>
+            <FooterLinkBottom href="">Shipping</FooterLinkBottom>
+            <FooterLinkBottom href="">Returns</FooterLinkBottom>
+            <FooterLinkBottom href="">Privacy</FooterLinkBottom>
+            <FooterLinkBottom href="">Terms</FooterLinkBottom>
+            <FooterLinkBottom href="">Careers</FooterLinkBottom>
           </FooterBottomLinkContainer>
         </div>
       </div>
