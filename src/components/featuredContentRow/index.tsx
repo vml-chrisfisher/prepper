@@ -1,10 +1,8 @@
 import React from 'react'
-import styles from './styles.css'
-import baseStyles from '../base.css'
-import ArticleSummaryInterface from '../articleSummary/interface'
 import ArticleSummary from '../articleSummary'
 import FeatureContentRowProps from './interface'
 import FeatureContentRowDetail from './featuredContentRowDetail'
+import styled from '@emotion/styled'
 
 const FeaturedContentRow = (props: FeatureContentRowProps) => {
   const maxNumber = Math.floor(props.features.length + 1)
@@ -14,25 +12,34 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
   for (let a = 0; a < maxNumber; a++) {
     if (a === detailPosition) {
       items.push(
-        <div className={[baseStyles.col3, styles.col3Full].join(' ')}>
+        <Col3Full className="col3">
           <FeatureContentRowDetail {...props.details} />
-        </div>
+        </Col3Full>
       )
     } else {
       items.push(
-        <div className={[baseStyles.col3, styles.col3Full].join(' ')}>
+        <Col3Full className="col3">
           <ArticleSummary {... props.features[b]} />
-        </div>
+        </Col3Full>
       )
       b++;
     }
   }
 
-  return (<div className={[baseStyles.row, styles.featureContainer].join(' ')}>
+  return (<FeatureContainer className="row">
     {
       items
     }
-  </div>)
+  </FeatureContainer>)
 }
+
+const Col3Full = styled.div`
+  width: 25%;
+  padding: 0;
+`
+
+const FeatureContainer = styled.div`
+  padding-bottom: 150px;
+`
 
 export default FeaturedContentRow

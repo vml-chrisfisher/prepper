@@ -1,74 +1,180 @@
 import React from 'react';
 import ArticleSummary from '../articleSummary';
-import baseStyles from '../base.css';
-import styles from './styles.css';
+import styled from '@emotion/styled'
 
 const FeaturedVegetableRow = () => {
   return (
-    <div className={[baseStyles.row, styles.container].join(' ')}>
-      <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-        <div className={styles.vegetableContainer}>
-          <div className={styles.vegetableBackground}>
-            <div className={styles.vegetableImage}>
+    <Container className="row">
+      <Col6Full className="col6">
+        <VegetableContainer>
+          <VegetableBackground>
+            <VegetableImage>
               <img src={'/perkins-okra.jpg'} />
-            </div>
-            <div className={styles.vegetableOverlay}>
-              <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
-                <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-                  <div className={styles.vegetableDetailContainer}>
-                    <h2 className={styles.vegetableTitle}>
-                      Perkins Long Pod Okra
-                  </h2>
-                    <p className={styles.vegetableDescription}>
-                      I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage.
-                  </p>
-                    <button className={[baseStyles.primaryButton, baseStyles.outline].join(' ')}>Learn More</button>
-                  </div>
-                </div>
-              <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-        <div className={baseStyles.row}>
-          <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-            <div className={styles.ratio1Point5Height}>
-              <div className={styles.vegetablePricingSummaryContainer}>
-                < img className={styles.vegetablePricingImage} src={'/okra_square.jpg'} />
-                <div className={styles.vegetablePricingCategory}>Seeds</div>
-                <div className={styles.vegetablePricingPrice}>$12</div>
-                <div className={styles.vegetableProductContainer}>
-                  <div className={[styles.vegetablePricingProduct, styles.selected].join(' ')}>12 seeds</div>
-                  <div className={styles.vegetablePricingProduct}>36 seeds</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            </VegetableImage>
+            <VegetableOverlay>
+              <Col3Full className="col3" />
+              <Col6Full className="col6">
+                <VegetableDetailContainer>
+                  <VegetableTitle>
+                    Perkins Long Pod Okra
+                </VegetableTitle>
+                  <VegetableDescription>
+                    I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage.
+                  </VegetableDescription>
+                  <button className="primaryButton outline">Learn More</button>
+                </VegetableDetailContainer>
+              </Col6Full>
+              <Col3Full className="col3" />
+            </VegetableOverlay>
+          </VegetableBackground>
+        </VegetableContainer>
+      </Col6Full>
+      <Col6Full className="col6">
+        <div className="row">
+          <Col6Full className="col6">
+            <Ratio1Point5Height>
+              <VegetablePricingSummaryContainer>
+                <VegetablePricingImage src={'/okra_square.jpg'} />
+                <VegetablePricingCategory>Seeds</VegetablePricingCategory>
+                <VegetablePricingPrice>$12</VegetablePricingPrice>
+                <VegetableProductContainer>
+                  <VegetablePricingProduct>12 seeds</VegetablePricingProduct>
+                  <VegetablePricingProduct>36 seeds</VegetablePricingProduct>
+                </VegetableProductContainer>
+              </VegetablePricingSummaryContainer>
+            </Ratio1Point5Height>
+          </Col6Full>
           
-        <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-          <ArticleSummary {...
-            {
-              title: 'Okra Corn',
-              description: 'sdfsdfds sdf  sdf sdf',
-              slug: 'sdfds',
-              imagePath: '/okra-corn.png'
-            }
-          } />
-        </div>
+          <Col6Full className="col6">
+            <ArticleSummary {...
+              {
+                title: 'Okra Corn',
+                description: 'sdfsdfds sdf  sdf sdf',
+                slug: 'sdfds',
+                imagePath: '/okra-corn.png'
+              }
+            } />
+          </Col6Full>
       </div>
-      <div className={baseStyles.row}>
-          <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
-          <div className={[baseStyles.col6, styles.col6Full].join(' ')} style={{paddingTop: '15%'}}>
-            <h3 className={[baseStyles.center, baseStyles.whiteText].join(' ')}>Okra</h3>
+      <div className="row">
+          <Col3Full className="col3" />
+          <Col6Full className="col6" style={{paddingTop: '15%'}}>
+            <h3 className="center white-text">Okra</h3>
             <p>I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage </p>
-            <button className={baseStyles.primaryButton}>Learn More</button>
-          </div>
-          <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
+            <button className="primaryButton">Learn More</button>
+          </Col6Full>
+          <Col3Full className="col3" />
       </div>
-    </div>
-  </div>
+      </Col6Full>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  padding-bottom: 200px;
+`
+
+const Col3Full = styled.div`
+  width: 25%;
+  padding: 0;
+`
+
+const Col6Full = styled.div`
+  width: 50%;
+  padding: 0;
+`
+
+const VegetableContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`
+
+const VegetableDetailContainer = styled.div`
+  padding-top: 100px;
+`
+
+const VegetableBackground = styled.div`
+  display: block;
+  height: 150 %;
+`
+
+const VegetableOverlay = styled.div`
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1003;
+`
+
+const VegetableTitle = styled.h2`
+  color: #FFFFFF;
+  padding-bottom: 20px;
+  text-align: center;
+`
+
+const VegetableDescription = styled.p`
+  padding-bottom: 20px;
+`
+
+const VegetableImage = styled.div`
+  width: 100%;
+  min-height: 150%;
+`
+
+const Ratio1Point5Height = styled.div`
+  width: 100%;
+  padding-top: 150%;
+  position: relative;
+  background-color: #FFFFFF;
+`
+
+const VegetablePricingSummaryContainer = styled.div`
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+
+const VegetablePricingImage = styled.img`
+  width: 84%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+`
+
+const VegetablePricingCategory = styled.div`
+  color: #464646;
+  font-family: 'Nunito', sans-serif;
+  font-size: .75em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+`
+
+const VegetablePricingPrice = styled.div`
+  color: #464646;
+  font-size: 2.25em;
+  letter-spacing: -2px;
+  padding-bottom: 20px;
+  text-align: center;
+`
+
+const VegetableProductContainer = styled.div`
+  width: 75%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+`
+
+const VegetablePricingProduct = styled.div`
+  color: #AFA7A7;
+  display:inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-size: .75em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+`
 
 export default FeaturedVegetableRow

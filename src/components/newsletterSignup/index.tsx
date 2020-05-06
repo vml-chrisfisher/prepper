@@ -1,16 +1,16 @@
 import React from 'react';
-import baseStyles from '../base.css';
 import styles from './styles.css';
+import styled from '@emotion/styled'
 
 const NewsletterSignup = () => {
     return (
         <div className={styles.newsletterSignupContainer}>
              <div className={styles.newsletterSignupScroll}>
                  <div className={styles.newsletterSignupForm}>
-                 <h3 className={[baseStyles.whiteText, styles.newsletterSignupTitle].join(' ')}>Get our latest updates</h3>
+                 <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
                 <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
-                <input className={styles.newsletterInput} placeholder="seedlings@seedlings.com" />
-                <button className={[baseStyles.primaryButton].join(' ')}>Sign up</button>
+                <NewsletterSignupInput placeholder="seedlings@seedlings.com" />
+                <button className="primaryButton">Sign up</button>
                  </div>
                 
             </div>
@@ -18,5 +18,21 @@ const NewsletterSignup = () => {
        
     )
 }
+
+const NewsletterSignupTitle = styled.h3`
+    font-size: 1.5em;
+`
+
+const NewsletterSignupInput = styled.input`
+    width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid .5px #FFFFFF;
+  font-size: 19px;
+  color: #FFFFFF;
+  font-family: 'Nunito', sans-serif;
+  margin-bottom: 20px;
+`
 
 export default NewsletterSignup

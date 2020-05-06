@@ -1,37 +1,37 @@
 import React from 'react';
 import ArticleSummary from '../articleSummary';
-import baseStyles from '../base.css';
 import NewsletterSignup from '../newsletterSignup';
 import styles from './styles.css';
+import styled from '@emotion/styled'
 
 const GeneralContentRow = () => {
   return (
-    <div className={[baseStyles.row, styles.container].join(' ')}>
-      <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
+    <Container className="row">
+      <Col6Full className="col6">
         <div className={styles.vegetableContainer}>
           <div className={styles.vegetableBackground}>
             <div className={styles.vegetableImage}>
               <img src={'/story-background.png'} />
             </div>
             <div className={styles.vegetableOverlay}>
-              <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
-                <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
+              <Col3Full className="col3" />
+                <Col6Full className="col6">
                   <div className={styles.storyContainer}>
-                    <div className={baseStyles.eyebrow}>Story</div>
+                    <div className="eyebrow">Story</div>
                     <h2 className={styles.vegetableTitle}>
                       This is the story of Seedlings
                   </h2>
-                    <button className={[baseStyles.primaryButton, baseStyles.darkOutline].join(' ')}>Our Story</button>
+                    <button className="primaryButton darkOutline">Our Story</button>
                   </div>
-                </div>
-              <div className={[baseStyles.col3, styles.col3Full].join(' ')} />
+                </Col6Full>
+              <Col3Full className="col3" />
             </div>
           </div>
         </div>
-      </div>
-      <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
-        <div className={baseStyles.row}>
-          <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
+      </Col6Full>
+      <Col6Full className="col6">
+        <div className="row">
+          <Col6Full className="col6">
           <ArticleSummary {...
             {
               title: 'A guide to gardening tools',
@@ -40,15 +40,29 @@ const GeneralContentRow = () => {
               imagePath: '/tools-background.png'
             }
           } />
-          </div>
+          </Col6Full>
           
-        <div className={[baseStyles.col6, styles.col6Full].join(' ')}>
+        <Col6Full className="col6">
           <NewsletterSignup />
-        </div>
+        </Col6Full>
       </div>
-    </div>
-  </div>
+    </Col6Full>
+  </Container>
   )
 }
+
+const Container = styled.div`
+  padding-bottom: 200px;
+`
+
+const Col3Full = styled.div`
+  width: 25%;
+  padding: 0;
+`
+
+const Col6Full = styled.div`
+  width: 50%;
+  padding: 0;
+`
 
 export default GeneralContentRow

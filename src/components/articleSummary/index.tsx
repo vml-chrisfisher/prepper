@@ -1,23 +1,132 @@
 import React from 'react';
 import ArticleSummaryInterface from "./interface"
-import styles from './styles.css'
+import styled from '@emotion/styled'
+
 
 const ArticleSummary = (props: ArticleSummaryInterface) => (
-  <div className={styles.article} key={props.slug}>
+  <Article key={props.slug}>
     <a href={`/article/${props.slug}`}>
-      <div className={styles.articleImageParent}>
-        <div className={styles.articleInside} style={{ backgroundImage: `url(${props.imagePath})` }}>
-        </div>
-      </div>
-      <div className={styles.overlayContainer}>
-        <div className={styles.articleOverlay}>
+      <ArticleImageParent>
+        <ArticleInside style={{ backgroundImage: `url(${props.imagePath})` }}>
+        </ArticleInside>
+      </ArticleImageParent>
+      <OverlayContainer>
+        <ArticleOverlay>
           <h3>{props.title}</h3>
-          <div className={styles.articleDescription}>{props.description}</div>
-        </div>
-      </div>
+          <ArticleDescription>{props.description}</ArticleDescription>
+        </ArticleOverlay>
+      </OverlayContainer>
       
     </a>
-  </div>
+  </Article>
 )
+
+const ArticleInside = styled.div`
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  padding-bottom: 150%;
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  &:before {
+    position: absolute;
+    content:" ";
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display: block;
+    z-index:0;
+    background-color: rgba(51,51,51,0.25);
+  }
+`
+
+const Article = styled.div`
+  width: 100%;
+  display: inline-block;
+  height: 150%;
+  position: relative;
+  &:hover ${ArticleInside} {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all 7s linear;
+    -moz-transition: all 7s linear;
+    -o-transition: all 7s linear;
+    transition: all 7s linear;
+  }
+`
+
+const ArticleImageParent = styled.div`
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+`
+
+const ArticleImage = styled.div`
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: 998;
+`
+
+const ArticleOverlay = styled.div`
+  position: absolute;
+  z-index: 999;
+  bottom: -98px;
+  left: 20px;
+  width: calc(100% - 40px);
+  color: #FFF;
+  -webkit-transition: bottom 0.5s ease-out;
+  -moz-transition: bottom 0.5s ease-out;
+  -o-transition: bottom 0.5s ease-out;
+  transition: bottom 0.5s ease-out;
+  &:hover ${ArticleImageParent} ${ArticleInside} {
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all 3s;
+    -moz-transition: all 3s;
+    -o-transition: all 3s;
+    transition: all 3s;
+  }
+`
+
+const OverlayContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  &:hover ${ArticleOverlay} {
+    bottom: 20px;
+    -webkit-transition: bottom 0.5s ease-out;
+    -moz-transition: bottom 0.5s ease-out;
+    -o-transition: bottom 0.5s ease-out;
+    transition: bottom 0.5s ease-out;
+  }
+`
+
+const ArticleDescription = styled.div`
+  font-family: 'Nunito', sans-serif;
+  font-size: .75em;
+  color: #FFFFFF;
+  height: 100px;
+  max-height: 100px;
+  display: block;
+  padding-top: 20px;
+`
 
 export default ArticleSummary
