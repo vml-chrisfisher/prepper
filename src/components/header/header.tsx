@@ -360,11 +360,11 @@ const Navigation = styled.ul`
   font-size: 1.25em;
 `
 
-const NavigationItem = styled("a")`
+const NavigationItem = styled.a<themeProps>`
   font-family: 'Nunito', sans-serif;
   color: ${(props) => {
     console.log(`HELLLOPROPS:  ${props.theme}`)
-    return (props.theme === {theme: 'LIGHT'} ? '#FFFFFF' : '#464646')}};
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')}};
   text-decoration: none;
   text-transform: uppercase;
   font-size: .6em;
