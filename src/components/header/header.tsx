@@ -345,10 +345,10 @@ const Navigation = styled.ul`
   font-size: 1.25em;
 `
 
-const NavigationItem = styled.a<HeaderProps>`
+const NavigationItem = styled.a<string>`
   font-family: 'Nunito', sans-serif;
   color: ${props =>
-    props.theme === HeaderTheme.LIGHT ? '#FFFFFF' : '#464646'};
+    props === HeaderTheme.LIGHT ? '#FFFFFF' : '#464646'};
   text-decoration: none;
   text-transform: uppercase;
   font-size: .6em;
