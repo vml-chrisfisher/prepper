@@ -53,10 +53,10 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
 
   render() {
   return(<div>
-  <nav role= "navigation" >
-    <ul className={styles.navigation}>
+  <nav role="navigation" >
+    <Navigation>
       <li className={this.props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
-        <a onClick={() => {this.onSeedsClick()}}>Plants</a>
+          <NavigationItem theme={this.props.theme} onClick={() => { this.onSeedsClick() }}>Plants</NavigationItem>
       </li>
       <li className={this.props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
           <a onClick={() => { this.onArticlesClick() }}>Articles</a>
@@ -64,7 +64,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
       <li className={this.props.theme === HeaderTheme.LIGHT ? styles.navigationItemWhite : styles.navigationItem}>
           <a onClick={() => { this.onRecipesClick() }}>Recipes</a>
       </li>
-    </ul>
+    </Navigation>
   </nav>
   <div className={styles.logoContainer}>
     <div>
@@ -223,6 +223,40 @@ const HeaderInner12 = styled.div`
 const HeaderOuter = styled.div`
   position: relative;
   z-index: 99999;
+`
+
+const Navigation = styled.ul`
+  display: flex;
+  justify-content: left;
+  list-style: none;
+  padding: 80px;
+  margin: 0;
+  height: 20vh;
+  max-height: 100px;
+  font-size: 1.25em;
+`
+
+const NavigationItem = styled.a<{theme: HeaderTheme}>`
+  font-family: 'Nunito', sans-serif;
+  color: ${props =>
+    props.theme === HeaderTheme.LIGHT ? '#FFFFFF' : '#464646'};
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: .6em;
+  font-weight: 600;
+  transition: color 1.0s ease;
+  margin-right: 40px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; 
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    color: #999999;
+    transition: color 1.0s ease;
+  }
 `
 
 export default Header
