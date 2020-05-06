@@ -347,8 +347,9 @@ const Navigation = styled.ul`
 
 const NavigationItem = styled.a<string>`
   font-family: 'Nunito', sans-serif;
-  color: ${props =>
-    props === HeaderTheme.LIGHT ? '#FFFFFF' : '#464646'};
+  color: ${(props: string) => {
+    console.log(props)
+    return (props === HeaderTheme.LIGHT ? '#FFFFFF' : '#464646')}};
   text-decoration: none;
   text-transform: uppercase;
   font-size: .6em;
