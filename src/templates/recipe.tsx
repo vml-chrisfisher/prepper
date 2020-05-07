@@ -8,7 +8,8 @@ import Layout from '../components/layout';
 
 class RecipeTemplate extends React.Component<any> {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
+    console.log(this.props)
+    const post = get(this.props, 'data.contentfulRecipe')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
@@ -31,11 +32,6 @@ class RecipeTemplate extends React.Component<any> {
             >
               {post.publishDate}
             </p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
           </div>
         </div>
       </Layout>

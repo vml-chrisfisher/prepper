@@ -1,14 +1,15 @@
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import get from 'lodash/get'
-import React from 'react'
-import Helmet from 'react-helmet'
-import Layout from '../components/layout'
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import get from 'lodash/get';
+import React from 'react';
+import Helmet from 'react-helmet';
+import Layout from '../components/layout';
 
 
 class ArticleTemplate extends React.Component<any> {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
+    
+    const post = get(this.props, 'data.contentfulArticle')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
@@ -31,11 +32,6 @@ class ArticleTemplate extends React.Component<any> {
             >
               {post.publishDate}
             </p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
           </div>
         </div>
       </Layout>
