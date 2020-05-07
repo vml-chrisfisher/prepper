@@ -43,37 +43,19 @@ export default RecipeTemplate
 
 export const pageQuery = graphql`
   query RecipeBySlug($slug: String) {
-    contentfulArticle(slug: {eq: $slug}) {
-    bodyCopy {
-      childMarkdownRemark {
-        rawMarkdownBody
-      }
-    }
-    heroImage {
-      file {
-        url
-      }
-      title
-    }
-    subtitle
-    tags {
-      tag
-    }
-    title
-    sections {
+    contentfulRecipe(slug: {eq: $slug}) {
       bodyCopy {
         childMarkdownRemark {
           rawMarkdownBody
         }
       }
-      images {
+      heroImage {
         file {
           url
         }
-        description
+        title
       }
-      isTwoColumn
+      title
     }
-  }
   }
 `

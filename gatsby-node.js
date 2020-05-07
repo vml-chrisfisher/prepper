@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
   })
 
   const articlesPromise = new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/article.tsx')
+    const articleTemplate = path.resolve('./src/templates/article.tsx')
     resolve(
       graphql(
         `
@@ -63,13 +63,13 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        const posts = result.data.allContentfulArticle.edges
-        posts.forEach((post, index) => {
+        const articles = result.data.allContentfulArticle.edges
+        articles.forEach((article, index) => {
           createPage({
-            path: `/article/${post.node.slug}/`,
-            component: blogPost,
+            path: `/article/${article.node.slug}/`,
+            component: articleTemplate,
             context: {
-              slug: post.node.slug
+              slug: article.node.slug
             },
           })
         })
@@ -78,7 +78,7 @@ exports.createPages = ({ graphql, actions }) => {
   })
 
   const recipesPromise = new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/recipe.tsx')
+    const recipeTemplate = path.resolve('./src/templates/recipe.tsx')
     resolve(
       graphql(
         `
@@ -99,13 +99,13 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        const posts = result.data.allContentfulRecipe.edges
-        posts.forEach((post, index) => {
+        const recipes = result.data.allContentfulRecipe.edges
+        recipes.forEach((recipe, index) => {
           createPage({
-            path: `/recipe/${post.node.slug}/`,
-            component: blogPost,
+            path: `/recipe/${recipe.node.slug}/`,
+            component: recipeTemplate,
             context: {
-              slug: post.node.slug
+              slug: recipe.node.slug
             },
           })
         })
