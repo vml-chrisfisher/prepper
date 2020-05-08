@@ -58,7 +58,6 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   }
 
   render() {
-    console.log("AT FIRST", this.props.theme)
     const themeValue = this.props.theme
     let menuUp = this.state.menuUp
   return(<div>
@@ -78,7 +77,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   <LogoContainer>
     <div>
         <LogoImage src={'/logo.svg'} />
-        <LogoText>Zephyr & Hare</LogoText>
+        <LogoText theme={themeValue}>Zephyr & Hare</LogoText>
     </div>
     
   </LogoContainer>
@@ -281,8 +280,10 @@ const LogoImage = styled.img`
   width: 75px;
 `
 
-const LogoText = styled.div`
-  color: #FFFFFF;
+const LogoText = styled.div<themeProps>`
+  color: ${(props) => {
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+  }};
   font-size: 1.25em;
   letter-spacing: -.5px;
 `
@@ -363,7 +364,6 @@ const Navigation = styled.ul`
 const NavigationItem = styled.a<themeProps>`
   font-family: 'Nunito', sans-serif;
   color: ${(props) => {
-    console.log(`HELLLOPROPS:  ${props.theme}`)
     return (props.theme === 'white' ? '#FFFFFF' : '#464646')}};
   text-decoration: none;
   text-transform: uppercase;

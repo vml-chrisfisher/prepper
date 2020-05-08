@@ -1,87 +1,105 @@
-import styled from '@emotion/styled';
-import React from 'react';
+import styled from '@emotion/styled'
+import React, { PureComponent } from 'react'
+import FooterProps from './interface'
 
-const Footer = () => (
-  <div>
-    <div className="row" style={{paddingBottom: '175px'}}>
-      <div className="col3" />
-      <div className="col3">
-          <FooterTitle>Shop</FooterTitle>
-          <FooterParagraph>
-            Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
-          </FooterParagraph>
-          <FooterLinkMain href="">
-            Shop Now
-          </FooterLinkMain>
-      </div>
-      <div className="col3">
-          <FooterTitle>Recipes</FooterTitle>
-          <FooterParagraph>
-            Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
-          </FooterParagraph>
-          <FooterLinkMain href="">
-            Get Recipes
-          </FooterLinkMain>
-      </div>
-      <div className="col3">
-          <FooterTitle>Story</FooterTitle>
-          <FooterParagraph>
-            Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
-          </FooterParagraph>
-          <FooterLinkMain href="">
-            Read
-          </FooterLinkMain>
-      </div>
-    </div>
-    <div className="row" style={{ paddingBottom: '100px' }}>
-      <div className="col3" />
-      <div className="col9">
-        <div className="col4">
-          <a href="">
-            <FooterSocialIcon src={'/facebook.svg'} />
-          </a>
-          <a href="">
-            <FooterSocialIcon src={'/instagram.svg'} />
-          </a>
-          <a href="">
-            <FooterSocialIcon src={'/pinterest.svg'} />
-          </a>
-        </div>
-        <div className="col8">
-          <FooterBottomLinkContainer>
-            <FooterLinkBottom href="">Plants</FooterLinkBottom>
-            <FooterLinkBottom href="">Recipes</FooterLinkBottom>
-            <FooterLinkBottom href="">Contact Us</FooterLinkBottom>
-            <FooterLinkBottom href="">Shipping</FooterLinkBottom>
-            <FooterLinkBottom href="">Returns</FooterLinkBottom>
-            <FooterLinkBottom href="">Privacy</FooterLinkBottom>
-            <FooterLinkBottom href="">Terms</FooterLinkBottom>
-            <FooterLinkBottom href="">Careers</FooterLinkBottom>
-          </FooterBottomLinkContainer>
-        </div>
-      </div>
-    </div>
-  </div>
-)
+interface themeProps {
+  theme: string
+}
 
-const FooterTitle = styled.div`
-  color: #FFFFFF;
+class Footer extends PureComponent<FooterProps> {
+  render() {
+    const themeValue = this.props.theme
+    return (
+      <div>
+        <div className="row" style={{ paddingBottom: '175px' }}>
+          <div className="col3" />
+          <div className="col3">
+            <FooterTitle theme={themeValue}>Shop</FooterTitle>
+            <FooterParagraph theme={themeValue}>
+              Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
+          </FooterParagraph>
+            <FooterLinkMain theme={themeValue} href="">
+              Shop Now
+          </FooterLinkMain>
+          </div>
+          <div className="col3">
+            <FooterTitle theme={themeValue}>Recipes</FooterTitle>
+            <FooterParagraph theme={themeValue}>
+              Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
+          </FooterParagraph >
+            <FooterLinkMain theme={themeValue} href="">
+              Get Recipes
+          </FooterLinkMain>
+          </div>
+          <div className="col3">
+            <FooterTitle theme={themeValue}>Story</FooterTitle>
+            <FooterParagraph theme={themeValue}>
+              Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
+          </FooterParagraph>
+            <FooterLinkMain theme={themeValue} href="">
+              Read
+          </FooterLinkMain>
+          </div>
+        </div>
+        <div className="row" style={{ paddingBottom: '100px' }}>
+          <div className="col3" />
+          <div className="col9">
+            <div className="col4">
+              <a href="">
+                <FooterSocialIcon src={'/facebook.svg'} />
+              </a>
+              <a href="">
+                <FooterSocialIcon src={'/instagram.svg'} />
+              </a>
+              <a href="">
+                <FooterSocialIcon src={'/pinterest.svg'} />
+              </a>
+            </div>
+            <div className="col8">
+              <FooterBottomLinkContainer>
+                <FooterLinkBottom theme={themeValue} href="">Plants</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Recipes</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Contact Us</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Shipping</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Returns</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Privacy</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Terms</FooterLinkBottom>
+                <FooterLinkBottom theme={themeValue} href="">Careers</FooterLinkBottom>
+              </FooterBottomLinkContainer>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+
+
+const FooterTitle = styled.div<themeProps>`
+  color: ${(props) => {
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+  }};
   font-size: 1.5em;
   letter-spacing: -0.5px;
   padding-bottom: 50px;
 `
 
-const FooterParagraph = styled.div`
-  color: #FFFFFF;
+const FooterParagraph = styled.div<themeProps>`
+  color: ${(props) => {
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+  }};
   font-size: .8125em;
   font-family: 'Nunito', sans-serif;
   letter-spacing: -0.5px;
   padding-bottom: 66px;
 `
 
-const FooterLinkMain = styled.a`
+const FooterLinkMain = styled.a<themeProps>`
   border-bottom: #FFFFFF solid .5px;
-  color: #FFFFFF;
+  color: ${(props) => {
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+  }};
   cursor: pointer;
   display: inline-block;
   font-size: .875em;
@@ -112,8 +130,10 @@ const FooterBottomLinkContainer = styled.div`
   justify-content: space-evenly;
 `
 
-const FooterLinkBottom = styled.a`
-  color: #FFFFFF;
+const FooterLinkBottom = styled.a<themeProps>`
+  color: ${(props) => {
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+  }};
   cursor: pointer;
   display: inline-block;
   font-size: .5625em;

@@ -157,7 +157,7 @@ nav {
 }
 
 .col2sm {
-  width: 12.66%;
+  width: 16.66%;
 }
 
 .col3sm {
@@ -223,7 +223,7 @@ nav {
   }
 
   .col2 {
-    width: 12.66%;
+    width: 16.66%;
   }
 
   .col3 {
@@ -240,7 +240,7 @@ nav {
   }
 
   .col6 {
-    width: 46%;
+    width: 50%;
   }
 
   .col7 {
