@@ -26,7 +26,8 @@ class RootIndex extends React.Component<any> {
         title: 'Recipes',
         description: "I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage",
         buttonCaption: 'Find Recipes',
-        slug: '/recipes'
+        slug: '/recipes',
+        theme: HeaderTheme.LIGHT
       },
       features: [
         {

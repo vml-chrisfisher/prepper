@@ -10,12 +10,17 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
 
   const themeValue = props.theme
 
-  return (<div>
-    <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
-    <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
-    <FeatureButton theme={themeValue}>{props.buttonCaption}</FeatureButton>
-  </div>)
+  return(
+    <FeatureContainer>
+      <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
+      <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
+      <FeatureButton theme={themeValue}>{props.buttonCaption}</FeatureButton>
+    </FeatureContainer>)
 }
+
+const FeatureContainer = styled.div`
+  margin-top: 35%;
+`
 
 const FeatureTitle = styled.h2<themeProps>`
   color: ${(props) => {
@@ -39,13 +44,14 @@ const FeatureDescription = styled.div<themeProps>`
 
 const FeatureButton = styled.button<themeProps>`
  background-color: ${(props) => {
-    return (props.theme === 'white' ? '#464646' : '#FFFFFF')
+    console.log("YOYO1: ", props)
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
   }};
   border: none;
   font-family: 'Nunito', sans-serif;
   font-size: 0.75em;
   color: ${(props) => {
-    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+    return (props.theme === 'white' ? '#464646' : '#FFFFFF')
   }};
   text-align: center;
   margin: 0 auto;
