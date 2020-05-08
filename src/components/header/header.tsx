@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import React, { PureComponent } from 'react';
+import styled from '@emotion/styled'
+import React, { PureComponent } from 'react'
 import {
   HeaderMenuType,
   HeaderProps,
   HeaderState,
   HeaderTheme
-  } from './interface';
+} from './interface'
 
 interface menuProps {
   isUp: boolean
@@ -35,7 +35,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
 
   onSeedsClick() {
     this.setState(state => (
-      {...state, menuUp: false, menuType: HeaderMenuType.PLANTS}
+      { ...state, menuUp: false, menuType: HeaderMenuType.PLANTS }
     ))
   }
 
@@ -52,49 +52,52 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   }
 
   onCloseClick() {
-    this.setState(state =>(
-      {...state, menuUp: true}
+    this.setState(state => (
+      { ...state, menuUp: true }
     ))
   }
 
   render() {
     const themeValue = this.props.theme
     let menuUp = this.state.menuUp
-  return(<div>
-  <nav role="navigation" >
-    <Navigation>
-      <li>
-          <NavigationItem theme={themeValue} onClick={() => { this.onSeedsClick() }}>Plants</NavigationItem>
-      </li>
-      <li>
-          <NavigationItem theme={themeValue} onClick={() => { this.onArticlesClick() }}>Articles</NavigationItem>
-      </li>
-      <li>
-          <NavigationItem theme={themeValue} onClick={() => { this.onRecipesClick() }}>Recipes</NavigationItem>
-      </li>
-    </Navigation>
-  </nav>
-  <LogoContainer>
-    <div>
-        <LogoImage src={'/logo.svg'} />
-        <LogoText theme={themeValue}>Zephyr & Hare</LogoText>
-    </div>
-    
-  </LogoContainer>
-    <HeaderOuter {...{isUp: menuUp}} className="row">
-      <HeaderInner12 {...{isMenu: this.state.menuType === HeaderMenuType.PLANTS}} className="col12">
-        <Col3Full className="col3">
-          <HeaderClose onClick={() => {this.onCloseClick()}}>X</HeaderClose>
-          <HeaderMainNav>
-            <ul>
-              <HeaderNavHeaderLi>Plants</HeaderNavHeaderLi>
-              <HeaderNavItem>Fruits</HeaderNavItem>
-              <HeaderNavItem>Grains</HeaderNavItem>
-              <HeaderNavItem>Herbs</HeaderNavItem>
-              <HeaderNavItem>Vegetables</HeaderNavItem>
-            </ul>
-          </HeaderMainNav>
-        </Col3Full>
+    return (<div>
+      <nav role="navigation" >
+        <Navigation>
+          <li>
+            <NavigationItem theme={themeValue} onClick={() => { this.onSeedsClick() }}>Plants</NavigationItem>
+          </li>
+          <li>
+            <NavigationItem theme={themeValue} onClick={() => { this.onArticlesClick() }}>Articles</NavigationItem>
+          </li>
+          <li>
+            <NavigationItem theme={themeValue} onClick={() => { this.onRecipesClick() }}>Recipes</NavigationItem>
+          </li>
+        </Navigation>
+      </nav>
+      <LogoContainer>
+        <div>
+          <LogoLink href="/">
+            <LogoImage src={'/logo.svg'} />
+            <LogoText theme={themeValue}>Zephyr & Hare</LogoText>
+          </LogoLink>
+
+        </div>
+
+      </LogoContainer>
+      <HeaderOuter {...{ isUp: menuUp }} className="row">
+        <HeaderInner12 {...{ isMenu: this.state.menuType === HeaderMenuType.PLANTS }} className="col12">
+          <Col3Full className="col3">
+            <HeaderClose onClick={() => { this.onCloseClick() }}>X</HeaderClose>
+            <HeaderMainNav>
+              <ul>
+                <HeaderNavHeaderLi>Plants</HeaderNavHeaderLi>
+                <HeaderNavItem>Fruits</HeaderNavItem>
+                <HeaderNavItem>Grains</HeaderNavItem>
+                <HeaderNavItem>Herbs</HeaderNavItem>
+                <HeaderNavItem>Vegetables</HeaderNavItem>
+              </ul>
+            </HeaderMainNav>
+          </Col3Full>
           <DetailSection6 className="col6">
             <Columns>
               <HeaderDetailItem>Artichokes</HeaderDetailItem>
@@ -115,55 +118,55 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               <HeaderDetailItem>Zucchini</HeaderDetailItem>
             </Columns>
           </DetailSection6>
-        <DetailSection23 className="col3">
-          <HeaderNavDetailImg src={'/okra_square.jpg'} />
-          <HeaderNavDetailP className="darkText">I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu.</HeaderNavDetailP>
-        </DetailSection23>
-      </HeaderInner12>
+          <DetailSection23 className="col3">
+            <HeaderNavDetailImg src={'/okra_square.jpg'} />
+            <HeaderNavDetailP className="darkText">I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu.</HeaderNavDetailP>
+          </DetailSection23>
+        </HeaderInner12>
 
-      <HeaderInner3 {...{isMenu: this.state.menuType === HeaderMenuType.ARTICLES}} className="col3">
-        <Col12Full className="col3">
-          <HeaderClose onClick={() => { this.onCloseClick() }}>X</HeaderClose>
-          <HeaderMainNav style={{paddingLeft: '70px'}}>
-            <HeaderNavHeader>Articles</HeaderNavHeader>
-            <div className="row">
-              <div className="col6">
-                <HeaderDetailItem>Soil</HeaderDetailItem>
-                <HeaderDetailItem>Planting</HeaderDetailItem>
-                <HeaderDetailItem>Gardening</HeaderDetailItem>
-                <HeaderDetailItem>Harvesting</HeaderDetailItem>
-                <HeaderDetailItem>Storage</HeaderDetailItem>
+        <HeaderInner3 {...{ isMenu: this.state.menuType === HeaderMenuType.ARTICLES }} className="col3">
+          <Col12Full className="col3">
+            <HeaderClose onClick={() => { this.onCloseClick() }}>X</HeaderClose>
+            <HeaderMainNav style={{ paddingLeft: '70px' }}>
+              <HeaderNavHeader>Articles</HeaderNavHeader>
+              <div className="row">
+                <div className="col6">
+                  <HeaderDetailItem>Soil</HeaderDetailItem>
+                  <HeaderDetailItem>Planting</HeaderDetailItem>
+                  <HeaderDetailItem>Gardening</HeaderDetailItem>
+                  <HeaderDetailItem>Harvesting</HeaderDetailItem>
+                  <HeaderDetailItem>Storage</HeaderDetailItem>
+                </div>
               </div>
-            </div>
-          </HeaderMainNav>
-        </Col12Full>
-      </HeaderInner3>
+            </HeaderMainNav>
+          </Col12Full>
+        </HeaderInner3>
 
-      <HeaderInner4 {...{isMenu: this.state.menuType === HeaderMenuType.RECIPES}} className="col3">
-        <Col12Full className="col12">
-          <HeaderClose onClick={() => { this.onCloseClick() }}>X</HeaderClose>
-          <HeaderMainNav style={{paddingLeft: '70px'}}>
-            <HeaderNavHeader>Recipes</HeaderNavHeader>
-            <div className="row">
-              <div className="col6">
-                <HeaderDetailItem>Breakfast</HeaderDetailItem>
-                <HeaderDetailItem>Brunch</HeaderDetailItem>
-                <HeaderDetailItem>Lunch</HeaderDetailItem>
-                <HeaderDetailItem>Supper</HeaderDetailItem>
+        <HeaderInner4 {...{ isMenu: this.state.menuType === HeaderMenuType.RECIPES }} className="col3">
+          <Col12Full className="col12">
+            <HeaderClose onClick={() => { this.onCloseClick() }}>X</HeaderClose>
+            <HeaderMainNav style={{ paddingLeft: '70px' }}>
+              <HeaderNavHeader>Recipes</HeaderNavHeader>
+              <div className="row">
+                <div className="col6">
+                  <HeaderDetailItem>Breakfast</HeaderDetailItem>
+                  <HeaderDetailItem>Brunch</HeaderDetailItem>
+                  <HeaderDetailItem>Lunch</HeaderDetailItem>
+                  <HeaderDetailItem>Supper</HeaderDetailItem>
+                </div>
+                <div className="col6">
+                  <HeaderDetailItem>Charcuterie</HeaderDetailItem>
+                  <HeaderDetailItem>Baking</HeaderDetailItem>
+                  <HeaderDetailItem>Pickling</HeaderDetailItem>
+                  <HeaderDetailItem>Fermentation</HeaderDetailItem>
+                  <HeaderDetailItem>Condiments</HeaderDetailItem>
+                </div>
               </div>
-              <div className="col6">
-                <HeaderDetailItem>Charcuterie</HeaderDetailItem>
-                <HeaderDetailItem>Baking</HeaderDetailItem>
-                <HeaderDetailItem>Pickling</HeaderDetailItem>
-                <HeaderDetailItem>Fermentation</HeaderDetailItem>
-                <HeaderDetailItem>Condiments</HeaderDetailItem>
-              </div>
-            </div>
-          </HeaderMainNav>
-        </Col12Full>
-      </HeaderInner4>
-    </HeaderOuter>
-  </div>)
+            </HeaderMainNav>
+          </Col12Full>
+        </HeaderInner4>
+      </HeaderOuter>
+    </div>)
   }
 }
 
@@ -274,6 +277,10 @@ const LogoContainer = styled.div`
   z-index: 999;
 `
 
+const LogoLink = styled.a`
+  text-decoration: none
+`
+
 const LogoImage = styled.img`
   display: inline-block;
   margin-top: 90px;
@@ -313,7 +320,7 @@ const DetailSection23 = styled.div`
 `
 
 const HeaderInner3 = styled.div<subMenuProps>`
-  display: ${props => 
+  display: ${props =>
     props.isMenu ? 'block;' : 'none;'}
   width: 25%;
   padding: 0;
@@ -323,7 +330,7 @@ const HeaderInner3 = styled.div<subMenuProps>`
 `
 
 const HeaderInner4 = styled.div<subMenuProps>`
-  display: ${props => 
+  display: ${props =>
     props.isMenu ? 'block;' : 'none;'}
   width: 33%;
   padding: 0;
@@ -333,7 +340,7 @@ const HeaderInner4 = styled.div<subMenuProps>`
 `
 
 const HeaderInner12 = styled.div<subMenuProps>`
-  display: ${props => 
+  display: ${props =>
     props.isMenu ? 'block;' : 'none;'}
   width: 100%;
   padding: 0;
@@ -347,7 +354,7 @@ const HeaderOuter = styled.div<menuProps>`
   z-index: 99999;
   transition: all .5s cubic-bezier(.77,0,.175,1);
   transform: ${props =>
-  props.isUp ? 'translateY(-100%)' : 'translateY(0%)'};
+    props.isUp ? 'translateY(-100%)' : 'translateY(0%)'};
 `
 
 const Navigation = styled.ul`
@@ -364,7 +371,8 @@ const Navigation = styled.ul`
 const NavigationItem = styled.a<themeProps>`
   font-family: 'Nunito', sans-serif;
   color: ${(props) => {
-    return (props.theme === 'white' ? '#FFFFFF' : '#464646')}};
+    return (props.theme === 'white' ? '#FFFFFF' : '#464646')
+  }};
   text-decoration: none;
   text-transform: uppercase;
   font-size: .6em;
