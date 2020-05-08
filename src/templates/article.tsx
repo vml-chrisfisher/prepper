@@ -57,8 +57,10 @@ class ArticleTemplate extends React.Component<any> {
     `
     const TagStyled = styled.p`
       color: #464646;
+      display: inline-block;
       font-size: .75em;
       font-family: 'Nunito', sans-serif;
+      padding-right: 20px;
       text-transform: uppercase;
   `
 
@@ -106,6 +108,7 @@ class ArticleTemplate extends React.Component<any> {
                   })
                 }
                 <div className="col12">
+                  <h3>Tags</h3>
                   {
                     post.tags.map((tag: any) => {
                       return <TagStyled>{tag.tag}</TagStyled>

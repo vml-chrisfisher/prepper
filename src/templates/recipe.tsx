@@ -49,12 +49,6 @@ class RecipeTemplate extends React.Component<any> {
       padding-bottom: 30px;
       text-align: center;
     `
-    const TagStyled = styled.p`
-      color: #464646;
-      font-size: .75em;
-      font-family: 'Nunito', sans-serif;
-      text-transform: uppercase;
-  `
 
     const BodyCopy = styled.div`
       column-count: 2;
@@ -113,8 +107,16 @@ class RecipeTemplate extends React.Component<any> {
       font-family: 'Nunito', sans-serif;
       line-height: 2em;
       padding-bottom: 1.75em;
+    `
 
-      `
+    const TagStyled = styled.p`
+      color: #464646;
+      display: inline-block;
+      font-size: .75em;
+      font-family: 'Nunito', sans-serif;
+      padding-right: 20px;
+      text-transform: uppercase;
+    `
 
     const post = get(this.props, 'data.contentfulRecipe')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
@@ -167,6 +169,16 @@ class RecipeTemplate extends React.Component<any> {
                     })
                   }
                   </InstructionContainer>
+                  <div className="col12">
+                    <h3>Tags</h3>
+                    <TagStyled>{post.mealType}</TagStyled>
+                    <TagStyled>{post.proteinType}</TagStyled>
+                    {
+                      post.vegetableType.map((vegetable: any) => {
+                        return <TagStyled>{vegetable}</TagStyled>
+                      })
+                    }
+                  </div>
                 </div>
                 <FeaturedContentRow {...recipeFeatures} />
                 <GeneralContentRow />
