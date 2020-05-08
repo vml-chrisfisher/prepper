@@ -10,6 +10,7 @@ import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import FeaturedContentRow from '../components/featuredContentRow'
 import Footer from '../components/footer'
 import { HeaderTheme } from '../components/header/interface'
+import dateformat from 'dateformat'
 
 
 class RecipeTemplate extends React.Component<any> {
@@ -44,11 +45,16 @@ class RecipeTemplate extends React.Component<any> {
         }
       ]
     }
-    
-    const SubTitle = styled.h2`
-      font-size: 1.5em;
-      padding-bottom: 30px;
+
+    const Title = styled.h1`
+      padding: 0 0 0.4em 0;
+    `
+
+    const CreateDate = styled.div`
       text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1em;
+      padding-bottom: 3.125em;
     `
 
     const BodyCopy = styled.div`
@@ -121,6 +127,7 @@ class RecipeTemplate extends React.Component<any> {
 
     const post = get(this.props, 'data.contentfulRecipe')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const postCreate = dateformat(this.props.createdAt, "fullDate")
 
     return (
       <Layout location={this.props.location}>
@@ -130,8 +137,8 @@ class RecipeTemplate extends React.Component<any> {
             <div className="row">
               <div className="col3" />
               <div className="col6">
-                <h1 className="section-headline">{post.title}</h1>
-                <SubTitle>{post.subtitle}</SubTitle>
+                <Title className="section-headline">{post.title}</Title>
+                <CreateDate>{postCreate}</CreateDate>
               </div>
               <div className="col3" />
             </div>
@@ -212,6 +219,7 @@ export const pageQuery = graphql`
         rawMarkdownBody
       }
     }
+    createdAt
     heroImage {
       file {
         url

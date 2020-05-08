@@ -18,7 +18,8 @@ const NewsletterSignup = () => {
 }
 
 const NewsletterSignupTitle = styled.h3`
-    font-size: 1.5em;
+  color: #FFFFFF;
+  font-size: 1.5em;
 `
 
 const NewsletterSignupInput = styled.input`
