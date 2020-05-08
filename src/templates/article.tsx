@@ -26,7 +26,8 @@ class ArticleTemplate extends React.Component<any> {
         title: 'May Articles',
         description: "I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage",
         buttonCaption: 'Explore May Posts',
-        slug: '/articles'
+        slug: '/articles',
+        theme: HeaderTheme.DARK
       },
       features: [
         {

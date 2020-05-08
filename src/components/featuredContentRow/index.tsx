@@ -9,6 +9,7 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
   const detailPosition = Math.floor(Math.random() * (props.features.length - 0 + 1));
   const items = [];
   let b = 0;
+  console.log("YOYO: ", props.details)
   for (let a = 0; a < maxNumber; a++) {
     if (a === detailPosition) {
       items.push(

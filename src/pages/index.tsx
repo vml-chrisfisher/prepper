@@ -10,6 +10,7 @@ import HomeHero from '../components/homeHero';
 import Layout from '../components/layout';
 import VideoBackground from '../components/videoBackground';
 import styles from './blog.css';
+import { HeaderTheme } from '../components/header/interface'
 
 class RootIndex extends React.Component<any> {
   render() {
@@ -55,7 +56,8 @@ class RootIndex extends React.Component<any> {
         title: 'May Articles',
         description: "I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage",
         buttonCaption: 'Explore May Posts',
-        slug: '/articles'
+        slug: '/articles',
+        theme: HeaderTheme.LIGHT
       },
       features: [
         {
@@ -91,7 +93,7 @@ class RootIndex extends React.Component<any> {
             <FeaturedContentRow {...recipeFeatures} />
             <FeaturedContentRow {...articleFeatures} />
             <GeneralContentRow />
-            <Footer />
+            <Footer {...{ theme: HeaderTheme.LIGHT }} />
           </div>
         </div>
       </Layout>

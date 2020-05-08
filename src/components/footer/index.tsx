@@ -77,7 +77,7 @@ class Footer extends PureComponent<FooterProps> {
 
 
 const FooterTitle = styled.div<themeProps>`
-  color: ${(props) => {
+  color: ${(props) => { 
     return (props.theme === 'white' ? '#FFFFFF' : '#464646')
   }};
   font-size: 1.5em;
@@ -96,7 +96,9 @@ const FooterParagraph = styled.div<themeProps>`
 `
 
 const FooterLinkMain = styled.a<themeProps>`
-  border-bottom: #FFFFFF solid .5px;
+  border-bottom: ${(props) => {
+    return (props.theme === 'white' ? '#FFFFFF solid .5px' : '#464646 solid .5px')
+  }};
   color: ${(props) => {
     return (props.theme === 'white' ? '#FFFFFF' : '#464646')
   }};
