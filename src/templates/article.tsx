@@ -62,7 +62,7 @@ class ArticleTemplate extends React.Component<any> {
       font-family: 'Nunito', sans-serif;
       padding-right: 20px;
       text-transform: uppercase;
-  `
+    `
 
     const BodyCopy = styled.div`
       color: #464646;
