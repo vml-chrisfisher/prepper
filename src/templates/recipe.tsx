@@ -145,24 +145,32 @@ class RecipeTemplate extends React.Component<any> {
 
             <img src={post.heroImage.file.url} />
             <div className="row">
-              <div className="col4"></div>
-              <div className="col4">
+              <div className="col3"></div>
+              <div className="col6">
                 <BodyCopy dangerouslySetInnerHTML={
                   { __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody }
                 }></BodyCopy>
               </div>
-              <div className="col4"></div>
+              <div className="col3"></div>
               <div className="col2" />
               <div className="col8">
               <div>
                   <IngredientContainer>
                     <IngredientTitle>Ingredients</IngredientTitle>
                   {
-                    post.ingredients.map((ingredient: any) => {
+                    post.recipeGroup.map((recipeGroup: any) => {
                       return(
-                        <Ingredient>
-                          {ingredient.quantity && <span>{ingredient.quantity} {ingredient.ingredients} {ingredient.prep && <span>, {ingredient.prep}</span>}</span>}
-                        </Ingredient>
+                        <div>
+                          {recipeGroup.displayName && <div>{recipeGroup.displayName}</div>}
+                          {
+                            recipeGroup.ingredients.map((ingredient: any) => {
+                              console.log(ingredient);
+                              return(<Ingredient>
+                                {ingredient.recipeQuantity && <span dangerouslySetInnerHTML={{ __html: ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark.rawMarkdownBody }}></span>} {ingredient.recipeQuantity.recipeMeasurement.mesurement && <span>{ingredient.recipeQuantity.recipeMeasurement.mesurement.childMarkdownRemark.rawMarkdownBody}</span>} {ingredient.ingredient.ingredient}{ingredient.prep && <span>, {ingredient.prep.prep}</span>}
+                              </Ingredient>)
+                            })
+                          }
+                        </div>
                       )
                     })
                   }
@@ -170,10 +178,21 @@ class RecipeTemplate extends React.Component<any> {
                   <InstructionContainer>
                     <InstructionTitle>Instructions</InstructionTitle>
                   {
-                    post.instructions.map((instruction: any, index: number) => {
-                      return(<Instruction dangerouslySetInnerHTML={
-                        { __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody }
-                      }></Instruction>)
+                      post.recipeInstructionGroups.map((instructionGroup: any, index: number) => {
+                        return (
+                          <div>
+                          {instructionGroup.displayName && <div>{instructionGroup.displayName}</div>}
+                          {
+                            instructionGroup.instructions.map((instruction: any, index: number) => {
+                              (
+                                <Instruction dangerouslySetInnerHTML={
+                                  { __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody }
+                                }></Instruction>
+                              )
+                              })
+                          }
+                          </div>
+                        )
                     })
                   }
                   </InstructionContainer>
@@ -214,27 +233,14 @@ export default RecipeTemplate
 export const pageQuery = graphql`
   query RecipeBySlug($slug: String) {
     contentfulRecipe(slug: {eq: $slug}) {
-      bodyCopy {
+    bodyCopy {
       childMarkdownRemark {
         rawMarkdownBody
       }
     }
-    createdAt
     heroImage {
       file {
         url
-      }
-    }
-    ingredients {
-      quantity
-      prep
-      ingredients
-    }
-    instructions {
-      instruction {
-        childMarkdownRemark {
-          rawMarkdownBody
-        }
       }
     }
     mealType
@@ -242,6 +248,45 @@ export const pageQuery = graphql`
     slug
     title
     vegetableType
+    recipeGroup {
+      recipeGroupName
+      ingredients {
+        prep {
+          prep
+        }
+        ingredient {
+          ingredient
+        }
+        recipeQuantity {
+          recipeQuantity {
+            quantity {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
+          }
+          recipeMeasurement {
+            mesurement {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
+          }
+        }
+      }
+      displayName
     }
+    recipeInstructionGroups {
+      recipeGroupName
+      instructions {
+        instruction {
+          childMarkdownRemark {
+            rawMarkdownBody
+          }
+        }
+      }
+      displayName
+    }
+  }
   }
 `
