@@ -1,11 +1,12 @@
-import styled from '@emotion/styled'
-import React, { PureComponent } from 'react'
+import styled from '@emotion/styled';
+import React, { PureComponent } from 'react';
 import {
   HeaderMenuType,
   HeaderProps,
   HeaderState,
-  HeaderTheme
-} from './interface'
+  HeaderTheme,
+  ProductFamily
+  } from './interface';
 
 interface menuProps {
   isUp: boolean
@@ -67,6 +68,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   }
 
   componentDidMount = () => {
+    if (this.props.onFetch) {
+      this.props.onFetch()
+    }
     this.setState(state => (
       { ...state, headerParent: document.getElementsByTagName('header')[0]}
     ))
@@ -127,10 +131,11 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
             <HeaderMainNav>
               <ul>
                 <HeaderNavHeaderLi>Plants</HeaderNavHeaderLi>
-                <HeaderNavItem>Fruits</HeaderNavItem>
-                <HeaderNavItem>Grains</HeaderNavItem>
-                <HeaderNavItem>Herbs</HeaderNavItem>
-                <HeaderNavItem>Vegetables</HeaderNavItem>
+                {this.props.data?.map((top: ProductFamily) => {
+                  return(
+                    <HeaderNavItem>{top.name}</HeaderNavItem>
+                  )
+                })}
               </ul>
             </HeaderMainNav>
           </Col3Full>

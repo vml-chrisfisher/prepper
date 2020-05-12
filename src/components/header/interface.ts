@@ -12,12 +12,45 @@ export enum HeaderMenuType {
 
 export interface HeaderProps {
   theme: HeaderTheme
-  isUp?: boolean
+  isUp?: boolean,
+  data?: ProductFamily[],
+  categories?: ProductCategory[],
+  categoryDetail?: ProductCategory
+  onFetch?: () => void
 }
 
 export interface HeaderState {
   menuUp: boolean,
   menuType: HeaderMenuType,
-  headerParent?: HTMLElement
+  headerParent?: HTMLElement,
+}
+
+export interface ProductFamily {
+  productId: string,
+  name: string,
+  categories:ProductCategory[]
+}
+ 
+export interface ProductCategory {
+  productId: string,
+  name: string,
+  varieties: ProductVariety[]
+}
+
+export interface ProductVariety {
+  productId: string,
+  name: string,
+  offerings: ProductOffering[]
+}
+
+export interface ProductOffering {
+  type: string,
+  offerings: Product[]
+}
+
+export interface Product {
+  productId: string,
+  quantity: number,
+  price: number
 }
 

@@ -1,9 +1,9 @@
-import { Link } from 'gatsby'
-import React from 'react'
-import Helmet from 'react-helmet'
-import Container from './container'
-import Header from './header/header'
-import { HeaderProps, HeaderTheme } from './header/interface'
+import { Link } from 'gatsby';
+import React from 'react';
+import Helmet from 'react-helmet';
+import Container from './container';
+import HeaderContainer from './header/container';
+import { HeaderProps, HeaderTheme } from './header/interface';
 
 
 interface Props {
@@ -30,7 +30,7 @@ const Layout = ({ location, children }: Props) => {
       <Helmet>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap" rel="stylesheet" />
       </Helmet>
-      <Header {...theme} />
+      <HeaderContainer {...theme} />
       {children}
     </Container>
   )
