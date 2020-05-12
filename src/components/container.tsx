@@ -350,6 +350,32 @@ nav {
   border: #464646 solid 0.5px;
   color: #464646;
 }
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.fadeIn {
+  opacity: 1.0;
+  -webkit-transition: opacity 2s ease-out;
+  -moz-transition: opacity 2s ease-out;
+  -ms-transition: opacity 2s ease-out;
+  -o-transition: opacity 2s ease-out;
+  transition: opacity 2s ease-out;
+}
+
+.fadeOut {
+  opacity: 0.0;
+  -webkit-transition: opacity 2s ease-out;
+  -moz-transition: opacity 2s ease-out;
+  -ms-transition: opacity 2s ease-out;
+  -o-transition: opacity 2s ease-out;
+  transition: opacity 2s ease-out;
+}
         `}
     />
     <div>
