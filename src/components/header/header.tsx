@@ -5,7 +5,8 @@ import {
   HeaderProps,
   HeaderState,
   HeaderTheme,
-  ProductFamily
+  ProductFamily,
+  ProductCategory
   } from './interface';
 
 interface menuProps {
@@ -133,7 +134,11 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 <HeaderNavHeaderLi>Plants</HeaderNavHeaderLi>
                 {this.props.data?.map((top: ProductFamily) => {
                   return(
-                    <HeaderNavItem>{top.name}</HeaderNavItem>
+                    <HeaderNavItem onClick={() => { 
+                      if(this.props.onFamilySelected) {
+                        this.props.onFamilySelected(top.productId)
+                      }
+                    }}>{top.name}</HeaderNavItem>
                   )
                 })}
               </ul>
@@ -141,27 +146,28 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
           </Col3Full>
           <DetailSection6 className="col6">
             <Columns>
-              <HeaderDetailItem>Artichokes</HeaderDetailItem>
-              <HeaderDetailItem>Beans</HeaderDetailItem>
-              <HeaderDetailItem>Field Peas</HeaderDetailItem>
-              <HeaderDetailItem>Broccoli</HeaderDetailItem>
-              <HeaderDetailItem>Cabbage</HeaderDetailItem>
-              <HeaderDetailItem>Carrots</HeaderDetailItem>
-              <HeaderDetailItem>Cucumbers</HeaderDetailItem>
-              <HeaderDetailItem>Green Beans</HeaderDetailItem>
-              <HeaderDetailItem>Hot Peppers</HeaderDetailItem>
-              <HeaderDetailItem>Lettuce</HeaderDetailItem>
-              <HeaderDetailItem>Okra</HeaderDetailItem>
-              <HeaderDetailItem>Peppers</HeaderDetailItem>
-              <HeaderDetailItem>Spinach</HeaderDetailItem>
-              <HeaderDetailItem>Squash</HeaderDetailItem>
-              <HeaderDetailItem>Tomato</HeaderDetailItem>
-              <HeaderDetailItem>Zucchini</HeaderDetailItem>
+                {
+                  this.props.categories?.map((category: ProductCategory) => {
+                    return(
+                      <HeaderDetailItem onMouseOver={() => {
+                        if (this.props.onCategorySelected) {
+                          this.props.onCategorySelected(category.productId)
+                        }
+                      }}
+                      onMouseOut={() => {
+                        if (this.props.onCategorySelected) {
+                          this.props.onCategorySelected()
+                        }
+                      }}
+                      >{category.name}</HeaderDetailItem>
+                    )
+                  })
+                }
             </Columns>
           </DetailSection6>
           <DetailSection23 className="col3">
-            <HeaderNavDetailImg src={'/okra_square.jpg'} />
-            <HeaderNavDetailP className="darkText">I’m baby etsy leggings cray biodiesel chartreuse raclette tote bag kickstarter shoreditch trust fund you probably haven’t heard of them copper mug aliquip disrupt eu.</HeaderNavDetailP>
+            {this.props.categoryDetail?.imagePath && <HeaderNavDetailImg src={this.props.categoryDetail.imagePath} />}
+              {this.props.categoryDetail?.copy && <HeaderNavDetailP className="darkText">{this.props.categoryDetail.copy}</HeaderNavDetailP>}
           </DetailSection23>
         </HeaderInner12>
 

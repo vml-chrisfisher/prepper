@@ -1,4 +1,3 @@
-
 export enum HeaderTheme {
   LIGHT = "white",
   DARK = "dark"
@@ -15,8 +14,10 @@ export interface HeaderProps {
   isUp?: boolean,
   data?: ProductFamily[],
   categories?: ProductCategory[],
-  categoryDetail?: ProductCategory
-  onFetch?: () => void
+  categoryDetail?: ProductCategoryDetail,
+  onFetch?: () => void,
+  onFamilySelected?: (id: string) => void,
+  onCategorySelected?: (id?: string) => void
 }
 
 export interface HeaderState {
@@ -28,13 +29,18 @@ export interface HeaderState {
 export interface ProductFamily {
   productId: string,
   name: string,
-  categories:ProductCategory[]
+  categories: ProductCategory[]
 }
- 
+
 export interface ProductCategory {
   productId: string,
   name: string,
   varieties: ProductVariety[]
+}
+
+export interface ProductCategoryDetail {
+  imagePath?: string,
+  copy?: string
 }
 
 export interface ProductVariety {

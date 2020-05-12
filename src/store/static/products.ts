@@ -1,23 +1,23 @@
 export const products = [
   {
-    "productId" : "G-1",
-    "name" : "Grains",
+    "productId": "G-1",
+    "name": "Grains",
     "categories": [
       {
         "productId": "G-2",
         "name": "Corn",
         "varieties": [
           {
-            "productId" : "G-3",
-            "name" : "Dent",
+            "productId": "G-3",
+            "name": "Dent",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "G-4",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "G-5",
@@ -1305,7 +1305,7 @@ export const products = [
       },
       {
         "productId": "G-180",
-        "name": "Couscous",
+        "name": "Sesame Seeds",
         "varieties": [
           {
             "productId": "G-181",
@@ -1516,7 +1516,7 @@ export const products = [
     ]
   },
   {
-    "productId" : "F-1",
+    "productId": "F-1",
     "name": "Fruits",
     "categories": [
       {
@@ -4414,28 +4414,28 @@ export const products = [
     ]
   },
   {
-    "productId" : "H-1",
+    "productId": "H-1",
     "name": "Herbs"
   },
   {
-    "productId" : "V-1",
-    "name" : "Vegetables",
+    "productId": "V-1",
+    "name": "Vegetables",
     "categories": [
       {
         "productId": "V-2",
         "name": "Artichokes",
         "varieties": [
           {
-            "productId" : "V-3",
-            "name" : "Globe",
+            "productId": "V-3",
+            "name": "Globe",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-4",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-5",
@@ -4477,16 +4477,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-9",
-            "name" : "Elongated",
+            "productId": "V-9",
+            "name": "Elongated",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-10",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-11",
@@ -4535,16 +4535,16 @@ export const products = [
         "name": "Beans",
         "varieties": [
           {
-            "productId" : "V-17",
-            "name" : "Domino",
+            "productId": "V-17",
+            "name": "Domino",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-18",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-19",
@@ -4586,16 +4586,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-24",
-            "name" : "Black Magic",
+            "productId": "V-24",
+            "name": "Black Magic",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-25",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-26",
@@ -4637,16 +4637,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-31",
-            "name" : "Blackhawk",
+            "productId": "V-31",
+            "name": "Blackhawk",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-32",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-33",
@@ -4688,16 +4688,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-38",
-            "name" : "Condor",
+            "productId": "V-38",
+            "name": "Condor",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-39",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-40",
@@ -4739,16 +4739,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-45",
-            "name" : "Raven",
+            "productId": "V-45",
+            "name": "Raven",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-46",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-47",
@@ -4796,16 +4796,16 @@ export const products = [
         "name": "Field Pea",
         "varieties": [
           {
-            "productId" : "V-53",
-            "name" : "Big Red Ripper",
+            "productId": "V-53",
+            "name": "Big Red Ripper",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-54",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-55",
@@ -4847,16 +4847,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-60",
-            "name" : "Zipper",
+            "productId": "V-60",
+            "name": "Zipper",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-61",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-62",
@@ -4898,16 +4898,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-67",
-            "name" : "Rucker",
+            "productId": "V-67",
+            "name": "Rucker",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-68",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-69",
@@ -4949,16 +4949,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-74",
-            "name" : "Stick Up",
+            "productId": "V-74",
+            "name": "Stick Up",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-75",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-76",
@@ -5000,16 +5000,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-81",
-            "name" : "Old Timer",
+            "productId": "V-81",
+            "name": "Old Timer",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-82",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-83",
@@ -5051,16 +5051,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-88",
-            "name" : "Turkey Craw",
+            "productId": "V-88",
+            "name": "Turkey Craw",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-89",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-90",
@@ -5102,16 +5102,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-95",
-            "name" : "Purple Hull",
+            "productId": "V-95",
+            "name": "Purple Hull",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-96",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-97",
@@ -5153,16 +5153,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-102",
-            "name" : "Pinkeye",
+            "productId": "V-102",
+            "name": "Pinkeye",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-103",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-104",
@@ -5204,16 +5204,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-109",
-            "name" : "Crowder",
+            "productId": "V-109",
+            "name": "Crowder",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-110",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-111",
@@ -5255,16 +5255,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-116",
-            "name" : "Wash Day",
+            "productId": "V-116",
+            "name": "Wash Day",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-117",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-118",
@@ -5306,16 +5306,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-123",
-            "name" : "Iron Clay",
+            "productId": "V-123",
+            "name": "Iron Clay",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-124",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-125",
@@ -5363,16 +5363,16 @@ export const products = [
         "name": "Broccoli",
         "varieties": [
           {
-            "productId" : "V-131",
-            "name" : "Blue Wind",
+            "productId": "V-131",
+            "name": "Blue Wind",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-132",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-133",
@@ -5414,16 +5414,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-138",
-            "name" : "De Cicco",
+            "productId": "V-138",
+            "name": "De Cicco",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-139",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-140",
@@ -5465,16 +5465,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-145",
-            "name" : "Calabrese",
+            "productId": "V-145",
+            "name": "Calabrese",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-146",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-147",
@@ -5516,16 +5516,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-152",
-            "name" : "Arcadia",
+            "productId": "V-152",
+            "name": "Arcadia",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-153",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-154",
@@ -5573,16 +5573,16 @@ export const products = [
         "name": "Cabbage",
         "varieties": [
           {
-            "productId" : "V-160",
-            "name" : "Primero",
+            "productId": "V-160",
+            "name": "Primero",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-161",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-162",
@@ -5624,16 +5624,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-167",
-            "name" : "Ruby Ball",
+            "productId": "V-167",
+            "name": "Ruby Ball",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-168",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-169",
@@ -5675,16 +5675,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-174",
-            "name" : "Kaitlin",
+            "productId": "V-174",
+            "name": "Kaitlin",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-175",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-176",
@@ -5726,16 +5726,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-181",
-            "name" : "Danish Ballhead",
+            "productId": "V-181",
+            "name": "Danish Ballhead",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-182",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-183",
@@ -5777,16 +5777,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-188",
-            "name" : "Storage No. 4",
+            "productId": "V-188",
+            "name": "Storage No. 4",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-189",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-190",
@@ -5828,16 +5828,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-195",
-            "name" : "Caraflex",
+            "productId": "V-195",
+            "name": "Caraflex",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-196",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-197",
@@ -5879,16 +5879,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-202",
-            "name" : "Chinese Napa",
+            "productId": "V-202",
+            "name": "Chinese Napa",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-203",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-204",
@@ -5930,16 +5930,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-209",
-            "name" : "Rubicon",
+            "productId": "V-209",
+            "name": "Rubicon",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-210",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-211",
@@ -5981,16 +5981,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-216",
-            "name" : "Bilko",
+            "productId": "V-216",
+            "name": "Bilko",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-217",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-218",
@@ -6038,16 +6038,16 @@ export const products = [
         "name": "Carrots",
         "varieties": [
           {
-            "productId" : "V-224",
-            "name" : "Scarlet Nantes",
+            "productId": "V-224",
+            "name": "Scarlet Nantes",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-225",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-226",
@@ -6089,16 +6089,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-231",
-            "name" : "Bolero",
+            "productId": "V-231",
+            "name": "Bolero",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-232",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-233",
@@ -6140,16 +6140,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-238",
-            "name" : "Nelson",
+            "productId": "V-238",
+            "name": "Nelson",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-239",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-240",
@@ -6191,16 +6191,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-245",
-            "name" : "Yaya",
+            "productId": "V-245",
+            "name": "Yaya",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-246",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-247",
@@ -6242,16 +6242,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-252",
-            "name" : "Napa",
+            "productId": "V-252",
+            "name": "Napa",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-253",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-254",
@@ -6293,16 +6293,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-259",
-            "name" : "Touchon",
+            "productId": "V-259",
+            "name": "Touchon",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-260",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-261",
@@ -6344,16 +6344,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-266",
-            "name" : "Parano",
+            "productId": "V-266",
+            "name": "Parano",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-267",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-268",
@@ -6395,16 +6395,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-273",
-            "name" : "Kaleidoscope Mix",
+            "productId": "V-273",
+            "name": "Kaleidoscope Mix",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-274",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-275",
@@ -6446,16 +6446,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-280",
-            "name" : "White Satin",
+            "productId": "V-280",
+            "name": "White Satin",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-281",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-282",
@@ -6548,16 +6548,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-944",
-            "name" : "Purple Dragon",
+            "productId": "V-944",
+            "name": "Purple Dragon",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-945",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-946",
@@ -6599,16 +6599,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-951",
-            "name" : "Cosmic Purple",
+            "productId": "V-951",
+            "name": "Cosmic Purple",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-952",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-953",
@@ -6650,16 +6650,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-958",
-            "name" : "Imperator",
+            "productId": "V-958",
+            "name": "Imperator",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-959",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-960",
@@ -6803,16 +6803,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-979",
-            "name" : "Chantenay",
+            "productId": "V-979",
+            "name": "Chantenay",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-980",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-981",
@@ -6905,16 +6905,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-993",
-            "name" : "Hercules",
+            "productId": "V-993",
+            "name": "Hercules",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-994",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-995",
@@ -7064,16 +7064,16 @@ export const products = [
         "name": "Cucumbers",
         "varieties": [
           {
-            "productId" : "V-288",
-            "name" : "Ashley",
+            "productId": "V-288",
+            "name": "Ashley",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-289",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-290",
@@ -7115,16 +7115,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-295",
-            "name" : "Straight 8",
+            "productId": "V-295",
+            "name": "Straight 8",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-296",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-297",
@@ -7166,16 +7166,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-302",
-            "name" : "Marketmore 76",
+            "productId": "V-302",
+            "name": "Marketmore 76",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-303",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-304",
@@ -7217,16 +7217,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-309",
-            "name" : "Muncher",
+            "productId": "V-309",
+            "name": "Muncher",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-310",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-311",
@@ -7268,16 +7268,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-316",
-            "name" : "Tendergreen",
+            "productId": "V-316",
+            "name": "Tendergreen",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-317",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-318",
@@ -7319,16 +7319,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-323",
-            "name" : "Green Fingers Persian",
+            "productId": "V-323",
+            "name": "Green Fingers Persian",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-324",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-325",
@@ -7370,16 +7370,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-330",
-            "name" : "Chelsia Price",
+            "productId": "V-330",
+            "name": "Chelsia Price",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-331",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-332",
@@ -7421,16 +7421,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-337",
-            "name" : "Chinese Snake",
+            "productId": "V-337",
+            "name": "Chinese Snake",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-338",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-339",
@@ -7472,16 +7472,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-344",
-            "name" : "Homemade Pickling Cucumbers",
+            "productId": "V-344",
+            "name": "Homemade Pickling Cucumbers",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-345",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-346",
@@ -7625,16 +7625,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1027",
-            "name" : "Lemon",
+            "productId": "V-1027",
+            "name": "Lemon",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1028",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1029",
@@ -7727,16 +7727,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1041",
-            "name" : "Spacemaster",
+            "productId": "V-1041",
+            "name": "Spacemaster",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1042",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1043",
@@ -7835,16 +7835,16 @@ export const products = [
         "name": "Green Beans",
         "varieties": [
           {
-            "productId" : "V-352",
-            "name" : "Jade",
+            "productId": "V-352",
+            "name": "Jade",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-353",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-354",
@@ -7886,16 +7886,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-359",
-            "name" : "Maxibel",
+            "productId": "V-359",
+            "name": "Maxibel",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-360",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-361",
@@ -7937,16 +7937,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-366",
-            "name" : "Contender",
+            "productId": "V-366",
+            "name": "Contender",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-367",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-368",
@@ -7988,16 +7988,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-373",
-            "name" : "Provider",
+            "productId": "V-373",
+            "name": "Provider",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-374",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-375",
@@ -8039,16 +8039,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-380",
-            "name" : "Rolande",
+            "productId": "V-380",
+            "name": "Rolande",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-381",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-382",
@@ -8090,16 +8090,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-387",
-            "name" : "Blue Lake",
+            "productId": "V-387",
+            "name": "Blue Lake",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-388",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-389",
@@ -8141,16 +8141,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-394",
-            "name" : "Tendergreen",
+            "productId": "V-394",
+            "name": "Tendergreen",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-395",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-396",
@@ -8192,16 +8192,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-401",
-            "name" : "Dragon Tongue",
+            "productId": "V-401",
+            "name": "Dragon Tongue",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-402",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-403",
@@ -8243,16 +8243,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-407",
-            "name" : "Soleil",
+            "productId": "V-407",
+            "name": "Soleil",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-408",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-409",
@@ -8301,16 +8301,16 @@ export const products = [
         "name": "Hot Peppers",
         "varieties": [
           {
-            "productId" : "V-415",
-            "name" : "Nu Mex Joe Parker",
+            "productId": "V-415",
+            "name": "Nu Mex Joe Parker",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-416",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-417",
@@ -8352,16 +8352,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-422",
-            "name" : "Big Jim",
+            "productId": "V-422",
+            "name": "Big Jim",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-423",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-424",
@@ -8403,16 +8403,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-429",
-            "name" : "Early Jalapenu",
+            "productId": "V-429",
+            "name": "Early Jalapenu",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-430",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-431",
@@ -8454,16 +8454,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-436",
-            "name" : "Conchos",
+            "productId": "V-436",
+            "name": "Conchos",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-437",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-438",
@@ -8505,16 +8505,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-443",
-            "name" : "Serrano del Sol",
+            "productId": "V-443",
+            "name": "Serrano del Sol",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-444",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-445",
@@ -8556,16 +8556,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-450",
-            "name" : "Guerro",
+            "productId": "V-450",
+            "name": "Guerro",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-451",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-452",
@@ -8607,16 +8607,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-457",
-            "name" : "Bulfarian Carrot",
+            "productId": "V-457",
+            "name": "Bulfarian Carrot",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-458",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-459",
@@ -8658,16 +8658,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-464",
-            "name" : "Habanero",
+            "productId": "V-464",
+            "name": "Habanero",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-465",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-466",
@@ -8709,16 +8709,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-471",
-            "name" : "Hot Paper Latern",
+            "productId": "V-471",
+            "name": "Hot Paper Latern",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-472",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-473",
@@ -8913,16 +8913,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1076",
-            "name" : "Mirasol",
+            "productId": "V-1076",
+            "name": "Mirasol",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1077",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1078",
@@ -9022,16 +9022,16 @@ export const products = [
         "name": "Lettuce",
         "varieties": [
           {
-            "productId" : "V-479",
-            "name" : "Red Oak Leaf",
+            "productId": "V-479",
+            "name": "Red Oak Leaf",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-480",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-481",
@@ -9073,16 +9073,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-486",
-            "name" : "Green Oak Leaf",
+            "productId": "V-486",
+            "name": "Green Oak Leaf",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-487",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-488",
@@ -9124,16 +9124,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-493",
-            "name" : "Red Salad Bowl",
+            "productId": "V-493",
+            "name": "Red Salad Bowl",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-494",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-495",
@@ -9175,16 +9175,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-500",
-            "name" : "Red Sails",
+            "productId": "V-500",
+            "name": "Red Sails",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-501",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-502",
@@ -9226,16 +9226,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-507",
-            "name" : "Blushed Butter Oak",
+            "productId": "V-507",
+            "name": "Blushed Butter Oak",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-508",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-509",
@@ -9277,16 +9277,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-514",
-            "name" : "Burgandy Boston",
+            "productId": "V-514",
+            "name": "Burgandy Boston",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-515",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-516",
@@ -9328,16 +9328,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-521",
-            "name" : "Merveille Des Quatre Saisons",
+            "productId": "V-521",
+            "name": "Merveille Des Quatre Saisons",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-522",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-523",
@@ -9379,16 +9379,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-528",
-            "name" : "Drunken Woman Frizzy Headed",
+            "productId": "V-528",
+            "name": "Drunken Woman Frizzy Headed",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-529",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-530",
@@ -9430,16 +9430,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-535",
-            "name" : "Speckles",
+            "productId": "V-535",
+            "name": "Speckles",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-536",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-537",
@@ -9532,16 +9532,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1096",
-            "name" : "TomThumb",
+            "productId": "V-1096",
+            "name": "TomThumb",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1097",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1098",
@@ -9634,16 +9634,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1110",
-            "name" : "Breen",
+            "productId": "V-1110",
+            "name": "Breen",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1111",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1112",
@@ -9838,16 +9838,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1138",
-            "name" : "Buttercrunch",
+            "productId": "V-1138",
+            "name": "Buttercrunch",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1139",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1140",
@@ -10100,16 +10100,16 @@ export const products = [
         "name": "Peppers",
         "varieties": [
           {
-            "productId" : "V-543",
-            "name" : "Olympus",
+            "productId": "V-543",
+            "name": "Olympus",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-544",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-545",
@@ -10151,16 +10151,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-550",
-            "name" : "Vidi",
+            "productId": "V-550",
+            "name": "Vidi",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-551",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-552",
@@ -10202,16 +10202,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-557",
-            "name" : "California Wonder",
+            "productId": "V-557",
+            "name": "California Wonder",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-558",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-559",
@@ -10253,16 +10253,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-564",
-            "name" : "Yolo Wonder",
+            "productId": "V-564",
+            "name": "Yolo Wonder",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-565",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-566",
@@ -10304,16 +10304,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-571",
-            "name" : "Ace",
+            "productId": "V-571",
+            "name": "Ace",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-572",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-573",
@@ -10355,16 +10355,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-578",
-            "name" : "Staddon's Select",
+            "productId": "V-578",
+            "name": "Staddon's Select",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-579",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-580",
@@ -10406,16 +10406,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-585",
-            "name" : "Gourmet",
+            "productId": "V-585",
+            "name": "Gourmet",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-586",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-587",
@@ -10457,16 +10457,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-592",
-            "name" : "Horizon Orange",
+            "productId": "V-592",
+            "name": "Horizon Orange",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-593",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-594",
@@ -10508,16 +10508,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-599",
-            "name" : "Valencia",
+            "productId": "V-599",
+            "name": "Valencia",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-600",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-601",
@@ -10661,16 +10661,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1187",
-            "name" : "Chocolate Bell",
+            "productId": "V-1187",
+            "name": "Chocolate Bell",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1188",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1189",
@@ -10712,16 +10712,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1194",
-            "name" : "Pequillo",
+            "productId": "V-1194",
+            "name": "Pequillo",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1195",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1196",
@@ -10763,16 +10763,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1201",
-            "name" : "Lipstick",
+            "productId": "V-1201",
+            "name": "Lipstick",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1202",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1203",
@@ -11069,16 +11069,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1243",
-            "name" : "Gather's Gold",
+            "productId": "V-1243",
+            "name": "Gather's Gold",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1244",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1245",
@@ -11120,16 +11120,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1250",
-            "name" : "Jimmy Nardello",
+            "productId": "V-1250",
+            "name": "Jimmy Nardello",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1251",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1252",
@@ -11171,16 +11171,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1257",
-            "name" : "Italian Pepperoncini",
+            "productId": "V-1257",
+            "name": "Italian Pepperoncini",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1258",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1259",
@@ -11228,16 +11228,16 @@ export const products = [
         "name": "Spinach",
         "varieties": [
           {
-            "productId" : "V-607",
-            "name" : "Tyee",
+            "productId": "V-607",
+            "name": "Tyee",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-608",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-609",
@@ -11279,16 +11279,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-614",
-            "name" : "Catalina",
+            "productId": "V-614",
+            "name": "Catalina",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-615",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-616",
@@ -11330,16 +11330,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-621",
-            "name" : "Teton",
+            "productId": "V-621",
+            "name": "Teton",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-662",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-663",
@@ -11381,16 +11381,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-668",
-            "name" : "Indian Summer",
+            "productId": "V-668",
+            "name": "Indian Summer",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-669",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-670",
@@ -11432,16 +11432,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-675",
-            "name" : "Space",
+            "productId": "V-675",
+            "name": "Space",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-676",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-678",
@@ -11483,16 +11483,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-683",
-            "name" : "Red Cardinal",
+            "productId": "V-683",
+            "name": "Red Cardinal",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-684",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-685",
@@ -11534,16 +11534,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-690",
-            "name" : "New Zealand",
+            "productId": "V-690",
+            "name": "New Zealand",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-691",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-692",
@@ -11585,16 +11585,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-697",
-            "name" : "Malabar",
+            "productId": "V-697",
+            "name": "Malabar",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-698",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-699",
@@ -11643,16 +11643,16 @@ export const products = [
         "name": "Squash",
         "varieties": [
           {
-            "productId" : "V-705",
-            "name" : "Golden Bush Scallop",
+            "productId": "V-705",
+            "name": "Golden Bush Scallop",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-706",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-707",
@@ -11694,16 +11694,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-712",
-            "name" : "Starship",
+            "productId": "V-712",
+            "name": "Starship",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-713",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-714",
@@ -11745,16 +11745,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-719",
-            "name" : "Sunburst",
+            "productId": "V-719",
+            "name": "Sunburst",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-720",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-721",
@@ -11796,16 +11796,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-726",
-            "name" : "Peter pan",
+            "productId": "V-726",
+            "name": "Peter pan",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-727",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-728",
@@ -11847,16 +11847,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-733",
-            "name" : "Benning's Green Tint",
+            "productId": "V-733",
+            "name": "Benning's Green Tint",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-734",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-735",
@@ -11898,16 +11898,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-740",
-            "name" : "Yellow Crookneck",
+            "productId": "V-740",
+            "name": "Yellow Crookneck",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-741",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-742",
@@ -11949,16 +11949,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-747",
-            "name" : "Golden Egg",
+            "productId": "V-747",
+            "name": "Golden Egg",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-748",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-749",
@@ -12000,16 +12000,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-754",
-            "name" : "One Ball",
+            "productId": "V-754",
+            "name": "One Ball",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-755",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-756",
@@ -12051,16 +12051,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-761",
-            "name" : "Table Queen",
+            "productId": "V-761",
+            "name": "Table Queen",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-762",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-763",
@@ -12204,16 +12204,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1278",
-            "name" : "Bonbon Buttercup",
+            "productId": "V-1278",
+            "name": "Bonbon Buttercup",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1279",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1280",
@@ -12255,16 +12255,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1285",
-            "name" : "Burgess Buttercup",
+            "productId": "V-1285",
+            "name": "Burgess Buttercup",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1286",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1287",
@@ -12306,16 +12306,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1292",
-            "name" : "Winter Sweet",
+            "productId": "V-1292",
+            "name": "Winter Sweet",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1293",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1294",
@@ -12408,16 +12408,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1306",
-            "name" : "Shokichi Shiro",
+            "productId": "V-1306",
+            "name": "Shokichi Shiro",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1307",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1308",
@@ -12510,16 +12510,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1320",
-            "name" : "Muscee de Provence",
+            "productId": "V-1320",
+            "name": "Muscee de Provence",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1321",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1322",
@@ -12714,16 +12714,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1348",
-            "name" : "Long Island Cheese",
+            "productId": "V-1348",
+            "name": "Long Island Cheese",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1349",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1350",
@@ -12765,16 +12765,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1355",
-            "name" : "Waltham Butternut",
+            "productId": "V-1355",
+            "name": "Waltham Butternut",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1356",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1357",
@@ -12816,16 +12816,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1362",
-            "name" : "Burpee Butterbush",
+            "productId": "V-1362",
+            "name": "Burpee Butterbush",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1363",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1364",
@@ -12969,16 +12969,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1383",
-            "name" : "Sweet Meat",
+            "productId": "V-1383",
+            "name": "Sweet Meat",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1384",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1385",
@@ -13128,16 +13128,16 @@ export const products = [
         "name": "Tomato",
         "varieties": [
           {
-            "productId" : "V-769",
-            "name" : "Sweet 100",
+            "productId": "V-769",
+            "name": "Sweet 100",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-770",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-771",
@@ -13179,16 +13179,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-776",
-            "name" : "Sungold",
+            "productId": "V-776",
+            "name": "Sungold",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-777",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-778",
@@ -13230,16 +13230,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-783",
-            "name" : "Black Cherry",
+            "productId": "V-783",
+            "name": "Black Cherry",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-784",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-785",
@@ -13281,16 +13281,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-790",
-            "name" : "Sunrise Bumble Bee",
+            "productId": "V-790",
+            "name": "Sunrise Bumble Bee",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-791",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-792",
@@ -13332,16 +13332,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-797",
-            "name" : "Pantano Romanesco",
+            "productId": "V-797",
+            "name": "Pantano Romanesco",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-798",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-799",
@@ -13383,16 +13383,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-804",
-            "name" : "Green Zebra",
+            "productId": "V-804",
+            "name": "Green Zebra",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-805",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-806",
@@ -13434,16 +13434,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-811",
-            "name" : "Black Zebra",
+            "productId": "V-811",
+            "name": "Black Zebra",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-812",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-813",
@@ -13485,16 +13485,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-818",
-            "name" : "Costoluto Genovese",
+            "productId": "V-818",
+            "name": "Costoluto Genovese",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-819",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-820",
@@ -13536,16 +13536,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-825",
-            "name" : "Sweet Clusters",
+            "productId": "V-825",
+            "name": "Sweet Clusters",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-826",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-827",
@@ -13740,16 +13740,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1425",
-            "name" : "Early Girl",
+            "productId": "V-1425",
+            "name": "Early Girl",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1427",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1428",
@@ -13791,16 +13791,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1433",
-            "name" : "Enchantment",
+            "productId": "V-1433",
+            "name": "Enchantment",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1434",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1435",
@@ -13842,16 +13842,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1440",
-            "name" : "Big Beef",
+            "productId": "V-1440",
+            "name": "Big Beef",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1441",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1442",
@@ -13893,16 +13893,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1447",
-            "name" : "Brandywind Pink",
+            "productId": "V-1447",
+            "name": "Brandywind Pink",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1448",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1449",
@@ -13944,16 +13944,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1454",
-            "name" : "Cherokee Purple",
+            "productId": "V-1454",
+            "name": "Cherokee Purple",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1455",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1456",
@@ -13995,16 +13995,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1461",
-            "name" : "Caspian Pink",
+            "productId": "V-1461",
+            "name": "Caspian Pink",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1462",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1463",
@@ -14046,16 +14046,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1468",
-            "name" : "Hillybilly",
+            "productId": "V-1468",
+            "name": "Hillybilly",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1469",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1470",
@@ -14097,16 +14097,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1475",
-            "name" : "Black Krim",
+            "productId": "V-1475",
+            "name": "Black Krim",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1478",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1479",
@@ -14148,16 +14148,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1484",
-            "name" : "Mortgage Lisfter",
+            "productId": "V-1484",
+            "name": "Mortgage Lisfter",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1485",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1486",
@@ -14199,16 +14199,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1491",
-            "name" : "Big Mama",
+            "productId": "V-1491",
+            "name": "Big Mama",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1492",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1493",
@@ -14250,16 +14250,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-1498",
-            "name" : "San Marzano",
+            "productId": "V-1498",
+            "name": "San Marzano",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-1499",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-1500",
@@ -14308,16 +14308,16 @@ export const products = [
         "name": "Zucchini",
         "varieties": [
           {
-            "productId" : "V-832",
-            "name" : "Black Beauty",
+            "productId": "V-832",
+            "name": "Black Beauty",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-833",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-834",
@@ -14359,16 +14359,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-839",
-            "name" : "Raven",
+            "productId": "V-839",
+            "name": "Raven",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-840",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-841",
@@ -14410,16 +14410,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-846",
-            "name" : "Fordhook",
+            "productId": "V-846",
+            "name": "Fordhook",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-847",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-848",
@@ -14461,16 +14461,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-853",
-            "name" : "Dunja",
+            "productId": "V-853",
+            "name": "Dunja",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-854",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-855",
@@ -14512,16 +14512,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-860",
-            "name" : "Gadzukes",
+            "productId": "V-860",
+            "name": "Gadzukes",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-861",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-862",
@@ -14563,16 +14563,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-867",
-            "name" : "Gourmet Gold",
+            "productId": "V-867",
+            "name": "Gourmet Gold",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-868",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-869",
@@ -14614,16 +14614,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-874",
-            "name" : "Cocozelle",
+            "productId": "V-874",
+            "name": "Cocozelle",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-875",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-876",
@@ -14665,16 +14665,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-881",
-            "name" : "Caserta",
+            "productId": "V-881",
+            "name": "Caserta",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-882",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-883",
@@ -14716,16 +14716,16 @@ export const products = [
             ]
           },
           {
-            "productId" : "V-888",
-            "name" : "Magda",
+            "productId": "V-888",
+            "name": "Magda",
             "offerings": [
               {
-                "type" : "Seeds",
+                "type": "Seeds",
                 "offerings": [
                   {
                     "productId": "V-889",
                     "quantity": 12,
-                    "price" :  14
+                    "price": 14
                   },
                   {
                     "productId": "V-890",
