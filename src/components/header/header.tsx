@@ -21,12 +21,17 @@ interface subMenuProps {
 
 class Header extends PureComponent<HeaderProps, HeaderState> {
 
+  scrollTimeout: number = 0;
+
   constructor(props: HeaderProps) {
     super(props)
     this.state = {
       menuUp: true,
       menuType: HeaderMenuType.PLANTS
     }
+    console.log("HELOOOSDFD: ", this.state)
+    let scrollTimer = null;
+
     this.onSeedsClick = this.onSeedsClick.bind(this)
     this.onArticlesClick = this.onArticlesClick.bind(this)
     this.onRecipesClick = this.onRecipesClick.bind(this)
@@ -57,11 +62,42 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     ))
   }
 
+  onWindowScroll() {
+    
+  }
+
+  componentDidMount = () => {
+    this.setState(state => (
+      { ...state, headerParent: document.getElementsByTagName('header')[0]}
+    ))
+    window.addEventListener('scroll', () => {
+      window.clearTimeout(this.scrollTimeout)
+      console.log(this.state)
+
+      if (this.state && !this.state?.headerParent?.classList.contains("fadeOut")) {
+        this.state.headerParent?.classList.add("show")
+        this.state.headerParent?.classList.add("fadeOut")
+        this.state.headerParent?.classList.remove("fadeIn")
+      }
+
+      this.scrollTimeout = window.setTimeout(() => {
+        this.state?.headerParent?.classList.remove("fadeOut")
+        this.state?.headerParent?.classList.add("fadeIn")
+      }, 2000)
+    })
+
+   
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.onWindowScroll)
+  }
+
   render() {
     const themeValue = this.props.theme
     let menuUp = this.state.menuUp
-    return (<div>
-      <nav role="navigation" >
+    return (<header>
+      <nav role="navigation" className="fadeIn" >
         <Navigation>
           <li>
             <NavigationItem theme={themeValue} onClick={() => { this.onSeedsClick() }}>Plants</NavigationItem>
@@ -166,7 +202,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
           </Col12Full>
         </HeaderInner4>
       </HeaderOuter>
-    </div>)
+    </header>)
   }
 }
 

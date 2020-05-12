@@ -17,6 +17,7 @@ export interface HeaderProps {
 
 export interface HeaderState {
   menuUp: boolean,
-  menuType: HeaderMenuType
+  menuType: HeaderMenuType,
+  headerParent?: HTMLElement
 }
 
