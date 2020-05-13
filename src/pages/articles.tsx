@@ -5,11 +5,28 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import ArticleSummary from '../components/articleSummary'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
+import RandomFourSummary from '../components/randomFourSummary'
 
 class ArticlesIndex extends React.Component<any> {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulArticle.edges')
+    console.log("size: ", posts.length)
+    const chunkSize = 4;
+    const chunked = []
+    let postsCopy = posts.map((post: any) => {
+      return {
+        title: post.node.title,
+        slug: post.node.slug,
+        imagePath: post.node.bannerImage.file.url
+      }
+    })
+
+    while (postsCopy.length > 0) {
+      chunked.push(postsCopy.splice(0, chunkSize))
+    }
+
+    console.log("CHUCNKS: ", chunked)
 
     return (
       <Layout location={this.props.location}>
@@ -17,11 +34,10 @@ class ArticlesIndex extends React.Component<any> {
           <Helmet title={siteTitle} />
           <h1>Articles</h1>
           <div className='wrapper'>
-            <div className="article-list">
-              {posts.map((node: any) => {
-                const props: ArticleSummaryInterface = {... node.node, imagePath: node.node.bannerImage.file.url}
+            <div>
+              {chunked.map((chunk: ArticleSummaryInterface[]) => {
                 return (
-                  <ArticleSummary {... props}></ArticleSummary>
+                  <RandomFourSummary {...{chunk}}></RandomFourSummary>
                 )
               })}
             </div>
