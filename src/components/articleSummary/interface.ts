@@ -3,4 +3,5 @@ export default interface ArticleSummaryInterface {
   description: string,
   slug: string,
   imagePath: string,
+  basePath: string
 }

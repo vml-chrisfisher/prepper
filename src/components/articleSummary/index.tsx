@@ -1,11 +1,11 @@
+import styled from '@emotion/styled';
 import React from 'react';
-import ArticleSummaryInterface from "./interface"
-import styled from '@emotion/styled'
+import ArticleSummaryInterface from './interface';
 
 
 const ArticleSummary = (props: ArticleSummaryInterface) => (
   <Article key={props.slug}>
-    <a href={`/article/${props.slug}`}>
+    <a href={`/${props.basePath}/${props.slug}`}>
       <ArticleImageParent>
         <ArticleInside style={{ backgroundImage: `url(${props.imagePath})` }}>
         </ArticleInside>

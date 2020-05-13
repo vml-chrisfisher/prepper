@@ -1,16 +1,16 @@
+import styled from '@emotion/styled';
+import dateformat from 'dateformat';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import get from 'lodash/get';
 import React from 'react';
 import Helmet from 'react-helmet';
+import FeaturedContentRow from '../components/featuredContentRow';
+import FeatureContentRowProps from '../components/featuredContentRow/interface';
+import Footer from '../components/footer';
+import GeneralContentRow from '../components/generalContentRow';
+import { HeaderTheme } from '../components/header/interface';
 import Layout from '../components/layout';
-import styled from '@emotion/styled'
-import GeneralContentRow from '../components/generalContentRow'
-import FeatureContentRowProps from '../components/featuredContentRow/interface'
-import FeaturedContentRow from '../components/featuredContentRow'
-import Footer from '../components/footer'
-import { HeaderTheme } from '../components/header/interface'
-import dateformat from 'dateformat'
 
 
 class RecipeTemplate extends React.Component<any> {
@@ -29,19 +29,22 @@ class RecipeTemplate extends React.Component<any> {
           title: 'Cornmeal Fried Okra',
           slug: 'Okra',
           imagePath: '/fried-okra-rectangle.jpg',
-          description: 'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.'
+          description: 'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
+          basePath: 'recipe'
         },
         {
           title: 'Sausage, Shrimp and Okra Gumbo',
           slug: 'Okra',
           imagePath: '/Gumbo-11.jpg',
-          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.'
+          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
+          basePath: 'recipe'
         },
         {
           title: 'Stir Fried Okra',
           slug: 'Okra',
           imagePath: '/stir-fried-okra.jpg',
-          description: 'Working in batches ensures golden and tender okra, not soft and slimy.'
+          description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
+          basePath: 'recipe'
         }
       ]
     }
@@ -125,6 +128,15 @@ class RecipeTemplate extends React.Component<any> {
       text-transform: uppercase;
     `
 
+    const GroupTitle = styled.div`
+    color: #464646;
+    display: inline-block;
+    font-size: 1.0em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding-bottom: 10px;
+    `
+
     const post = get(this.props, 'data.contentfulRecipe')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const postCreate = dateformat(this.props.createdAt, "fullDate")
@@ -161,12 +173,12 @@ class RecipeTemplate extends React.Component<any> {
                     post.recipeGroup.map((recipeGroup: any) => {
                       return(
                         <div>
-                          {recipeGroup.displayName && <div>{recipeGroup.displayName}</div>}
+                          {recipeGroup.displayName && <GroupTitle>{recipeGroup.displayName}</GroupTitle>}
                           {
                             recipeGroup.ingredients.map((ingredient: any) => {
                               console.log(ingredient);
                               return(<Ingredient>
-                                {ingredient.recipeQuantity && <span dangerouslySetInnerHTML={{ __html: ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark.rawMarkdownBody }}></span>} {ingredient.recipeQuantity.recipeMeasurement.mesurement && <span>{ingredient.recipeQuantity.recipeMeasurement.mesurement.childMarkdownRemark.rawMarkdownBody}</span>} {ingredient.ingredient.ingredient}{ingredient.prep && <span>, {ingredient.prep.prep}</span>}
+                                {ingredient.recipeQuantity && <span dangerouslySetInnerHTML={{ __html: ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark.rawMarkdownBody }}></span>} {ingredient.recipeQuantity && ingredient.recipeQuantity.recipeMeasurement && ingredient.recipeQuantity.recipeMeasurement.mesurement && <span>{ingredient.recipeQuantity && ingredient.recipeQuantity.recipeMeasurement.mesurement.childMarkdownRemark.rawMarkdownBody}</span>} {ingredient.ingredient.ingredient}{ingredient.prep && <span>, {ingredient.prep.prep}</span>}
                               </Ingredient>)
                             })
                           }
@@ -179,12 +191,14 @@ class RecipeTemplate extends React.Component<any> {
                     <InstructionTitle>Instructions</InstructionTitle>
                   {
                       post.recipeInstructionGroups.map((instructionGroup: any, index: number) => {
+                        console.log(instructionGroup)
                         return (
                           <div>
-                          {instructionGroup.displayName && <div>{instructionGroup.displayName}</div>}
+                          {instructionGroup.displayName && <GroupTitle>{instructionGroup.displayName}</GroupTitle>}
                           {
                             instructionGroup.instructions.map((instruction: any, index: number) => {
-                              (
+                              console.log(instruction)
+                              return (
                                 <Instruction dangerouslySetInnerHTML={
                                   { __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody }
                                 }></Instruction>

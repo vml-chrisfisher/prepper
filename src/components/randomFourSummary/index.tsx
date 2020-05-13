@@ -1,8 +1,8 @@
+import styled from '@emotion/styled';
 import React from 'react';
-import { RandomFourSummaryProps} from './interface'
-import styled from '@emotion/styled'
-import ArticleSummaryInterface from '../articleSummary/interface'
-import ArticleSummary from '../articleSummary'
+import ArticleSummary from '../articleSummary';
+import ArticleSummaryInterface from '../articleSummary/interface';
+import { RandomFourSummaryProps } from './interface';
 
 const createTwoGridOption1 = (chunk: ArticleSummaryInterface[]) => {
   return (
@@ -77,18 +77,23 @@ const createFourGridOption2 = (chunk: ArticleSummaryInterface[]) => {
 }
 
 const createGrid = (chunk: ArticleSummaryInterface[]) => {
+  console.log("GRID: ", chunk.length)
   let option;
   switch(chunk.length) {
     case 1:
-      return <Col12Full> 
+      return (
+      <div>
+      <Col6Full> 
         <ArticleSummary {...chunk[0]}></ArticleSummary>
-      </Col12Full>
+      </Col6Full>
+      <Col6Full></Col6Full>
+      </div>)
     case 2:
       option = Math.floor(Math.random() * (1 - 0 + 1));
       return option === 0 ? createTwoGridOption1(chunk) : createTwoGridOption2(chunk)
     case 3:
       option = Math.floor(Math.random() * (2 - 0 + 1));
-      return option === 0 ? createThreeGridOption1(chunk) : option === 1 ? createThreeGridOption2 : createThreeGridOption3
+      return option === 0 ? createThreeGridOption1(chunk) : option === 1 ? createThreeGridOption2(chunk) : createThreeGridOption3(chunk)
     case 4:
       option = Math.floor(Math.random() * (1 - 0 + 1));
       return option === 0 ? createFourGridOption1(chunk) : createFourGridOption2(chunk)

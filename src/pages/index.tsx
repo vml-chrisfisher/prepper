@@ -6,11 +6,11 @@ import FeatureContentRowProps from '../components/featuredContentRow/interface';
 import FeaturedVegetableRow from '../components/featuredVegetableRow';
 import Footer from '../components/footer';
 import GeneralContentRow from '../components/generalContentRow';
+import { HeaderTheme } from '../components/header/interface';
 import HomeHero from '../components/homeHero';
 import Layout from '../components/layout';
 import VideoBackground from '../components/videoBackground';
 import styles from './blog.css';
-import { HeaderTheme } from '../components/header/interface'
 
 class RootIndex extends React.Component<any> {
   render() {
@@ -34,19 +34,22 @@ class RootIndex extends React.Component<any> {
           title: 'Cornmeal Fried Okra',
           slug: 'Okra',
           imagePath: '/fried-okra-rectangle.jpg',
-          description: 'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.'
+          description: 'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
+          basePath: 'recipe'
         },
         {
           title: 'Sausage, Shrimp and Okra Gumbo',
           slug: 'Okra',
           imagePath: '/Gumbo-11.jpg',
-          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.'
+          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
+          basePath: 'recipe'
         },
         {
           title: 'Stir Fried Okra',
           slug: 'Okra',
           imagePath: '/stir-fried-okra.jpg',
-          description: 'Working in batches ensures golden and tender okra, not soft and slimy.'
+          description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
+          basePath: 'recipe'
         }
       ]
     }
@@ -65,19 +68,22 @@ class RootIndex extends React.Component<any> {
           title: 'Spring Seedling To Start Now',
           slug: 'Okra',
           imagePath: '/andrej-lisakov-zYUn4R37o_U-unsplash.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          basePath: 'article'
         },
         {
           title: 'Compost',
           slug: 'Okra',
           imagePath: '/gabriel-jimenez-jin4W1HqgL4-unsplash.jpg',
-          description: "Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin."
+          description: "Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.",
+          basePath: 'article'
         },
         {
           title: 'Spring Root Vegetables',
           slug: 'Okra',
           imagePath: '/heather-gill-VJa9L3ZVBIc-unsplash.jpg',
-          description: "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum."
+          description: "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum.",
+          basePath: 'article'
         }
       ]
     }

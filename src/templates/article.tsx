@@ -1,18 +1,18 @@
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import get from 'lodash/get'
-import React from 'react'
-import Helmet from 'react-helmet'
-import Layout from '../components/layout'
-import styled from '@emotion/styled'
-import ArticleSection from '../components/articleSection'
-import ArticleSecionInterface from '../components/articleSection/interface'
-import GeneralContentRow from '../components/generalContentRow'
-import FeatureContentRowProps from '../components/featuredContentRow/interface'
-import FeaturedContentRow from '../components/featuredContentRow'
-import Footer from '../components/footer'
-import { HeaderTheme } from '../components/header/interface'
-import dateformat from 'dateformat'
+import styled from '@emotion/styled';
+import dateformat from 'dateformat';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import get from 'lodash/get';
+import React from 'react';
+import Helmet from 'react-helmet';
+import ArticleSection from '../components/articleSection';
+import ArticleSecionInterface from '../components/articleSection/interface';
+import FeaturedContentRow from '../components/featuredContentRow';
+import FeatureContentRowProps from '../components/featuredContentRow/interface';
+import Footer from '../components/footer';
+import GeneralContentRow from '../components/generalContentRow';
+import { HeaderTheme } from '../components/header/interface';
+import Layout from '../components/layout';
 
 
 class ArticleTemplate extends React.Component<any> {
@@ -31,19 +31,22 @@ class ArticleTemplate extends React.Component<any> {
           title: 'Spring Seedling To Start Now',
           slug: 'Okra',
           imagePath: '/andrej-lisakov-zYUn4R37o_U-unsplash.jpg',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          basePath: 'article'
         },
         {
           title: 'Compost',
           slug: 'Okra',
           imagePath: '/gabriel-jimenez-jin4W1HqgL4-unsplash.jpg',
-          description: "Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin."
+          description: "Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.",
+          basePath: 'article'
         },
         {
           title: 'Spring Root Vegetables',
           slug: 'Okra',
           imagePath: '/heather-gill-VJa9L3ZVBIc-unsplash.jpg',
-          description: "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum."
+          description: "Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum.",
+          basePath: 'article'
         }
       ]
     }
