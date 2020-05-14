@@ -157,13 +157,13 @@ class RecipeTemplate extends React.Component<any> {
 
             <img src={post.heroImage.file.url} />
             <div className="row">
-              <div className="col2"></div>
-              <div className="col8">
+              <div className="col3"></div>
+              <div className="col6">
                 <BodyCopy dangerouslySetInnerHTML={
                   { __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody }
                 }></BodyCopy>
               </div>
-              <div className="col2"></div>
+              <div className="col3"></div>
               <div className="col2" />
               <div className="col8">
               <div>
