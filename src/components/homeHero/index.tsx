@@ -9,13 +9,17 @@ const HomeHero = (props: VideoBackgroundProps) => (
         <div className="row">
           <div className="col3"/>
           <div className="col6">
-            <QuestionOverlay>
-              <Headline className="whiteText" dangerouslySetInnerHTML={
-                { __html: props.headline }
-              }></Headline>
-              <HomeHeroQuestion>{props.searchQuestion}</HomeHeroQuestion>
-              <HomeHeroQuestionInput placeholder={props.searchPlaceholder} />
-            </QuestionOverlay>
+            <Parent>
+              <Child>
+                <QuestionOverlay>
+                  <Headline className="whiteText" dangerouslySetInnerHTML={
+                    { __html: props.headline }
+                  }></Headline>
+                  <HomeHeroQuestion>{props.searchQuestion}</HomeHeroQuestion>
+                  <HomeHeroQuestionInput placeholder={props.searchPlaceholder} />
+                </QuestionOverlay>
+              </Child>
+            </Parent>
           </div>
           <div className="col3"/>
         </div>
@@ -24,8 +28,17 @@ const HomeHero = (props: VideoBackgroundProps) => (
   </div>
 )
 
+const Parent = styled.div`
+  height: 100vh;
+  position: relative;
+`
+const Child = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+`
+
 const QuestionOverlay = styled.div`
-  margin-top: 50%;
   display: block;
 `
 
