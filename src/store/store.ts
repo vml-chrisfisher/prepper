@@ -1,13 +1,13 @@
 interface Action {
-  type: string
+    type: string
 }
 
 const initialState = {
-  isDarkMode: false,
+    isDarkMode: false,
 }
 
-const headerUI = (state = initialState, action: { type: string }) => {
-  return state
+const headerUI = (state = initialState) => {
+    return state
 }
 
 export default headerUI

@@ -24,6 +24,7 @@ module.exports = {
     "graphql": false,
   },
   "parserOptions": {
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -37,7 +38,7 @@ module.exports = {
   "overrides": [
     // Override some TypeScript rules just for .js files
     {
-      "files": ['*.js'],
+      "files": ['src/**/*.{js}'],
       "rules": {
         '@typescript-eslint/no-var-requires': 'off' //
       }

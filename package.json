@@ -9,14 +9,18 @@
   "bugs": {
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@types/dateformat": "^3.0.1",
     "@types/react-helmet": "^5.0.16",
     "@types/react-redux": "^7.1.8",
-    "@typescript-eslint/eslint-plugin": "^2.33.0",
-    "@typescript-eslint/parser": "^2.33.0",
     "axios": "^0.19.2",
     "contentful": "^7.14.4",
     "contentful-import": "^7.7.0",
@@ -32,6 +36,7 @@
     "gatsby-transformer-remark": "^2.8.7",
     "gatsby-transformer-sharp": "^2.5.2",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
+    "husky": "^4.2.5",
     "lodash": "^4.17.15",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -44,16 +49,23 @@
     "typescript": "^3.9.2"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^3.0.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "gh-pages": "^2.2.0",
     "inquirer": "^7.1.0",
+    "lint-staged": "^10.2.6",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "serverless": "^1.71.3",
+    "stylelint": "^13.5.0",
+    "stylelint-config-standard": "^20.0.0",
     "yargs-parser": "^18.1.0"
   },
   "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
@@ -61,17 +73,13 @@
     "gatsby",
     "contentful"
   ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
-  },
   "scripts": {
     "clean": "rm -rf .cache",
     "dev": "npm run develop",
     "develop": "gatsby develop",
-    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "lint": "npm run lint:tsx && npm run lint:css",
+    "lint:tsx": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:css": "stylelint src/**/*.{ts,tsx} --color --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
     "build": "gatsby build",
@@ -84,5 +92,15 @@
     "type-check": "tsc --noEmit",
     "heroku-postbuild": "gatsby build",
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }
