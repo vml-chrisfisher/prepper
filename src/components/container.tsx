@@ -376,6 +376,80 @@ nav {
   -o-transition: opacity 2s ease-out;
   transition: opacity 2s ease-out;
 }
+
+.lds-grid {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+.lds-grid div {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+  top: 0px;
+  left: 0px;
+  animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+  top: 0px;
+  left: 12px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+  top: 0px;
+  left: 24px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+  top: 12px;
+  left: 0px;
+  animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+  top: 12px;
+  left: 12px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+  top: 12px;
+  left: 24px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+  top: 24px;
+  left: 0px;
+  animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 24px;
+  left: 12px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 24px;
+  left: 24px;
+  animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.cls-1 {
+  fill: #fff;
+}
+
         `}
     />
     <div>
