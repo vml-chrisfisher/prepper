@@ -1,6 +1,11 @@
-import axios from 'axios'
-import { all, call, put, takeEvery } from 'redux-saga/effects'
-import { HEADER_ACTION_TYPES } from './../actions/types'
+import axios from 'axios';
+import {
+  all,
+  call,
+  put,
+  takeEvery
+  } from 'redux-saga/effects';
+import { HEADER_ACTION_TYPES } from './../actions/types';
 
 
 
@@ -31,7 +36,6 @@ const fetchProductCategoryDetails = (categoryId: string) => {
 }
 
 export function* fetchHeaderProductCategoryDetailAsync(action: any) {
-  console.log(action)
   const { categoryId } = action
   if (categoryId) {
     try {
@@ -55,8 +59,8 @@ export function* fetchHeaderProductCategoryDetailAsync(action: any) {
       type: HEADER_ACTION_TYPES.CATEGORY_DETAILS_FETCHED
     })
   }
-
 }
+
 
 
 export function* SMSSocialSubmitAsync() {

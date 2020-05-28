@@ -7,8 +7,8 @@ const HomeHero = (props: VideoBackgroundProps) => (
     <HomeHeroContainer>
       <HomeHeroOverlay>
         <div className="row">
-          <div className="col3"/>
-          <div className="col6">
+          <div className="col2"/>
+          <div className="col8">
             <Parent>
               <Child>
                 <QuestionOverlay>
@@ -21,7 +21,7 @@ const HomeHero = (props: VideoBackgroundProps) => (
               </Child>
             </Parent>
           </div>
-          <div className="col3"/>
+          <div className="col2"/>
         </div>
       </HomeHeroOverlay>
     </HomeHeroContainer>

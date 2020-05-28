@@ -1,10 +1,13 @@
 service: prepper-http-endpoints
 
-frameworkVersion: ">=1.1.0 <2.0.0"
-
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: stage
+  region: us-east-1
+
+plugins:
+  - serverless-webpack
 
 functions:
   addToNewsletter:
@@ -13,3 +16,4 @@ functions:
       - http:
           path: newletter
           method: post
+          cors: true

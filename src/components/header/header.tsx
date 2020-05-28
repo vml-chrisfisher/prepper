@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 import React, { PureComponent } from 'react';
+import { browserHistory } from 'react-router';
 import {
   HeaderMenuType,
   HeaderProps,
   HeaderState,
   HeaderTheme,
-  ProductFamily,
-  ProductCategory
+  ProductCategory,
+  ProductFamily
   } from './interface';
 
 interface menuProps {
@@ -123,7 +124,6 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
           </LogoLink>
 
         </div>
-
       </LogoContainer>
       <HeaderOuter {...{ isUp: menuUp }} className="row">
         <HeaderInner12 {...{ isMenu: this.state.menuType === HeaderMenuType.PLANTS }} className="col12">
@@ -148,6 +148,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
             <Columns>
                 {
                   this.props.categories?.map((category: ProductCategory) => {
+                    
                     return(
                       <HeaderDetailItem onMouseOver={() => {
                         if (this.props.onCategorySelected) {
@@ -158,6 +159,10 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                         if (this.props.onCategorySelected) {
                           this.props.onCategorySelected()
                         }
+                      }}
+                      onClick={() => {
+                        const link = `/plants/${category.name.toLowerCase().replace(' ', '+')}`
+                        window.location.replace(link)
                       }}
                       >{category.name}</HeaderDetailItem>
                     )
@@ -196,7 +201,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               <HeaderNavHeader>Recipes</HeaderNavHeader>
               <div className="row">
                 <div className="col6">
-                  <HeaderDetailItem>Breakfast</HeaderDetailItem>
+                  <HeaderDetailItem href='/recipes/breakfast'>Breakfast</HeaderDetailItem>
                   <HeaderDetailItem>Brunch</HeaderDetailItem>
                   <HeaderDetailItem>Lunch</HeaderDetailItem>
                   <HeaderDetailItem>Supper</HeaderDetailItem>
@@ -330,7 +335,7 @@ const LogoLink = styled.a`
 
 const LogoImage = styled.img`
   display: inline-block;
-  margin-top: 90px;
+  margin-top: 15px;
   width: 75px;
 `
 

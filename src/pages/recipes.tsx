@@ -60,6 +60,8 @@ export const pageQuery = graphql`
         }
         title
         slug
+        mealType
+        preparationType
       }
     }
   }

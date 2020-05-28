@@ -137,6 +137,10 @@ class RecipeTemplate extends React.Component<any> {
     padding-bottom: 10px;
     `
 
+    const FeaturedSpacer = styled.div`
+    padding-top: 50px;
+    `
+
     const post = get(this.props, 'data.contentfulRecipe')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const postCreate = dateformat(this.props.createdAt, "fullDate")
@@ -221,7 +225,10 @@ class RecipeTemplate extends React.Component<any> {
                     }
                   </div>
                 </div>
-                <FeaturedContentRow {...recipeFeatures} />
+                <FeaturedSpacer>
+                  <FeaturedContentRow {...recipeFeatures} />
+                </FeaturedSpacer>
+                
                 <GeneralContentRow />
                 <Footer {...{theme: HeaderTheme.DARK }} />
               </div>
