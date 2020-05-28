@@ -1,3 +1,5 @@
+ /* eslint-disable  @typescript-eslint/no-var-requires */
+/* eslint-disable  no-undef */
 const Promise = require('bluebird')
 const path = require('path')
 
@@ -27,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const articles = result.data.allContentfulArticle.edges
-        articles.forEach((article, index) => {
+        articles.forEach((article) => {
           createPage({
             path: `/article/${article.node.slug}/`,
             component: articleTemplate,
@@ -63,7 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         const recipes = result.data.allContentfulRecipe.edges
-        recipes.forEach((recipe, index) => {
+        recipes.forEach((recipe) => {
           createPage({
             path: `/recipe/${recipe.node.slug}/`,
             component: recipeTemplate,
