@@ -1,3 +1,3 @@
 export default interface VideoBackgroundProps {
-  videoPath: string
+    videoPath: string
 }

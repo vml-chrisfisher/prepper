@@ -1,5 +1,5 @@
-import ArticleSummaryInterface from '../articleSummary/interface';
+import ArticleSummaryInterface from '../articleSummary/interface'
 
 export interface RandomFourSummaryProps {
-  chunk: ArticleSummaryInterface[]
+    chunk: ArticleSummaryInterface[]
 }

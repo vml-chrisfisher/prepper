@@ -1,4 +1,4 @@
 import { HeaderTheme } from './../header/interface'
-export default FooterProps {
-  theme: HeaderTheme
+export default interface FooterProps {
+    theme: HeaderTheme
 }

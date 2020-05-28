@@ -1,5 +1,5 @@
 export interface NewsletterProps {
-  position: number,
-  onReset: () => void,
-  onSubmit: (email: string) => void
+    position: number
+    onReset: () => void
+    onSubmit: (email: string) => void
 }

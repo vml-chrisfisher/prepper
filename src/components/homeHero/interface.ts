@@ -1,5 +1,5 @@
 export default interface HomeHeroProps {
-  headline: string;
-  searchQuestion: string;
-  searchPlaceholder: string;
+    headline: string
+    searchQuestion: string
+    searchPlaceholder: string
 }

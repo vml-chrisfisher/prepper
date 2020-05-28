@@ -51,45 +51,45 @@ class ArticleTemplate extends React.Component<ArticleProps> {
                     basePath: 'article',
                 },
             ],
-            basePath: 'article'
+            basePath: 'article',
         }
 
         const Title = styled.h1`
-      padding: 0 0 0.4em 0;
-`
+            padding: 0 0 0.4em 0;
+        `
 
         const CreateDate = styled.div`
-      text-align: center;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1em;
-      padding-bottom: 3.125em;
-`
+            text-align: center;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1em;
+            padding-bottom: 3.125em;
+        `
 
         const TagStyled = styled.p`
-      color: #464646;
-      display: inline-block;
-      font-size: 0.75em;
-      font-family: 'Nunito', sans-serif;
-      padding-right: 20px;
-      text-transform: uppercase;
-`
+            color: #464646;
+            display: inline-block;
+            font-size: 0.75em;
+            font-family: 'Nunito', sans-serif;
+            padding-right: 20px;
+            text-transform: uppercase;
+        `
 
         const BodyCopy = styled.div`
-      color: #464646;
-      column-count: 2;
-      font-size: 1em;
-      font-family: 'Nunito', sans-serif;
-      line-height: 2em;
-      padding-top: 1.875em;
-      padding-bottom: 1.875em;
-      text-align: justify;
-`
+            color: #464646;
+            column-count: 2;
+            font-size: 1em;
+            font-family: 'Nunito', sans-serif;
+            line-height: 2em;
+            padding-top: 1.875em;
+            padding-bottom: 1.875em;
+            text-align: justify;
+        `
 
         const MainContainer = styled.div`
-      background-color: #fff;
-      position: absolute;
-      top: 15.625em;
-`
+            background-color: #fff;
+            position: absolute;
+            top: 15.625em;
+        `
         const post: AllContentfulArticle = get(this.props, 'data.contentfulArticle')
         const siteTitle = get(this.props, 'data.site.siteMetadata.title')
         const postCreate = dateformat(post.createdAt, 'fullDate')

@@ -1,41 +1,41 @@
 export interface RecipesProps {
-  location: Location,
-  data: RecipesData
+    location: Location
+    data: RecipesData
 }
 
 export interface RecipesData {
-  site: RecipesSite
+    site: RecipesSite
 }
 
 export interface RecipesSite {
-  siteMetaData: RecipeSiteMetaData
+    siteMetaData: RecipeSiteMetaData
 }
 
 export interface RecipeSiteMetaData {
-  title: string
+    title: string
 }
 
 export interface AllContentfulRecipe {
-  edges: RecipesEdge[]
+    edges: RecipesEdge[]
 }
 
 export interface RecipesEdge {
-  node: RecipesNode
+    node: RecipesNode
 }
 
 export interface RecipesNode {
-  bannerImage: RecipesBannerImage,
-  mealType: string,
-  preparationType: string,
-  slug: string,
-  title: string
+    bannerImage: RecipesBannerImage
+    mealType: string
+    preparationType: string
+    slug: string
+    title: string
 }
 
 export interface RecipesBannerImage {
-  file: RecipeBannerImageFile,
-  title: string
+    file: RecipeBannerImageFile
+    title: string
 }
 
 export interface RecipeBannerImageFile {
-  url: string
+    url: string
 }
