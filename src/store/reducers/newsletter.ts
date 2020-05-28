@@ -1,7 +1,7 @@
-import { NEWSLETTER_ACTION_TYPES } from '../actions/types'
+import { NEWSLETTER_ACTION_TYPES } from '../actions/types';
 
-
-const newsletterFilter = (state = {}, action: { type: string, id: string, filter: string }) => {
+const newsletterFilter = (state = {position: 0}, action: { type: string, id: string, filter: string }) => {
+  console.log("HELLO: ", action)
   switch (action.type) {
     case NEWSLETTER_ACTION_TYPES.SUBMITTING:
       return action

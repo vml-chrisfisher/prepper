@@ -1,30 +1,44 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { NewsletterProps } from './interface';
 
-const NewsletterSignup = (props: NewsletterProps) => {
+interface NewsletterPositionProps {
+  stage: number
+}
+
+class NewsletterSignup extends PureComponent<NewsletterProps> {
+
+  componentDidMount() {
+    this.props.onReset();
+  }
+
+  render() {
+    const position = this.props.position;
     return (
         <NewsletterSignupContainer>
-             <NewsletterSignupScroll>
-                 <NewsletterSignupForm>
+              <NewsletterSignupScroll stage={position}>
+                  <NewsletterSignupForm>
                     <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
                     <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
                     <NewsletterSignupInput placeholder="seedlings@seedlings.com" />
-            <button onClick={() => props.onSubmit('sdfd@sdfds.com') } className="primaryButton">Sign up</button>
-                 </NewsletterSignupForm>
+            <button onClick={() => this.props.onSubmit('sdfd@sdfds.com') } className="primaryButton">Sign up</button>
+                  </NewsletterSignupForm>
+                  <NewsletterSignupStatus>sfds</NewsletterSignupStatus>
+                  <NewsletterSignupConfirmation></NewsletterSignupConfirmation>
             </NewsletterSignupScroll>
         </NewsletterSignupContainer>
-       
+        
     )
+  }
 }
 
 const NewsletterSignupTitle = styled.h3`
   color: #FFFFFF;
-  font-size: 1.5em;
+  font-size: 1.5em;  
 `
 
 const NewsletterSignupInput = styled.input`
-  width: 100%;
+  width: 100%; 
   height: 50px;
   background-color: transparent;
   border: none;
@@ -48,17 +62,34 @@ const NewsletterSignupContainer = styled.div`
   width: 100%;
 `
 
-const NewsletterSignupScroll = styled.div`
+const NewsletterSignupScroll = styled.div<NewsletterPositionProps>`
   background-color: #FF0000;
   height: 300%;
   position: absolute;
-  top: 0;
+  top: ${(props) => { 
+    return (props.stage === 0 ? '0%' : props.stage === 1 ? '-100%': '-200%' )
+  }};
+  -webkit-transition: top 5s ease-out;
+  -moz-transition: top .5s ease-out;
+  -ms-transition: top .5s ease-out;
+  -o-transition: top .5s ease-out;
+  transition: top .5s ease-out;
 `
 
 const NewsletterSignupForm = styled.div`
+  height: 33.33%;
   padding-top: 30%;
   margin-left: 10%;
   width: 80%;
+`
+const NewsletterSignupStatus = styled.div`
+  height: 33.33%;
+  width: 100%;
+`
+
+const NewsletterSignupConfirmation = styled.div`
+  height: 33.33%;
+  width: 100%;
 `
 
 export default NewsletterSignup

@@ -1,14 +1,15 @@
-import { connect } from 'react-redux'
-import NewsletterSignup from '.'
-import { onNewsletterSubmit } from '../../store/actions'
+import NewsletterSignup from '.';
+import { connect } from 'react-redux';
+import { onNewsletterReset, onNewsletterSubmit } from '../../store/actions';
 
 const mapStateToProps = (state: any) => {
-  console.log(state)
-  const { data } = state.header
+  console.log("SHIZ: ", state)
+  const { position } = state.visibilityFilter
   const { categories } = state.header
   const { categoryDetail } = state.header
+  console.log("SHOOT: ", position)
   return {
-    data,
+    position,
     categories,
     categoryDetail
   }
@@ -18,6 +19,10 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     onSubmit: (email: string) => {
       dispatch(onNewsletterSubmit(email))
+    },
+    onReset: () => {
+      console.log("RESET CALLED")
+      dispatch(onNewsletterReset())
     }
   }
 }

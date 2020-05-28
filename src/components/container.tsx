@@ -132,7 +132,7 @@ nav {
 }
 
 .row [class^="col"] {
-  margin: 0.5rem 0%;
+  margin: 0;
   min-height: 0.125rem;
 }
 

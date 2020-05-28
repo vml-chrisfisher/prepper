@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import ArticleSummary from '../articleSummary';
-import NewsletterContainer from '../newsletterSignup/container'
+import NewsletterContainer from '../newsletterSignup/container';
 
 const GeneralContentRow = () => {
   return (
@@ -42,7 +42,7 @@ const GeneralContentRow = () => {
           </Col6Full>
           
         <Col6Full className="col6">
-          <NewsletterContainer />
+          <NewsletterContainer { ...{position: 0}} />
         </Col6Full>
       </div>
     </Col6Full>
@@ -52,6 +52,7 @@ const GeneralContentRow = () => {
 
 const GeneralContentContainer = styled.div`
   padding-bottom: 200px;
+  margin: 0;
 `
 
 const Col3Full = styled.div`
@@ -60,6 +61,7 @@ const Col3Full = styled.div`
 `
 
 const Col6Full = styled.div`
+  margin: 0;
   width: 50%;
   padding: 0;
 `
