@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
-import { HEADER_ACTION_TYPES } from './../actions/types'
+import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES } from './../actions/types'
 
 
 
@@ -22,11 +22,6 @@ const fetchProductCategoryDetails = (categoryId: string) => {
   return client.getEntries({
     content_type: 'productCategory',
     'fields.productId': categoryId
-  })
-
-  return axios({
-    method: "post",
-    url: `https://tosometings.com/${categoryId}`
   })
 }
 
@@ -55,7 +50,43 @@ export function* fetchHeaderProductCategoryDetailAsync(action: any) {
       type: HEADER_ACTION_TYPES.CATEGORY_DETAILS_FETCHED
     })
   }
+}
 
+const submitNewsletterEmail = (email: string) => {
+  const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
+  return axios.post(
+    url,
+    {
+      email: email
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+  )
+}
+
+export function* submitNewsletterEmailAsync(action: any) {
+  const { email } = action
+  if (email) {
+    try {
+      const response = yield call(submitNewsletterEmail, email)
+      yield put({
+        type: NEWSLETTER_ACTION_TYPES.ADDED_SUCCESS
+      })
+    } catch (error) {
+      console.log("ERROR: ", error)
+      yield put({
+        type: NEWSLETTER_ACTION_TYPES.ADDED_FAILURE,
+        error: error
+      })
+    }
+  } else {
+    yield put({
+      type: NEWSLETTER_ACTION_TYPES.ADDED_FAILURE
+    })
+  }
 }
 
 
@@ -75,24 +106,14 @@ function* watchFetchHeaderProductCategoryDetail() {
   yield takeEvery(HEADER_ACTION_TYPES.CATEGORY_SELECTED, fetchHeaderProductCategoryDetailAsync)
 }
 
-function* watchSMSSocialSubmitAsync() {
+function* watchSubmitNewsletterEmail() {
+  yield takeEvery(NEWSLETTER_ACTION_TYPES.SUBMIT, submitNewsletterEmailAsync)
 }
 
-function* watchFacebookSocialSubmitAsync() {
-}
-
-function* watchInstagramSocialSubmitAsync() {
-}
-
-function* watchPinterestSocialSubmitAsync() {
-}
 
 export default function* rootSaga() {
   yield all([
     watchFetchHeaderProductCategoryDetail(),
-    watchSMSSocialSubmitAsync(),
-    watchFacebookSocialSubmitAsync(),
-    watchInstagramSocialSubmitAsync(),
-    watchPinterestSocialSubmitAsync()
+    watchSubmitNewsletterEmail()
   ])
 }

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import ArticleSummary from '../articleSummary';
-import NewsletterSignup from '../newsletterSignup';
+import NewsletterContainer from '../newsletterSignup/container'
 
 const GeneralContentRow = () => {
   return (
@@ -42,7 +42,7 @@ const GeneralContentRow = () => {
           </Col6Full>
           
         <Col6Full className="col6">
-          <NewsletterSignup />
+          <NewsletterContainer />
         </Col6Full>
       </div>
     </Col6Full>

@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { NewsletterProps } from './interface'
 
-const NewsletterSignup = () => {
+const NewsletterSignup = (props: NewsletterProps) => {
     return (
         <NewsletterSignupContainer>
              <NewsletterSignupScroll>
@@ -9,7 +10,7 @@ const NewsletterSignup = () => {
                     <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
                     <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
                     <NewsletterSignupInput placeholder="seedlings@seedlings.com" />
-                    <button className="primaryButton">Sign up</button>
+            <button onClick={() => props.onSubmit('sdfd@sdfds.com') } className="primaryButton">Sign up</button>
                  </NewsletterSignupForm>
             </NewsletterSignupScroll>
         </NewsletterSignupContainer>
