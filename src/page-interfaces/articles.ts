@@ -1,39 +1,39 @@
 export interface ArticlesProps {
-    location: Location
-    data: ArticlesData
+  location: Location
+  data: ArticlesData
 }
 
 export interface ArticlesData {
-    site: ArticlesSite
+  site: ArticlesSite
 }
 
 export interface ArticlesSite {
-    siteMetaData: ArticlesSiteMetaData
+  siteMetaData: ArticlesSiteMetaData
 }
 
 export interface ArticlesSiteMetaData {
-    title: string
+  title: string
 }
 
 export interface AllContentfulArticle {
-    edges: ArticlesEdge[]
+  edges: ArticlesEdge[]
 }
 
 export interface ArticlesEdge {
-    node: ArticlesNode
+  node: ArticlesNode
 }
 
 export interface ArticlesNode {
-    bannerImage: ArticlesBannerImage
-    slug: string
-    title: string
+  bannerImage: ArticlesBannerImage
+  slug: string
+  title: string
 }
 
 export interface ArticlesBannerImage {
-    file: ArticlesBannerImageFile
-    title: string
+  file: ArticlesBannerImageFile
+  title: string
 }
 
 export interface ArticlesBannerImageFile {
-    url: string
+  url: string
 }

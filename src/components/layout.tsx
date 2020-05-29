@@ -15,12 +15,10 @@ const Layout = ({ location, children }: Props) => {
   const rootPath = '/'
   const homePath = ''
   let theme: HeaderProps = { theme: HeaderTheme.DARK }
-  console.log('LOCATION PATH: ', location.pathname)
 
   if (location.pathname === rootPath || location.pathname === homePath) {
     theme = { theme: HeaderTheme.LIGHT }
   }
-  console.log(theme)
 
   return (
     <Container>

@@ -10,8 +10,8 @@ import { HeaderTheme } from '../components/header/interface'
 import HomeHero from '../components/homeHero'
 import Layout from '../components/layout'
 import VideoBackground from '../components/videoBackground'
-import styles from './blog/blog.css'
-import { HomeEdge, HomeProps } from './interface'
+import styles from './blog.css'
+import { HomeEdge, HomeProps } from '../page-interfaces/home'
 
 class RootIndex extends React.Component<HomeProps> {
   render() {
