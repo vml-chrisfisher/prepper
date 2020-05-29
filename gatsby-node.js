@@ -7,7 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const articlesPromise = new Promise((resolve, reject) => {
-    const articleTemplate = path.resolve('./src/templates/article/index.tsx')
+    const articleTemplate = path.resolve('./src/templates/article.tsx')
     resolve(
       graphql(
         `
@@ -43,7 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
   })
 
   const recipesPromise = new Promise((resolve, reject) => {
-    const recipeTemplate = path.resolve('./src/templates/recipe/index.tsx')
+    const recipeTemplate = path.resolve('./src/templates/recipe.tsx')
     resolve(
       graphql(
         `

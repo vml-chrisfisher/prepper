@@ -4,12 +4,12 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
-import FeaturedContentRow from '../../components/featuredContentRow'
-import FeatureContentRowProps from '../../components/featuredContentRow/interface'
-import Footer from '../../components/footer'
-import GeneralContentRow from '../../components/generalContentRow'
-import { HeaderTheme } from '../../components/header/interface'
-import Layout from '../../components/layout'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import { HeaderTheme } from '../components/header/interface'
+import Layout from '../components/layout'
 import {
     RecipeProps,
     AllContentfulRecipe,
@@ -17,7 +17,7 @@ import {
     RecipeIngredient,
     RecipeInstructionGroup,
     RecipeInstruction,
-} from './interface'
+} from '../template-interfaces/recipe'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
     render() {
