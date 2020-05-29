@@ -1,46 +1,46 @@
 export interface HomeProps {
-    location: Location
-    data: HomeData
+  location: Location
+  data: HomeData
 }
 
 export interface HomeData {
-    site: HomeSite
+  site: HomeSite
 }
 
 export interface HomeSite {
-    siteMetaData: HomeSiteMetaData
+  siteMetaData: HomeSiteMetaData
 }
 
 export interface HomeSiteMetaData {
-    title: string
+  title: string
 }
 
 export interface AllContentfulHome {
-    edges: HomeEdge[]
+  edges: HomeEdge[]
 }
 
 export interface HomeEdge {
-    node: HomeNode
+  node: HomeNode
 }
 
 export interface HomeNode {
-    backgroundVideo: HomeBackgroundVideo
-    headline: HomeHeadline
-    searchPlaceholder: string
-    searchQuestion: string
+  backgroundVideo: HomeBackgroundVideo
+  headline: HomeHeadline
+  searchPlaceholder: string
+  searchQuestion: string
 }
 
 export interface HomeHeadline {
-    childMarkdownRemark: {
-        rawMarkdownBody: string
-    }
+  childMarkdownRemark: {
+    rawMarkdownBody: string
+  }
 }
 
 export interface HomeBackgroundVideo {
-    file: HomeBannerImageFile
-    title: string
+  file: HomeBannerImageFile
+  title: string
 }
 
 export interface HomeBannerImageFile {
-    url: string
+  url: string
 }

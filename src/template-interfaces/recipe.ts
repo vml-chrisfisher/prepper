@@ -1,91 +1,91 @@
 export interface RecipeProps {
-    location: Location
-    data: RecipeData
+  location: Location
+  data: RecipeData
 }
 
 export interface RecipeData {
-    site: RecipeSite
-    contentfulRecipe: AllContentfulRecipe
+  site: RecipeSite
+  contentfulRecipe: AllContentfulRecipe
 }
 
 export interface RecipeSite {
-    siteMetaData: RecipeSiteMetaData
+  siteMetaData: RecipeSiteMetaData
 }
 
 export interface RecipeSiteMetaData {
-    title: string
+  title: string
 }
 
 export interface AllContentfulRecipe {
-    bodyCopy: {
-        childMarkdownRemark: {
-            rawMarkdownBody: string
-        }
+  bodyCopy: {
+    childMarkdownRemark: {
+      rawMarkdownBody: string
     }
-    createdAt: string
-    heroImage: RecipeBannerImage
-    mealType: string
-    proteinType: string
-    slug: string
-    title: string
-    vegetableType: string[]
-    recipeGroup: RecipeGroup[]
-    recipeInstructionGroups: RecipeInstructionGroup[]
+  }
+  createdAt: string
+  heroImage: RecipeBannerImage
+  mealType: string
+  proteinType: string
+  slug: string
+  title: string
+  vegetableType: string[]
+  recipeGroup: RecipeGroup[]
+  recipeInstructionGroups: RecipeInstructionGroup[]
 }
 
 export interface RecipeBannerImage {
-    file: {
-        url: string
-    }
+  file: {
+    url: string
+  }
 }
 
 export interface RecipeGroup {
-    recipeGroupName: string
-    ingredients: RecipeIngredient[]
-    displayName: string
+  recipeGroupName: string
+  ingredients: RecipeIngredient[]
+  displayName: string
 }
 
 export interface RecipeIngredient {
-    ingredient: Ingredient
-    prep: {
-        prep: string
-    }
-    recipeQuantity: {
-        recipeQuantity: Quantity
-        recipeMeasurement: Measurement
-    }
+  ingredient: Ingredient
+  prep: {
+    prep: string
+  }
+  recipeQuantity: {
+    recipeQuantity: Quantity
+    recipeMeasurement: Measurement
+  }
 }
 
 export interface Ingredient {
-    ingredient: string
+  ingredient: string
 }
 
 export interface Quantity {
-    quantity: {
-        childMarkdownRemark: {
-            rawMarkdownBody: string
-        }
+  quantity: {
+    childMarkdownRemark: {
+      rawMarkdownBody: string
     }
+  }
 }
 
 export interface Measurement {
-    mesurement: {
-        childMarkdownRemark: {
-            rawMarkdownBody: string
-        }
+  mesurement: {
+    childMarkdownRemark: {
+      rawMarkdownBody: string
     }
+  }
 }
 
 export interface RecipeInstructionGroup {
-    displayName: string
-    instructions: RecipeInstruction[]
-    recipeGroupName: string
+  displayName: string
+  instructions: RecipeInstruction[]
+  recipeGroupName: string
 }
 
 export interface RecipeInstruction {
-    instruction: {
-        childMarkdownRemark: {
-            rawMarkdownBody: string
-        }
+  instruction: {
+    childMarkdownRemark: {
+      rawMarkdownBody: string
     }
+  }
 }

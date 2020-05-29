@@ -5,35 +5,35 @@ import HeaderContainer from './header/container'
 import { HeaderProps, HeaderTheme } from './header/interface'
 
 interface Props {
-    location: Location
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
-    children?: any
-    /* eslint-enable  @typescript-eslint/no-explicit-any */
+  location: Location
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  children?: any
+  /* eslint-enable  @typescript-eslint/no-explicit-any */
 }
 
 const Layout = ({ location, children }: Props) => {
-    const rootPath = '/'
-    const homePath = ''
-    let theme: HeaderProps = { theme: HeaderTheme.DARK }
-    console.log('LOCATION PATH: ', location.pathname)
+  const rootPath = '/'
+  const homePath = ''
+  let theme: HeaderProps = { theme: HeaderTheme.DARK }
+  console.log('LOCATION PATH: ', location.pathname)
 
-    if (location.pathname === rootPath || location.pathname === homePath) {
-        theme = { theme: HeaderTheme.LIGHT }
-    }
-    console.log(theme)
+  if (location.pathname === rootPath || location.pathname === homePath) {
+    theme = { theme: HeaderTheme.LIGHT }
+  }
+  console.log(theme)
 
-    return (
-        <Container>
-            <Helmet>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap"
-                    rel="stylesheet"
-                />
-            </Helmet>
-            <HeaderContainer {...theme} />
-            {children}
-        </Container>
-    )
+  return (
+    <Container>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+      <HeaderContainer {...theme} />
+      {children}
+    </Container>
+  )
 }
 
 export default Layout

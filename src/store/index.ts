@@ -7,8 +7,8 @@ import rootSaga from './sagas'
 const sagaMiddleware = createSagaMiddleware()
 
 const reducer = combineReducers({
-    header,
-    visibilityFilter,
+  header,
+  visibilityFilter,
 })
 
 const createStore = () => reduxCreateStore(reducer, applyMiddleware(sagaMiddleware))
