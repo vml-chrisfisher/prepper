@@ -41,5 +41,5 @@ export interface PlantsBannerImageFile {
 
 export interface PlantsParentVegetable {
   name: string
-  contenfulid: string
+  contentfulid: string
 }
