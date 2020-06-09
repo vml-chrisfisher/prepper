@@ -47,7 +47,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
         case 'v':
           let vegetablesInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[0].subplants.find(
             parentVege => {
-              return parentVege.id === plant.node.parentVegetable.name
+              return parentVege[plant.node.parentVegetable.name]
             },
           )
           if (vegetablesInFamilies === undefined) {
@@ -72,7 +72,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
           break
         case 'h':
           let herbsInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[2].subplants.find(parentVege => {
-            return parentVege.id === plant.node.parentVegetable.name
+            return parentVege[plant.node.parentVegetable.name]
           })
           if (herbsInFamilies === undefined) {
             herbsInFamilies = {}
@@ -83,7 +83,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
           break
         case 'g':
           let grainsInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[3].subplants.find(parentVege => {
-            return parentVege.id === plant.node.parentVegetable.name
+            return parentVege[plant.node.parentVegetable.name]
           })
           if (grainsInFamilies === undefined) {
             grainsInFamilies = {}
@@ -202,7 +202,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
     const VegetableTitle = styled.h2`
       font-family: 'Nunito', sans-serif;
       font-size: 1em;
-      font-weight: 600;
+      font-weight: 300;
       color: #333333;
       display: block;
     `
@@ -245,7 +245,6 @@ class PlantsIndex extends React.Component<PlantsProps> {
             </div>
             <div>
               {vegetablesByParent.map((vegetableParent, vegParentIndex) => {
-                console.log(vegetableParent)
                 return (
                   <div key={vegParentIndex}>
                     {vegetableParent.type.toLowerCase() === 'vegetables' && (
