@@ -8,44 +8,31 @@ import { PlantsEdge, PlantsProps } from '../page-interfaces/plants'
 
 class PlantsIndex extends React.Component<PlantsProps> {
   render() {
-    /* eslint-disable  @typescript-eslint/no-var-requires */
-    /* eslint-disable  no-undef */
-    const contentful = require('contentful')
-    const contentfulConfig = require('../../.contentful.json')
-    /* eslint-enable  @typescript-eslint/no-var-requires */
-    /* eslint-enable  no-undef */
-    const client = contentful.createClient({
-      space: contentfulConfig.spaceId,
-      accessToken: contentfulConfig.accessToken,
-    })
-
-    const asset = client.getAsset('1ivQJbUcXJJUiHGiL9d4tN').then((asset: any) => console.log(asset.fields.file.url))
-
     const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: PlantsEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
     const vegetablesByParent = [
       {
         type: 'Vegetables',
-        subplants: [],
+        subplants: new Array<{ [id: string]: PlantsEdge[] }>(),
       },
       {
         type: 'Fruits',
-        subplants: [],
+        subplants: new Array<{ [id: string]: PlantsEdge[] }>(),
       },
       {
         type: 'Herbs',
-        subplants: [],
+        subplants: new Array<{ [id: string]: PlantsEdge[] }>(),
       },
       {
         type: 'Grains',
-        subplants: [],
+        subplants: new Array<{ [id: string]: PlantsEdge[] }>(),
       },
     ]
     posts.map((plant: PlantsEdge) => {
       /* eslint-disable  no-case-declarations */
       switch (plant.node.parentVegetable.contentfulid.substring(0, 1).toLowerCase()) {
         case 'v':
-          let vegetablesInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[0].subplants.find(
+          let vegetablesInFamilies: { [id: string]: PlantsEdge[] } | undefined = vegetablesByParent[0].subplants.find(
             parentVege => {
               return parentVege[plant.node.parentVegetable.name]
             },
@@ -59,10 +46,11 @@ class PlantsIndex extends React.Component<PlantsProps> {
 
           break
         case 'f':
-          let fruitsInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[1].subplants.find(parentVege => {
-            return parentVege[plant.node.parentVegetable.name]
-          })
-          console.log('fruit1: ', fruitsInFamilies)
+          let fruitsInFamilies: { [id: string]: PlantsEdge[] } | undefined = vegetablesByParent[1].subplants.find(
+            parentVege => {
+              return parentVege[plant.node.parentVegetable.name]
+            },
+          )
           if (fruitsInFamilies === undefined) {
             fruitsInFamilies = {}
             fruitsInFamilies[plant.node.parentVegetable.name] = []
@@ -71,9 +59,11 @@ class PlantsIndex extends React.Component<PlantsProps> {
           fruitsInFamilies[plant.node.parentVegetable.name].push(plant)
           break
         case 'h':
-          let herbsInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[2].subplants.find(parentVege => {
-            return parentVege[plant.node.parentVegetable.name]
-          })
+          let herbsInFamilies: { [id: string]: PlantsEdge[] } | undefined = vegetablesByParent[2].subplants.find(
+            parentVege => {
+              return parentVege[plant.node.parentVegetable.name]
+            },
+          )
           if (herbsInFamilies === undefined) {
             herbsInFamilies = {}
             herbsInFamilies[plant.node.parentVegetable.name] = []
@@ -82,9 +72,11 @@ class PlantsIndex extends React.Component<PlantsProps> {
           herbsInFamilies[plant.node.parentVegetable.name].push(plant)
           break
         case 'g':
-          let grainsInFamilies: { [id: string]: PlantsEdge[] } = vegetablesByParent[3].subplants.find(parentVege => {
-            return parentVege[plant.node.parentVegetable.name]
-          })
+          let grainsInFamilies: { [id: string]: PlantsEdge[] } | undefined = vegetablesByParent[3].subplants.find(
+            parentVege => {
+              return parentVege[plant.node.parentVegetable.name]
+            },
+          )
           if (grainsInFamilies === undefined) {
             grainsInFamilies = {}
             grainsInFamilies[plant.node.parentVegetable.name] = []
@@ -96,7 +88,6 @@ class PlantsIndex extends React.Component<PlantsProps> {
           return
       }
     })
-    console.log(vegetablesByParent)
 
     const BodyCopy = styled.div`
       column-count: 2;
