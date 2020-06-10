@@ -170,7 +170,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             <picture>
               <source src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
               <source src={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
-              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt="RadWolf, Inc." />
+              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt={post.heroImage.description} />
             </picture>
             <div className="row">
               <div className="col2"></div>
@@ -283,6 +283,7 @@ export const pageQuery = graphql`
       }
       createdAt
       heroImage {
+        description
         file {
           url
         }
