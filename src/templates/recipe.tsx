@@ -155,7 +155,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
 
     return (
-      <Layout location={this.props.location}>
+      <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           <div>
@@ -168,8 +168,8 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               <div className="col3" />
             </div>
             <picture>
-              <source src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
-              <source src={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
+              <source srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+              <source srcSet={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
               <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt={post.heroImage.description} />
             </picture>
             <div className="row">
