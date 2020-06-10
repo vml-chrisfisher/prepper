@@ -152,6 +152,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
     const siteTitle: string = get(this.props, 'data.site.siteMetadata.title')
     const postCreate = dateformat(post.createdAt, 'fullDate')
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
 
     return (
       <Layout location={this.props.location}>
@@ -167,9 +168,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               <div className="col3" />
             </div>
             <picture>
-              <source src={`${post.heroImage.file.url}?fm=webp&q=80&w=${window.innerWidth}`} />
-              <source src={`${post.heroImage.file.url}?fm=jpg&q=90&w=${window.innerWidth}`} />
-              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${window.innerWidth}`} alt="RadWolf, Inc." />
+              <source src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+              <source src={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
+              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt="RadWolf, Inc." />
             </picture>
             <div className="row">
               <div className="col2"></div>
