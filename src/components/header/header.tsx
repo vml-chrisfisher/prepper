@@ -94,7 +94,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
         <LogoContainer>
           <div>
             <LogoLink href="/">
-              <LogoImage src={'/logo.svg'} />
+              <LogoImage alt="Zephyr and Hare Logo" src={'/logo.svg'} />
               <LogoText theme={themeValue}>Zephyr & Hare</LogoText>
             </LogoLink>
           </div>
