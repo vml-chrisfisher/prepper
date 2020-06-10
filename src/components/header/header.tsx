@@ -111,7 +111,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               </HeaderClose>
               <HeaderMainNav>
                 <ul>
-                  <HeaderNavHeaderLi>Plants</HeaderNavHeaderLi>
+                  <HeaderNavHeaderLi>
+                    <a href="/plants">Plants</a>
+                  </HeaderNavHeaderLi>
                   {this.props.data?.map((top: ProductFamily, index: number) => {
                     return (
                       <HeaderNavItem
@@ -174,7 +176,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 X
               </HeaderClose>
               <HeaderMainNav style={{ paddingLeft: '70px' }}>
-                <HeaderNavHeader>Articles</HeaderNavHeader>
+                <HeaderNavHeader>
+                  <a href="/articles">Articles</a>
+                </HeaderNavHeader>
                 <div className="row">
                   <div className="col6">
                     <HeaderDetailItem>Soil</HeaderDetailItem>
@@ -198,7 +202,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 X
               </HeaderClose>
               <HeaderMainNav style={{ paddingLeft: '70px' }}>
-                <HeaderNavHeader>Recipes</HeaderNavHeader>
+                <HeaderNavHeader>
+                  <a href="/recipes">Recipes</a>
+                </HeaderNavHeader>
                 <div className="row">
                   <div className="col6">
                     <HeaderDetailItem href="/recipes/breakfast">Breakfast</HeaderDetailItem>
@@ -279,6 +285,9 @@ const HeaderNavHeader = styled.div`
   color: #cccccc;
   list-style: none;
   padding-bottom: 20px;
+  a {
+    text-decoration: none;
+  }
 `
 
 const HeaderNavHeaderLi = styled.li`
@@ -288,6 +297,9 @@ const HeaderNavHeaderLi = styled.li`
   color: #cccccc;
   list-style: none;
   padding-bottom: 20px;
+  a {
+    text-decoration: none;
+  }
 `
 
 const HeaderClose = styled.div`

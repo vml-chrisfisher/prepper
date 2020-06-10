@@ -65,10 +65,9 @@ export default ({ children }) => (
         }
 
         h4 {
-          font-size: 0.75em;
+          font-size: 1.25em;
           font-weight: 600;
           font-family: 'Nunito', sans-serif;
-          text-transform: uppercase;
           letter-spacing: -0.5px;
           margin: 0;
         }
