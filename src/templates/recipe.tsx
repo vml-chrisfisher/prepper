@@ -166,8 +166,11 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-
-            <img src={post.heroImage.file.url} />
+            <picture>
+              <source src={`${post.heroImage.file.url}?fm=webp&q=80&w=${window.innerWidth}`} />
+              <source src={`${post.heroImage.file.url}?fm=jpg&q=90&w=${window.innerWidth}`} />
+              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${window.innerWidth}`} alt="RadWolf, Inc." />
+            </picture>
             <div className="row">
               <div className="col2"></div>
               <div className="col8">
