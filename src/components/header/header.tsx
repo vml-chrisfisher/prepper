@@ -50,25 +50,6 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     if (this.props.onFetch) {
       this.props.onFetch()
     }
-    this.setState(state => ({ ...state, headerParent: document.getElementsByTagName('header')[0] }))
-    window.addEventListener('scroll', () => {
-      window.clearTimeout(this.scrollTimeout)
-
-      if (this.state && !this.state?.headerParent?.classList.contains('fadeOut')) {
-        this.state.headerParent?.classList.add('show')
-        this.state.headerParent?.classList.add('fadeOut')
-        this.state.headerParent?.classList.remove('fadeIn')
-      }
-
-      this.scrollTimeout = window.setTimeout(() => {
-        this.state?.headerParent?.classList.remove('fadeOut')
-        this.state?.headerParent?.classList.add('fadeIn')
-      }, 2000)
-    })
-  }
-
-  componentWillUnmount = () => {
-    window.removeEventListener('scroll', this.onWindowScroll)
   }
 
   render() {
@@ -76,7 +57,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     const menuUp = this.state.menuUp
     return (
       <header>
-        <nav role="navigation" className="fadeIn">
+        <nav role="navigation">
           <Navigation>
             <li>
               <NavigationItem
@@ -283,10 +264,12 @@ const HeaderNavItem = styled.li`
 
 const Columns = styled.div`
   margin-left: 10%;
-  padding-top: 13%;
   width: 80%;
-  height: 60%;
   column-count: 2;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 `
 
 const HeaderNavHeader = styled.div`
@@ -401,7 +384,7 @@ const HeaderInner12 = styled.div<SubMenuProps>`
 `
 
 const HeaderOuter = styled.div<MenuProps>`
-  position: relative;
+  position: fixed;
   z-index: 99999;
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   transform: ${props => (props.isUp ? 'translateY(-100%)' : 'translateY(0%)')};

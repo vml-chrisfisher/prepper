@@ -134,7 +134,7 @@ export default ({ children }) => (
 
         .row [class^='col'] {
           margin: 0;
-          min-height: 0.125rem;
+          min-height: 100%;
         }
 
         .col1,
@@ -353,32 +353,6 @@ export default ({ children }) => (
           background-color: transparent;
           border: #464646 solid 0.5px;
           color: #464646;
-        }
-
-        .show {
-          display: block;
-        }
-
-        .hide {
-          display: none;
-        }
-
-        .fadeIn {
-          opacity: 1;
-          -webkit-transition: opacity 2s ease-out;
-          -moz-transition: opacity 2s ease-out;
-          -ms-transition: opacity 2s ease-out;
-          -o-transition: opacity 2s ease-out;
-          transition: opacity 2s ease-out;
-        }
-
-        .fadeOut {
-          opacity: 0;
-          -webkit-transition: opacity 2s ease-out;
-          -moz-transition: opacity 2s ease-out;
-          -ms-transition: opacity 2s ease-out;
-          -o-transition: opacity 2s ease-out;
-          transition: opacity 2s ease-out;
         }
 
         .lds-grid {
