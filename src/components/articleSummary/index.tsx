@@ -2,11 +2,15 @@ import styled from '@emotion/styled'
 import React from 'react'
 import ArticleSummaryInterface from './interface'
 
+const windowWidth = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
+
 const ArticleSummary = (props: ArticleSummaryInterface) => (
   <Article key={props.slug}>
     <a href={`/${props.basePath}/${props.slug}`}>
       <ArticleImageParent>
-        <ArticleInside style={{ backgroundImage: `url(${props.imagePath}?fm=webp&q=80)` }}></ArticleInside>
+        <ArticleInside
+          style={{ backgroundImage: `url(${props.imagePath}?fm=webp&q=80&w=${windowWidth})` }}
+        ></ArticleInside>
       </ArticleImageParent>
       <OverlayContainer>
         <ArticleOverlay>

@@ -226,9 +226,12 @@ class PlantsIndex extends React.Component<PlantsProps> {
     `
 
     return (
-      <Layout location={this.props.location}>
+      <Layout
+        meta="Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
+        location={this.props.location}
+      >
         <div style={{ background: '#fff', paddingTop: '250px', position: 'absolute', top: '0', width: '100%' }}>
-          <Helmet title={siteTitle} />
+          <Helmet title="Zephyr & Hare | Plants" />
           <h1>Plants</h1>
           <div>
             <div className="row">

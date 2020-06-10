@@ -97,7 +97,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
     return (
       <Layout location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet title={post.title} />
           <div>
             <div className="row">
               <div className="col3" />

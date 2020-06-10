@@ -157,7 +157,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet title={post.title} />
           <div>
             <div className="row">
               <div className="col3" />
