@@ -6,12 +6,13 @@ import { HeaderProps, HeaderTheme } from './header/interface'
 
 interface Props {
   location: Location
+  meta: string
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   children?: any
   /* eslint-enable  @typescript-eslint/no-explicit-any */
 }
 
-const Layout = ({ location, children }: Props) => {
+const Layout = ({ location, meta, children }: Props) => {
   const rootPath = '/'
   const homePath = ''
   let theme: HeaderProps = { theme: HeaderTheme.DARK }
@@ -27,6 +28,7 @@ const Layout = ({ location, children }: Props) => {
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap"
           rel="stylesheet"
         />
+        <meta name="description" content={meta} />
       </Helmet>
       <HeaderContainer {...theme} />
       {children}

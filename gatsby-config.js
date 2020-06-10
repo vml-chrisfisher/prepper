@@ -39,5 +39,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typescript`
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
   ],
 }
