@@ -3,9 +3,9 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
 import Layout from '../components/layout'
 import { PlantsEdge, PlantsProps } from '../page-interfaces/plants'
-import LazyLoad from 'react-lazy-load'
 
 class PlantsIndex extends React.Component<PlantsProps> {
   render() {
@@ -20,7 +20,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       accessToken: contentfulConfig.accessToken,
     })
 
-    const asset = client.getAsset('5pHNDnKSUEali4feRGZOVY').then((asset: any) => console.log(asset.fields.file.url))
+    const asset = client.getAsset('6yYrd2D1fVD8j7LtZ76sy').then((asset: any) => console.log(asset.fields.file.url))
     const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: PlantsEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
     const vegetablesByParent = [
