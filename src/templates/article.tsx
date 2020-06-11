@@ -98,7 +98,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 		"@type": "NewsArticle",
 		"mainEntityOfPage": {
 			"@type": "WebPage",
-			"@id": "https://google.com/article"
+			"@id": "https://knifeandfish.com/article/${post.slug}"
 		},
 		"headline": "${post.title}",
 		"image": "${post.heroImage.file.url}",

@@ -154,10 +154,100 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
 
+    const structuredIngredients = []
+
+    post.recipeGroup.map(recipeGroup => {
+      recipeGroup.ingredients.map(ingredient => {
+        let ingred = ''
+        if (
+          ingredient.recipeQuantity &&
+          ingredient.recipeQuantity.recipeQuantity &&
+          ingredient.recipeQuantity.recipeMeasurement
+        ) {
+          ingred = `${ingredient.recipeQuantity.recipeQuantity} ${ingredient.recipeQuantity.recipeMeasurement}`
+        }
+        if (ingredient.ingredient && ingredient.ingredient.ingredient) {
+          ingred += ingredient.ingredient.ingredient
+        }
+        if (ingredient.prep && ingredient.prep.prep) {
+          ingred += ingredient.prep.prep
+        }
+
+        structuredIngredients.push(ingred)
+      })
+    })
+
+    const structuredInstructions = []
+
+    post.recipeInstructionGroups.map(instructionGroup => {
+      instructionGroup.instructions.map((instruction, index) => {
+        const instr = {
+          '@type': 'HowToStep',
+          name: `${instructionGroup.displayName} - Step${index}`,
+          text: instruction.instruction.childMarkdownRemark.rawMarkdownBody,
+          url: `https://knifeandfish.com/recipe/${post.slug}`,
+          image: post.heroImage.file.url,
+        }
+        structuredInstructions.push(instr)
+      })
+    })
+
+    const structuredRecipeData = `
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "${post.title}",
+      "image": "${post.heroImage.file.url}",
+      "author": {
+        "@type": "Organization",
+        "name": "Knife and Fish"
+      },
+      "datePublished": "${post.createdAt}",
+      "description": "${post.bodyCopy.childMarkdownRemark.rawMarkdownBody}",
+      "recipeCategory": "${post.mealType}",
+      "recipeIngredient": ${structuredIngredients},
+      "recipeInstructions": ${structuredInstructions}
+    }
+    `
+
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
-          <Helmet title={post.title} />
+          <Helmet>
+            {/* The description that appears under the title of your website appears on search engines results */}
+            <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+
+            {/* The thumbnail of your website */}
+            <meta name="image" content={post.heroImage.file.url} />
+
+            {/* Opengraph meta tags for Facebook & LinkedIn */}
+            <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
+            <meta property="og:type" content="NewsArticle" />
+            <meta property="og:title" content={post.title} />
+            <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+            <meta property="og:image" content={post.heroImage.file.url} />
+
+            {/* These tags work for Twitter & Slack, notice I've included more custom tags like reading time etc... */}
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:creator" content="knifeandfisher1" />
+            <meta name="twitter:site" content="knifeandfisher1" />
+            <meta name="twitter:title" content={post.title} />
+            <meta name="twitter:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+            <meta name="twitter:image:src" content={post.heroImage.file.url} />
+            <meta name="twitter:label1" value="Reading time" />
+            <meta name="twitter:data1" value={`5 min read`} />
+            <meta name="author" content="Knife and Fish" data-react-helmet="true" />
+            <meta name="article:published_time" content={post.createdAt} data-react-helmet="true" />
+
+            {/* Structured data */}
+            <script type="application/ld+json">{structuredRecipeData}</script>
+
+            {/* The title of your current page */}
+            <title>{post.title}</title>
+
+            {/* Default language and direction */}
+            <html lang="en" dir="ltr" />
+          </Helmet>
           <div>
             <div className="row">
               <div className="col3" />
