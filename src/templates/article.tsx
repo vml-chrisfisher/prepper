@@ -19,40 +19,41 @@ class ArticleTemplate extends React.Component<ArticleProps> {
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const articleFeatures: FeatureContentRowProps = {
       details: {
-        title: 'May Articles',
+        title: 'Recipes',
         description:
           'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
-        buttonCaption: 'Explore May Posts',
-        slug: '/articles',
+        buttonCaption: 'Find Recipes',
+        slug: '/recipes',
         theme: HeaderTheme.DARK,
       },
       features: [
         {
-          title: 'Spring Seedling To Start Now',
+          title: 'Cornmeal Fried Okra',
           slug: 'Okra',
-          imagePath: '/andrej-lisakov-zYUn4R37o_U-unsplash.jpg',
+          imagePath:
+            '//images.ctfassets.net/ce6fbxhy1t51/46pHQHUxijoTd2fpcYq3w6/52e78a0c5ab047359f4b10259b1c059f/fried-okra-rectangle.jpg',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          basePath: 'article',
+            'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
+          basePath: 'recipe',
         },
         {
-          title: 'Compost',
+          title: 'Sausage, Shrimp and Okra Gumbo',
           slug: 'Okra',
-          imagePath: '/gabriel-jimenez-jin4W1HqgL4-unsplash.jpg',
-          description:
-            'Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.',
-          basePath: 'article',
+          imagePath:
+            '//images.ctfassets.net/ce6fbxhy1t51/nWI1iStg20DSjv0xqjyfJ/d0ae7ed21130834667a60a4cfac3042e/Gumbo-11.jpg',
+          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
+          basePath: 'recipe',
         },
         {
-          title: 'Spring Root Vegetables',
+          title: 'Stir Fried Okra',
           slug: 'Okra',
-          imagePath: '/heather-gill-VJa9L3ZVBIc-unsplash.jpg',
-          description:
-            'Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum.',
-          basePath: 'article',
+          imagePath:
+            '//images.ctfassets.net/ce6fbxhy1t51/6erFjTvbIYftFkbDbaXi6i/c08cee40d7ebd49ae5fe757314f4c59b/stir-fried-okra.jpg',
+          description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
+          basePath: 'recipe',
         },
       ],
-      basePath: 'article',
+      basePath: 'recipe',
     }
 
     const Title = styled.h1`
