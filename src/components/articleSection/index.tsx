@@ -1,14 +1,14 @@
-import React from 'react'
-import ArticleSectionInterface from './interface'
 import styled from '@emotion/styled'
+import React from 'react'
 import LazyLoad from 'react-lazy-load'
+import ArticleSectionInterface from './interface'
 
 const ArticleSection = (props: ArticleSectionInterface) => (
   <div className="row">
     {props.images.length === 1 && (
       <div className="row">
         <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-          <img src={props.images[0].file.url} />
+          <img alt={props.images[0].description} src={props.images[0].file.url} />
         </LazyLoad>
       </div>
     )}
@@ -16,12 +16,12 @@ const ArticleSection = (props: ArticleSectionInterface) => (
       <div className="row">
         <TwoPicturesLeft>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img src={props.images[0].file.url} />
+            <img alt={props.images[0].description} src={props.images[0].file.url} />
           </LazyLoad>
         </TwoPicturesLeft>
         <TwoPicturesRight>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img src={props.images[1].file.url} />
+            <img alt={props.images[1].description} src={props.images[1].file.url} />
           </LazyLoad>
         </TwoPicturesRight>
       </div>

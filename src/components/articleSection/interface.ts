@@ -1,15 +1,16 @@
 export default interface ArticleSecionInterface {
-    bodyCopy: {
-        childMarkdownRemark: {
-            rawMarkdownBody: string
-        }
+  bodyCopy: {
+    childMarkdownRemark: {
+      rawMarkdownBody: string
     }
-    images: ContentfulImage[]
-    isTwoColumn: boolean
+  }
+  images: ContentfulImage[]
+  isTwoColumn: boolean
 }
 
 interface ContentfulImage {
-    file: {
-        url: string
-    }
+  description: string
+  file: {
+    url: string
+  }
 }

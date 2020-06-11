@@ -45,6 +45,7 @@ export interface ArticleTag {
 }
 
 export interface ArticleBannerImage {
+  description: string
   file: ArticleBannerImageFile
   title: string
 }

@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
 import ArticleSection from '../components/articleSection'
 import ArticleSecionInterface from '../components/articleSection/interface'
 import FeaturedContentRow from '../components/featuredContentRow'
@@ -13,7 +14,6 @@ import GeneralContentRow from '../components/generalContentRow'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
-import LazyLoad from 'react-lazy-load'
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
@@ -172,7 +172,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               <div className="col3" />
             </div>
             <LazyLoad style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
-              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+              <img alt={post.heroImage.description} src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
             </LazyLoad>
             <div className="row">
               <div className="col2" />
@@ -217,6 +217,7 @@ export const pageQuery = graphql`
       slug
       createdAt
       heroImage {
+        description
         file {
           url
         }
@@ -234,6 +235,7 @@ export const pageQuery = graphql`
           }
         }
         images {
+          description
           file {
             url
           }

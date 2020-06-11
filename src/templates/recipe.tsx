@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import Footer from '../components/footer'
@@ -18,7 +19,6 @@ import {
   RecipeInstructionGroup,
   RecipeInstruction,
 } from '../template-interfaces/recipe'
-import LazyLoad from 'react-lazy-load'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
   render() {
@@ -172,7 +172,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               <div className="col3" />
             </div>
             <LazyLoad style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
-              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+              <img alt={post.heroImage.description} src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
             </LazyLoad>
             <div className="row">
               <div className="col2"></div>

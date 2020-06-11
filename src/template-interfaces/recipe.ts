@@ -34,6 +34,7 @@ export interface AllContentfulRecipe {
 }
 
 export interface RecipeBannerImage {
+  description: string
   file: {
     url: string
   }
