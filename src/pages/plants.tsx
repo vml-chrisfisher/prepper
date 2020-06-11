@@ -19,7 +19,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       accessToken: contentfulConfig.accessToken,
     })
 
-    const asset = client.getAsset('nrN4bkyTQovcYuC1V3U7D').then((asset: any) => console.log(asset.fields.file.url))
+    const asset = client.getAsset('5pHNDnKSUEali4feRGZOVY').then((asset: any) => console.log(asset.fields.file.url))
     const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: PlantsEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
     const vegetablesByParent = [

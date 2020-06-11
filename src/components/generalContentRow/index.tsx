@@ -3,6 +3,9 @@ import React from 'react'
 import ArticleSummary from '../articleSummary'
 import NewsletterContainer from '../newsletterSignup/container'
 
+const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
+const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
+
 const GeneralContentRow = () => {
   return (
     <GeneralContentContainer className="row">
@@ -10,7 +13,10 @@ const GeneralContentRow = () => {
         <ContentContainer>
           <ContentBackground>
             <ContentImage>
-              <img alt="Zephyr and Hare Story" src={'/story-background.png'} />
+              <img
+                alt="Zephyr and Hare Story"
+                src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=80&w=${windowWidthHalf}`}
+              />
             </ContentImage>
             <ContentOverlay>
               <Col3Full className="col3" />
@@ -34,7 +40,7 @@ const GeneralContentRow = () => {
                 title: 'A guide to gardening tools',
                 description: 'sdfsdfds sdf  sdf sdf',
                 slug: 'sdfds',
-                imagePath: '/tools-background.png',
+                imagePath: `//images.ctfassets.net/ce6fbxhy1t51/68yxYrpcreuM9MdWEXReXE/ee1b2e4a8043b52cdc906c0480410d66/tools-background.png?fm=webp&q=80&w=${windowWidthQuarter}`,
               }}
             />
           </Col6Full>
