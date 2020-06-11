@@ -2,13 +2,14 @@ import styled from '@emotion/styled'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
 import ArticleSectionInterface from './interface'
+const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 900
 
 const ArticleSection = (props: ArticleSectionInterface) => (
   <div className="row">
     {props.images.length === 1 && (
       <div className="row">
         <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-          <img alt={props.images[0].description} src={props.images[0].file.url} />
+          <img alt={props.images[0].description} src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}`} />
         </LazyLoad>
       </div>
     )}
@@ -16,12 +17,12 @@ const ArticleSection = (props: ArticleSectionInterface) => (
       <div className="row">
         <TwoPicturesLeft>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img alt={props.images[0].description} src={props.images[0].file.url} />
+            <img alt={props.images[0].description} src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}`} />
           </LazyLoad>
         </TwoPicturesLeft>
         <TwoPicturesRight>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img alt={props.images[1].description} src={props.images[1].file.url} />
+            <img alt={props.images[1].description} src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}`} />
           </LazyLoad>
         </TwoPicturesRight>
       </div>
