@@ -256,6 +256,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
                     {vegetableParent.type.toLowerCase() === 'vegetables' && (
                       <ArticleImageParent key={vegParentIndex}>
                         <ArticleInside
+                          lazyload
                           style={{
                             backgroundImage: `url("//images.ctfassets.net/ce6fbxhy1t51/1ivQJbUcXJJUiHGiL9d4tN/9566fedf02d1c8c22c9dd3b840807c6f/asparagus-raw.jpg")`,
                           }}
@@ -293,6 +294,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
                     {vegetableParent.type.toLowerCase() === 'herbs' && (
                       <ArticleImageParent>
                         <ArticleInside
+                          lazyload
                           style={{
                             backgroundImage: `url("//images.ctfassets.net/ce6fbxhy1t51/2jOR7KGH7C6xkwqaGBKVig/45a4215b125dfafcbd209d78c0ef0247/juliana-malta-fWMH08cUvyw-unsplash__1_.jpg")`,
                           }}
