@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import ArticleSummary from '../articleSummary'
 import NewsletterContainer from '../newsletterSignup/container'
+import LazyLoad from 'react-lazy-load'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
@@ -13,10 +14,12 @@ const GeneralContentRow = () => {
         <ContentContainer>
           <ContentBackground>
             <ContentImage>
-              <img
-                alt="Zephyr and Hare Story"
-                src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=80&w=${windowWidthHalf}`}
-              />
+              <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
+                <img
+                  alt="Zephyr and Hare Story"
+                  src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=80&w=${windowWidthHalf}`}
+                />
+              </LazyLoad>
             </ContentImage>
             <ContentOverlay>
               <Col3Full className="col3" />

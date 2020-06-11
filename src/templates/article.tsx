@@ -13,6 +13,7 @@ import GeneralContentRow from '../components/generalContentRow'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
+import LazyLoad from 'react-lazy-load'
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
@@ -170,7 +171,9 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               </div>
               <div className="col3" />
             </div>
-            <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+            <LazyLoad style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
+              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+            </LazyLoad>
             <div className="row">
               <div className="col2" />
               <div className="col8">

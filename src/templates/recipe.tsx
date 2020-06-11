@@ -18,6 +18,7 @@ import {
   RecipeInstructionGroup,
   RecipeInstruction,
 } from '../template-interfaces/recipe'
+import LazyLoad from 'react-lazy-load'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
   render() {
@@ -170,11 +171,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <picture>
-              <source srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
-              <source srcSet={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
-              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt={post.heroImage.description} />
-            </picture>
+            <LazyLoad style={{ width: '100%', 'padding-top': '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
+              <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+            </LazyLoad>
             <div className="row">
               <div className="col2"></div>
               <div className="col8">

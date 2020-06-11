@@ -5,6 +5,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import { PlantsEdge, PlantsProps } from '../page-interfaces/plants'
+import LazyLoad from 'react-lazy-load'
 
 class PlantsIndex extends React.Component<PlantsProps> {
   render() {
@@ -317,7 +318,13 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                     {vegPlant[key].map((plant: PlantsEdge, index: number) => {
                                       return (
                                         <div className="col4" key={index}>
-                                          <img src={plant.node.bannerImage.file.url} />
+                                          <LazyLoad
+                                            style={{ width: '100%', backgroundColor: '#FEFEFE' }}
+                                            once
+                                            offset={100}
+                                          >
+                                            <img src={plant.node.bannerImage.file.url} />
+                                          </LazyLoad>
                                           <VegetableTitle className="center">{plant.node.title}</VegetableTitle>
                                           <PrimaryButton>Learn More</PrimaryButton>
                                         </div>
