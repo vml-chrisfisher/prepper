@@ -16,6 +16,7 @@ import { ArticleProps, AllContentfulArticle, ArticleTag } from '../template-inte
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const articleFeatures: FeatureContentRowProps = {
       details: {
         title: 'May Articles',
@@ -168,7 +169,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               </div>
               <div className="col3" />
             </div>
-            <img src={post.heroImage.file.url} />
+            <img lazyload src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
             <div className="row">
               <div className="col2" />
               <div className="col8">

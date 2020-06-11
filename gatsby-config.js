@@ -32,6 +32,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-typescript-css-modules',
+    `gatsby-remark-lazy-load`,
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -45,5 +46,8 @@ module.exports = {
         lang: 'en'
       }
     },
+    {
+      resolve: `gatsby-remark-images`,
+    }
   ],
 }

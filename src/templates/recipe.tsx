@@ -260,7 +260,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <picture>
+            <picture lazyload>
               <source srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
               <source srcSet={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
               <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt={post.heroImage.description} />
