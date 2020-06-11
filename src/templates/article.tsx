@@ -12,7 +12,7 @@ import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
-import { ArticleProps, AllContentfulArticle, ArticleTag } from '../template-interfaces/article'
+import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
@@ -169,7 +169,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               </div>
               <div className="col3" />
             </div>
-            <img lazyload src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+            <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
             <div className="row">
               <div className="col2" />
               <div className="col8">

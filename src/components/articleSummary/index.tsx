@@ -10,7 +10,6 @@ const ArticleSummary = (props: ArticleSummaryInterface) => (
     <a href={`/${props.basePath}/${props.slug}`}>
       <ArticleImageParent>
         <ArticleInside
-          lazyload
           style={{ backgroundImage: `url(${props.imagePath}?fm=webp&q=80&w=${windowWidthHalf})` }}
         ></ArticleInside>
       </ArticleImageParent>

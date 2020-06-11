@@ -34,8 +34,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         {
           title: 'Cornmeal Fried Okra',
           slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/46pHQHUxijoTd2fpcYq3w6/52e78a0c5ab047359f4b10259b1c059f/fried-okra-rectangle.jpg',
+          imagePath: '/fried-okra-rectangle.jpg',
           description:
             'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
           basePath: 'recipe',
@@ -43,16 +42,14 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         {
           title: 'Sausage, Shrimp and Okra Gumbo',
           slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/nWI1iStg20DSjv0xqjyfJ/d0ae7ed21130834667a60a4cfac3042e/Gumbo-11.jpg',
+          imagePath: '/Gumbo-11.jpg',
           description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
           basePath: 'recipe',
         },
         {
           title: 'Stir Fried Okra',
           slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/6erFjTvbIYftFkbDbaXi6i/c08cee40d7ebd49ae5fe757314f4c59b/stir-fried-okra.jpg',
+          imagePath: '/stir-fried-okra.jpg',
           description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
           basePath: 'recipe',
         },
@@ -157,100 +154,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
 
-    const structuredIngredients = []
-
-    post.recipeGroup.map(recipeGroup => {
-      recipeGroup.ingredients.map(ingredient => {
-        let ingred = ''
-        if (
-          ingredient.recipeQuantity &&
-          ingredient.recipeQuantity.recipeQuantity &&
-          ingredient.recipeQuantity.recipeMeasurement
-        ) {
-          ingred = `${ingredient.recipeQuantity.recipeQuantity} ${ingredient.recipeQuantity.recipeMeasurement}`
-        }
-        if (ingredient.ingredient && ingredient.ingredient.ingredient) {
-          ingred += ingredient.ingredient.ingredient
-        }
-        if (ingredient.prep && ingredient.prep.prep) {
-          ingred += ingredient.prep.prep
-        }
-
-        structuredIngredients.push(ingred)
-      })
-    })
-
-    const structuredInstructions = []
-
-    post.recipeInstructionGroups.map(instructionGroup => {
-      instructionGroup.instructions.map((instruction, index) => {
-        const instr = {
-          '@type': 'HowToStep',
-          name: `${instructionGroup.displayName} - Step${index}`,
-          text: instruction.instruction.childMarkdownRemark.rawMarkdownBody,
-          url: `https://knifeandfish.com/recipe/${post.slug}`,
-          image: post.heroImage.file.url,
-        }
-        structuredInstructions.push(instr)
-      })
-    })
-
-    const structuredRecipeData = `
-    {
-      "@context": "https://schema.org/",
-      "@type": "Recipe",
-      "name": "${post.title}",
-      "image": "${post.heroImage.file.url}",
-      "author": {
-        "@type": "Organization",
-        "name": "Knife and Fish"
-      },
-      "datePublished": "${post.createdAt}",
-      "description": "${post.bodyCopy.childMarkdownRemark.rawMarkdownBody}",
-      "recipeCategory": "${post.mealType}",
-      "recipeIngredient": ${structuredIngredients},
-      "recipeInstructions": ${structuredInstructions}
-    }
-    `
-
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
-          <Helmet>
-            {/* The description that appears under the title of your website appears on search engines results */}
-            <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-
-            {/* The thumbnail of your website */}
-            <meta name="image" content={post.heroImage.file.url} />
-
-            {/* Opengraph meta tags for Facebook & LinkedIn */}
-            <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
-            <meta property="og:type" content="NewsArticle" />
-            <meta property="og:title" content={post.title} />
-            <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-            <meta property="og:image" content={post.heroImage.file.url} />
-
-            {/* These tags work for Twitter & Slack, notice I've included more custom tags like reading time etc... */}
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:creator" content="knifeandfisher1" />
-            <meta name="twitter:site" content="knifeandfisher1" />
-            <meta name="twitter:title" content={post.title} />
-            <meta name="twitter:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-            <meta name="twitter:image:src" content={post.heroImage.file.url} />
-            <meta name="twitter:label1" value="Reading time" />
-            <meta name="twitter:data1" value={`5 min read`} />
-            <meta name="author" content="Knife and Fish" data-react-helmet="true" />
-            <meta name="article:published_time" content={post.createdAt} data-react-helmet="true" />
-
-            {/* Structured data */}
-            <script type="application/ld+json">{structuredRecipeData}</script>
-
-            {/* The title of your current page */}
-            <title>{post.title}</title>
-
-            {/* Default language and direction */}
-            <html lang="en" dir="ltr" />
-          </Helmet>
+          <Helmet title={`${post.title} | ${siteTitle}`} />
           <div>
             <div className="row">
               <div className="col3" />
@@ -260,7 +167,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <picture lazyload>
+            <picture>
               <source srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
               <source srcSet={`${post.heroImage.file.url}?fm=jpg&q=90&w=${windowWidth}`} />
               <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} alt={post.heroImage.description} />

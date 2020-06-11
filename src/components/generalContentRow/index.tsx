@@ -14,7 +14,6 @@ const GeneralContentRow = () => {
           <ContentBackground>
             <ContentImage>
               <img
-                lazyload
                 alt="Zephyr and Hare Story"
                 src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=80&w=${windowWidthHalf}`}
               />
