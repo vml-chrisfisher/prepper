@@ -171,7 +171,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <LazyLoad style={{ width: '100%', 'padding-top': '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
+            <LazyLoad style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
               <img src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
             </LazyLoad>
             <div className="row">
