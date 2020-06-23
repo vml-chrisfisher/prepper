@@ -411,7 +411,8 @@ const Navigation = styled.ul`
   display: flex;
   justify-content: left;
   list-style: none;
-  padding: 80px;
+  padding-left: 80px;
+  padding-top: 20px;
   margin: 0;
   height: 20vh;
   max-height: 100px;
