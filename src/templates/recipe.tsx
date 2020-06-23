@@ -143,7 +143,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const GroupTitle = styled.div`
       color: #464646;
       display: inline-block;
-      font-size: 1em;
+      font-size: 1.15em;
       font-family: 'Nunito', sans-serif;
       font-weight: 600;
       padding-bottom: 10px;
@@ -191,12 +191,12 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                     <IngredientTitle>Ingredients</IngredientTitle>
                     {post.recipeGroup.map((recipeGroup: RecipeGroup, index: number) => {
                       return (
-                        <div key={`recipe-group-${index}`}>
+                        <div style={{ paddingBottom: '30px' }} key={`recipe-group-${index}`}>
                           {recipeGroup.displayName && <GroupTitle>{recipeGroup.displayName}</GroupTitle>}
                           {recipeGroup.ingredients.map((ingredient: RecipeIngredient, index: number) => {
                             return (
                               <Ingredient key={`ingredient-${index}`}>
-                                {ingredient.recipeQuantity && (
+                                {ingredient.recipeQuantity && ingredient.recipeQuantity.recipeQuantity && (
                                   <span
                                     dangerouslySetInnerHTML={{
                                       __html:
@@ -227,7 +227,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                     <InstructionTitle>Instructions</InstructionTitle>
                     {post.recipeInstructionGroups.map((instructionGroup: RecipeInstructionGroup, index: number) => {
                       return (
-                        <div key={`instruction-group-${index}`}>
+                        <div style={{ paddingBottom: '30px' }} key={`instruction-group-${index}`}>
                           {instructionGroup.displayName && <GroupTitle>{instructionGroup.displayName}</GroupTitle>}
                           {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
                             return (

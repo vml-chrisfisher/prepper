@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
-import { RecipesProps, RecipesEdge } from '../page-interfaces/recipes'
+import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
 
 class RecipeIndex extends React.Component<RecipesProps> {
   render() {
@@ -33,7 +33,7 @@ class RecipeIndex extends React.Component<RecipesProps> {
         location={this.props.location}
       >
         <div style={{ background: '#fff', paddingTop: '250px', position: 'absolute', top: '0', width: '100%' }}>
-          <Helmet title="Zephyr & Hare | Recipes" />
+          <Helmet title="Knife & Fish | Recipes" />
           <h1>Recipes</h1>
           <div className="wrapper">
             <div>

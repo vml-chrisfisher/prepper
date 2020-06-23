@@ -33,7 +33,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
         location={this.props.location}
       >
         <div style={{ background: '#fff', paddingTop: '250px', position: 'absolute', top: '0', width: '100%' }}>
-          <Helmet title="Zaphyr & Hare | Articles" />
+          <Helmet title="Knife & Fish | Articles" />
           <h1>Articles</h1>
           <div className="wrapper">
             <div>
