@@ -59,7 +59,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
       <header>
         <nav role="navigation">
           <Navigation>
-            <li>
+            {/* <li>
               <NavigationItem
                 theme={themeValue}
                 onClick={() => {
@@ -67,6 +67,16 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 }}
               >
                 Plants
+              </NavigationItem>
+            </li> */}
+            <li>
+              <NavigationItem
+                theme={themeValue}
+                onClick={() => {
+                  this.onRecipesClick()
+                }}
+              >
+                Recipes
               </NavigationItem>
             </li>
             <li>
@@ -79,16 +89,6 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 Articles
               </NavigationItem>
             </li>
-            <li>
-              <NavigationItem
-                theme={themeValue}
-                onClick={() => {
-                  this.onRecipesClick()
-                }}
-              >
-                Recipes
-              </NavigationItem>
-            </li>
           </Navigation>
         </nav>
         <LogoContainer>
@@ -97,10 +97,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               <LogoImage
                 alt="Zephyr and Hare Logo"
                 src={
-                  '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/6e8e7d8c597c0ec295d1ca2570783bdd/logo.svg'
+                  '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
                 }
               />
-              <LogoText theme={themeValue}>Zephyr & Hare</LogoText>
             </LogoLink>
           </div>
         </LogoContainer>
@@ -333,9 +332,10 @@ const Col12Full = styled.div`
 `
 
 const LogoContainer = styled.div`
-  width: 100%;
+  background-color: #fff;
   position: fixed;
   text-align: center;
+  width: 100%;
   z-index: 999;
 `
 
@@ -345,8 +345,7 @@ const LogoLink = styled.a`
 
 const LogoImage = styled.img`
   display: inline-block;
-  margin-top: 15px;
-  width: 75px;
+  width: 100px;
 `
 
 const LogoText = styled.div<ThemeProps>`
@@ -355,6 +354,7 @@ const LogoText = styled.div<ThemeProps>`
   }};
   font-size: 1.25em;
   letter-spacing: -0.5px;
+  margin-top: -33px;
 `
 
 const DetailSection6 = styled.div`
@@ -414,15 +414,13 @@ const Navigation = styled.ul`
   padding-left: 80px;
   padding-top: 20px;
   margin: 0;
-  height: 20vh;
-  max-height: 100px;
   font-size: 1.25em;
 `
 
 const NavigationItem = styled.a<ThemeProps>`
   font-family: 'Nunito', sans-serif;
   color: ${props => {
-    return props.theme === 'white' ? '#FFFFFF' : '#464646'
+    return props.theme === 'white' ? '#464646' : '#464646'
   }};
   text-decoration: none;
   text-transform: uppercase;
