@@ -9,7 +9,10 @@ const ArticleSection = (props: ArticleSectionInterface) => (
     {props.images.length === 1 && (
       <div className="row">
         <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-          <img alt={props.images[0].description} src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}`} />
+          <img
+            alt={props.images[0].description}
+            src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}&h=${windowWidth}&fit=fill`}
+          />
         </LazyLoad>
       </div>
     )}
@@ -17,12 +20,18 @@ const ArticleSection = (props: ArticleSectionInterface) => (
       <div className="row">
         <TwoPicturesLeft>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img alt={props.images[0].description} src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}`} />
+            <img
+              alt={props.images[0].description}
+              src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}&h=${windowWidth}&fit=fill`}
+            />
           </LazyLoad>
         </TwoPicturesLeft>
         <TwoPicturesRight>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img alt={props.images[1].description} src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}`} />
+            <img
+              alt={props.images[1].description}
+              src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}&h=${windowWidth}&fit=fill`}
+            />
           </LazyLoad>
         </TwoPicturesRight>
       </div>

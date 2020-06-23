@@ -73,8 +73,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     `
 
     const BodyCopy = styled.div`
-      column-count: 2;
-      column-gap: 40px;
       color: #464646;
       font-size: 1em;
       font-family: 'Nunito', sans-serif;
