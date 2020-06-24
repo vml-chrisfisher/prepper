@@ -1,6 +1,7 @@
 import React from 'react'
 import ArticleSummary from '../articleSummary'
 import styled from '@emotion/styled'
+import LazyLoad from 'react-lazy-load'
 
 const FeaturedVegetableRow = () => {
   return (
@@ -9,7 +10,9 @@ const FeaturedVegetableRow = () => {
         <VegetableContainer>
           <VegetableBackground>
             <VegetableImage>
-              <img src={'/perkins-okra.jpg'} />
+              <LazyLoad once offset={100}>
+                <img src={'/perkins-okra.jpg'} alt="Okra" />
+              </LazyLoad>
             </VegetableImage>
             <VegetableOverlay>
               <Col3FullOverlay className="col3" />
@@ -33,7 +36,7 @@ const FeaturedVegetableRow = () => {
           <Col6Full className="col6">
             <Ratio1Point5Height>
               <VegetablePricingSummaryContainer>
-                <VegetablePricingImage src={'/okra_square.jpg'} />
+                <VegetablePricingImage src={'/okra_square.jpg'} alt="okra" />
                 <VegetablePricingCategory>Seeds</VegetablePricingCategory>
                 <VegetablePricingPrice>$12</VegetablePricingPrice>
                 <VegetableProductContainer>

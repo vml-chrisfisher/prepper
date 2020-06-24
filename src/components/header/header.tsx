@@ -163,7 +163,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               </Columns>
             </DetailSection6>
             <DetailSection23 className="col3">
-              {this.props.categoryDetail?.imagePath && <HeaderNavDetailImg src={this.props.categoryDetail.imagePath} />}
+              {this.props.categoryDetail?.imagePath && (
+                <HeaderNavDetailImg src={this.props.categoryDetail.imagePath} alt={this.props.categoryDetail.copy} />
+              )}
               {this.props.categoryDetail?.copy && (
                 <HeaderNavDetailP className="darkText">{this.props.categoryDetail.copy}</HeaderNavDetailP>
               )}

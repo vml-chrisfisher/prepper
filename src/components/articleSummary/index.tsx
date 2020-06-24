@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import ArticleSummaryInterface from './interface'
+import LazyLoad from 'react-lazy-load'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
@@ -10,25 +11,28 @@ const ArticleSummary = (props: ArticleSummaryInterface) => (
     <a href={`/${props.basePath}/${props.slug}`}>
       <ArticleImageParent>
         <ArticleInside>
-          <picture>
-            <source
-              type="image/webp"
-              srcSet={`${props.imagePath}?fm=webp&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                windowWidthHalf,
-              )}&fit=fill`}
-            />
-            <source
-              type="image/jpg"
-              srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                windowWidthHalf,
-              )}&fit=fill`}
-            />
-            <img
-              src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                windowWidthHalf,
-              )}&fit=fill`}
-            />
-          </picture>
+          <LazyLoad once offset={100}>
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${props.imagePath}?fm=webp&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  windowWidthHalf,
+                )}&fit=fill`}
+              />
+              <source
+                type="image/jpg"
+                srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  windowWidthHalf,
+                )}&fit=fill`}
+              />
+              <img
+                src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  windowWidthHalf,
+                )}&fit=fill`}
+                alt={props.imageDescription}
+              />
+            </picture>
+          </LazyLoad>
         </ArticleInside>
       </ArticleImageParent>
       <OverlayContainer>

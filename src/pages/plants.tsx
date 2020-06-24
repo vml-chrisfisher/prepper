@@ -340,6 +340,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                                 src={`${plant.node.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(
                                                   windowWidth,
                                                 )}&h=${Math.round(windowWidth)}&fit=fill`}
+                                                alt={plant.node.bannerImage.title}
                                               />
                                             </picture>
                                           </LazyLoad>
