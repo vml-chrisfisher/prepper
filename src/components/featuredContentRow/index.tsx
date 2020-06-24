@@ -32,6 +32,9 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
 const Col3Full = styled.div`
   width: 25%;
   padding: 0;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const FeatureContainer = styled.div`

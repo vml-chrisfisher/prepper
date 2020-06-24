@@ -65,12 +65,18 @@ const GeneralContentContainer = styled.div`
 const Col3Full = styled.div`
   width: 25%;
   padding: 0;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const Col6Full = styled.div`
   margin: 0;
   width: 50%;
   padding: 0;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const ContentContainer = styled.div`

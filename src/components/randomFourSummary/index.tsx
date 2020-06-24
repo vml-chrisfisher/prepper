@@ -158,16 +158,25 @@ const Wrapper = styled.div`
 const Col6Full = styled.div`
   display: inline-block;
   width: 50%;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const Col4Full = styled.div`
   display: inline-block;
   width: 33.33%;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const Col3Full = styled.div`
   display: inline-block;
   width: 25%;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 export default RandomFourSummary
