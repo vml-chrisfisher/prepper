@@ -37,7 +37,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Nunito:300,600', 'Playfair Display']
+          families: ['Nunito:300,600', 'Playfair Display&display=swap']
         }
       }
     },
