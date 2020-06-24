@@ -64,6 +64,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
       @media (max-width: 767px) {
+        font-size: 3.5em;
         padding: 0;
       }
     `
