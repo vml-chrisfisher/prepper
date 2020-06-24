@@ -211,6 +211,10 @@ export default ({ children }) => (
           display: none;
         }
 
+        .hidden-lg {
+          display: block;
+        }
+
         .dark-text {
           color: #484848;
         }
@@ -279,6 +283,10 @@ export default ({ children }) => (
 
           .hidden-sm {
             display: block;
+          }
+
+          .hidden-lg {
+            display: none;
           }
         }
 

@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import React from 'react'
+import LazyLoad from 'react-lazy-load'
 import ArticleSummary from '../articleSummary'
 import NewsletterContainer from '../newsletterSignup/container'
-import LazyLoad from 'react-lazy-load'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
@@ -61,6 +61,9 @@ const GeneralContentRow = () => {
 const GeneralContentContainer = styled.div`
   padding-bottom: 200px;
   margin: 0;
+  @media (max-width: 767px) {
+    padding-bottom: 40px;
+  }
 `
 
 const Col3Full = styled.div`
@@ -118,7 +121,7 @@ const ContentOverlay = styled.div`
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1003;
+  z-index: 100;
 `
 
 const StoryContainer = styled.div`

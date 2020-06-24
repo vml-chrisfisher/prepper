@@ -120,6 +120,10 @@ const NewsletterSignupContainer = styled.div`
   padding-top: 150%;
   position: relative;
   width: 100%;
+  @media (max-width: 767px) {
+    height: 50%;
+    padding-top: 100vw;
+  }
 `
 
 const NewsletterSignupScroll = styled.div<NewsletterPositionProps>`

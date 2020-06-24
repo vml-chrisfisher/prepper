@@ -94,7 +94,7 @@ const ArticleImageParent = styled.div`
 
 const ArticleOverlay = styled.div`
   position: absolute;
-  z-index: 999;
+  z-index: 100;
   bottom: -98px;
   left: 20px;
   width: calc(100% - 40px);

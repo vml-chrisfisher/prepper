@@ -17,6 +17,7 @@ export interface ArticleSiteMetaData {
 }
 
 export interface AllContentfulArticle {
+  bannerImage: ArticleBannerImage
   bodyCopy: {
     childMarkdownRemark: {
       rawMarkdownBody: string

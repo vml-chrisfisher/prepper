@@ -1,14 +1,25 @@
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
+import Footer from '../components/footer'
+import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
 
 class RecipeIndex extends React.Component<RecipesProps> {
   render() {
+    const MainContainer = styled.div`
+      background-color: #fff;
+      position: absolute;
+      top: 15.625em;
+      width: 100%;
+      @media (max-width:767px) {
+        top: 6em;
+    `
     const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4
@@ -32,7 +43,7 @@ class RecipeIndex extends React.Component<RecipesProps> {
         meta="Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
         location={this.props.location}
       >
-        <div style={{ background: '#fff', paddingTop: '250px', position: 'absolute', top: '0', width: '100%' }}>
+        <MainContainer>
           <Helmet title="Knife & Fish | Recipes" />
           <h1>Recipes</h1>
           <div className="wrapper">
@@ -42,7 +53,8 @@ class RecipeIndex extends React.Component<RecipesProps> {
               })}
             </div>
           </div>
-        </div>
+          <Footer {...{ theme: HeaderTheme.DARK }} />
+        </MainContainer>
       </Layout>
     )
   }

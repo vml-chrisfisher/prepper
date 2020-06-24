@@ -11,9 +11,9 @@ class Footer extends PureComponent<FooterProps> {
     const themeValue = this.props.theme
     return (
       <div>
-        <div className="row" style={{ paddingBottom: '175px' }}>
-          <div className="col3" />
-          <div className="col3">
+        <FooterColumnsContainer className="row">
+          <FooterColumn className="col3" />
+          <FooterColumn className="col3">
             <FooterTitle theme={themeValue}>Shop</FooterTitle>
             <FooterParagraph theme={themeValue}>
               Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
@@ -21,8 +21,8 @@ class Footer extends PureComponent<FooterProps> {
             <FooterLinkMain theme={themeValue} href="">
               Shop Now
             </FooterLinkMain>
-          </div>
-          <div className="col3">
+          </FooterColumn>
+          <FooterColumn className="col3">
             <FooterTitle theme={themeValue}>Recipes</FooterTitle>
             <FooterParagraph theme={themeValue}>
               Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
@@ -30,8 +30,8 @@ class Footer extends PureComponent<FooterProps> {
             <FooterLinkMain theme={themeValue} href="">
               Get Recipes
             </FooterLinkMain>
-          </div>
-          <div className="col3">
+          </FooterColumn>
+          <FooterColumn className="col3">
             <FooterTitle theme={themeValue}>Story</FooterTitle>
             <FooterParagraph theme={themeValue}>
               Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
@@ -39,9 +39,9 @@ class Footer extends PureComponent<FooterProps> {
             <FooterLinkMain theme={themeValue} href="">
               Read
             </FooterLinkMain>
-          </div>
-        </div>
-        <div className="row" style={{ paddingBottom: '100px' }}>
+          </FooterColumn>
+        </FooterColumnsContainer>
+        <FooterBottomContainer className="row">
           <div className="col3" />
           <div className="col9">
             <div className="col4">
@@ -99,11 +99,37 @@ class Footer extends PureComponent<FooterProps> {
               </FooterBottomLinkContainer>
             </div>
           </div>
-        </div>
+        </FooterBottomContainer>
       </div>
     )
   }
 }
+
+const FooterColumnsContainer = styled.div`
+  padding-bottom: '100px';
+  @media (max-width: 767px) {
+    padding-top: 100px;
+  }
+`
+
+const FooterBottomContainer = styled.div`
+  padding-bottom: '175px';
+  padding-top: 100px;
+  @media (max-width: 767px) {
+    padding-bottom: 100px;
+    padding-top: 20px;
+  }
+`
+
+const FooterColumn = styled.div`
+  width: 21%;
+  padding-right: 4%;
+  @media (max-width: 767px) {
+    padding-bottom: 100px;
+    padding-left: 5%;
+    width: 90%;
+  }
+`
 
 const FooterTitle = styled.div<ThemeProps>`
   color: ${props => {
@@ -112,6 +138,9 @@ const FooterTitle = styled.div<ThemeProps>`
   font-size: 1.5em;
   letter-spacing: -0.5px;
   padding-bottom: 50px;
+  @media (max-width: 767px) {
+    padding-bottom: 20px;
+  }
 `
 
 const FooterParagraph = styled.div<ThemeProps>`
@@ -122,6 +151,10 @@ const FooterParagraph = styled.div<ThemeProps>`
   font-family: 'Nunito', sans-serif;
   letter-spacing: -0.5px;
   padding-bottom: 66px;
+  @media (max-width: 767px) {
+    font-size: 1em;
+    padding-bottom: 20px;
+  }
 `
 
 const FooterLinkMain = styled.a<ThemeProps>`
@@ -159,6 +192,10 @@ const FooterSocialIcon = styled.img`
 const FooterBottomLinkContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  @media (max-width: 767px) {
+    display: block;
+    padding-left: 5%;
+  }
 `
 
 const FooterLinkBottom = styled.a<ThemeProps>`
@@ -176,6 +213,13 @@ const FooterLinkBottom = styled.a<ThemeProps>`
   text-decoration: none;
   text-transform: uppercase;
   transition: color 1s ease;
+  @media (max-width: 767px) {
+    padding-bottom: 30px;
+    padding-top: 0;
+    display: block;
+    font-size: 1em;
+    width: 100%;
+  }
   &:hover {
     color: #999999;
     transition: color 1s ease;

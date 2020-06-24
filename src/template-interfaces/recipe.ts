@@ -17,6 +17,7 @@ export interface RecipeSiteMetaData {
 }
 
 export interface AllContentfulRecipe {
+  bannerImage: RecipeBannerImage
   bodyCopy: {
     childMarkdownRemark: {
       rawMarkdownBody: string

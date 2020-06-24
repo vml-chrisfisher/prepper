@@ -63,6 +63,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
+      @media (max-width: 767px) {
+        padding: 0;
+      }
     `
 
     const CreateDate = styled.div`
@@ -80,6 +83,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
+      @media (max-width: 767px) {
+        padding-left: 10%;
+        width: 80%;
+      }
     `
 
     const MainContainer = styled.div`
@@ -87,6 +94,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       position: absolute;
       top: 15.625em;
       width: 100%;
+      @media (max-width: 767px) {
+        top: 6em;
+      }
     `
 
     const InstructionTitle = styled.h2`
@@ -98,6 +108,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const InstructionContainer = styled.div`
       display: inline-block;
       width: 66%;
+      @media (max-width: 767px) {
+        padding-left: 10%;
+        width: 80%;
+      }
     `
 
     const Instruction = styled.div`
@@ -113,6 +127,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       display: inline-block;
       width: 30%;
       padding-right: 4%;
+      @media (max-width: 767px) {
+        padding-left: 10%;
+        width: 80%;
+      }
     `
 
     const IngredientTitle = styled.h2`
@@ -127,6 +145,16 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Nunito', sans-serif;
       line-height: 2em;
       padding-bottom: 1.75em;
+    `
+
+    const TagContainer = styled.div`
+      display: inline-block;
+      width: 100%;
+      padding-right: 4%;
+      @media (max-width: 767px) {
+        padding-left: 10%;
+        width: 80%;
+      }
     `
 
     const TagStyled = styled.p`
@@ -149,6 +177,11 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
     const FeaturedSpacer = styled.div`
       padding-top: 50px;
+      @media (max-width: 767px) {
+        padding-left: 5%;
+        padding-top: 0px;
+        width: 90%;
+      }
     `
 
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
@@ -169,7 +202,12 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <LazyLoad style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
+            <LazyLoad
+              className="hidden-sm"
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              once
+              offset={100}
+            >
               <picture>
                 <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=80&w=${windowWidth}`} />
@@ -178,6 +216,23 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                     windowWidth,
                   )}&fit=fill`}
                   alt={post.heroImage.description}
+                />
+              </picture>
+            </LazyLoad>
+            <LazyLoad
+              className="hidden-lg"
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              once
+              offset={100}
+            >
+              <picture>
+                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+                <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=80&w=${windowWidth}`} />
+                <img
+                  src={`${post.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                    windowWidth,
+                  )}&fit=fill`}
+                  alt={post.bannerImage.description}
                 />
               </picture>
             </LazyLoad>
@@ -250,20 +305,22 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                       )
                     })}
                   </InstructionContainer>
-                  <div className="col12">
+                  <TagContainer className="col12">
                     <h3>Tags</h3>
                     <TagStyled>{post.mealType}</TagStyled>
                     <TagStyled>{post.proteinType}</TagStyled>
                     {post.vegetableType.map((vegetable: string, index: number) => {
                       return <TagStyled key={`tag-${index}`}>{vegetable}</TagStyled>
                     })}
-                  </div>
+                  </TagContainer>
                 </div>
                 <FeaturedSpacer>
                   <FeaturedContentRow {...recipeFeatures} />
                 </FeaturedSpacer>
+                <FeaturedSpacer>
+                  <GeneralContentRow />
+                </FeaturedSpacer>
 
-                <GeneralContentRow />
                 <Footer {...{ theme: HeaderTheme.DARK }} />
               </div>
 
@@ -292,6 +349,12 @@ export const pageQuery = graphql`
       }
       createdAt
       heroImage {
+        description
+        file {
+          url
+        }
+      }
+      bannerImage {
         description
         file {
           url
