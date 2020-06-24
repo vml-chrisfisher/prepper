@@ -8,7 +8,6 @@ interface ThemeProps {
 
 const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
   const themeValue = props.theme
-  console.log(themeValue)
 
   return (
     <FeatureContainer>

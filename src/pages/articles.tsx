@@ -30,6 +30,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
         title: post.node.title,
         slug: post.node.slug,
         imagePath: post.node.bannerImage.file.url,
+        imageDescription: post.node.bannerImage.title,
         basePath: 'article',
       }
     })

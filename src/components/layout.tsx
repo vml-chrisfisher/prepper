@@ -24,10 +24,10 @@ const Layout = ({ location, meta, children }: Props) => {
   return (
     <Container>
       <Helmet>
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap"
           rel="stylesheet"
-        />
+        /> */}
         <meta name="description" content={meta} />
       </Helmet>
       <HeaderContainer {...theme} />

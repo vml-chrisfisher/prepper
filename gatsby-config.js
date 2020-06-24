@@ -34,6 +34,14 @@ module.exports = {
     'gatsby-transformer-typescript-css-modules',
     `gatsby-remark-lazy-load`,
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Nunito:300,600', 'Playfair Display']
+        }
+      }
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },

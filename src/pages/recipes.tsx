@@ -27,8 +27,9 @@ class RecipeIndex extends React.Component<RecipesProps> {
     const postsCopy: ArticleSummaryInterface[] = posts.map((post: RecipesEdge) => {
       return {
         basePath: 'recipe',
-        description: '',
+        description: post.node.bannerImage.title,
         imagePath: post.node.bannerImage.file.url,
+        imageDescription: post.node.bannerImage.title,
         slug: post.node.slug,
         title: post.node.title,
       }
