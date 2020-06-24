@@ -69,8 +69,6 @@ const ArticleInside = styled.div`
 `
 
 const Article = styled.div`
-  border: white 3px solid;
-  border-top: white;
   width: 100%;
   display: inline-block;
   height: 150%;
@@ -105,6 +103,13 @@ const ArticleOverlay = styled.div`
   -moz-transition: bottom 0.5s ease-out;
   -o-transition: bottom 0.5s ease-out;
   transition: bottom 0.5s ease-out;
+  @media (max-width: 767px) {
+    bottom: 50%;
+    text-align: center;
+    h3 {
+      font-size: 2rem;
+    }
+  }
   &:hover ${ArticleImageParent} ${ArticleInside} {
     -ms-transform: scale(1.2);
     -moz-transform: scale(1.2);
@@ -130,17 +135,23 @@ const OverlayContainer = styled.div`
     -moz-transition: bottom 0.5s ease-out;
     -o-transition: bottom 0.5s ease-out;
     transition: bottom 0.5s ease-out;
+    @media (max-width: 767px) {
+      bottom: 50%;
+    }
   }
 `
 
 const ArticleDescription = styled.div`
   font-family: 'Nunito', sans-serif;
-  font-size: 0.75em;
+  font-size: 0.85em;
   color: #ffffff;
   height: 100px;
   max-height: 100px;
   display: block;
   padding-top: 20px;
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 `
 
 export default ArticleSummary

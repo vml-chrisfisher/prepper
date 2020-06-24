@@ -156,6 +156,7 @@ const Wrapper = styled.div`
 `
 
 const Col6Full = styled.div`
+  border: 3px solid #ffffff;
   display: inline-block;
   width: 50%;
   @media (max-width: 767px) {
@@ -164,6 +165,7 @@ const Col6Full = styled.div`
 `
 
 const Col4Full = styled.div`
+  border: 3px solid #ffffff;
   display: inline-block;
   width: 33.33%;
   @media (max-width: 767px) {
@@ -172,6 +174,7 @@ const Col4Full = styled.div`
 `
 
 const Col3Full = styled.div`
+  border: 3px solid #ffffff;
   display: inline-block;
   width: 25%;
   @media (max-width: 767px) {

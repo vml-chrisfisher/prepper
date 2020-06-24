@@ -8,6 +8,7 @@ interface ThemeProps {
 
 const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
   const themeValue = props.theme
+  console.log(themeValue)
 
   return (
     <FeatureContainer>
@@ -19,7 +20,7 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
 }
 
 const FeatureContainer = styled.div`
-  margin-top: 0;
+  margin-top: 25%;
 `
 
 const FeatureTitle = styled.h2<ThemeProps>`
@@ -34,7 +35,7 @@ const FeatureDescription = styled.div<ThemeProps>`
   font-family: 'Nunito', sans-serif;
   margin-left: 10%;
   width: 80%;
-  font-size: 0.75em;
+  font-size: 0.85em;
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};

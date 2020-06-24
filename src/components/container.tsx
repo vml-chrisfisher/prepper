@@ -211,6 +211,14 @@ export default ({ children }) => (
           display: none;
         }
 
+        .dark-text {
+          color: #484848;
+        }
+
+        .white-text {
+          color: #ffffff;
+        }
+
         @media only screen and (min-width: 33.75em) {
           /* 540px */
           .container {

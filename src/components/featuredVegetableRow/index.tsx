@@ -12,8 +12,8 @@ const FeaturedVegetableRow = () => {
               <img src={'/perkins-okra.jpg'} />
             </VegetableImage>
             <VegetableOverlay>
-              <Col3Full className="col3" />
-              <Col6Full className="col6">
+              <Col3FullOverlay className="col3" />
+              <Col6FullOverlay className="col6">
                 <VegetableDetailContainer>
                   <VegetableTitle>Perkins Long Pod Okra</VegetableTitle>
                   <VegetableDescription>
@@ -22,7 +22,7 @@ const FeaturedVegetableRow = () => {
                   </VegetableDescription>
                   <button className="primaryButton outline">Learn More</button>
                 </VegetableDetailContainer>
-              </Col6Full>
+              </Col6FullOverlay>
               <Col3Full className="col3" />
             </VegetableOverlay>
           </VegetableBackground>
@@ -84,11 +84,27 @@ const Col3Full = styled.div`
   }
 `
 
+const Col3FullOverlay = styled.div`
+  width: 25%;
+  padding: 0;
+  @media (max-width: 767px) {
+    width: 5%;
+  }
+`
+
 const Col6Full = styled.div`
   width: 50%;
   padding: 0;
   @media (max-width: 767px) {
     width: 100%;
+  }
+`
+
+const Col6FullOverlay = styled.div`
+  width: 50%;
+  padding: 0;
+  @media (max-width: 767px) {
+    width: 90%;
   }
 `
 
@@ -100,6 +116,9 @@ const VegetableContainer = styled.div`
 
 const VegetableDetailContainer = styled.div`
   padding-top: 100px;
+  @media (max-width: 767px) {
+    padding-top: 50%;
+  }
 `
 
 const VegetableBackground = styled.div`

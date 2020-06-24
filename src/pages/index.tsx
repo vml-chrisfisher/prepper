@@ -29,7 +29,7 @@ class RootIndex extends React.Component<HomeProps> {
           'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
         buttonCaption: 'Find Recipes',
         slug: '/recipes',
-        theme: HeaderTheme.DARK,
+        theme: HeaderTheme.LIGHT,
       },
       features: [
         {

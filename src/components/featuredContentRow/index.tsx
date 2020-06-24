@@ -8,6 +8,7 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
   const maxNumber = Math.floor(props.features.length + 1)
   const detailPosition = Math.floor(Math.random() * (props.features.length - 0 + 1))
   const items = []
+  console.log(props.details)
   let b = 0
   for (let a = 0; a < maxNumber; a++) {
     if (a === detailPosition) {
