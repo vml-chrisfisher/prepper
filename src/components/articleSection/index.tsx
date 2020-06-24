@@ -104,6 +104,11 @@ const TwoColumns = styled.div`
   text-align: justify;
   widow: 3;
   orphan: 9;
+  @media (max-width: 767px) {
+    column-count: 1;
+    padding-left: 10%;
+    width: 80%;
+  }
 `
 
 const OneColumn = styled.div`
@@ -114,18 +119,31 @@ const OneColumn = styled.div`
   padding-bottom: 30px;
   padding-top: 30px;
   text-align: justify;
+  @media (max-width: 767px) {
+    padding-left: 10%;
+    width: 80%;
+  }
 `
 
 const TwoPicturesLeft = styled.div`
   display: inline-block;
   width: 48%;
   padding-right: 2%;
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 5px;
+  }
 `
 
 const TwoPicturesRight = styled.div`
   display: inline-block;
   width: 48%;
   padding-left: 2%;
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 0;
+  }
 `
 
 export default ArticleSection

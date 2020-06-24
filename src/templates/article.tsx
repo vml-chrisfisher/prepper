@@ -59,6 +59,9 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
+      @media (max-width: 767px) {
+        padding: 0;
+      }
     `
 
     const CreateDate = styled.div`
@@ -66,6 +69,16 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       font-family: 'Nunito', sans-serif;
       font-size: 1em;
       padding-bottom: 3.125em;
+    `
+
+    const TagContainer = styled.div`
+      display: inline-block;
+      width: 100%;
+      padding-right: 4%;
+      @media (max-width: 767px) {
+        padding-left: 10%;
+        width: 80%;
+      }
     `
 
     const TagStyled = styled.p`
@@ -86,13 +99,36 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
+      @media (max-width: 767px) {
+        column-count: 1;
+        padding-left: 10%;
+        width: 80%;
+      }
     `
 
     const MainContainer = styled.div`
       background-color: #fff;
       position: absolute;
       top: 15.625em;
+      @media (max-width: 767px) {
+        top: 6em;
+      }
     `
+
+    const Col2Full = styled.div`
+      width: 16.66%;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+    `
+
+    const Col8Full = styled.div`
+      width: 66.66%;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+    `
+
     const post: AllContentfulArticle = get(this.props, 'data.contentfulArticle')
     const postCreate = dateformat(post.createdAt, 'fullDate')
 
@@ -206,8 +242,8 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               </picture>
             </LazyLoad>
             <div className="row">
-              <div className="col2" />
-              <div className="col8">
+              <Col2Full className="col2" />
+              <Col8Full className="col8">
                 <BodyCopy
                   dangerouslySetInnerHTML={{
                     __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
@@ -216,17 +252,17 @@ class ArticleTemplate extends React.Component<ArticleProps> {
                 {post.sections.map((section: ArticleSecionInterface, index: number) => {
                   return <ArticleSection key={`article-section-${index}`} {...section} />
                 })}
-                <div className="col12">
+                <TagContainer className="col12">
                   <h3>Tags</h3>
                   {post.tags.map((tag: ArticleTag, index: number) => {
                     return <TagStyled key={`tag-${index}`}>{tag.tag}</TagStyled>
                   })}
-                </div>
+                </TagContainer>
                 <FeaturedContentRow {...articleFeatures} />
                 <GeneralContentRow />
                 <Footer {...{ theme: HeaderTheme.DARK }} />
-              </div>
-              <div className="col2" />
+              </Col8Full>
+              <Col2Full className="col2" />
             </div>
           </div>
         </MainContainer>
@@ -253,6 +289,12 @@ export const pageQuery = graphql`
           url
         }
         title
+      }
+      bannerImage {
+        description
+        file {
+          url
+        }
       }
       subtitle
       tags {
