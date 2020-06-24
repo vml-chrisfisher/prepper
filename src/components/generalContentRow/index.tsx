@@ -22,14 +22,14 @@ const GeneralContentRow = () => {
               </LazyLoad>
             </ContentImage>
             <ContentOverlay>
-              <Col3Full className="col3" />
-              <Col6Full className="col6">
+              <Col3FullOverlay className="col3" />
+              <Col6FullOverlay className="col6">
                 <StoryContainer>
                   <div className="eyebrow">Story</div>
                   <StoryTitle>This is the story of Seedlings</StoryTitle>
                   <button className="primaryButton darkOutline">Our Story</button>
                 </StoryContainer>
-              </Col6Full>
+              </Col6FullOverlay>
               <Col3Full className="col3" />
             </ContentOverlay>
           </ContentBackground>
@@ -44,6 +44,7 @@ const GeneralContentRow = () => {
                 description: 'sdfsdfds sdf  sdf sdf',
                 slug: 'sdfds',
                 imagePath: `//images.ctfassets.net/ce6fbxhy1t51/68yxYrpcreuM9MdWEXReXE/ee1b2e4a8043b52cdc906c0480410d66/tools-background.png?fm=webp&q=80&w=${windowWidthQuarter}`,
+                basePath: '',
               }}
             />
           </Col6Full>
@@ -70,12 +71,29 @@ const Col3Full = styled.div`
   }
 `
 
+const Col3FullOverlay = styled.div`
+  width: 25%;
+  padding: 0;
+  @media (max-width: 767px) {
+    width: 5%;
+  }
+`
+
 const Col6Full = styled.div`
   margin: 0;
   width: 50%;
   padding: 0;
   @media (max-width: 767px) {
     width: 100%;
+  }
+`
+
+const Col6FullOverlay = styled.div`
+  margin: 0;
+  width: 50%;
+  padding: 0;
+  @media (max-width: 767px) {
+    width: 90%;
   }
 `
 
