@@ -210,19 +210,19 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                   <a href="/recipes">Recipes</a>
                 </HeaderNavHeader>
                 <div className="row">
-                  <div className="col6">
+                  <Col6Full className="col6">
                     <HeaderDetailItem href="/recipes/breakfast">Breakfast</HeaderDetailItem>
                     <HeaderDetailItem>Brunch</HeaderDetailItem>
                     <HeaderDetailItem>Lunch</HeaderDetailItem>
                     <HeaderDetailItem>Supper</HeaderDetailItem>
-                  </div>
-                  <div className="col6">
+                  </Col6Full>
+                  <Col6Full className="col6">
                     <HeaderDetailItem>Charcuterie</HeaderDetailItem>
                     <HeaderDetailItem>Baking</HeaderDetailItem>
                     <HeaderDetailItem>Pickling</HeaderDetailItem>
                     <HeaderDetailItem>Fermentation</HeaderDetailItem>
                     <HeaderDetailItem>Condiments</HeaderDetailItem>
-                  </div>
+                  </Col6Full>
                 </div>
               </HeaderMainNav>
             </Col12Full>
@@ -326,6 +326,11 @@ const Col3Full = styled.div`
   padding: 0;
 `
 
+const Col6Full = styled.div`
+  width: 50%;
+  padding: 0;
+`
+
 const Col12Full = styled.div`
   width: 100%;
   padding: 0;
@@ -380,6 +385,9 @@ const HeaderInner3 = styled.div<SubMenuProps>`
   background-color: #FFFFFF;
   height: 90vh;
   max-height: 520px;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const HeaderInner4 = styled.div<SubMenuProps>`
@@ -389,6 +397,9 @@ const HeaderInner4 = styled.div<SubMenuProps>`
   background-color: #FFFFFF;
   height: 90vh;
   max-height: 520px;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const HeaderInner12 = styled.div<SubMenuProps>`
@@ -415,6 +426,9 @@ const Navigation = styled.ul`
   padding-top: 20px;
   margin: 0;
   font-size: 1.25em;
+  @media (max-width: 767px) {
+    padding-left: 20px;
+  }
 `
 
 const NavigationItem = styled.a<ThemeProps>`
