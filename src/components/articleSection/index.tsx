@@ -9,10 +9,26 @@ const ArticleSection = (props: ArticleSectionInterface) => (
     {props.images.length === 1 && (
       <div className="row">
         <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-          <img
-            alt={props.images[0].description}
-            src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}&h=${windowWidth}&fit=fill`}
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={`${props.images[0].file.url}?fm=webp&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                windowWidth,
+              )}&fit=fill`}
+            />
+            <source
+              type="image/jpg"
+              srcSet={`${props.images[0].file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                windowWidth,
+              )}&fit=fill`}
+            />
+            <img
+              src={`${props.images[0].file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                windowWidth,
+              )}&fit=fill`}
+              alt={props.images[0].description}
+            />
+          </picture>
         </LazyLoad>
       </div>
     )}
@@ -20,18 +36,50 @@ const ArticleSection = (props: ArticleSectionInterface) => (
       <div className="row">
         <TwoPicturesLeft>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img
-              alt={props.images[0].description}
-              src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}&h=${windowWidth}&fit=fill`}
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${props.images[0].file.url}?fm=webp&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                  windowWidth,
+                )}&fit=fill`}
+              />
+              <source
+                type="image/jpg"
+                srcSet={`${props.images[0].file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                  windowWidth,
+                )}&fit=fill`}
+              />
+              <img
+                src={`${props.images[0].file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                  windowWidth,
+                )}&fit=fill`}
+                alt={props.images[0].description}
+              />
+            </picture>
           </LazyLoad>
         </TwoPicturesLeft>
         <TwoPicturesRight>
           <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
-            <img
-              alt={props.images[1].description}
-              src={`${props.images[0].file.url}?fm=webp&q=60&w=${windowWidth}&h=${windowWidth}&fit=fill`}
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${props.images[1].file.url}?fm=webp&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                  windowWidth,
+                )}&fit=fill`}
+              />
+              <source
+                type="image/jpg"
+                srcSet={`${props.images[1].file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                  windowWidth,
+                )}&fit=fill`}
+              />
+              <img
+                src={`${props.images[1].file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                  windowWidth,
+                )}&fit=fill`}
+                alt={props.images[1].description}
+              />
+            </picture>
           </LazyLoad>
         </TwoPicturesRight>
       </div>

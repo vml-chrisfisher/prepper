@@ -225,7 +225,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       padding: 15px 25px;
       letter-spacing: 2px;
     `
-
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 900
     return (
       <Layout
         meta="Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
@@ -323,7 +323,25 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                             once
                                             offset={100}
                                           >
-                                            <img src={plant.node.bannerImage.file.url} />
+                                            <picture>
+                                              <source
+                                                type="image/webp"
+                                                srcSet={`${plant.node.bannerImage.file.url}?fm=webp&q=80&w=${Math.round(
+                                                  windowWidth,
+                                                )}&h=${Math.round(windowWidth)}&fit=fill`}
+                                              />
+                                              <source
+                                                type="image/jpg"
+                                                srcSet={`${plant.node.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(
+                                                  windowWidth,
+                                                )}&h=${Math.round(windowWidth)}&fit=fill`}
+                                              />
+                                              <img
+                                                src={`${plant.node.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(
+                                                  windowWidth,
+                                                )}&h=${Math.round(windowWidth)}&fit=fill`}
+                                              />
+                                            </picture>
                                           </LazyLoad>
                                           <VegetableTitle className="center">{plant.node.title}</VegetableTitle>
                                           <PrimaryButton>Learn More</PrimaryButton>

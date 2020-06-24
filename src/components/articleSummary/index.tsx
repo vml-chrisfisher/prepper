@@ -9,9 +9,27 @@ const ArticleSummary = (props: ArticleSummaryInterface) => (
   <Article key={props.slug}>
     <a href={`/${props.basePath}/${props.slug}`}>
       <ArticleImageParent>
-        <ArticleInside
-          style={{ backgroundImage: `url(${props.imagePath}?fm=webp&q=80&w=${windowWidthHalf})` }}
-        ></ArticleInside>
+        <ArticleInside>
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={`${props.imagePath}?fm=webp&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                windowWidthHalf,
+              )}&fit=fill`}
+            />
+            <source
+              type="image/jpg"
+              srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                windowWidthHalf,
+              )}&fit=fill`}
+            />
+            <img
+              src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                windowWidthHalf,
+              )}&fit=fill`}
+            />
+          </picture>
+        </ArticleInside>
       </ArticleImageParent>
       <OverlayContainer>
         <ArticleOverlay>
@@ -28,7 +46,6 @@ const ArticleInside = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-  padding-bottom: 150%;
   -ms-transform: scale(1);
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
@@ -52,6 +69,8 @@ const ArticleInside = styled.div`
 `
 
 const Article = styled.div`
+  border: white 3px solid;
+  border-top: white;
   width: 100%;
   display: inline-block;
   height: 150%;

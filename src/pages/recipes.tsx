@@ -52,7 +52,7 @@ export default RecipeIndex
 
 export const pageQuery = graphql`
   query AllRecipesQuery {
-    allContentfulRecipe(sort: { fields: createdAt, order: DESC }) {
+    allContentfulRecipe(sort: { fields: title, order: ASC }) {
       edges {
         node {
           bannerImage {

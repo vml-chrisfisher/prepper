@@ -170,7 +170,16 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               <div className="col3" />
             </div>
             <LazyLoad style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }} once offset={100}>
-              <img alt={post.heroImage.description} src={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+              <picture>
+                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+                <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=80&w=${windowWidth}`} />
+                <img
+                  src={`${post.heroImage.file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                    windowWidth,
+                  )}&fit=fill`}
+                  alt={post.heroImage.description}
+                />
+              </picture>
             </LazyLoad>
             <div className="row">
               <div className="col2"></div>
