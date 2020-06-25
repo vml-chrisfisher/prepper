@@ -39,7 +39,6 @@ const VideoOverlay = styled.div`
     z-index: 100;
     width: 100%;
     height: 100vh;
-    background-color: rgba(51, 51, 51, 0.69);
   }
 `
 
