@@ -45,7 +45,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
         location={this.props.location}
       >
         <MainContainer>
-          <Helmet title="Knife & Fish | Articles" />
+          <Helmet title="Articles | Knife & Fish" />
           <h1>Articles</h1>
           <div className="wrapper">
             <div>

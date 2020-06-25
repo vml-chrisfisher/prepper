@@ -12,6 +12,7 @@ import Layout from '../components/layout'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
+import Helmet from 'react-helmet'
 
 class RootIndex extends React.Component<HomeProps> {
   render() {
@@ -104,6 +105,7 @@ class RootIndex extends React.Component<HomeProps> {
         meta="Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
         location={this.props.location}
       >
+        <Helmet title="Knife & Fish" />
         <div style={{ background: '#fff', display: 'list-item' }}>
           <VideoBackground {...{ videoPath }} />
         </div>

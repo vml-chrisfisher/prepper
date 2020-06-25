@@ -186,14 +186,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     `
 
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
-    const siteTitle: string = get(this.props, 'data.site.siteMetadata.title')
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
 
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet title={`${post.title} | Knife & Fish`} />
           <div>
             <div className="row">
               <div className="col3" />
