@@ -194,7 +194,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
             <script type="application/ld+json">{structuredDataArticle}</script>
 
             {/* The title of your current page */}
-            <title>{post.title}</title>
+            <title>{post.title} | Knife & Fish</title>
 
             {/* Default language and direction */}
             <html lang="en" dir="ltr" />
