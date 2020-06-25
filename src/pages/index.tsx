@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
+import Helmet from 'react-helmet'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import FeaturedVegetableRow from '../components/featuredVegetableRow'
@@ -12,13 +13,12 @@ import Layout from '../components/layout'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
-import Helmet from 'react-helmet'
 
 class RootIndex extends React.Component<HomeProps> {
   render() {
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
     const post: HomeEdge = posts[0]
-    const videoPath = post.node.backgroundVideo.file.url
+    const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'
     const headline = post.node.headline.childMarkdownRemark.rawMarkdownBody
     const searchQuestion = post.node.searchQuestion
     const searchPlaceholder = post.node.searchPlaceholder
