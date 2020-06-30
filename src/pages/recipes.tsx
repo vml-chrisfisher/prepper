@@ -26,9 +26,9 @@ class RecipeIndex extends React.Component<RecipesProps> {
     const chunked: ArticleSummaryInterface[][] = []
     const postsCopy: ArticleSummaryInterface[] = posts.map((post: RecipesEdge) => {
       const copyLength =
-        post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length < 50
+        post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length < 200
           ? post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length
-          : 50
+          : 200
       return {
         basePath: 'recipe',
         description: post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.substr(0, copyLength),
