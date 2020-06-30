@@ -25,9 +25,13 @@ class RecipeIndex extends React.Component<RecipesProps> {
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []
     const postsCopy: ArticleSummaryInterface[] = posts.map((post: RecipesEdge) => {
+      const copyLength =
+        post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length < 50
+          ? post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length
+          : 50
       return {
         basePath: 'recipe',
-        description: post.node.bannerImage.title,
+        description: post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.substr(0, copyLength),
         imagePath: post.node.bannerImage.file.url,
         imageDescription: post.node.bannerImage.title,
         slug: post.node.slug,
@@ -73,6 +77,11 @@ export const pageQuery = graphql`
               url
             }
             title
+          }
+          bodyCopy {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
           }
           title
           slug

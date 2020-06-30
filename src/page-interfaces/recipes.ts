@@ -25,6 +25,11 @@ export interface RecipesEdge {
 
 export interface RecipesNode {
   bannerImage: RecipesBannerImage
+  bodyCopy: {
+    childMarkdownRemark: {
+      rawMarkdownBody: string
+    }
+  }
   mealType: string
   preparationType: string
   slug: string
