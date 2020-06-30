@@ -26,12 +26,12 @@ class RecipeIndex extends React.Component<RecipesProps> {
     const chunked: ArticleSummaryInterface[][] = []
     const postsCopy: ArticleSummaryInterface[] = posts.map((post: RecipesEdge) => {
       const copyLength =
-        post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length < 300
+        post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length < 250
           ? post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.length
-          : 300
+          : 250
       const copyRaw = post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody.substr(0, copyLength)
       const lastPeriod = copyRaw.lastIndexOf('.')
-      const copy = lastPeriod ? copyRaw.substr(0, lastPeriod) : copyRaw
+      const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
       return {
         basePath: 'recipe',
         description: copy,
