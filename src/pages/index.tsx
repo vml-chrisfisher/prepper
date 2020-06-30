@@ -41,6 +41,7 @@ class RootIndex extends React.Component<HomeProps> {
           description:
             'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
           basePath: 'recipe',
+          imageDescription: 'okra',
         },
         {
           title: 'Sausage, Shrimp and Okra Gumbo',
@@ -49,6 +50,7 @@ class RootIndex extends React.Component<HomeProps> {
             '//images.ctfassets.net/ce6fbxhy1t51/nWI1iStg20DSjv0xqjyfJ/d0ae7ed21130834667a60a4cfac3042e/Gumbo-11.jpg',
           description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
           basePath: 'recipe',
+          imageDescription: 'gumbo',
         },
         {
           title: 'Stir Fried Okra',
@@ -57,9 +59,10 @@ class RootIndex extends React.Component<HomeProps> {
             '//images.ctfassets.net/ce6fbxhy1t51/6erFjTvbIYftFkbDbaXi6i/c08cee40d7ebd49ae5fe757314f4c59b/stir-fried-okra.jpg',
           description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
           basePath: 'recipe',
+          imageDescription: 'okra',
         },
       ],
-      basePath: 'recipe',
+      basePath: 'recipes',
     }
 
     const articleFeatures: FeatureContentRowProps = {
@@ -78,6 +81,7 @@ class RootIndex extends React.Component<HomeProps> {
           imagePath: '/andrej-lisakov-zYUn4R37o_U-unsplash.jpg',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          imageDescription: 'spring seedlings',
           basePath: 'article',
         },
         {
@@ -86,6 +90,7 @@ class RootIndex extends React.Component<HomeProps> {
           imagePath: '/gabriel-jimenez-jin4W1HqgL4-unsplash.jpg',
           description:
             'Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.',
+          imageDescription: 'compost',
           basePath: 'article',
         },
         {
@@ -94,6 +99,7 @@ class RootIndex extends React.Component<HomeProps> {
           imagePath: '/heather-gill-VJa9L3ZVBIc-unsplash.jpg',
           description:
             'Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum.',
+          imageDescription: 'root vegetables',
           basePath: 'article',
         },
       ],
