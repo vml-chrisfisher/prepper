@@ -90,6 +90,22 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       }
     `
 
+    const BodyCopyTwoColumn = styled.div`
+      color: #464646;
+      column-count: 2;
+      font-size: 1em;
+      font-family: 'Nunito', sans-serif;
+      line-height: 2em;
+      padding-top: 1.875em;
+      padding-bottom: 1.875em;
+      text-align: justify;
+      @media (max-width: 767px) {
+        column-count: 1;
+        padding-left: 10%;
+        width: 80%;
+      }
+    `
+
     const MainContainer = styled.div`
       background-color: #fff;
       position: absolute;
@@ -188,6 +204,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
+    const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
 
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
@@ -239,11 +256,20 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             <div className="row">
               <div className="col2"></div>
               <div className="col8">
-                <BodyCopy
-                  dangerouslySetInnerHTML={{
-                    __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
-                  }}
-                ></BodyCopy>
+                {!bodyLong && (
+                  <BodyCopy
+                    dangerouslySetInnerHTML={{
+                      __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+                    }}
+                  ></BodyCopy>
+                )}
+                {bodyLong && (
+                  <BodyCopyTwoColumn
+                    dangerouslySetInnerHTML={{
+                      __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+                    }}
+                  ></BodyCopyTwoColumn>
+                )}
               </div>
               <div className="col2"></div>
               <div className="col2" />
