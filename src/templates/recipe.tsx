@@ -280,7 +280,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                     {post.recipeGroup.map((recipeGroup: RecipeGroup, index: number) => {
                       return (
                         <div style={{ paddingBottom: '30px' }} key={`recipe-group-${index}`}>
-                          {recipeGroup.displayName && <GroupTitle>{recipeGroup.displayName}</GroupTitle>}
+                          {recipeGroup.displayName && post.recipeGroup.length > 1 && (
+                            <GroupTitle>{recipeGroup.displayName}</GroupTitle>
+                          )}
                           {recipeGroup.ingredients.map((ingredient: RecipeIngredient, index: number) => {
                             return (
                               <Ingredient key={`ingredient-${index}`}>
@@ -316,7 +318,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                     {post.recipeInstructionGroups.map((instructionGroup: RecipeInstructionGroup, index: number) => {
                       return (
                         <div style={{ paddingBottom: '30px' }} key={`instruction-group-${index}`}>
-                          {instructionGroup.displayName && <GroupTitle>{instructionGroup.displayName}</GroupTitle>}
+                          {instructionGroup.displayName && post.recipeInstructionGroups.length > 1 && (
+                            <GroupTitle>{instructionGroup.displayName}</GroupTitle>
+                          )}
                           {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
                             return (
                               <Instruction
