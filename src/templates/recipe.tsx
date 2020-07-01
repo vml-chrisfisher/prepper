@@ -207,9 +207,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
     const heroHeight =
-      (post.heroImage.file.details.image.height / post.heroImage.file.details.image.width) * windowWidth
+      (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
     const bannerHeight =
-      (post.bannerImage.file.details.image.height / post.bannerImage.file.details.image.width) * windowWidth
+      (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
