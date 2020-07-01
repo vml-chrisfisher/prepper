@@ -212,7 +212,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               className="hidden-sm"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
-              offset={100}
+              offset={1000}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
@@ -229,7 +229,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               className="hidden-lg"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
-              offset={100}
+              offset={1000}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />

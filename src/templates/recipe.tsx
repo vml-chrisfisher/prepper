@@ -205,6 +205,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
+    const heroHeight =
+      (post.heroImage.file.details.image.height / post.heroImage.file.details.image.width) * windowWidth
+    const bannerHeight =
+      (post.bannerImage.file.details.image.height / post.bannerImage.file.details.image.width) * windowWidth
 
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
@@ -221,9 +225,11 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </div>
             <LazyLoad
               className="hidden-sm"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              width="100%"
+              height={heroHeight}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FF0000' }}
               once
-              offset={100}
+              offset={1000}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
@@ -238,9 +244,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </LazyLoad>
             <LazyLoad
               className="hidden-lg"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              height={bannerHeight}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FF0000' }}
               once
-              offset={100}
+              offset={1000}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
@@ -381,12 +388,24 @@ export const pageQuery = graphql`
       heroImage {
         description
         file {
+          details {
+            image {
+              height
+              width
+            }
+          }
           url
         }
       }
       bannerImage {
         description
         file {
+          details {
+            image {
+              height
+              width
+            }
+          }
           url
         }
       }
