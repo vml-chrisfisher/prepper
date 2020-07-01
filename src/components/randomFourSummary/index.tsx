@@ -20,46 +20,12 @@ const createTwoGridOption1 = (chunk: ArticleSummaryInterface[]) => {
 const createTwoGridOption2 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col4Full>
+      <Col12Full>
         <ArticleSummary {...chunk[0]} />
-      </Col4Full>
-      <Col4Full>
+      </Col12Full>
+      <Col12Full>
         <ArticleSummary {...chunk[1]} />
-      </Col4Full>
-    </div>
-  )
-}
-
-const createThreeGridOption1 = (chunk: ArticleSummaryInterface[]) => {
-  return (
-    <div>
-      <Col3Full>
-        <ArticleSummary {...chunk[0]} />
-      </Col3Full>
-      <Col3Full>
-        <ArticleSummary {...chunk[1]} />
-      </Col3Full>
-      <Col3Full>
-        <ArticleSummary {...chunk[2]} />
-      </Col3Full>
-      <Col3Full></Col3Full>
-    </div>
-  )
-}
-
-const createThreeGridOption2 = (chunk: ArticleSummaryInterface[]) => {
-  return (
-    <div>
-      <Col3Full>
-        <ArticleSummary {...chunk[0]} />
-      </Col3Full>
-      <Col3Full>
-        <ArticleSummary {...chunk[1]} />
-      </Col3Full>
-      <Col3Full></Col3Full>
-      <Col3Full>
-        <ArticleSummary {...chunk[2]} />
-      </Col3Full>
+      </Col12Full>
     </div>
   )
 }
@@ -118,8 +84,47 @@ const createFourGridOption2 = (chunk: ArticleSummaryInterface[]) => {
   )
 }
 
+const createFourGridOption3 = (chunk: ArticleSummaryInterface[]) => {
+  return (
+    <div>
+      <Col12Full>
+        <ArticleSummary {...chunk[0]} />
+      </Col12Full>
+      <Col4Full>
+        <ArticleSummary {...chunk[1]} />
+      </Col4Full>
+      <Col4Full>
+        <ArticleSummary {...chunk[2]} />
+      </Col4Full>
+      <Col4Full>
+        <ArticleSummary {...chunk[3]} />
+      </Col4Full>
+    </div>
+  )
+}
+
+const createFourGridOption4 = (chunk: ArticleSummaryInterface[]) => {
+  return (
+    <div>
+      <Col4Full>
+        <ArticleSummary {...chunk[0]} />
+      </Col4Full>
+      <Col4Full>
+        <ArticleSummary {...chunk[1]} />
+      </Col4Full>
+      <Col4Full>
+        <ArticleSummary {...chunk[2]} />
+      </Col4Full>
+      <Col12Full>
+        <ArticleSummary {...chunk[3]} />
+      </Col12Full>
+    </div>
+  )
+}
+
 const createGrid = (chunk: ArticleSummaryInterface[]) => {
   let option
+  console.log(option)
   switch (chunk.length) {
     case 1:
       return (
@@ -134,15 +139,16 @@ const createGrid = (chunk: ArticleSummaryInterface[]) => {
       option = Math.floor(Math.random() * (1 - 0 + 1))
       return option === 0 ? createTwoGridOption1(chunk) : createTwoGridOption2(chunk)
     case 3:
-      option = Math.floor(Math.random() * (2 - 0 + 1))
-      return option === 0
-        ? createThreeGridOption1(chunk)
-        : option === 1
-        ? createThreeGridOption2(chunk)
-        : createThreeGridOption3(chunk)
+      return createThreeGridOption3(chunk)
     case 4:
-      option = Math.floor(Math.random() * (1 - 0 + 1))
-      return option === 0 ? createFourGridOption1(chunk) : createFourGridOption2(chunk)
+      option = Math.floor(Math.random() * (3 - 0 + 1))
+      return option === 0
+        ? createFourGridOption1(chunk)
+        : option === 1
+        ? createFourGridOption2(chunk)
+        : option === 2
+        ? createFourGridOption3(chunk)
+        : createFourGridOption4(chunk)
     default:
       return <div></div>
   }
@@ -155,10 +161,16 @@ const Wrapper = styled.div`
   display: inline-block;
 `
 
+const Col12Full = styled.div`
+  border: 3px solid #ffffff;
+  display: inline-block;
+  width: 100%;
+`
+
 const Col6Full = styled.div`
   border: 3px solid #ffffff;
   display: inline-block;
-  width: 50%;
+  width: calc(50% - 6px);
   @media (max-width: 767px) {
     width: 100%;
   }
@@ -167,7 +179,7 @@ const Col6Full = styled.div`
 const Col4Full = styled.div`
   border: 3px solid #ffffff;
   display: inline-block;
-  width: 33.33%;
+  width: calc(33.33% - 6px);
   @media (max-width: 767px) {
     width: 100%;
   }
@@ -176,7 +188,7 @@ const Col4Full = styled.div`
 const Col3Full = styled.div`
   border: 3px solid #ffffff;
   display: inline-block;
-  width: 25%;
+  width: calc(25% - 6px);
   @media (max-width: 767px) {
     width: 100%;
   }
