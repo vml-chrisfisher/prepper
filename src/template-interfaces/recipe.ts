@@ -16,6 +16,10 @@ export interface RecipeSiteMetaData {
   title: string
 }
 
+export interface ProteinType {
+  protein: string
+}
+
 export interface AllContentfulRecipe {
   bannerImage: RecipeBannerImage
   bodyCopy: {
@@ -26,7 +30,7 @@ export interface AllContentfulRecipe {
   createdAt: string
   heroImage: RecipeBannerImage
   mealType: string
-  proteinType: string
+  proteinType: ProteinType[]
   slug: string
   title: string
   vegetableType: string[]
