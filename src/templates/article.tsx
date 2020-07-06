@@ -134,32 +134,29 @@ class ArticleTemplate extends React.Component<ArticleProps> {
     const postCreate = dateformat(post.createdAt, 'fullDate')
 
     const structuredDataArticle = `{
-		"@context": "http://schema.org",
-		"@type": "NewsArticle",
-		"mainEntityOfPage": {
-			"@type": "WebPage",
-			"@id": "https://knifeandfish.com/article/${post.slug}"
-		},
-		"headline": "${post.title}",
-		"image": "${post.heroImage.file.url}",
-		"datePublished": "${post.createdAt}",
-		"dateModified": "${post.createdAt}",
-		"author": {
-			"@type": "Organization",
-			"name": "Knife and Fish"
-		},
-		"articleBody": "${post.bodyCopy.childMarkdownRemark.rawMarkdownBody}",
-		"publisher": {
-			"@type": "Organization",
-			"name": "Knife and Fish",
-			"logo": {
-				"@type": "ImageObject",
-				"url": "${post.heroImage.file.url}"
-			}
-		},
-		"description": "${post.bodyCopy.childMarkdownRemark.rawMarkdownBody}",
-		"url": "'https://www.knifeandfish.com/article/${post.slug}'"
-  }`
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://knifeandfish.com/article/${post.slug}"
+      },
+      "headline": "${post.title}",
+      "image": [${post.heroImage.file.url}],
+      "datePublished": "${post.createdAt}",
+      "dateModified": "${post.createdAt}",
+      "author": {
+        "@type": "Person",
+        "name": "Chris Fisher"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Knife and Fish",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "${post.heroImage.file.url}"
+        }
+      }
+    }`
 
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
