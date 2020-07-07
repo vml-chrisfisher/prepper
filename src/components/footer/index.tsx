@@ -88,12 +88,12 @@ class Footer extends PureComponent<FooterProps> {
                 <FooterLinkBottom theme={themeValue} href="/returns">
                   Returns
                 </FooterLinkBottom> */}
-                <FooterLinkBottom theme={themeValue} href="/privacy">
+                {/* <FooterLinkBottom theme={themeValue} href="/privacy">
                   Privacy
                 </FooterLinkBottom>
                 <FooterLinkBottom theme={themeValue} href="/terms">
                   Terms
-                </FooterLinkBottom>
+                </FooterLinkBottom> */}
                 {/* <FooterLinkBottom theme={themeValue} href="careers">
                   Careers
                 </FooterLinkBottom> */}
