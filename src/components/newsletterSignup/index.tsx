@@ -39,7 +39,7 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
         <NewsletterSignupScroll stage={position}>
           <NewsletterSignupForm>
             <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
-            <p>Sign up to our newsletter and get exclusive Seedlings news, updates and others.</p>
+            <SignupParagraph>Sign up to our newsletter and get the our latest news.</SignupParagraph>
             <NewsletterSignupLabel>
               Email Address
               <NewsletterSignupInput
@@ -97,10 +97,17 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
   }
 }
 
+const SignupParagraph = styled.p`
+  color: #ffffff;
+  font-size: 0.9em;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: -0.5px;
+`
+
 const NewsletterSignupTitle = styled.h3`
   color: #ffffff;
   font-size: 1.5em;
-  padding-top: 30%;
+  padding-top: 15%;
 `
 
 const NewsletterSignupLabel = styled.label`
@@ -134,7 +141,7 @@ const NewsletterSignupContainer = styled.div`
   background-color: #1b3414;
   height: 100%;
   overflow: hidden;
-  padding-top: 175%;
+  padding-top: 150%;
   position: relative;
   width: 100%;
   @media (max-width: 767px) {

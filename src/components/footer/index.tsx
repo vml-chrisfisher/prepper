@@ -50,7 +50,9 @@ class Footer extends PureComponent<FooterProps> {
                 <FooterSocialIcon
                   alt="Knife andFish Facebook"
                   src={
-                    '//images.ctfassets.net/ce6fbxhy1t51/6yYrd2D1fVD8j7LtZ76sy/1ef98cc5c29e67cb01df9a60b4df9d42/facebook.svg'
+                    this.props.theme === 'white'
+                      ? '//images.ctfassets.net/ce6fbxhy1t51/6yYrd2D1fVD8j7LtZ76sy/1ef98cc5c29e67cb01df9a60b4df9d42/facebook.svg'
+                      : '//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg'
                   }
                 />
               </a>
@@ -58,7 +60,9 @@ class Footer extends PureComponent<FooterProps> {
                 <FooterSocialIcon
                   alt="Knife and Fish Instagram"
                   src={
-                    '//images.ctfassets.net/ce6fbxhy1t51/2MNwT4CYIQUPMp540OF0HU/d9f43fa3de2e7f64ea068cc15af6c7c9/instagram.svg'
+                    this.props.theme === 'white'
+                      ? '//images.ctfassets.net/ce6fbxhy1t51/2MNwT4CYIQUPMp540OF0HU/d9f43fa3de2e7f64ea068cc15af6c7c9/instagram.svg'
+                      : '//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg'
                   }
                 />
               </a>
@@ -66,12 +70,14 @@ class Footer extends PureComponent<FooterProps> {
                 <FooterSocialIcon
                   alt="Knife and Fish Pinterest"
                   src={
-                    '//images.ctfassets.net/ce6fbxhy1t51/6PsbRIEHqAunj8DT6d9Qod/207e4a09ebe4d00b5dff6abe9b45893d/pinterest.svg'
+                    this.props.theme === 'white'
+                      ? '//images.ctfassets.net/ce6fbxhy1t51/6PsbRIEHqAunj8DT6d9Qod/207e4a09ebe4d00b5dff6abe9b45893d/pinterest.svg'
+                      : '//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg'
                   }
                 />
               </a>
             </div>
-            <div className="col8">
+            <div className="col4">
               <FooterBottomLinkContainer>
                 {/* <FooterLinkBottom theme={themeValue} href="/plants">
                   Plants
@@ -110,14 +116,14 @@ class Footer extends PureComponent<FooterProps> {
 }
 
 const FooterColumnsContainer = styled.div`
-  padding-bottom: '100px';
+  padding-bottom: 100px;
   @media (max-width: 767px) {
     padding-top: 100px;
   }
 `
 
 const FooterBottomContainer = styled.div`
-  padding-bottom: '175px';
+  padding-bottom: 100px;
   padding-top: 100px;
   @media (max-width: 767px) {
     padding-bottom: 100px;
@@ -151,13 +157,14 @@ const FooterParagraph = styled.div<ThemeProps>`
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
-  font-size: 0.8125em;
+  font-size: 0.9em;
   font-family: 'Nunito', sans-serif;
   letter-spacing: -0.5px;
-  padding-bottom: 66px;
+  min-height: 150px;
   @media (max-width: 767px) {
     font-size: 1em;
     padding-bottom: 20px;
+    min-height: 100px;
   }
 `
 
@@ -208,20 +215,22 @@ const FooterLinkBottom = styled.a<ThemeProps>`
   }};
   cursor: pointer;
   display: inline-block;
-  font-size: 0.5625em;
+  font-size: 0.75em;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   letter-spacing: -0.5px;
-  padding-top: 10px;
+  padding-top: 5px;
+  padding-right: 20px;
   text-align: justify;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 1s ease;
   @media (max-width: 767px) {
     padding-bottom: 30px;
+    padding-right: 0px;
     padding-top: 0;
     display: block;
-    font-size: 1em;
+    font-size: 0.9em;
     width: 100%;
   }
   &:hover {
