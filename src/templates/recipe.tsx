@@ -251,6 +251,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         return JSON.stringify({
           '@type': 'HowToStep',
           name: `${instruction.instruction.childMarkdownRemark.rawMarkdownBody}`,
+          image: `${post.bannerImage.file.url}`,
           text: `${instruction.instruction.childMarkdownRemark.rawMarkdownBody}`,
           url: `https://wwww.knifeandfish.com/recipe/${post.slug}#step${step}`,
         })
