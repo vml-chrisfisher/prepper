@@ -12,13 +12,13 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
   for (let a = 0; a < maxNumber; a++) {
     if (a === detailPosition) {
       items.push(
-        <Col3Full className="col3">
+        <Col3Full key={`key${a}`} className="col3">
           <FeatureContentRowDetail {...props.details} />
         </Col3Full>,
       )
     } else {
       items.push(
-        <Col3Full className="col3">
+        <Col3Full key={`key${a}`} className="col3">
           <ArticleSummary {...props.features[b]} />
         </Col3Full>,
       )

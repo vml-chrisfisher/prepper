@@ -356,6 +356,7 @@ export default ({ children }) => (
           text-transform: uppercase;
           padding: 20px 25px;
           letter-spacing: 2px;
+          cursor: pointer;
         }
 
         .outline {

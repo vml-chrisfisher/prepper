@@ -16,7 +16,6 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
     this.state = {
       email: '',
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -46,7 +45,12 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
               />
             </NewsletterSignupLabel>
 
-            <button onClick={this.handleSubmit} className="primaryButton">
+            <button
+              onClick={e => {
+                this.handleSubmit()
+              }}
+              className="primaryButton"
+            >
               Sign up
             </button>
           </NewsletterSignupForm>
@@ -91,6 +95,7 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
 const NewsletterSignupTitle = styled.h3`
   color: #ffffff;
   font-size: 1.5em;
+  padding-top: 30%;
 `
 
 const NewsletterSignupLabel = styled.label`
@@ -148,7 +153,6 @@ const NewsletterSignupScroll = styled.div<NewsletterPositionProps>`
 
 const NewsletterSignupForm = styled.div`
   height: 33.33%;
-  padding-top: 30%;
   margin-left: 10%;
   width: 80%;
 `
@@ -159,7 +163,6 @@ const NewsletterSignupStatus = styled.div`
 
 const NewsletterSignupLoader = styled.div`
   padding-top: 75%;
-  transform: translateY(-50%);
 `
 
 const NewletterSignupStateText = styled.div`
