@@ -6,13 +6,12 @@ import { HeaderProps, HeaderTheme } from './header/interface'
 
 interface Props {
   location: Location
-  meta: string
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   children?: any
   /* eslint-enable  @typescript-eslint/no-explicit-any */
 }
 
-const Layout = ({ location, meta, children }: Props) => {
+const Layout = ({ location, children }: Props) => {
   const rootPath = '/'
   const homePath = ''
   let theme: HeaderProps = { theme: HeaderTheme.DARK }
@@ -24,11 +23,44 @@ const Layout = ({ location, meta, children }: Props) => {
   return (
     <Container>
       <Helmet>
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&family=Playfair+Display&display=swap"
-          rel="stylesheet"
-        /> */}
-        <meta name="description" content={meta} />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta
+          name="description"
+          content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails. Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
+        />
+        <meta name="image" content="https://www.knifeandfish.com/logo.jpg" />
+        <link rel="icon" href="logo.png" />
+        <link rel="apple-touch-icon" href="logo.png"></link>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
+
+        <link rel="manifest" href="manifest.json"></link>
+
+        <meta property="og:url" content="https://www.knifeandfish.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="A food and cocktail blog, from the Midwest" />
+        <meta
+          property="og:description"
+          content="A food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
+        />
+        <meta property="og:image" content="https://www.knifeandfish.com/logo.jpg" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="knifeandfisher1" />
+        <meta name="twitter:site" content="knifeandfisher1" />
+        <meta
+          name="twitter:title"
+          content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
+        />
+        <meta
+          name="twitter:description"
+          content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails. Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
+        />
+        <meta name="twitter:image:src" content="https://www.knifeandfish.com/logo.jpg" />
+        <meta
+          name="twitter:image:alt"
+          content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
+        />
       </Helmet>
       <HeaderContainer {...theme} />
       {children}

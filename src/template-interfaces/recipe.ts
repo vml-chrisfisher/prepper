@@ -28,6 +28,7 @@ export interface AllContentfulRecipe {
     }
   }
   createdAt: string
+  updatedAt: string
   heroImage: RecipeBannerImage
   mealType: string
   proteinType: ProteinType[]

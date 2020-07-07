@@ -14,27 +14,28 @@ class Footer extends PureComponent<FooterProps> {
         <FooterColumnsContainer className="row">
           <FooterColumn className="col3" />
           <FooterColumn className="col3">
-            <FooterTitle theme={themeValue}>Shop</FooterTitle>
+            <FooterTitle theme={themeValue}>Articles</FooterTitle>
             <FooterParagraph theme={themeValue}>
-              Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
+              From learning the best knife to buy or how to cut an onion correctly, we trying to give everyone the
+              knowledge needed.
             </FooterParagraph>
-            <FooterLinkMain theme={themeValue} href="">
-              Shop Now
+            <FooterLinkMain theme={themeValue} href="/articles">
+              Read One
             </FooterLinkMain>
           </FooterColumn>
           <FooterColumn className="col3">
             <FooterTitle theme={themeValue}>Recipes</FooterTitle>
             <FooterParagraph theme={themeValue}>
-              Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
+              Creating a meal, creates conversations and brings people to together. Let us help you.
             </FooterParagraph>
-            <FooterLinkMain theme={themeValue} href="">
+            <FooterLinkMain theme={themeValue} href="/recipes">
               Get Recipes
             </FooterLinkMain>
           </FooterColumn>
           <FooterColumn className="col3">
             <FooterTitle theme={themeValue}>Story</FooterTitle>
             <FooterParagraph theme={themeValue}>
-              Sign up to our newsletter and get exclusive. Seedlings news, updates and offers.
+              From a love to a mission to help everyone learn how to cook to one signature dish.
             </FooterParagraph>
             <FooterLinkMain theme={themeValue} href="">
               Read
@@ -47,7 +48,7 @@ class Footer extends PureComponent<FooterProps> {
             <div className="col4">
               <a href="">
                 <FooterSocialIcon
-                  alt="Zephyr and Hare Facebook"
+                  alt="Knife andFish Facebook"
                   src={
                     '//images.ctfassets.net/ce6fbxhy1t51/6yYrd2D1fVD8j7LtZ76sy/1ef98cc5c29e67cb01df9a60b4df9d42/facebook.svg'
                   }
@@ -55,7 +56,7 @@ class Footer extends PureComponent<FooterProps> {
               </a>
               <a href="">
                 <FooterSocialIcon
-                  alt="Zephyr and Hare Instagram"
+                  alt="Knife and Fish Instagram"
                   src={
                     '//images.ctfassets.net/ce6fbxhy1t51/2MNwT4CYIQUPMp540OF0HU/d9f43fa3de2e7f64ea068cc15af6c7c9/instagram.svg'
                   }
@@ -63,7 +64,7 @@ class Footer extends PureComponent<FooterProps> {
               </a>
               <a href="">
                 <FooterSocialIcon
-                  alt="Zephyr and Hare Pinterest"
+                  alt="Knife and Fish Pinterest"
                   src={
                     '//images.ctfassets.net/ce6fbxhy1t51/6PsbRIEHqAunj8DT6d9Qod/207e4a09ebe4d00b5dff6abe9b45893d/pinterest.svg'
                   }
@@ -72,29 +73,32 @@ class Footer extends PureComponent<FooterProps> {
             </div>
             <div className="col8">
               <FooterBottomLinkContainer>
-                <FooterLinkBottom theme={themeValue} href="/plants">
+                {/* <FooterLinkBottom theme={themeValue} href="/plants">
                   Plants
-                </FooterLinkBottom>
+                </FooterLinkBottom> */}
                 <FooterLinkBottom theme={themeValue} href="/recipes">
                   Recipes
                 </FooterLinkBottom>
                 <FooterLinkBottom theme={themeValue} href="/contact">
                   Contact Us
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="/shipping">
+                {/* <FooterLinkBottom theme={themeValue} href="/shipping">
                   Shipping
                 </FooterLinkBottom>
                 <FooterLinkBottom theme={themeValue} href="/returns">
                   Returns
-                </FooterLinkBottom>
+                </FooterLinkBottom> */}
                 <FooterLinkBottom theme={themeValue} href="/privacy">
                   Privacy
                 </FooterLinkBottom>
                 <FooterLinkBottom theme={themeValue} href="/terms">
                   Terms
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="careers">
+                {/* <FooterLinkBottom theme={themeValue} href="careers">
                   Careers
+                </FooterLinkBottom> */}
+                <FooterLinkBottom theme={themeValue} href="/sitemap.xml">
+                  Sitemap
                 </FooterLinkBottom>
               </FooterBottomLinkContainer>
             </div>

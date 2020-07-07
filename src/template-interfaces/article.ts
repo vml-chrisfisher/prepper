@@ -24,6 +24,7 @@ export interface AllContentfulArticle {
     }
   }
   createdAt: string
+  updatedAt: string
   heroImage: ArticleBannerImage
   subtitle: string
   tags: ArticleTag[]

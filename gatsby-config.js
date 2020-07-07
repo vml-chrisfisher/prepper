@@ -22,7 +22,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Knife and Fish',
+    siteUrl: `http://vml-prepper-stage.herokuapp.com/`,
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -33,6 +34,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-typescript-css-modules',
     `gatsby-remark-lazy-load`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

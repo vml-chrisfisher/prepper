@@ -132,6 +132,12 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
     const post: AllContentfulArticle = get(this.props, 'data.contentfulArticle')
     const postCreate = dateformat(post.createdAt, 'fullDate')
+    const expirationDateRaw = new Date(post.updatedAt)
+    expirationDateRaw.setFullYear(expirationDateRaw.getFullYear())
+
+    const tags = post.tags.map((tag: ArticleTag) => {
+      return tag.tag
+    })
 
     const structuredDataArticle = `{
       "@context": "http://schema.org",
@@ -159,7 +165,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
     }`
 
     return (
-      <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
+      <Layout location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}
@@ -170,10 +176,16 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
             {/* Opengraph meta tags for Facebook & LinkedIn */}
             <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
-            <meta property="og:type" content="NewsArticle" />
+            <meta property="og:type" content="article" />
             <meta property="og:title" content={post.title} />
             <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
             <meta property="og:image" content={post.heroImage.file.url} />
+            <meta property="og:article:published_time" content={post.createdAt} />
+            <meta property="og:article:modified_time" content={post.updatedAt} />
+            <meta property="og:article:expiration_time" content={expirationDateRaw.toISOString()} />
+            <meta property="og:article:author" content="Chris Fisher" />
+            <meta property="og:article:section" content="Cooking" />
+            <meta property="og:article:tag" content={tags.toString()} />
 
             {/* These tags work for Twitter & Slack, notice I've included more custom tags like reading time etc... */}
             <meta name="twitter:card" content="summary" />
@@ -182,8 +194,10 @@ class ArticleTemplate extends React.Component<ArticleProps> {
             <meta name="twitter:title" content={post.title} />
             <meta name="twitter:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
             <meta name="twitter:image:src" content={post.heroImage.file.url} />
-            <meta name="twitter:label1" value="Reading time" />
-            <meta name="twitter:data1" value={`5 min read`} />
+            <meta
+              name="twitter:image:alt"
+              content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
+            />
             <meta name="author" content="Knife and Fish" data-react-helmet="true" />
             <meta name="article:published_time" content={post.createdAt} data-react-helmet="true" />
 
@@ -281,6 +295,7 @@ export const pageQuery = graphql`
       }
       slug
       createdAt
+      updatedAt
       heroImage {
         description
         file {
