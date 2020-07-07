@@ -8,6 +8,7 @@ interface NewsletterPositionProps {
 
 interface NewsletterState {
   email: string
+  position: number
 }
 
 class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
@@ -15,6 +16,7 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
     super(props)
     this.state = {
       email: '',
+      position: 0,
     }
   }
 
@@ -23,13 +25,15 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
   }
 
   handleSubmit() {
-    console.log('submit')
     this.props.onSubmit(this.state.email)
   }
 
   render() {
-    console.log(this.props)
     const position = this.props.position
+    if (position === 0 && this.state.position === 2) {
+      this.setState({ email: '' })
+    }
+    this.setState({ position: this.props.position })
     return (
       <NewsletterSignupContainer>
         <NewsletterSignupScroll stage={position}>
@@ -40,6 +44,7 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
               Email Address
               <NewsletterSignupInput
                 type="email"
+                value={this.state.email}
                 onChange={event => this.setState({ email: event.target.value })}
                 placeholder="seedlings@seedlings.com"
               />
@@ -163,6 +168,9 @@ const NewsletterSignupStatus = styled.div`
 
 const NewsletterSignupLoader = styled.div`
   padding-top: 75%;
+  @media (max-width: 767px) {
+    padding-top: 35%;
+  }
 `
 
 const NewletterSignupStateText = styled.div`
@@ -181,6 +189,9 @@ const NewletterSignupStateIcon = styled.div`
 const NewsletterSignupConfirmation = styled.div`
   height: 33.33%;
   width: 100%;
+  @media (max-width: 767px) {
+    padding-top: 0px;
+  }
 `
 
 export default NewsletterSignup

@@ -71,7 +71,6 @@ const submitNewsletterEmail = (email: string) => {
 }
 
 export function* submitNewsletterEmailAsync(action: any) {
-  console.log('HELLO')
   yield put({
     type: NEWSLETTER_ACTION_TYPES.SUBMITTING,
   })

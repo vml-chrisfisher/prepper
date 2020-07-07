@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
 import NewsletterSignup from '.'
+import { connect } from 'react-redux'
 import { onNewsletterReset, onNewsletterSubmit } from '../../store/actions'
 
 const mapStateToProps = (state: any) => {
@@ -16,7 +16,6 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onSubmit: (email: string) => {
-      console.log('HELLO')
       dispatch(onNewsletterSubmit(email))
     },
     onReset: () => {
