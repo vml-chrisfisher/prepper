@@ -194,7 +194,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
             <title>{post.title} | Knife & Fish</title>
 
             {/* Default language and direction */}
-            <html lang="en" dir="ltr" />
+            <html lang="en" dir="ltr" amp />
           </Helmet>
           <div>
             <div className="row">

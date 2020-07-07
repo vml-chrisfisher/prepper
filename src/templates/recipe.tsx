@@ -202,6 +202,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       }
     `
 
+    let step = 0
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
@@ -211,10 +212,103 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const bannerHeight =
       (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
+    const keywords = new Array<string>()
+    keywords.push(post.mealType)
+    if (post.proteinType && post.proteinType.length > 0) {
+      post.proteinType.map((pType: ProteinType) => {
+        keywords.push(pType.protein)
+      })
+    }
+    post.vegetableType.map((vegetable: string) => {
+      keywords.push(vegetable)
+    })
+
+    const ingredients = post.recipeGroup.map((group: RecipeGroup) => {
+      group.ingredients.map((ingredient: RecipeIngredient) => {
+        return `
+        ${ingredient.recipeQuantity &&
+          ingredient.recipeQuantity.recipeQuantity &&
+          ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark.rawMarkdownBody}
+         ${ingredient.recipeQuantity &&
+           ingredient.recipeQuantity.recipeMeasurement &&
+           ingredient.recipeQuantity.recipeMeasurement.measurement &&
+           ingredient.recipeQuantity.recipeMeasurement.measurement.childMarkdownRemark.rawMarkdownBody}
+         ${ingredient.prep && ingredient.prep.prep}
+         `
+      })
+    })
+
+    const structuredDataArticle = `{
+      "@context": "http://schema.org",
+      "@type": "Recipe",
+      "name": "${post.title}",
+      "image": ["${post.heroImage.file.url}"],
+      "author": {
+        "@type": "Person",
+        "name": "Chris Fisher"
+      },
+      "datePublished": "${post.createdAt}",
+      "description": "${post.bodyCopy}",
+      "prepTime": "PT20M",
+      "cookTime": "PT30M",
+      "totalTime": "PT50M",
+      "keywords": "${keywords.toString()}"
+      "recipeYield": "10",
+      "recipeCategory": "${post.mealType}",
+      "recipeCuisine": "American",
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "270 calories"
+      },
+      "recipeIngredient": []
+      "publisher": {
+        "@type": "Organization",
+        "name": "Knife and Fish",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "${post.heroImage.file.url}"
+        }
+      }
+    }`
+
     return (
       <Layout meta={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | Knife & Fish`} />
+          <Helmet>
+            {/* The description that appears under the title of your website appears on search engines results */}
+            <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+
+            {/* The thumbnail of your website */}
+            <meta name="image" content={post.heroImage.file.url} />
+
+            {/* Opengraph meta tags for Facebook & LinkedIn */}
+            <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
+            <meta property="og:type" content="NewsArticle" />
+            <meta property="og:title" content={post.title} />
+            <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+            <meta property="og:image" content={post.heroImage.file.url} />
+
+            {/* These tags work for Twitter & Slack, notice I've included more custom tags like reading time etc... */}
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:creator" content="knifeandfisher1" />
+            <meta name="twitter:site" content="knifeandfisher1" />
+            <meta name="twitter:title" content={post.title} />
+            <meta name="twitter:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+            <meta name="twitter:image:src" content={post.heroImage.file.url} />
+            <meta name="twitter:label1" value="Reading time" />
+            <meta name="twitter:data1" value={`5 min read`} />
+            <meta name="author" content="Knife and Fish" data-react-helmet="true" />
+            <meta name="article:published_time" content={post.createdAt} data-react-helmet="true" />
+
+            {/* Structured data */}
+            <script type="application/ld+json">{structuredDataArticle}</script>
+
+            {/* The title of your current page */}
+            <title>{post.title} | Knife & Fish</title>
+
+            {/* Default language and direction */}
+            <html lang="en" dir="ltr" amp />
+          </Helmet>
           <div>
             <div className="row">
               <div className="col3" />
@@ -330,8 +424,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                             <GroupTitle>{instructionGroup.displayName}</GroupTitle>
                           )}
                           {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
+                            step++
                             return (
                               <Instruction
+                                id={`Step${step}`}
                                 key={`instruction-${index}`}
                                 dangerouslySetInnerHTML={{
                                   __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody,
