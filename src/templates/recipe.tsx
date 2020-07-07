@@ -224,19 +224,39 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     })
 
     const ingredients = post.recipeGroup.map((group: RecipeGroup) => {
-      group.ingredients.map((ingredient: RecipeIngredient) => {
-        return `
-        ${ingredient.recipeQuantity &&
-          ingredient.recipeQuantity.recipeQuantity &&
-          ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark.rawMarkdownBody}
-         ${ingredient.recipeQuantity &&
-           ingredient.recipeQuantity.recipeMeasurement &&
-           ingredient.recipeQuantity.recipeMeasurement.measurement &&
-           ingredient.recipeQuantity.recipeMeasurement.measurement.childMarkdownRemark.rawMarkdownBody}
-         ${ingredient.prep && ingredient.prep.prep}
-         `
+      return group.ingredients.map((ingredient: RecipeIngredient) => {
+        let ingre1 = ''
+        if (ingredient.recipeQuantity && ingredient.recipeQuantity.recipeQuantity)
+          [(ingre1 = ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark.rawMarkdownBody)]
+        let ingre2 = ''
+        if (
+          ingredient.recipeQuantity &&
+          ingredient.recipeQuantity.recipeMeasurement &&
+          ingredient.recipeQuantity.recipeMeasurement.mesurement
+        ) {
+          ingre2 = ingredient.recipeQuantity.recipeMeasurement.mesurement.childMarkdownRemark.rawMarkdownBody
+        }
+        const ingre3 = ingredient.ingredient.ingredient
+        let ingre4 = ''
+        if (ingredient.prep) {
+          ingre4 = ingredient.prep.prep
+        }
+        return `"${ingre1} ${ingre2} ${ingre3} ${ingre4}"`
       })
     })
+
+    const instructions = post.recipeInstructionGroups.map((group: RecipeInstructionGroup) => {
+      return group.instructions.map((instruction: RecipeInstruction) => {
+        step++
+        return JSON.stringify({
+          '@type': 'HowToStep',
+          name: `"${instruction.instruction.childMarkdownRemark.rawMarkdownBody}"`,
+          text: `"${instruction.instruction.childMarkdownRemark.rawMarkdownBody}"`,
+          url: `"https://wwww.knifeandfish.com/recipe/${post.slug}#step${step}"`,
+        })
+      })
+    })
+    step = 0
 
     const structuredDataArticle = `{
       "@context": "http://schema.org",
@@ -260,7 +280,8 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         "@type": "NutritionInformation",
         "calories": "270 calories"
       },
-      "recipeIngredient": []
+      "recipeIngredient": [${ingredients.toString()}],
+      "recipeInstructions": [${instructions.toString()}]
       "publisher": {
         "@type": "Organization",
         "name": "Knife and Fish",
