@@ -51,10 +51,10 @@ class RootIndex extends React.Component<HomeProps> {
     const articles = get(this, 'props.data.allContentfulArticle.edges')
     const articleFeatures: FeatureContentRowProps = {
       details: {
-        title: 'May Articles',
+        title: 'Articles',
         description:
           'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
-        buttonCaption: 'Explore May Posts',
+        buttonCaption: 'Explore Articles',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,
         backgroundColor: 'transparent',
