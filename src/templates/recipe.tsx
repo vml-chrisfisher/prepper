@@ -269,7 +269,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         "name": "Chris Fisher"
       },
       "datePublished": "${post.createdAt}",
-      "description": "${post.bodyCopy}",
+      "description": "${post.bodyCopy.childMarkdownRemark.rawMarkdownBody}",
       "prepTime": "PT20M",
       "cookTime": "PT30M",
       "totalTime": "PT50M",
