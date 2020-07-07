@@ -41,7 +41,7 @@ const GeneralContentRow = () => {
             <ArticleSummaryVertical
               {...{
                 title: 'Secrets of a Southern Tomato Garden',
-                description: 'If you think you hate tomatoes, you haven’t tried a real one',
+                description: 'If you think you hate tomatoes, you haven’t tried a real one.',
                 imageDescription: 'If you think you hate tomatoes, you haven’t tried a real one',
                 slug: 'secrets-of-a-southern-tomato-garden',
                 imagePath: `//images.ctfassets.net/ce6fbxhy1t51/3Pb4wA6V0swrWHAl6T6YRl/77987a788109e3c8ab265077a6abf748/tomato-article-banner.jpg`,
