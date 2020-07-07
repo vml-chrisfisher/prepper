@@ -250,9 +250,9 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         step++
         return JSON.stringify({
           '@type': 'HowToStep',
-          name: `"${instruction.instruction.childMarkdownRemark.rawMarkdownBody}"`,
-          text: `"${instruction.instruction.childMarkdownRemark.rawMarkdownBody}"`,
-          url: `"https://wwww.knifeandfish.com/recipe/${post.slug}#step${step}"`,
+          name: `${instruction.instruction.childMarkdownRemark.rawMarkdownBody}`,
+          text: `${instruction.instruction.childMarkdownRemark.rawMarkdownBody}`,
+          url: `https://wwww.knifeandfish.com/recipe/${post.slug}#step${step}`,
         })
       })
     })
@@ -282,14 +282,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       },
       "recipeIngredient": [${ingredients.toString()}],
       "recipeInstructions": [${instructions.toString()}]
-      "publisher": {
-        "@type": "Organization",
-        "name": "Knife and Fish",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "${post.heroImage.file.url}"
-        }
-      }
     }`
 
     return (
