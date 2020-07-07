@@ -1,16 +1,20 @@
-import React from 'react'
 import styled from '@emotion/styled'
+import React from 'react'
 import FeatureContentRowDetailProps from './interface'
 
 interface ThemeProps {
   theme: string
 }
 
+interface BackgroundProps {
+  color: string
+}
+
 const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
   const themeValue = props.theme
 
   return (
-    <FeatureContainer>
+    <FeatureContainer style={{ backgroundColor: props.backgroundColor }}>
       <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
       <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
       <FeatureButton theme={themeValue}>{props.buttonCaption}</FeatureButton>
@@ -19,7 +23,7 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
 }
 
 const FeatureContainer = styled.div`
-  margin-top: 25%;
+  margin-top: 0%;
 `
 
 const FeatureTitle = styled.h2<ThemeProps>`

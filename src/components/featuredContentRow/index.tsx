@@ -1,8 +1,9 @@
+import styled from '@emotion/styled'
 import React from 'react'
 import ArticleSummary from '../articleSummary'
-import FeatureContentRowProps from './interface'
+import ArticleSummaryVertical from '../articleSummaryVertical'
 import FeatureContentRowDetail from './featuredContentRowDetail'
-import styled from '@emotion/styled'
+import FeatureContentRowProps from './interface'
 
 const FeaturedContentRow = (props: FeatureContentRowProps) => {
   const maxNumber = Math.floor(props.features.length + 1)
@@ -19,7 +20,7 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
     } else {
       items.push(
         <Col3Full key={`key${a}`} className="col3">
-          <ArticleSummary {...props.features[b]} />
+          <ArticleSummaryVertical {...props.features[b]} />
         </Col3Full>,
       )
       b++

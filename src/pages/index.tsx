@@ -23,6 +23,7 @@ class RootIndex extends React.Component<HomeProps> {
     const searchQuestion = post.node.searchQuestion
     const searchPlaceholder = post.node.searchPlaceholder
 
+    const recipes = get(this, 'props.data.allContentfulRecipe.edges')
     const recipeFeatures: FeatureContentRowProps = {
       details: {
         title: 'Recipes',
@@ -31,40 +32,23 @@ class RootIndex extends React.Component<HomeProps> {
         buttonCaption: 'Find Recipes',
         slug: '/recipes',
         theme: HeaderTheme.LIGHT,
+        backgroundColor: 'transparent',
       },
-      features: [
-        {
-          title: 'Cornmeal Fried Okra',
-          slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/46pHQHUxijoTd2fpcYq3w6/52e78a0c5ab047359f4b10259b1c059f/fried-okra-rectangle.jpg',
-          description:
-            'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
-          basePath: 'recipe',
-          imageDescription: 'okra',
-        },
-        {
-          title: 'Sausage, Shrimp and Okra Gumbo',
-          slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/nWI1iStg20DSjv0xqjyfJ/d0ae7ed21130834667a60a4cfac3042e/Gumbo-11.jpg',
-          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
-          basePath: 'recipe',
-          imageDescription: 'gumbo',
-        },
-        {
-          title: 'Stir Fried Okra',
-          slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/6erFjTvbIYftFkbDbaXi6i/c08cee40d7ebd49ae5fe757314f4c59b/stir-fried-okra.jpg',
-          description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
-          basePath: 'recipe',
-          imageDescription: 'okra',
-        },
-      ],
       basePath: 'recipes',
+      features: recipes.map((recipe: any) => {
+        console.log(recipe)
+        return {
+          title: recipe.node.title,
+          slug: recipe.node.slug,
+          description: recipe.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+          imagePath: recipe.node.bannerImage.file.url,
+          imageDescription: recipe.node.bannerImage.title,
+          basePath: 'recipe',
+        }
+      }),
     }
 
+    const articles = get(this, 'props.data.allContentfulArticle.edges')
     const articleFeatures: FeatureContentRowProps = {
       details: {
         title: 'May Articles',
@@ -73,37 +57,19 @@ class RootIndex extends React.Component<HomeProps> {
         buttonCaption: 'Explore May Posts',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,
+        backgroundColor: 'transparent',
       },
-      features: [
-        {
-          title: 'Spring Seedling To Start Now',
-          slug: 'Okra',
-          imagePath: '/andrej-lisakov-zYUn4R37o_U-unsplash.jpg',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          imageDescription: 'spring seedlings',
-          basePath: 'article',
-        },
-        {
-          title: 'Compost',
-          slug: 'Okra',
-          imagePath: '/gabriel-jimenez-jin4W1HqgL4-unsplash.jpg',
-          description:
-            'Erat velit scelerisque in dictum non consectetur a erat. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.',
-          imageDescription: 'compost',
-          basePath: 'article',
-        },
-        {
-          title: 'Spring Root Vegetables',
-          slug: 'Okra',
-          imagePath: '/heather-gill-VJa9L3ZVBIc-unsplash.jpg',
-          description:
-            'Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Malesuada bibendum arcu vitae elementum.',
-          imageDescription: 'root vegetables',
-          basePath: 'article',
-        },
-      ],
-      basePath: 'article',
+      basePath: 'articles',
+      features: articles.map((article: any) => {
+        return {
+          title: article.node.title,
+          slug: article.node.slug,
+          description: article.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+          imagePath: article.node.bannerImage.file.url,
+          imageDescription: article.node.bannerImage.title,
+          basePath: 'recipe',
+        }
+      }),
     }
 
     return (
@@ -146,6 +112,44 @@ export const pageQuery = graphql`
           }
           searchPlaceholder
           searchQuestion
+        }
+      }
+    }
+    allContentfulRecipe(limit: 3, sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          bannerImage {
+            file {
+              url
+            }
+            title
+          }
+          bodyCopy {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
+          }
+          title
+          slug
+        }
+      }
+    }
+    allContentfulArticle(limit: 3, sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          bannerImage {
+            file {
+              url
+            }
+            title
+          }
+          bodyCopy {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
+          }
+          title
+          slug
         }
       }
     }

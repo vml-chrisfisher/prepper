@@ -78,6 +78,7 @@ export function* submitNewsletterEmailAsync(action: any) {
   if (email) {
     try {
       const response = yield call(submitNewsletterEmail, email)
+      console.log(response)
       yield put({
         type: NEWSLETTER_ACTION_TYPES.ADDED_SUCCESS,
       })

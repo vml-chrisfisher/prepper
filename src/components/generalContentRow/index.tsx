@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
-import ArticleSummary from '../articleSummary'
+import ArticleSummaryVertical from '../articleSummaryVertical'
 import NewsletterContainer from '../newsletterSignup/container'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
@@ -16,7 +16,7 @@ const GeneralContentRow = () => {
             <ContentImage>
               <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={1000}>
                 <img
-                  alt="Zephyr and Hare Story"
+                  alt="Knife and Fish Story"
                   src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=80&w=${windowWidthHalf}`}
                 />
               </LazyLoad>
@@ -38,13 +38,14 @@ const GeneralContentRow = () => {
       <Col6Full className="col6">
         <div className="row">
           <Col6Full className="col6">
-            <ArticleSummary
+            <ArticleSummaryVertical
               {...{
-                title: 'A guide to gardening tools',
-                description: 'sdfsdfds sdf  sdf sdf',
-                slug: 'sdfds',
-                imagePath: `//images.ctfassets.net/ce6fbxhy1t51/68yxYrpcreuM9MdWEXReXE/ee1b2e4a8043b52cdc906c0480410d66/tools-background.png?fm=webp&q=80&w=${windowWidthQuarter}`,
-                basePath: '',
+                title: 'Secrets of a Southern Tomato Garden',
+                description: 'If you think you hate tomatoes, you haven’t tried a real one',
+                imageDescription: 'If you think you hate tomatoes, you haven’t tried a real one',
+                slug: 'secrets-of-a-southern-tomato-garden',
+                imagePath: `//images.ctfassets.net/ce6fbxhy1t51/3Pb4wA6V0swrWHAl6T6YRl/77987a788109e3c8ab265077a6abf748/tomato-article-banner.jpg`,
+                basePath: 'article',
               }}
             />
           </Col6Full>

@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
-import ArticleSummaryInterface from './interface'
+import ArticleSummaryInterface from '../articleSummary/interface'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
 
-const ArticleSummary = (props: ArticleSummaryInterface) => (
+const ArticleSummaryVertical = (props: ArticleSummaryInterface) => (
   <Article key={props.slug}>
     <a href={`/${props.basePath}/${props.slug}`}>
       <ArticleImageParent>
@@ -15,20 +15,14 @@ const ArticleSummary = (props: ArticleSummaryInterface) => (
             <picture>
               <source
                 type="image/webp"
-                srcSet={`${props.imagePath}?fm=webp&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                  windowWidthHalf,
-                )}&fit=fill`}
+                srcSet={`${props.imagePath}?fm=webp&q=80&w=${Math.round(windowWidthHalf)}&fit=fill`}
               />
               <source
                 type="image/jpg"
-                srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                  windowWidthHalf,
-                )}&fit=fill`}
+                srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&fit=fill`}
               />
               <img
-                src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                  windowWidthHalf,
-                )}&fit=fill`}
+                src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&fit=fill`}
                 alt={props.imageDescription}
               />
             </picture>
@@ -158,4 +152,4 @@ const ArticleDescription = styled.div`
   }
 `
 
-export default ArticleSummary
+export default ArticleSummaryVertical

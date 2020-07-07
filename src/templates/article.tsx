@@ -18,45 +18,6 @@ import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-inte
 class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
-    const articleFeatures: FeatureContentRowProps = {
-      details: {
-        title: 'Recipes',
-        description:
-          'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
-        buttonCaption: 'Find Recipes',
-        slug: '/recipes',
-        theme: HeaderTheme.DARK,
-      },
-      features: [
-        {
-          title: 'Cornmeal Fried Okra',
-          slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/46pHQHUxijoTd2fpcYq3w6/52e78a0c5ab047359f4b10259b1c059f/fried-okra-rectangle.jpg',
-          description:
-            'The finished stew should be decidedly sour, tamarind’s calling card, but you’re in control of how ­puckery things get.',
-          basePath: 'recipe',
-        },
-        {
-          title: 'Sausage, Shrimp and Okra Gumbo',
-          slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/nWI1iStg20DSjv0xqjyfJ/d0ae7ed21130834667a60a4cfac3042e/Gumbo-11.jpg',
-          description: 'For authentic gumbo, add filé, a Creole herb found in better markets.',
-          basePath: 'recipe',
-        },
-        {
-          title: 'Stir Fried Okra',
-          slug: 'Okra',
-          imagePath:
-            '//images.ctfassets.net/ce6fbxhy1t51/6erFjTvbIYftFkbDbaXi6i/c08cee40d7ebd49ae5fe757314f4c59b/stir-fried-okra.jpg',
-          description: 'Working in batches ensures golden and tender okra, not soft and slimy.',
-          basePath: 'recipe',
-        },
-      ],
-      basePath: 'recipe',
-    }
-
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
       @media (max-width: 767px) {
@@ -164,6 +125,55 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       }
     }`
 
+    const recipes = get(this, 'props.data.allContentfulRecipe.edges')
+    const recipeFeatures: FeatureContentRowProps = {
+      details: {
+        title: 'Recipes',
+        description:
+          'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
+        buttonCaption: 'Find Recipes',
+        slug: '/recipes',
+        theme: HeaderTheme.LIGHT,
+        backgroundColor: '#00FF00',
+      },
+      basePath: 'recipes',
+      features: recipes.map((recipe: any) => {
+        console.log(recipe)
+        return {
+          title: recipe.node.title,
+          slug: recipe.node.slug,
+          description: recipe.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+          imagePath: recipe.node.bannerImage.file.url,
+          imageDescription: recipe.node.bannerImage.title,
+          basePath: 'recipe',
+        }
+      }),
+    }
+
+    const articles = get(this, 'props.data.allContentfulArticle.edges')
+    const articleFeatures: FeatureContentRowProps = {
+      details: {
+        title: 'May Articles',
+        description:
+          'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
+        buttonCaption: 'Explore May Posts',
+        slug: '/articles',
+        theme: HeaderTheme.LIGHT,
+        backgroundColor: '#FF0000',
+      },
+      basePath: 'articles',
+      features: articles.map((article: any) => {
+        return {
+          title: article.node.title,
+          slug: article.node.slug,
+          description: article.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+          imagePath: article.node.bannerImage.file.url,
+          imageDescription: article.node.bannerImage.title,
+          basePath: 'recipe',
+        }
+      }),
+    }
+
     return (
       <Layout location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
@@ -270,6 +280,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
                     return <TagStyled key={`tag-${index}`}>{tag.tag}</TagStyled>
                   })}
                 </TagContainer>
+                <FeaturedContentRow {...recipeFeatures} />
                 <FeaturedContentRow {...articleFeatures} />
                 <GeneralContentRow />
                 <Footer {...{ theme: HeaderTheme.DARK }} />
@@ -328,6 +339,44 @@ export const pageQuery = graphql`
           description
         }
         isTwoColumn
+      }
+    }
+    allContentfulRecipe(limit: 3, sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          bannerImage {
+            file {
+              url
+            }
+            title
+          }
+          bodyCopy {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
+          }
+          title
+          slug
+        }
+      }
+    }
+    allContentfulArticle(limit: 3, sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          bannerImage {
+            file {
+              url
+            }
+            title
+          }
+          bodyCopy {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
+          }
+          title
+          slug
+        }
       }
     }
   }
