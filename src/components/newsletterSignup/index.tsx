@@ -134,7 +134,7 @@ const NewsletterSignupContainer = styled.div`
   width: 100%;
   @media (max-width: 767px) {
     height: 50%;
-    padding-top: 100vw;
+    padding-top: 400px;
   }
 `
 
