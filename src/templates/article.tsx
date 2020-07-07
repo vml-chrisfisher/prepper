@@ -153,7 +153,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         "name": "Knife and Fish",
         "logo": {
           "@type": "ImageObject",
-          "url": "${post.heroImage.file.url}"
+          "url": "//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
         }
       }
     }`

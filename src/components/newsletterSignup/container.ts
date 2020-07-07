@@ -16,6 +16,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onSubmit: (email: string) => {
+      console.log('HELLO')
       dispatch(onNewsletterSubmit(email))
     },
     onReset: () => {
