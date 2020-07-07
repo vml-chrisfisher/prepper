@@ -141,7 +141,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         "@id": "https://knifeandfish.com/article/${post.slug}"
       },
       "headline": "${post.title}",
-      "image": [${post.heroImage.file.url}],
+      "image": ["${post.heroImage.file.url}"],
       "datePublished": "${post.createdAt}",
       "dateModified": "${post.createdAt}",
       "author": {
