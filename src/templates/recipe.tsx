@@ -272,7 +272,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       "prepTime": "PT20M",
       "cookTime": "PT30M",
       "totalTime": "PT50M",
-      "keywords": "${keywords.toString()}"
+      "keywords": "${keywords.toString()}",
       "recipeYield": "10",
       "recipeCategory": "${post.mealType}",
       "recipeCuisine": "American",
