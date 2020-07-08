@@ -23,7 +23,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Knife and Fish',
-    siteUrl: `http://vml-prepper-stage.herokuapp.com/`,
+    siteUrl: `https://www.knifeandfish.com/`,
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
