@@ -44,7 +44,7 @@ const Layout = ({ location, children }: Props) => {
         <link rel="apple-touch-icon" href="logo.png"></link>
         <link as="script" rel="preload" href="https://fonts.gstatic.com"></link>
         <link
-          rel="preload"
+          rel="preconnect"
           href="https://fonts.googleapis.com/css?family=Nunito:300,600%7CPlayfair+Display&display=swap"
         ></link>
         <link as="script" rel="preload" href="https://www.google-analytics.com"></link>
