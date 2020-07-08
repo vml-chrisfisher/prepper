@@ -17,7 +17,9 @@ const GeneralContentRow = () => {
               <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
                 <img
                   alt="Knife and Fish Story"
-                  src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=50&w=${windowWidthHalf}`}
+                  src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=50&w=${Math.round(
+                    windowWidthHalf,
+                  )}`}
                 />
               </LazyLoad>
             </ContentImage>
