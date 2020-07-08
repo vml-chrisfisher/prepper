@@ -80,7 +80,7 @@ class RootIndex extends React.Component<HomeProps> {
         <div className={styles.homeContent}>
           <div className="container">
             <HomeHero {...{ headline, searchPlaceholder, searchQuestion }}></HomeHero>
-            <FeaturedVegetableRow />
+            {/* <FeaturedVegetableRow /> */}
             <FeaturedContentRow {...recipeFeatures} />
             <FeaturedContentRow {...articleFeatures} />
             <GeneralContentRow />
