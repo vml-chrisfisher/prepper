@@ -33,7 +33,7 @@ const Layout = ({ location, children }: Props) => {
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
+        <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
 
         <link rel="manifest" href="manifest.json"></link>
 
