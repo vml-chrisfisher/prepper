@@ -42,8 +42,11 @@ const Layout = ({ location, children }: Props) => {
         <meta name="image" content="https://www.knifeandfish.com/logo.jpg" />
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
-        <link rel="preload" href="https://fonts.gstatic.com"></link>
-        <link as="script" rel="preload" href="https://fonts.googleapis.com"></link>
+        <link as="script" rel="preload" href="https://fonts.gstatic.com"></link>
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css?family=Nunito:300,600%7CPlayfair+Display&display=swap"
+        ></link>
         <link as="script" rel="preload" href="https://www.google-analytics.com"></link>
 
         <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
