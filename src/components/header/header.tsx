@@ -425,7 +425,7 @@ const Navigation = styled.ul`
   justify-content: left;
   list-style: none;
   padding-left: 80px;
-  padding-top: 20px;
+  padding-top: 0px;
   margin: 0;
   font-size: 1.25em;
   @media (max-width: 767px) {
@@ -451,6 +451,10 @@ const NavigationItem = styled.a<ThemeProps>`
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
+  display: block;
+  padding-top: 25px;
+  width: 48px;
+  height: 48px;
   &:hover {
     color: #999999;
     transition: color 1s ease;

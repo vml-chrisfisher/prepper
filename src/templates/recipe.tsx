@@ -353,9 +353,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </div>
             <LazyLoad
               className="hidden-sm"
-              width="100%"
-              height={heroHeight}
-              style={{ width: '100%', backgroundColor: '#FF0000' }}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               offset={1000}
             >
@@ -372,8 +370,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </LazyLoad>
             <LazyLoad
               className="hidden-lg"
-              height={bannerHeight}
-              style={{ width: '100%', backgroundColor: '#FF0000' }}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               offset={1000}
             >
