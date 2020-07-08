@@ -280,10 +280,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         title: 'Articles',
         description:
           'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
-        buttonCaption: 'Explore Articles',
+        buttonCaption: 'Explore',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,
-        backgroundColor: '#FF0000',
+        backgroundColor: '#bc620a',
       },
       basePath: 'articles',
       features: articles.map((article: any) => {
@@ -293,7 +293,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
           description: article.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
           imagePath: article.node.bannerImage.file.url,
           imageDescription: article.node.bannerImage.title,
-          basePath: 'recipe',
+          basePath: 'article',
         }
       }),
     }

@@ -15,15 +15,28 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
 
   return (
     <FeatureContainer style={{ backgroundColor: props.backgroundColor }}>
-      <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
-      <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
-      <FeatureButton theme={themeValue}>{props.buttonCaption}</FeatureButton>
+      <DetailContainer>
+        <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
+        <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
+        <FeatureButton href={props.slug} theme={themeValue}>
+          {props.buttonCaption}
+        </FeatureButton>
+      </DetailContainer>
     </FeatureContainer>
   )
 }
 
 const FeatureContainer = styled.div`
   margin-top: 0%;
+  padding-top: 150%;
+  position: relative;
+`
+
+const DetailContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
 `
 
 const FeatureTitle = styled.h2<ThemeProps>`
@@ -46,7 +59,7 @@ const FeatureDescription = styled.div<ThemeProps>`
   padding-bottom: 20px;
 `
 
-const FeatureButton = styled.button<ThemeProps>`
+const FeatureButton = styled.a<ThemeProps>`
   background-color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
@@ -63,6 +76,8 @@ const FeatureButton = styled.button<ThemeProps>`
   text-transform: uppercase;
   padding: 20px 25px;
   letter-spacing: 2px;
+  cursor: pointer;
+  text-decoration: none;
 `
 
 export default FeatureContentRowDetail

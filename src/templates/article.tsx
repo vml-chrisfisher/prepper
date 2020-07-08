@@ -134,7 +134,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         buttonCaption: 'Find Recipes',
         slug: '/recipes',
         theme: HeaderTheme.LIGHT,
-        backgroundColor: '#00FF00',
+        backgroundColor: '#bc940a',
       },
       basePath: 'recipes',
       features: recipes.map((recipe: any) => {
@@ -156,10 +156,10 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         title: 'Articles',
         description:
           'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
-        buttonCaption: 'Explore Articles',
+        buttonCaption: 'Explore',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,
-        backgroundColor: '#FF0000',
+        backgroundColor: '#1e5c14',
       },
       basePath: 'articles',
       features: articles.map((article: any) => {
@@ -169,7 +169,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
           description: article.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
           imagePath: article.node.bannerImage.file.url,
           imageDescription: article.node.bannerImage.title,
-          basePath: 'recipe',
+          basePath: 'article',
         }
       }),
     }
