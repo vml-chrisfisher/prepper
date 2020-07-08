@@ -59,7 +59,7 @@ class RootIndex extends React.Component<HomeProps> {
         theme: HeaderTheme.LIGHT,
         backgroundColor: 'transparent',
       },
-      basePath: 'articles',
+      basePath: 'article',
       features: articles.map((article: any) => {
         return {
           title: article.node.title,
@@ -67,7 +67,7 @@ class RootIndex extends React.Component<HomeProps> {
           description: article.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
           imagePath: article.node.bannerImage.file.url,
           imageDescription: article.node.bannerImage.title,
-          basePath: 'recipe',
+          basePath: 'article',
         }
       }),
     }
