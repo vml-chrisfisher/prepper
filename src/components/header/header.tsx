@@ -344,6 +344,10 @@ const LogoContainer = styled.div`
   text-align: center;
   width: 100%;
   z-index: 999;
+  @media (max-width: 767px) {
+    text-align: right;
+    padding-right: 20px;
+  }
 `
 
 const LogoLink = styled.a`
@@ -353,6 +357,9 @@ const LogoLink = styled.a`
 const LogoImage = styled.img`
   display: inline-block;
   width: 100px;
+  @media (max-width: 767px) {
+    padding-right: 20px;
+  }
 `
 
 const LogoText = styled.div<ThemeProps>`
