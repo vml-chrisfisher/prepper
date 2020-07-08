@@ -43,8 +43,8 @@ const Layout = ({ location, children }: Props) => {
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
         <link rel="preload" href="https://fonts.gstatic.com"></link>
-        <link rel="preload" href="https://fonts.googleapis.com"></link>
-        <link rel="preload" href="https://www.google-analytics.com"></link>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://www.google-analytics.com"></link>
 
         <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
         <script>{gTag}</script>
