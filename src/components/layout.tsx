@@ -32,9 +32,8 @@ const Layout = ({ location, children }: Props) => {
         <meta name="image" content="https://www.knifeandfish.com/logo.jpg" />
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
 
-        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
 
         <link rel="manifest" href="manifest.json"></link>
 
