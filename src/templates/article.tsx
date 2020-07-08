@@ -235,7 +235,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               offset={1000}
             >
               <picture>
-                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=50&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=80&w=${windowWidth}`} />
                 <img
                   src={`${post.heroImage.file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
@@ -252,7 +252,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               offset={1000}
             >
               <picture>
-                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=80&w=${windowWidth}`} />
+                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=50&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=80&w=${windowWidth}`} />
                 <img
                   src={`${post.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(windowWidth)}&h=${Math.round(

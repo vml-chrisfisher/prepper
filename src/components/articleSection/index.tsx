@@ -12,7 +12,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
           <picture>
             <source
               type="image/webp"
-              srcSet={`${props.images[0].file.url}?fm=webp&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+              srcSet={`${props.images[0].file.url}?fm=webp&q=50&w=${Math.round(windowWidth)}&h=${Math.round(
                 windowWidth,
               )}&fit=fill`}
             />
@@ -39,7 +39,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
             <picture>
               <source
                 type="image/webp"
-                srcSet={`${props.images[0].file.url}?fm=webp&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                srcSet={`${props.images[0].file.url}?fm=webp&q=50&w=${Math.round(windowWidth)}&h=${Math.round(
                   windowWidth,
                 )}&fit=fill`}
               />
@@ -63,7 +63,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
             <picture>
               <source
                 type="image/webp"
-                srcSet={`${props.images[1].file.url}?fm=webp&q=80&w=${Math.round(windowWidth)}&h=${Math.round(
+                srcSet={`${props.images[1].file.url}?fm=webp&q=50&w=${Math.round(windowWidth)}&h=${Math.round(
                   windowWidth,
                 )}&fit=fill`}
               />
