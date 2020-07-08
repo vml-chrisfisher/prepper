@@ -14,15 +14,17 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
   const themeValue = props.theme
 
   return (
-    <FeatureContainer style={{ backgroundColor: props.backgroundColor }}>
-      <DetailContainer>
-        <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
-        <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
-        <FeatureButton href={props.slug} theme={themeValue}>
-          {props.buttonCaption}
-        </FeatureButton>
-      </DetailContainer>
-    </FeatureContainer>
+    <div>
+      <FeatureContainer style={{ backgroundColor: props.backgroundColor }}>
+        <DetailContainer>
+          <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
+          <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
+          <FeatureButton href={props.slug} theme={themeValue}>
+            {props.buttonCaption}
+          </FeatureButton>
+        </DetailContainer>
+      </FeatureContainer>
+    </div>
   )
 }
 
@@ -51,7 +53,7 @@ const FeatureDescription = styled.div<ThemeProps>`
   font-family: 'Nunito', sans-serif;
   margin-left: 10%;
   width: 80%;
-  font-size: 0.85em;
+  font-size: 1em;
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};

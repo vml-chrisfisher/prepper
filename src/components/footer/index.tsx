@@ -77,7 +77,7 @@ class Footer extends PureComponent<FooterProps> {
                 />
               </a>
             </div>
-            <div className="col4">
+            <div className="col6">
               <FooterBottomLinkContainer>
                 {/* <FooterLinkBottom theme={themeValue} href="/plants">
                   Plants
@@ -215,20 +215,25 @@ const FooterLinkBottom = styled.a<ThemeProps>`
   }};
   cursor: pointer;
   display: inline-block;
-  font-size: 0.75em;
+  font-size: 0.8em;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   letter-spacing: -0.5px;
   padding-top: 5px;
   padding-right: 20px;
+  padding-bottom: 100px;
   text-align: justify;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 1s ease;
+  display: block;
+  min-width: 48px;
+  min-height: 48px;
+  height: 48px;
   @media (max-width: 767px) {
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     padding-right: 0px;
-    padding-top: 0;
+    padding-top: 25px;
     display: block;
     font-size: 0.9em;
     width: 100%;

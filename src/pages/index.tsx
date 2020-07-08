@@ -27,8 +27,7 @@ class RootIndex extends React.Component<HomeProps> {
     const recipeFeatures: FeatureContentRowProps = {
       details: {
         title: 'Recipes',
-        description:
-          'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
+        description: 'Creating a meal, creates conversations and brings people to together. Let us help you.',
         buttonCaption: 'Find Recipes',
         slug: '/recipes',
         theme: HeaderTheme.LIGHT,
@@ -53,7 +52,7 @@ class RootIndex extends React.Component<HomeProps> {
       details: {
         title: 'Articles',
         description:
-          'I’m baby celiac craft beer ethical godard, migas unicorn tote bag swag paleo mixtape meggings. Wayfarers forage',
+          'From learning the best knife to buy or how to cut an onion correctly, we trying to give everyone the knowledge needed.',
         buttonCaption: 'Explore Articles',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,

@@ -333,7 +333,7 @@ export default ({ children }) => (
 
         .eyebrow {
           font-family: 'Nunito', sans-serif;
-          font-size: 0.625em;
+          font-size: 0.9em;
           text-align: center;
           margin: 0 auto;
           display: block;
@@ -341,6 +341,7 @@ export default ({ children }) => (
           text-transform: uppercase;
           padding: 20px 25px;
           letter-spacing: 2px;
+          color: #000000;
         }
 
         .primaryButton {
@@ -367,8 +368,8 @@ export default ({ children }) => (
 
         .darkOutline {
           background-color: transparent;
-          border: #464646 solid 0.5px;
-          color: #464646;
+          border: #000000 solid 0.5px;
+          color: #000000;
         }
 
         .lds-grid {
