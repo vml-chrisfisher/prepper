@@ -8,7 +8,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
   <div className="row">
     {props.images.length === 1 && (
       <div className="row">
-        <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={1000}>
+        <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
           <picture>
             <source
               type="image/webp"
@@ -35,7 +35,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
     {props.images.length === 2 && (
       <div className="row">
         <TwoPicturesLeft>
-          <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={1000}>
+          <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
             <picture>
               <source
                 type="image/webp"
@@ -59,7 +59,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
           </LazyLoad>
         </TwoPicturesLeft>
         <TwoPicturesRight>
-          <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={1000}>
+          <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
             <picture>
               <source
                 type="image/webp"

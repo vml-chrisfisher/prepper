@@ -318,7 +318,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                           <LazyLoad
                                             style={{ width: '100%', backgroundColor: '#FEFEFE' }}
                                             once
-                                            offset={1000}
+                                            offset={100}
                                           >
                                             <picture>
                                               <source
