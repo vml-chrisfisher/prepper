@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
 import FooterProps from './interface'
+import LazyLoad from 'react-lazy-load'
 
 interface ThemeProps {
   theme: string
@@ -47,34 +48,40 @@ class Footer extends PureComponent<FooterProps> {
           <div className="col9">
             <div className="col4">
               <a href="">
-                <FooterSocialIcon
-                  alt="Knife andFish Facebook"
-                  src={
-                    this.props.theme === 'white'
-                      ? '//images.ctfassets.net/ce6fbxhy1t51/6yYrd2D1fVD8j7LtZ76sy/1ef98cc5c29e67cb01df9a60b4df9d42/facebook.svg'
-                      : '//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg'
-                  }
-                />
+                <LazyLoad once offset={100}>
+                  <FooterSocialIcon
+                    alt="Knife andFish Facebook"
+                    src={
+                      this.props.theme === 'white'
+                        ? '//images.ctfassets.net/ce6fbxhy1t51/6yYrd2D1fVD8j7LtZ76sy/1ef98cc5c29e67cb01df9a60b4df9d42/facebook.svg'
+                        : '//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg'
+                    }
+                  />
+                </LazyLoad>
               </a>
               <a href="">
-                <FooterSocialIcon
-                  alt="Knife and Fish Instagram"
-                  src={
-                    this.props.theme === 'white'
-                      ? '//images.ctfassets.net/ce6fbxhy1t51/2MNwT4CYIQUPMp540OF0HU/d9f43fa3de2e7f64ea068cc15af6c7c9/instagram.svg'
-                      : '//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg'
-                  }
-                />
+                <LazyLoad once offset={100}>
+                  <FooterSocialIcon
+                    alt="Knife and Fish Instagram"
+                    src={
+                      this.props.theme === 'white'
+                        ? '//images.ctfassets.net/ce6fbxhy1t51/2MNwT4CYIQUPMp540OF0HU/d9f43fa3de2e7f64ea068cc15af6c7c9/instagram.svg'
+                        : '//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg'
+                    }
+                  />
+                </LazyLoad>
               </a>
               <a href="">
-                <FooterSocialIcon
-                  alt="Knife and Fish Pinterest"
-                  src={
-                    this.props.theme === 'white'
-                      ? '//images.ctfassets.net/ce6fbxhy1t51/6PsbRIEHqAunj8DT6d9Qod/207e4a09ebe4d00b5dff6abe9b45893d/pinterest.svg'
-                      : '//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg'
-                  }
-                />
+                <LazyLoad once offset={100}>
+                  <FooterSocialIcon
+                    alt="Knife and Fish Pinterest"
+                    src={
+                      this.props.theme === 'white'
+                        ? '//images.ctfassets.net/ce6fbxhy1t51/6PsbRIEHqAunj8DT6d9Qod/207e4a09ebe4d00b5dff6abe9b45893d/pinterest.svg'
+                        : '//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg'
+                    }
+                  />
+                </LazyLoad>
               </a>
             </div>
             <div className="col6">
