@@ -43,8 +43,8 @@ const Layout = ({ location, children }: Props) => {
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
         <link rel="preload" href="https://fonts.gstatic.com"></link>
-        <link as="fetch" rel="preload" href="https://fonts.googleapis.com" crossOrigin="anonymous"></link>
-        <link as="fetch" rel="preload" href="https://www.google-analytics.com" crossOrigin="anonymous"></link>
+        <link as="fetch" rel="preload" href="https://fonts.googleapis.com" crossOrigin></link>
+        <link as="fetch" rel="preload" href="https://www.google-analytics.com" crossOrigin></link>
 
         <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
         <script>{gTag}</script>
