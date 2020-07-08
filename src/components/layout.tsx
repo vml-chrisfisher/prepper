@@ -20,6 +20,16 @@ const Layout = ({ location, children }: Props) => {
     theme = { theme: HeaderTheme.LIGHT }
   }
 
+  const gTag = `
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+          dataLayer.push(arguments)
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-127393105-1");
+  `
+
   return (
     <Container>
       <Helmet>
@@ -34,6 +44,10 @@ const Layout = ({ location, children }: Props) => {
         <link rel="apple-touch-icon" href="logo.png"></link>
 
         <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
+        <script>{gTag}</script>
+        <meta name="msvalidate.01" content="07B97569BEA5E257BB3E40E122BF9908" />
+        <meta name="p:domain_verify" content="1d4f38850b9eef24be5e9ee3b9f16617" />
+        <meta name="google-site-verification" content="ngtQO_fG3A6wYz3plmefS8FzIJEmH3nst4HFYznyq_c" />
 
         <link rel="manifest" href="manifest.json"></link>
 
