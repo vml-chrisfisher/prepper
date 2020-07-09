@@ -48,7 +48,7 @@ const Layout = ({ location, children }: Props) => {
         ></link>
         <link as="script" rel="preconnect" href="https://www.google-analytics.com"></link>
 
-        <script rel="preconnect" src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
+        <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
         <script>{gTag}</script>
         <meta name="msvalidate.01" content="07B97569BEA5E257BB3E40E122BF9908" />
         <meta name="p:domain_verify" content="1d4f38850b9eef24be5e9ee3b9f16617" />
