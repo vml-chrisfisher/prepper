@@ -28,7 +28,7 @@ const GeneralContentRow = () => {
               <Col6FullOverlay className="col6">
                 <StoryContainer>
                   <div className="eyebrow">Story</div>
-                  <StoryTitle>This is the story of Seedlings</StoryTitle>
+                  <StoryTitle>This is the story of Knife and Fish</StoryTitle>
                   <button className="primaryButton darkOutline">Our Story</button>
                 </StoryContainer>
               </Col6FullOverlay>
