@@ -341,7 +341,7 @@ export default ({ children }) => (
           text-transform: uppercase;
           padding: 20px 25px;
           letter-spacing: 2px;
-          color: #333333;
+          color: #ff0000;
         }
 
         .primaryButton {
