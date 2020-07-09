@@ -19,6 +19,7 @@ class RootIndex extends React.Component<HomeProps> {
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
     const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'
+    const mobileVideoPath = 'https://knifeandfish.s3.amazonaws.com/knifeandfishmobile.mp4'
     const headline = post.node.headline.childMarkdownRemark.rawMarkdownBody
     const searchQuestion = post.node.searchQuestion
     const searchPlaceholder = post.node.searchPlaceholder
@@ -75,7 +76,7 @@ class RootIndex extends React.Component<HomeProps> {
       <Layout location={this.props.location}>
         <Helmet title="Knife & Fish" />
         <div style={{ background: '#fff', display: 'list-item' }}>
-          <VideoBackground {...{ videoPath }} />
+          <VideoBackground {...{ videoPath, mobileVideoPath }} />
         </div>
         <div className={styles.homeContent}>
           <div className="container">

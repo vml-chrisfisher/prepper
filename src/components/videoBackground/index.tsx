@@ -3,12 +3,20 @@ import React from 'react'
 import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => (
-  <VideoBackgroundContainer>
-    <HeroVideo src={props.videoPath} preload="true" autoPlay muted loop playsInline />
-    <VideoOverlay>
-      <div></div>
-    </VideoOverlay>
-  </VideoBackgroundContainer>
+  <>
+    <VideoBackgroundContainer className="hidden-sm">
+      <HeroVideo src={props.videoPath} preload="true" autoPlay muted loop playsInline />
+      <VideoOverlay>
+        <div></div>
+      </VideoOverlay>
+    </VideoBackgroundContainer>
+    <VideoBackgroundContainer className="hidden-lg">
+      <HeroVideo src={props.mobileVideoPath} preload="true" autoPlay muted loop playsInline />
+      <VideoOverlay>
+        <div></div>
+      </VideoOverlay>
+    </VideoBackgroundContainer>
+  </>
 )
 
 const VideoBackgroundContainer = styled.div`
@@ -27,8 +35,8 @@ const HeroVideo = styled.video`
   height: auto;
   object-fit: fill;
   @media (max-width: 767px) {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
   }
 `
 

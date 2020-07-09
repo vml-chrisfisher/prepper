@@ -1,22 +1,23 @@
-import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import Footer from '../components/footer'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
+import StoryHero from '../components/storyHero'
+import VideoStoryBackground from '../components/storyVideo'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
-import StoryHero from '../components/storyHero'
-import VideoStoryBackground from '../components/storyVideo'
 
 class StoryIndex extends React.Component<HomeProps> {
   render() {
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
     const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'
+    const mobileVideoPath = 'https://knifeandfish.s3.amazonaws.com/knifeandfishmobile.mp4'
     const headline = post.node.headline.childMarkdownRemark.rawMarkdownBody
 
     const StoryContainer = styled.div`
@@ -63,7 +64,7 @@ class StoryIndex extends React.Component<HomeProps> {
         <Helmet title="Knife & Fish" />
         <div className={styles.homeContent}>
           <StoryContainer>
-            <VideoStoryBackground {...{ videoPath }} />
+            <VideoStoryBackground {...{ videoPath, mobileVideoPath }} />
             <StoryHero></StoryHero>
             <div className="row">
               <div className="col2" />
