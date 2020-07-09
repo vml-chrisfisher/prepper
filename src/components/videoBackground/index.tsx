@@ -4,7 +4,7 @@ import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => (
   <VideoBackgroundContainer>
-    <HeroVideo src={props.videoPath} preload="true" autoPlay muted loop playsinline />
+    <HeroVideo src={props.videoPath} preload="true" autoPlay muted loop playsInline />
     <VideoOverlay>
       <div></div>
     </VideoOverlay>
