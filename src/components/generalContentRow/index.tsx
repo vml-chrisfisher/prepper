@@ -132,7 +132,7 @@ const StoryContainer = styled.div`
 `
 
 const StoryTitle = styled.h2`
-  color: #ff0000;
+  color: #333333;
   padding-bottom: 20px;
   text-align: center;
 `

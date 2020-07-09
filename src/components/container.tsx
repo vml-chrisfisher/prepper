@@ -341,7 +341,7 @@ export default ({ children }) => (
           text-transform: uppercase;
           padding: 20px 25px;
           letter-spacing: 2px;
-          color: #000000;
+          color: #333333;
         }
 
         .primaryButton {
@@ -368,8 +368,8 @@ export default ({ children }) => (
 
         .darkOutline {
           background-color: transparent;
-          border: #000000 solid 0.5px;
-          color: #000000;
+          border: #333333 solid 0.5px;
+          color: #333333;
         }
 
         .lds-grid {
