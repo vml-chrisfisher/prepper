@@ -333,7 +333,7 @@ export default ({ children }) => (
 
         .eyebrow {
           font-family: 'Nunito', sans-serif;
-          font-size: 0.9em;
+          font-size: 1em;
           text-align: center;
           margin: 0 auto;
           display: block;
@@ -348,7 +348,7 @@ export default ({ children }) => (
           background-color: #fff;
           border: none;
           font-family: 'Nunito', sans-serif;
-          font-size: 0.75em;
+          font-size: 1em;
           color: #464646;
           text-align: center;
           margin: 0 auto;
