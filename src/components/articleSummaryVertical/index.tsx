@@ -34,12 +34,15 @@ const ArticleSummaryVertical = (props: ArticleSummaryInterface) => {
             </LazyLoad>
           </ArticleInside>
         </ArticleImageParent>
-        <OverlayContainer>
+        <OverlayContainer className="hidden-sm">
           <ArticleOverlay>
             <h3>{props.title}</h3>
             <ArticleDescription>{copy}</ArticleDescription>
           </ArticleOverlay>
         </OverlayContainer>
+        <OverlainContainerMobile className="hidden-lg">
+          <TitleMobile>{props.title}</TitleMobile>
+        </OverlainContainerMobile>
       </a>
     </Article>
   )
@@ -129,19 +132,36 @@ const ArticleOverlay = styled.div`
   }
 `
 
+const OverlainContainerMobile = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+`
+
+const TitleMobile = styled.h3`
+  color: #fff;
+  padding-top: 50%;
+  padding-left: 5%;
+  text-align: left;
+  width: 100%;
+`
+
 const OverlayContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   overflow: hidden;
-  @media (max-width: 767px) {
-    &:hover ${ArticleOverlay} {
-      bottom: 20px;
-      -webkit-transition: bottom 0.5s ease-out;
-      -moz-transition: bottom 0.5s ease-out;
-      -o-transition: bottom 0.5s ease-out;
-      transition: bottom 0.5s ease-out;
+
+  &:hover ${ArticleOverlay} {
+    bottom: 20px;
+    -webkit-transition: bottom 0.5s ease-out;
+    -moz-transition: bottom 0.5s ease-out;
+    -o-transition: bottom 0.5s ease-out;
+    transition: bottom 0.5s ease-out;
+    @media (max-width: 767px) {
       bottom: 50%;
     }
   }
