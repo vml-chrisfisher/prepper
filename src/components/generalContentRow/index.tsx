@@ -112,6 +112,10 @@ const ContentContainer = styled.div`
 const ContentBackground = styled.div`
   display: block;
   height: 150%;
+  @media (max-width: 767px) {
+    width: 90vw;
+    height: calc(90vw * 1.4);
+  }
 `
 
 const ContentImage = styled.div`
