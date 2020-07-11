@@ -17,7 +17,7 @@ const GeneralContentRow = () => {
               <LazyLoad height="140%" once offset={100}>
                 <img
                   alt="Knife and Fish Story"
-                  src={`https://images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=50&w=${Math.round(
+                  src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/d829d6ed3587731b018a548212c46bd0/story-background.jpg?fm=webp&q=50&w=${Math.round(
                     windowWidthHalf,
                   )}`}
                 />
