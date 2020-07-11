@@ -128,6 +128,9 @@ const ContentOverlay = styled.div`
 
 const StoryContainer = styled.div`
   padding-top: 50%;
+  @media (max-width: 767px) {
+    width: 10%;
+  }
 `
 
 const StoryTitle = styled.h2`
