@@ -5,7 +5,6 @@ import ArticleSummaryVertical from '../articleSummaryVertical'
 import NewsletterContainer from '../newsletterSignup/container'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
-const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
 
 const GeneralContentRow = () => {
   return (
@@ -13,16 +12,17 @@ const GeneralContentRow = () => {
       <Col6Full className="col6">
         <ContentContainer>
           <ContentBackground>
-            <ContentImage>
-              <LazyLoad style={{ width: '100%', backgroundColor: '#FEFEFE' }} once offset={100}>
+            <ContentImage className="hidden-sm">
+              <LazyLoad height="140%" once offset={100}>
                 <img
                   alt="Knife and Fish Story"
-                  src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/db78ad6cbb16c8e171aa19905aa0f497/story-background.png?fm=webp&q=50&w=${Math.round(
+                  src={`//images.ctfassets.net/ce6fbxhy1t51/4OuUgHVL5sM7lUtyvzTWTE/e960f4d260118428905b797d3b916063/backgroundStory.jpg?fm=webp&q=50&w=${Math.round(
                     windowWidthHalf,
-                  )}`}
+                  )}&fit=fill`}
                 />
               </LazyLoad>
             </ContentImage>
+            <ContentImage style={{ backgroundColor: '#FEFEFE' }} />
             <ContentOverlay>
               <Col3FullOverlay className="col3" />
               <Col6FullOverlay className="col6">
@@ -112,11 +112,15 @@ const ContentContainer = styled.div`
 const ContentBackground = styled.div`
   display: block;
   height: 150%;
+  @media (max-width: 767px) {
+    width: 90vw;
+    height: calc(90vw * 1.4);
+  }
 `
 
 const ContentImage = styled.div`
   width: 100%;
-  min-height: 150%;
+  height: 140%;
 `
 
 const ContentOverlay = styled.div`
@@ -129,6 +133,9 @@ const ContentOverlay = styled.div`
 
 const StoryContainer = styled.div`
   padding-top: 50%;
+  @media (max-width: 767px) {
+    padding-top: 10%;
+  }
 `
 
 const StoryTitle = styled.h2`
