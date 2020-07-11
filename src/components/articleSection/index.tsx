@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
 import ArticleSectionInterface from './interface'
+
 const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 900
 
 const ArticleSection = (props: ArticleSectionInterface) => (

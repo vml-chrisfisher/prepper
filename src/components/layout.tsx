@@ -43,6 +43,7 @@ const Layout = ({ location, children }: Props) => {
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
         <link rel="preconnect" href="https://www.googletagmanager.com"></link>
+        <link rel="preconnect" href="https://knifeandfish.s3.amazonaws.com"></link>
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com/css?family=Nunito:300,600%7CPlayfair+Display&display=swap"

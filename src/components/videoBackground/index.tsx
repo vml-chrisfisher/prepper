@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { isBrowser, isMobile } from 'react-device-detect'
+import LazyLoad from 'react-lazy-load'
 import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => (
@@ -17,20 +18,16 @@ const VideoBackground = (props: VideoBackgroundProps) => (
           loop
           playsInline
         />
-        <VideoOverlay>
-          <div></div>
-        </VideoOverlay>
       </VideoBackgroundContainer>
     )}
     {isMobile && (
       <VideoBackgroundContainer className="hidden-lg">
-        <img
-          alt="Knife and Fish Story"
-          src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
-        />
-        <VideoOverlay>
-          <div></div>
-        </VideoOverlay>
+        <LazyLoad once offset={100}>
+          <img
+            alt="Knife and Fish Story"
+            src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
+          />
+        </LazyLoad>
       </VideoBackgroundContainer>
     )}
   </>
