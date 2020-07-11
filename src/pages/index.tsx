@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
@@ -16,6 +16,10 @@ import styles from './blog.css'
 
 class RootIndex extends React.Component<HomeProps> {
   render() {
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
     const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'

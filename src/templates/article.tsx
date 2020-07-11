@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 import LazyLoad from 'react-lazy-load'
 import ArticleSection from '../components/articleSection'
@@ -17,6 +17,10 @@ import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-inte
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
+
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const Title = styled.h1`
       padding: 0 0 0.4em 0;

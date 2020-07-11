@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect } from 'react'
 import LazyLoad from 'react-lazy-load'
 import ArticleSummaryInterface from './interface'
 
