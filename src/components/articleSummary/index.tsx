@@ -4,46 +4,55 @@ import LazyLoad from 'react-lazy-load'
 import ArticleSummaryInterface from './interface'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
-const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
 
-const ArticleSummary = (props: ArticleSummaryInterface) => (
-  <Article key={props.slug}>
-    <a href={`/${props.basePath}/${props.slug}`}>
-      <ArticleImageParent>
-        <ArticleInside>
-          <LazyLoad once offset={100}>
-            <picture>
-              <source
-                type="image/webp"
-                srcSet={`${props.imagePath}?fm=webp&q=50&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                  windowWidthHalf,
-                )}&fit=fill`}
-              />
-              <source
-                type="image/jpg"
-                srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                  windowWidthHalf,
-                )}&fit=fill`}
-              />
-              <img
-                src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
-                  windowWidthHalf,
-                )}&fit=fill`}
-                alt={props.imageDescription}
-              />
-            </picture>
-          </LazyLoad>
-        </ArticleInside>
-      </ArticleImageParent>
-      <OverlayContainer>
-        <ArticleOverlay>
-          <h3>{props.title}</h3>
-          <ArticleDescription>{props.description}</ArticleDescription>
-        </ArticleOverlay>
-      </OverlayContainer>
-    </a>
-  </Article>
-)
+const ArticleSummary = (props: ArticleSummaryInterface) => {
+  const copyLength = props.description.length < 200 ? props.description.length : 200
+  const copyRaw = props.description.substr(0, copyLength)
+  const lastPeriod = copyRaw.lastIndexOf('.')
+  const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
+
+  return (
+    <Article key={props.slug}>
+      <a href={`/${props.basePath}/${props.slug}`}>
+        <ArticleImageParent>
+          <ArticleInside>
+            <LazyLoad once offset={100}>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${props.imagePath}?fm=webp&q=50&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                    windowWidthHalf,
+                  )}&fit=fill`}
+                />
+                <source
+                  type="image/jpg"
+                  srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                    windowWidthHalf,
+                  )}&fit=fill`}
+                />
+                <img
+                  src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                    windowWidthHalf,
+                  )}&fit=fill`}
+                  alt={props.imageDescription}
+                />
+              </picture>
+            </LazyLoad>
+          </ArticleInside>
+        </ArticleImageParent>
+        <OverlayContainer className="hidden-sm">
+          <ArticleOverlay>
+            <h3>{props.title}</h3>
+            <ArticleDescription>{copy}</ArticleDescription>
+          </ArticleOverlay>
+        </OverlayContainer>
+        <OverlainContainerMobile className="hidden-lg">
+          <TitleMobile>{props.title}</TitleMobile>
+        </OverlainContainerMobile>
+      </a>
+    </Article>
+  )
+}
 
 const ArticleInside = styled.div`
   display: block;
@@ -133,6 +142,7 @@ const OverlayContainer = styled.div`
   height: 100%;
   top: 0;
   overflow: hidden;
+
   &:hover ${ArticleOverlay} {
     bottom: 20px;
     -webkit-transition: bottom 0.5s ease-out;
@@ -143,6 +153,22 @@ const OverlayContainer = styled.div`
       bottom: 50%;
     }
   }
+`
+
+const OverlainContainerMobile = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+`
+
+const TitleMobile = styled.h3`
+  color: #fff;
+  padding-top: 50%;
+  padding-left: 5%;
+  text-align: left;
+  width: 100%;
 `
 
 const ArticleDescription = styled.div`
