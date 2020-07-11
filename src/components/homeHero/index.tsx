@@ -13,8 +13,8 @@ const HomeHero = (props: VideoBackgroundProps) => (
               <Child>
                 <QuestionOverlay>
                   <Headline className="whiteText" dangerouslySetInnerHTML={{ __html: props.headline }}></Headline>
-                  <HomeHeroQuestion>{props.searchQuestion}</HomeHeroQuestion>
-                  <HomeHeroQuestionInput placeholder={props.searchPlaceholder} />
+                  {/* <HomeHeroQuestion>{props.searchQuestion}</HomeHeroQuestion>
+                  <HomeHeroQuestionInput placeholder={props.searchPlaceholder} /> */}
                 </QuestionOverlay>
               </Child>
             </Parent>
