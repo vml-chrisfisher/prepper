@@ -22,7 +22,7 @@ const GeneralContentRow = () => {
                 />
               </LazyLoad>
             </ContentImage>
-            <ContentImage style={{ backgroundColor: 'FEFEFE' }} />
+            <ContentImage style={{ backgroundColor: '#FEFEFE' }} />
             <ContentOverlay>
               <Col3FullOverlay className="col3" />
               <Col6FullOverlay className="col6">
