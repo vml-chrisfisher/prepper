@@ -27,6 +27,7 @@ const HomeHero = (props: VideoBackgroundProps) => (
 )
 
 const Parent = styled.div`
+  width: 100%;
   height: 100vh;
   position: relative;
 `
@@ -43,6 +44,9 @@ const QuestionOverlay = styled.div`
 const Headline = styled.h1`
   font-size: 4.25em;
   text-align: left;
+  @media (max-width: 767px) {
+    font-size: 3em;
+  }
 `
 
 const HomeHeroContainer = styled.div`
@@ -74,6 +78,9 @@ const HomeHeroQuestionInput = styled.input`
   font-size: 19px;
   color: #ffffff;
   font-family: 'Nunito', sans-serif;
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 `
 
 export default HomeHero

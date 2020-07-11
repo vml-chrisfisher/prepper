@@ -51,10 +51,6 @@ const HeroVideo = styled.video`
   width: auto;
   height: 100vh;
   object-fit: fill;
-  @media (max-width: 767px) {
-    height: 100vh;
-    width: auto;
-  }
 `
 
 const VideoOverlay = styled.div`
