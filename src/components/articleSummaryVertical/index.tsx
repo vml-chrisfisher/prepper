@@ -114,16 +114,18 @@ const ArticleOverlay = styled.div`
       font-size: 2rem;
     }
   }
-  &:hover ${ArticleImageParent} ${ArticleInside} {
-    -ms-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: all 3s;
-    -moz-transition: all 3s;
-    -o-transition: all 3s;
-    transition: all 3s;
+  @media (max-width: 767px) {
+    &:hover ${ArticleImageParent} ${ArticleInside} {
+      -ms-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+      -webkit-transition: all 3s;
+      -moz-transition: all 3s;
+      -o-transition: all 3s;
+      transition: all 3s;
+    }
   }
 `
 
@@ -133,13 +135,13 @@ const OverlayContainer = styled.div`
   height: 100%;
   top: 0;
   overflow: hidden;
-  &:hover ${ArticleOverlay} {
-    bottom: 20px;
-    -webkit-transition: bottom 0.5s ease-out;
-    -moz-transition: bottom 0.5s ease-out;
-    -o-transition: bottom 0.5s ease-out;
-    transition: bottom 0.5s ease-out;
-    @media (max-width: 767px) {
+  @media (max-width: 767px) {
+    &:hover ${ArticleOverlay} {
+      bottom: 20px;
+      -webkit-transition: bottom 0.5s ease-out;
+      -moz-transition: bottom 0.5s ease-out;
+      -o-transition: bottom 0.5s ease-out;
+      transition: bottom 0.5s ease-out;
       bottom: 50%;
     }
   }
