@@ -1,30 +1,38 @@
 import styled from '@emotion/styled'
 import React from 'react'
+import { isBrowser, isMobile } from 'react-device-detect'
 import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => (
   <>
-    <VideoBackgroundContainer className="hidden-sm">
-      <HeroVideo
-        src={props.videoPath}
-        placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
+    {isBrowser && (
+      <VideoBackgroundContainer className="hidden-sm">
+        <HeroVideo
+          src={props.videoPath}
+          placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
 "
-        preload="true"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-      <VideoOverlay>
-        <div></div>
-      </VideoOverlay>
-    </VideoBackgroundContainer>
-    <VideoBackgroundContainer className="hidden-lg">
-      <img src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg" />
-      <VideoOverlay>
-        <div></div>
-      </VideoOverlay>
-    </VideoBackgroundContainer>
+          preload="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <VideoOverlay>
+          <div></div>
+        </VideoOverlay>
+      </VideoBackgroundContainer>
+    )}
+    {isMobile && (
+      <VideoBackgroundContainer className="hidden-lg">
+        <img
+          alt="Knife and Fish Story"
+          src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
+        />
+        <VideoOverlay>
+          <div></div>
+        </VideoOverlay>
+      </VideoBackgroundContainer>
+    )}
   </>
 )
 
