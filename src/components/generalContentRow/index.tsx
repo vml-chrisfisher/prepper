@@ -115,7 +115,7 @@ const ContentBackground = styled.div`
 
 const ContentImage = styled.div`
   width: 100%;
-  min-height: 150%;
+  height: 140%;
 `
 
 const ContentOverlay = styled.div`
@@ -129,7 +129,7 @@ const ContentOverlay = styled.div`
 const StoryContainer = styled.div`
   padding-top: 50%;
   @media (max-width: 767px) {
-    width: 10%;
+    padding-top: 10%;
   }
 `
 
