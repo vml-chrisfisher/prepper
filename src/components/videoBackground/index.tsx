@@ -4,7 +4,7 @@ import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => (
   <>
-    <VideoBackgroundContainer className="hidden-sm">
+    <VideoBackgroundContainer className="hidden-lg">
       <HeroVideo
         src={props.videoPath}
         placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
@@ -19,8 +19,8 @@ const VideoBackground = (props: VideoBackgroundProps) => (
         <div></div>
       </VideoOverlay>
     </VideoBackgroundContainer>
-    <VideoBackgroundContainer className="hidden-lg">
-      <HeroVideo
+    <VideoBackgroundContainer className="hidden-sm">
+      <HeroVideoMobile
         src={props.mobileVideoPath}
         placeholder="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
         preload="true"
@@ -46,6 +46,14 @@ const VideoBackgroundContainer = styled.div`
 `
 
 const HeroVideo = styled.video`
+  position: absolute;
+  z-index: 99;
+  width: 100vw;
+  height: auto;
+  object-fit: fill;
+`
+
+const HeroVideoMobile = styled.video`
   position: absolute;
   z-index: 99;
   width: auto;
