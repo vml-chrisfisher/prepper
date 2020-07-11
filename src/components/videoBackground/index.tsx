@@ -48,8 +48,8 @@ const VideoBackgroundContainer = styled.div`
 const HeroVideo = styled.video`
   position: absolute;
   z-index: 99;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100vh;
   object-fit: fill;
   @media (max-width: 767px) {
     height: 100vh;
