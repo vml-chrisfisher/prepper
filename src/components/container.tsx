@@ -231,13 +231,9 @@ export default ({ children }) => (
         }
 
         @media (max-width: 767px) {
-          .hidden-sm {
-            display: block;
-          }
-
-          .hidden-lg {
-            display: none;
-          }
+          column-count: 1;
+          padding-left: 10%;
+          width: 80%;
         }
 
         @media only screen and (min-width: 45em) {
@@ -289,6 +285,14 @@ export default ({ children }) => (
 
           .col12 {
             width: 96%;
+          }
+
+          .hidden-sm {
+            display: block;
+          }
+
+          .hidden-lg {
+            display: none;
           }
         }
 
