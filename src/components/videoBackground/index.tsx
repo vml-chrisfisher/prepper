@@ -52,8 +52,8 @@ const HeroVideo = styled.video`
   height: auto;
   object-fit: fill;
   @media (max-width: 767px) {
-    height: auto;
-    width: 100%;
+    height: 100vh;
+    width: auto;
   }
 `
 
