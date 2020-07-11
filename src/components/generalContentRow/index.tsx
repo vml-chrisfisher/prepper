@@ -12,7 +12,7 @@ const GeneralContentRow = () => {
       <Col6Full className="col6">
         <ContentContainer>
           <ContentBackground>
-            <ContentImage>
+            <ContentImage className="hidden-sm">
               <LazyLoad height="140%" once offset={100}>
                 <img
                   alt="Knife and Fish Story"
@@ -22,6 +22,7 @@ const GeneralContentRow = () => {
                 />
               </LazyLoad>
             </ContentImage>
+            <ContentImage style={{ backgroundColor: 'FEFEFE' }} />
             <ContentOverlay>
               <Col3FullOverlay className="col3" />
               <Col6FullOverlay className="col6">
