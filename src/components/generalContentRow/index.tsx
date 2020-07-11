@@ -5,7 +5,6 @@ import ArticleSummaryVertical from '../articleSummaryVertical'
 import NewsletterContainer from '../newsletterSignup/container'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
-const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
 
 const GeneralContentRow = () => {
   return (
@@ -17,7 +16,7 @@ const GeneralContentRow = () => {
               <LazyLoad height="140%" once offset={100}>
                 <img
                   alt="Knife and Fish Story"
-                  src={`//images.ctfassets.net/ce6fbxhy1t51/5pHNDnKSUEali4feRGZOVY/d829d6ed3587731b018a548212c46bd0/story-background.jpg?fm=webp&q=50&w=${Math.round(
+                  src={`//images.ctfassets.net/ce6fbxhy1t51/4OuUgHVL5sM7lUtyvzTWTE/e960f4d260118428905b797d3b916063/backgroundStory.jpg?fm=webp&q=50&w=${Math.round(
                     windowWidthHalf,
                   )}`}
                 />
