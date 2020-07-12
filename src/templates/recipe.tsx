@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import LazyLoad from 'react-lazy-load'
 import FeaturedContentRow from '../components/featuredContentRow'
@@ -23,10 +23,6 @@ import {
 
 class RecipeTemplate extends React.Component<RecipeProps> {
   render() {
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [])
-
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
       @media (max-width: 767px) {

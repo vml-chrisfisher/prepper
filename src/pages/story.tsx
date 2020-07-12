@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import Footer from '../components/footer'
 import { HeaderTheme } from '../components/header/interface'
@@ -14,10 +14,6 @@ import styles from './blog.css'
 
 class StoryIndex extends React.Component<HomeProps> {
   render() {
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [])
-
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
     const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'

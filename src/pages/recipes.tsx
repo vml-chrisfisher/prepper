@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
 import Footer from '../components/footer'
@@ -12,10 +12,6 @@ import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
 
 class RecipeIndex extends React.Component<RecipesProps> {
   render() {
-    useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [])
-
     const MainContainer = styled.div`
       background-color: #fff;
       position: absolute;
