@@ -16,6 +16,12 @@ import Layout from '../components/layout'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 
 class ArticleTemplate extends React.Component<ArticleProps> {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const Title = styled.h1`

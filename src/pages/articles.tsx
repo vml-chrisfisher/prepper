@@ -11,6 +11,12 @@ import RandomFourSummary from '../components/randomFourSummary'
 import { ArticlesEdge, ArticlesProps } from '../page-interfaces/articles'
 
 class ArticlesIndex extends React.Component<ArticlesProps> {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
     const MainContainer = styled.div`
       background-color: #fff;

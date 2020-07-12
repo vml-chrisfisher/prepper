@@ -11,6 +11,12 @@ import RandomFourSummary from '../components/randomFourSummary'
 import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
 
 class RecipeIndex extends React.Component<RecipesProps> {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
     const MainContainer = styled.div`
       background-color: #fff;
