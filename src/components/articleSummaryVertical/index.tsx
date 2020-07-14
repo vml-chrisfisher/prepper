@@ -142,10 +142,11 @@ const OverlainContainerMobile = styled.div`
 
 const TitleMobile = styled.h3`
   color: #fff;
+  font-size: 3em;
   padding-top: 50%;
   padding-left: 5%;
-  text-align: left;
-  width: 100%;
+  text-align: center;
+  width: 95%;
 `
 
 const OverlayContainer = styled.div`

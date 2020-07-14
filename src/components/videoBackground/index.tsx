@@ -6,30 +6,26 @@ import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => (
   <>
-    {isBrowser && (
-      <VideoBackgroundContainer className="hidden-sm">
-        <HeroVideo
-          src={props.videoPath}
-          placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
+    <VideoBackgroundContainer className="hidden-sm">
+      <HeroVideo
+        src={props.videoPath}
+        placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
 "
-          preload="true"
-          autoPlay
-          muted
-          loop
-          playsInline
+        preload="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+    </VideoBackgroundContainer>
+    <VideoBackgroundContainer className="hidden-lg">
+      <LazyLoad once offset={100}>
+        <img
+          alt="Knife and Fish Story"
+          src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
         />
-      </VideoBackgroundContainer>
-    )}
-    {isMobile && (
-      <VideoBackgroundContainer className="hidden-lg">
-        <LazyLoad once offset={100}>
-          <img
-            alt="Knife and Fish Story"
-            src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
-          />
-        </LazyLoad>
-      </VideoBackgroundContainer>
-    )}
+      </LazyLoad>
+    </VideoBackgroundContainer>
   </>
 )
 
