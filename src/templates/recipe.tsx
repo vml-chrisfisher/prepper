@@ -22,6 +22,12 @@ import {
 } from '../template-interfaces/recipe'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
