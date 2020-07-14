@@ -261,7 +261,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       },
       basePath: 'recipes',
       features: recipes.map((recipe: any) => {
-        console.log(recipe)
         return {
           title: recipe.node.title,
           slug: recipe.node.slug,

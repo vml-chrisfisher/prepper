@@ -143,7 +143,6 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       },
       basePath: 'recipes',
       features: recipes.map((recipe: any) => {
-        console.log(recipe)
         return {
           title: recipe.node.title,
           slug: recipe.node.slug,
