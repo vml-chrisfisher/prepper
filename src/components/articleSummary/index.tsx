@@ -169,7 +169,7 @@ const TitleMobile = styled.h3`
   padding-top: 50%;
   padding-left: 5%;
   text-align: center;
-  width: 95%;
+  width: 90%;
 `
 
 const ArticleDescription = styled.div`
