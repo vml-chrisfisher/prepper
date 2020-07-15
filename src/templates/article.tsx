@@ -276,7 +276,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
                   }}
                 ></BodyCopy>
                 {post.sections &&
-                  post.section.length > 0 &&
+                  post.sections.length > 0 &&
                   post.sections.map((section: ArticleSecionInterface, index: number) => {
                     return <ArticleSection key={`article-section-${index}`} {...section} />
                   })}
