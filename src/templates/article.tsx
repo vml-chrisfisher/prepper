@@ -275,9 +275,11 @@ class ArticleTemplate extends React.Component<ArticleProps> {
                     __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
                   }}
                 ></BodyCopy>
-                {post.sections.map((section: ArticleSecionInterface, index: number) => {
-                  return <ArticleSection key={`article-section-${index}`} {...section} />
-                })}
+                {post.sections &&
+                  post.section.length > 0 &&
+                  post.sections.map((section: ArticleSecionInterface, index: number) => {
+                    return <ArticleSection key={`article-section-${index}`} {...section} />
+                  })}
                 <TagContainer className="col12">
                   <h3>Tags</h3>
                   {post.tags.map((tag: ArticleTag, index: number) => {
