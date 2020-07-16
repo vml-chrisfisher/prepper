@@ -13,7 +13,7 @@ const GeneralContentRow = () => {
         <ContentContainer>
           <ContentBackground>
             <ContentImage className="hidden-sm">
-              <LazyLoad height="140%" once offset={100}>
+              <LazyLoad height="140%" once offset={500}>
                 <img
                   alt="Knife and Fish Story"
                   src={`//images.ctfassets.net/ce6fbxhy1t51/4OuUgHVL5sM7lUtyvzTWTE/e960f4d260118428905b797d3b916063/backgroundStory.jpg?fm=webp&q=50&w=${Math.round(

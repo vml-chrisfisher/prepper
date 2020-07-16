@@ -24,7 +24,7 @@ const VideoStoryBackground = (props: VideoBackgroundProps) => (
     )}
     {isMobile && (
       <VideoBackgroundContainer className="hidden-lg">
-        <LazyLoad once offset={100}>
+        <LazyLoad once offset={500}>
           <img
             alt="Knife and Fish Story"
             src={`//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg?fm=webp&q=50&w=${Math.round(

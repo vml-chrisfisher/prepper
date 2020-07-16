@@ -358,7 +358,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               className="hidden-sm"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
-              offset={100}
+              offset={500}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=50&w=${windowWidth}`} />
@@ -375,7 +375,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               className="hidden-lg"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
-              offset={100}
+              offset={500}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=50&w=${windowWidth}`} />
