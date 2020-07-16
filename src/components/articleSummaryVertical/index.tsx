@@ -24,10 +24,10 @@ const ArticleSummaryVertical = (props: ArticleSummaryInterface) => {
                 />
                 <source
                   type="image/jpg"
-                  srcSet={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&fit=fill`}
+                  srcSet={`${props.imagePath}?fm=jpg&q-50&w=${Math.round(windowWidthHalf)}&fit=fill`}
                 />
                 <img
-                  src={`${props.imagePath}?fm=jpg&q=80&w=${Math.round(windowWidthHalf)}&fit=fill`}
+                  src={`${props.imagePath}?fm=jpg&q-50&w=${Math.round(windowWidthHalf)}&fit=fill`}
                   alt={props.imageDescription}
                 />
               </picture>

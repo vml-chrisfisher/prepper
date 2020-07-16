@@ -329,12 +329,12 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                               />
                                               <source
                                                 type="image/jpg"
-                                                srcSet={`${plant.node.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(
+                                                srcSet={`${plant.node.bannerImage.file.url}?fm=jpg&q-50&w=${Math.round(
                                                   windowWidth,
                                                 )}&h=${Math.round(windowWidth)}&fit=fill`}
                                               />
                                               <img
-                                                src={`${plant.node.bannerImage.file.url}?fm=jpg&q=80&w=${Math.round(
+                                                src={`${plant.node.bannerImage.file.url}?fm=jpg&q-50&w=${Math.round(
                                                   windowWidth,
                                                 )}&h=${Math.round(windowWidth)}&fit=fill`}
                                                 alt={plant.node.bannerImage.title}
