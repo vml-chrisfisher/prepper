@@ -1,9 +1,9 @@
+import { css, Global } from '@emotion/core'
 import React from 'react'
 import Helmet from 'react-helmet'
 import Container from './container'
 import HeaderContainer from './header/container'
 import { HeaderProps, HeaderTheme } from './header/interface'
-import { css, Global } from '@emotion/core'
 
 interface Props {
   location: Location
@@ -61,7 +61,6 @@ const Layout = ({ location, children }: Props) => {
           </style>
           `}
         </noscript>
-        <script async src="https://cdn.ampproject.org/v0.js"></script>
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
         <link rel="preconnect" href="https://www.googletagmanager.com"></link>
