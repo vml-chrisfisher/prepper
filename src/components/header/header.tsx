@@ -208,6 +208,9 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 </HeaderNavHeader>
                 <div className="row">
                   <Col6Full className="col6">
+                    <HeaderDetailItem style={{ color: '#C5724B', fontWeight: 'bold' }} href="/recipes">
+                      All
+                    </HeaderDetailItem>
                     <HeaderDetailItem href="/recipes/appetizer">Appetizer</HeaderDetailItem>
                     <HeaderDetailItem href="/recipes/condiment">Condiment</HeaderDetailItem>
                     <HeaderDetailItem href="/recipes/dessert">Dessert</HeaderDetailItem>
