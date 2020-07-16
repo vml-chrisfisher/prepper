@@ -20,7 +20,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
               <picture>
                 <source
                   type="image/webp"
-                  srcSet={`${props.imagePath}?fm=webp&q=50&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  srcSet={`${props.imagePath}?fm=webp&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
                     windowWidthHalf,
                   )}&fit=fill`}
                 />

@@ -323,7 +323,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                             <picture>
                                               <source
                                                 type="image/webp"
-                                                srcSet={`${plant.node.bannerImage.file.url}?fm=webp&q=50&w=${Math.round(
+                                                srcSet={`${plant.node.bannerImage.file.url}?fm=webp&q=70&w=${Math.round(
                                                   windowWidth,
                                                 )}&h=${Math.round(windowWidth)}&fit=fill`}
                                               />

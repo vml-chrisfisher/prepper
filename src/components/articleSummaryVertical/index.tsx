@@ -20,7 +20,7 @@ const ArticleSummaryVertical = (props: ArticleSummaryInterface) => {
               <picture>
                 <source
                   type="image/webp"
-                  srcSet={`${props.imagePath}?fm=webp&q=50&w=${Math.round(windowWidthHalf)}&fit=fill`}
+                  srcSet={`${props.imagePath}?fm=webp&q=70&w=${Math.round(windowWidthHalf)}&fit=fill`}
                 />
                 <source
                   type="image/jpg"

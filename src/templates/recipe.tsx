@@ -361,7 +361,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               offset={100}
             >
               <picture>
-                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=50&w=${windowWidth}`} />
+                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q-50&w=${windowWidth}`} />
                 <img
                   src={`${post.heroImage.file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
@@ -378,7 +378,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               offset={100}
             >
               <picture>
-                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=50&w=${windowWidth}`} />
+                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q-50&w=${windowWidth}`} />
                 <img
                   src={`${post.bannerImage.file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
