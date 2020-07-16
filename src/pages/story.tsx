@@ -13,6 +13,12 @@ import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
 
 class StoryIndex extends React.Component<HomeProps> {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
     const post: HomeEdge = posts[0]

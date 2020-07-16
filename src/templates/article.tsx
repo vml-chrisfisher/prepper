@@ -143,7 +143,6 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       },
       basePath: 'recipes',
       features: recipes.map((recipe: any) => {
-        console.log(recipe)
         return {
           title: recipe.node.title,
           slug: recipe.node.slug,
@@ -275,9 +274,11 @@ class ArticleTemplate extends React.Component<ArticleProps> {
                     __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
                   }}
                 ></BodyCopy>
-                {post.sections.map((section: ArticleSecionInterface, index: number) => {
-                  return <ArticleSection key={`article-section-${index}`} {...section} />
-                })}
+                {post.sections &&
+                  post.sections.length > 0 &&
+                  post.sections.map((section: ArticleSecionInterface, index: number) => {
+                    return <ArticleSection key={`article-section-${index}`} {...section} />
+                  })}
                 <TagContainer className="col12">
                   <h3>Tags</h3>
                   {post.tags.map((tag: ArticleTag, index: number) => {

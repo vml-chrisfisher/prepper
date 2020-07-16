@@ -22,6 +22,12 @@ import {
 } from '../template-interfaces/recipe'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+    }
+  }
+
   render() {
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
@@ -261,7 +267,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       },
       basePath: 'recipes',
       features: recipes.map((recipe: any) => {
-        console.log(recipe)
         return {
           title: recipe.node.title,
           slug: recipe.node.slug,
