@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import Container from './container'
 import HeaderContainer from './header/container'
 import { HeaderProps, HeaderTheme } from './header/interface'
+import { css, Global } from '@emotion/core'
 
 interface Props {
   location: Location
@@ -34,12 +35,33 @@ const Layout = ({ location, children }: Props) => {
     <Container>
       <Helmet>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1"></meta>
+        <link rel="canonical" href={location.href}></link>
         <meta
           name="description"
           content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails. Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."
         />
         <meta name="image" content="https://www.knifeandfish.com/logo.jpg" />
+        <style amp-boilerplate>
+          {`body{
+            -webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+            -moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+            -ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
+            animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+            `}
+        </style>
+        <noscript>
+          {`<style amp-boilerplate>
+            body{
+              -webkit-animation:none;
+              -moz-animation:none;
+              -ms-animation:none;
+              animation:none
+              }
+          </style>
+          `}
+        </noscript>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
         <link rel="icon" href="logo.png" />
         <link rel="apple-touch-icon" href="logo.png"></link>
         <link rel="preconnect" href="https://www.googletagmanager.com"></link>
@@ -82,6 +104,7 @@ const Layout = ({ location, children }: Props) => {
           name="twitter:image:alt"
           content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
         />
+        <html lang="en" dir="ltr" amp />
       </Helmet>
       <HeaderContainer {...theme} />
       {children}
