@@ -282,8 +282,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const articleFeatures: FeatureContentRowProps = {
       details: {
         title: 'Articles',
-        description:
-          'From learning the best knife to buy or how to cut an onion correctly, we trying to give everyone the knowledge needed.',
+        description: 'From learning the best knife to buy or how to cut an onion correctly.',
         buttonCaption: 'Explore',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,
