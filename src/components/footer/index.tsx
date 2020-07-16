@@ -17,8 +17,7 @@ class Footer extends PureComponent<FooterProps> {
           <FooterColumn className="col3">
             <FooterTitle theme={themeValue}>Articles</FooterTitle>
             <FooterParagraph theme={themeValue}>
-              From learning the best knife to buy or how to cut an onion correctly, we trying to give everyone the
-              knowledge needed.
+              From learning the best knife to buy or how to cut an onion correctly.
             </FooterParagraph>
             <FooterLinkMain theme={themeValue} href="/articles">
               Read One

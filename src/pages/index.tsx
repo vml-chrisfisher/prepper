@@ -58,8 +58,7 @@ class RootIndex extends React.Component<HomeProps> {
     const articleFeatures: FeatureContentRowProps = {
       details: {
         title: 'Articles',
-        description:
-          'From learning the best knife to buy or how to cut an onion correctly, we trying to give everyone the knowledge needed.',
+        description: 'From learning the best knife to buy or how to cut an onion correctly.',
         buttonCaption: 'Explore Articles',
         slug: '/articles',
         theme: HeaderTheme.LIGHT,
