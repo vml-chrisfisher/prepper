@@ -476,14 +476,14 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                   <TagContainer className="col12">
                     <h3>Tags</h3>
                     <TagStyled>{post.mealType}</TagStyled>
-                    {post.proteinType &&
+                    {/* {post.proteinType &&
                       post.proteinType.length > 0 &&
                       post.proteinType.map((proteinType: ProteinType, parentIndex: number) => {
                         return <TagStyled key={`tag=${parentIndex}`}>{proteinType.protein}</TagStyled>
                       })}
                     {post.vegetableType.map((vegetable: string, index: number) => {
                       return <TagStyled key={`tag-${index}`}>{vegetable}</TagStyled>
-                    })}
+                    })} */}
                   </TagContainer>
                 </div>
                 <FeaturedSpacer>
