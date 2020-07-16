@@ -80,12 +80,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               </NavigationItem>
             </li>
             <li>
-              <NavigationItem
-                theme={themeValue}
-                onClick={() => {
-                  this.onArticlesClick()
-                }}
-              >
+              <NavigationItem theme={themeValue} href="/articles">
                 Articles
               </NavigationItem>
             </li>
@@ -213,18 +208,21 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 </HeaderNavHeader>
                 <div className="row">
                   <Col6Full className="col6">
-                    <HeaderDetailItem href="/recipes/breakfast">Breakfast</HeaderDetailItem>
-                    <HeaderDetailItem>Brunch</HeaderDetailItem>
-                    <HeaderDetailItem>Lunch</HeaderDetailItem>
-                    <HeaderDetailItem>Supper</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/appetizer">Appetizer</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/condiment">Condiment</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/dessert">Dessert</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/drink">Drink</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/main">Main</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/side">Side</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/snack">Snack</HeaderDetailItem>
                   </Col6Full>
-                  <Col6Full className="col6">
-                    <HeaderDetailItem>Charcuterie</HeaderDetailItem>
-                    <HeaderDetailItem>Baking</HeaderDetailItem>
-                    <HeaderDetailItem>Pickling</HeaderDetailItem>
-                    <HeaderDetailItem>Fermentation</HeaderDetailItem>
-                    <HeaderDetailItem>Condiments</HeaderDetailItem>
-                  </Col6Full>
+                  {/* <Col6Full className="col6">
+                    <HeaderDetailItem href="/recipes/breakfast">Charcuterie</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/breakfast">Baking</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/breakfast">Pickling</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/breakfast">Fermentation</HeaderDetailItem>
+                    <HeaderDetailItem href="/recipes/breakfast">Condiments</HeaderDetailItem>
+                  </Col6Full> */}
                 </div>
               </HeaderMainNav>
             </Col12Full>
@@ -245,7 +243,7 @@ const HeaderNavDetailP = styled.p`
   margin-left: 10%;
 `
 
-const HeaderDetailItem = styled.div`
+const HeaderDetailItem = styled.a`
   color: #464646;
   cursor: pointer;
   font-family: 'Nunito', sans-serif;
@@ -254,6 +252,8 @@ const HeaderDetailItem = styled.div`
   list-style: none;
   text-align: left;
   transition: color 1s ease;
+  text-decoration: none;
+  display: block;
   &:hover {
     color: #cccccc;
     transition: color 1s ease;

@@ -2,6 +2,7 @@
 /* eslint-disable  no-undef */
 const Promise = require('bluebird')
 const path = require('path')
+const { resolve } = require('path')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -77,6 +78,21 @@ exports.createPages = ({ graphql, actions }) => {
       })
     )
   })
+  const mealTypes = ['Appetizer', 'Condiment', 'Dessert', 'Drink', 'Main', 'Side', 'Snack']
+  const recipeMealTypePromises = mealTypes.map(mealType => {
+    new Promise((resolve, reject) => {
+      const recipeMealTypeTemplate = path.resolve('./src/templates/recipeMealType.tsx')
+      resolve(
+        createPage({
+          path: `/recipes/${mealType.toLowerCase()}/`,
+          component: recipeMealTypeTemplate,
+          context: {
+            mealType: mealType
+          },
+        })
+      )
+    })
+  })
 
-  return Promise.all([articlesPromise, recipesPromise]);
+  return Promise.all([articlesPromise, recipesPromise, recipeMealTypePromises]);
 }
