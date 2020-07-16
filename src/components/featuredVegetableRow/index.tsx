@@ -10,7 +10,7 @@ const FeaturedVegetableRow = () => {
         <VegetableContainer>
           <VegetableBackground>
             <VegetableImage>
-              <LazyLoad once offset={500}>
+              <LazyLoad once offset={100}>
                 <img src={'/perkins-okra.jpg'} alt="Okra" />
               </LazyLoad>
             </VegetableImage>

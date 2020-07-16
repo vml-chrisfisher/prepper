@@ -47,7 +47,7 @@ class Footer extends PureComponent<FooterProps> {
           <div className="col9">
             <div className="col4">
               <a aria-label="Knife and Fish Facebook" href="https://www.facebook.com/knifeandfish">
-                <LazyLoad once offset={500}>
+                <LazyLoad once offset={100}>
                   <FooterSocialIcon
                     alt="Knife andFish Facebook"
                     src={
@@ -59,7 +59,7 @@ class Footer extends PureComponent<FooterProps> {
                 </LazyLoad>
               </a>
               <a aria-label="Knife and Fish Instagram" href="https://www.instagram.com/knifeandfish/">
-                <LazyLoad once offset={500}>
+                <LazyLoad once offset={100}>
                   <FooterSocialIcon
                     alt="Knife and Fish Instagram"
                     src={
@@ -71,7 +71,7 @@ class Footer extends PureComponent<FooterProps> {
                 </LazyLoad>
               </a>
               <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
-                <LazyLoad once offset={500}>
+                <LazyLoad once offset={100}>
                   <FooterSocialIcon
                     alt="Knife and Fish Pinterest"
                     src={

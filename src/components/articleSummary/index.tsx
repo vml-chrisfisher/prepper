@@ -16,7 +16,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
       <a href={`/${props.basePath}/${props.slug}`}>
         <ArticleImageParent>
           <ArticleInside>
-            <LazyLoad once offset={500}>
+            <LazyLoad once offset={100}>
               <picture>
                 <source
                   type="image/webp"
