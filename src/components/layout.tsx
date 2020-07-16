@@ -48,10 +48,10 @@ const Layout = ({ location, children }: Props) => {
         <link rel="preconnect" href="https://knifeandfish.s3.amazonaws.com"></link>
         <link
           rel="preconnect"
-          crossOrigin=""
+          crossOrigin="anonymous"
           href="https://fonts.googleapis.com/css?family=Nunito:300,600%7CPlayfair+Display&display=swap"
         ></link>
-        <link as="script" rel="preconnect" crossOrigin="" href="https://www.google-analytics.com"></link>
+        <link as="script" rel="preconnect" crossOrigin="anonymous" href="https://www.google-analytics.com"></link>
 
         <script defer src="https://www.googletagmanager.com/gtag/js?id=UA-127393105-1"></script>
         <script>{gTag}</script>
