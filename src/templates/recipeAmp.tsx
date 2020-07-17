@@ -345,7 +345,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
 
             {/* Default language and direction */}
 
-            <style amp-boilerplate>
+            <style amp-custom>
               {`body{
                 -webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
                 -moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
@@ -354,7 +354,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               }`}
             </style>
             <noscript>
-              {`<style amp-boilerplate>
+              {`<style amp-custom>
                 body{
                   -webkit-animation:none;
                   -moz-animation:none;
@@ -364,7 +364,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               </style>`}
             </noscript>
 
-            <html lang="en" dir="ltr" amp />
+            <html lang="en" amp />
           </Helmet>
           <div>
             <div className="row">
