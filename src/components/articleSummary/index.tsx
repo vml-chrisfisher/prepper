@@ -26,12 +26,12 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
                 />
                 <source
                   type="image/jpg"
-                  srcSet={`${props.imagePath}?fm=jpg&q-50&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  srcSet={`${props.imagePath}?fm=jpg&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
                     windowWidthHalf,
                   )}&fit=fill`}
                 />
                 <img
-                  src={`${props.imagePath}?fm=jpg&q-50&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  src={`${props.imagePath}?fm=jpg&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
                     windowWidthHalf,
                   )}&fit=fill`}
                   alt={props.imageDescription}

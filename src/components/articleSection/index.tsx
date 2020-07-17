@@ -19,12 +19,12 @@ const ArticleSection = (props: ArticleSectionInterface) => (
             />
             <source
               type="image/jpg"
-              srcSet={`${props.images[0].file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
+              srcSet={`${props.images[0].file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
                 windowWidth,
               )}&fit=fill`}
             />
             <img
-              src={`${props.images[0].file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
+              src={`${props.images[0].file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
                 windowWidth,
               )}&fit=fill`}
               alt={props.images[0].description}
@@ -46,12 +46,12 @@ const ArticleSection = (props: ArticleSectionInterface) => (
               />
               <source
                 type="image/jpg"
-                srcSet={`${props.images[0].file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
+                srcSet={`${props.images[0].file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
                   windowWidth,
                 )}&fit=fill`}
               />
               <img
-                src={`${props.images[0].file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
+                src={`${props.images[0].file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
                   windowWidth,
                 )}&fit=fill`}
                 alt={props.images[0].description}
@@ -70,12 +70,12 @@ const ArticleSection = (props: ArticleSectionInterface) => (
               />
               <source
                 type="image/jpg"
-                srcSet={`${props.images[1].file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
+                srcSet={`${props.images[1].file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
                   windowWidth,
                 )}&fit=fill`}
               />
               <img
-                src={`${props.images[1].file.url}?fm=jpg&q-50&w=${Math.round(windowWidth)}&h=${Math.round(
+                src={`${props.images[1].file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
                   windowWidth,
                 )}&fit=fill`}
                 alt={props.images[1].description}
