@@ -376,7 +376,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               <div className="col3" />
             </div>
             <amp-img
-              className="hidden-sm"
+              class="hidden-sm"
               src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
               width={windowWidth}
               height={(windowWidth * 6) / 16}
@@ -390,7 +390,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               </noscript>
             </amp-img>
             <amp-img
-              className="hidden-lg"
+              class="hidden-lg"
               src={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
               width={windowWidth}
               height={(windowWidth * 3) / 2}
