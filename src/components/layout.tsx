@@ -85,7 +85,7 @@ const Layout = ({ location, children }: Props) => {
           name="twitter:image:alt"
           content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
         />
-        <html lang="en" dir="ltr" amp />
+        <html lang="en" dir="ltr" />
       </Helmet>
       <HeaderContainer {...theme} />
       {children}

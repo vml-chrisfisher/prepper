@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const recipesPromise = new Promise((resolve, reject) => {
     const recipeTemplate = path.resolve('./src/templates/recipe.tsx')
+    const recipeAmpTemplate = path.resolve('./src/templates/recipeAmp.tsx')
     resolve(
       graphql(
         `
@@ -70,6 +71,13 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: `/recipe/${recipe.node.slug}/`,
             component: recipeTemplate,
+            context: {
+              slug: recipe.node.slug
+            },
+          })
+          createPage({
+            path: `/recipe/amp/${recipe.node.slug}/`,
+            component: recipeAmpTemplate,
             context: {
               slug: recipe.node.slug
             },
