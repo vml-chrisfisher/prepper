@@ -21,7 +21,7 @@ import {
   ProteinType,
 } from '../template-interfaces/recipe'
 
-class RecipeTemplate extends React.Component<RecipeProps> {
+class RecipeAMPTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0)
@@ -307,12 +307,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}
             <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+            <script async src="https://cdn.ampproject.org/v0.js"></script>
 
             {/* The thumbnail of your website */}
             <meta name="image" content={post.heroImage.file.url} />
-
+            <link rel="canonical" href={`https://www.knifeandfish.com/recipes/${post.slug}`}></link>
             {/* Opengraph meta tags for Facebook & LinkedIn */}
-            <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
+            <meta property="og:url" content={`https://www.knifeandfish.com/article/${post.slug}`} />
             <meta property="og:type" content="NewsArticle" />
             <meta property="og:title" content={post.title} />
             <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
@@ -343,7 +344,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             <title>{post.title} | Knife & Fish</title>
 
             {/* Default language and direction */}
-            <script async src="https://cdn.ampproject.org/v0.js"></script>
+
             <style amp-boilerplate>
               {`body{
                 -webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
@@ -352,15 +353,16 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                 animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}
               }`}
             </style>
-            <noscript>
+            {/* <noscript>
               <style amp-boilerplate>
                 {`body{
-                  -webkit - animation:none;
+                  -webkit-animation:none;
                   -moz-animation:none;
-                  -ms-animation:none;animation:none
+                  -ms-animation:none;
+                  animation:none
                 }`}
               </style>
-            </noscript>
+            </noscript> */}
 
             <html lang="en" dir="ltr" amp />
           </Helmet>
@@ -380,7 +382,11 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               height={(windowWidth * 6) / 16}
             >
               <noscript>
-                <img src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} width="264" height="195" />
+                <img
+                  src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
+                  width={windowWidth}
+                  height={(windowWidth * 6) / 16}
+                />
               </noscript>
             </amp-img>
             <amp-img
@@ -390,7 +396,11 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               height={(windowWidth * 3) / 2}
             >
               <noscript>
-                <img src={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} width="264" height="195" />
+                <img
+                  src={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
+                  width={windowWidth}
+                  height={(windowWidth * 3) / 2}
+                />
               </noscript>
             </amp-img>
             <div className="row">
@@ -514,10 +524,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
   }
 }
 
-export default RecipeTemplate
+export default RecipeAMPTemplate
 
 export const pageQuery = graphql`
-  query RecipeBySlug($slug: String) {
+  query RecipeAMPBySlug($slug: String) {
     contentfulRecipe(slug: { eq: $slug }) {
       bodyCopy {
         childMarkdownRemark {

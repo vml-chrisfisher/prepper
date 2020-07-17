@@ -188,7 +188,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
             <meta name="image" content={post.heroImage.file.url} />
 
             {/* Opengraph meta tags for Facebook & LinkedIn */}
-            <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
+            <meta property="og:url" content={`https://www.knifeandfish.com/article/${post.slug}`} />
             <meta property="og:type" content="article" />
             <meta property="og:title" content={post.title} />
             <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />

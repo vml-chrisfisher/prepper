@@ -45,7 +45,6 @@ exports.createPages = ({ graphql, actions }) => {
 
   const recipesPromise = new Promise((resolve, reject) => {
     const recipeTemplate = path.resolve('./src/templates/recipe.tsx')
-    const recipeAmpTemplate = path.resolve('./src/templates/recipeAmp.tsx')
     resolve(
       graphql(
         `
@@ -75,6 +74,34 @@ exports.createPages = ({ graphql, actions }) => {
               slug: recipe.node.slug
             },
           })
+        })
+      })
+    )
+  })
+  const recipesAMPPromise = new Promise((resolve, reject) => {
+    const recipeAmpTemplate = path.resolve('./src/templates/recipeAmp.tsx')
+    resolve(
+      graphql(
+        `
+          {
+            allContentfulRecipe {
+              edges {
+                node {
+                  title
+                  slug
+                }
+              }
+            }
+          }
+          `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        const recipes = result.data.allContentfulRecipe.edges
+        recipes.forEach((recipe) => {
           createPage({
             path: `/recipe/amp/${recipe.node.slug}/`,
             component: recipeAmpTemplate,
@@ -102,5 +129,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([articlesPromise, recipesPromise, recipeMealTypePromises]);
+  return Promise.all([articlesPromise, recipesPromise, recipesAMPPromise, recipeMealTypePromises]);
 }
