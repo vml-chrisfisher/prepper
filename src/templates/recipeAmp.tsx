@@ -1,13 +1,10 @@
-import styled from '@emotion/styled'
 import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
-import LazyLoad from 'react-lazy-load'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
-import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
@@ -20,6 +17,7 @@ import {
   RecipeInstruction,
   ProteinType,
 } from '../template-interfaces/recipe'
+import FooterAMP from '../components/footer/footerAMP'
 
 class RecipeAMPTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -468,7 +466,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                   <GeneralContentRow />
                 </div>
 
-                <Footer {...{ theme: HeaderTheme.DARK }} />
+                <FooterAMP />
               </div>
 
               <div className="col2" />
