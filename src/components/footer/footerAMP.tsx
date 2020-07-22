@@ -129,21 +129,21 @@ class FooterAMP extends PureComponent {
             <div className="col4">
               <a aria-label="Knife and Fish Facebook" href="https://www.facebook.com/knifeandfish">
                 <amp-img
-                  className="footer-social-icon"
+                  class="footer-social-icon"
                   alt="Knife andFish Facebook"
                   src="//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg"
                 />
               </a>
               <a aria-label="Knife and Fish Instagram" href="https://www.instagram.com/knifeandfish/">
                 <amp-img
-                  className="footer-social-icon"
+                  class="footer-social-icon"
                   alt="Knife and Fish Instagram"
                   src="//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg"
                 />
               </a>
               <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
                 <amp-img
-                  className="footer-social-icon"
+                  class="footer-social-icon"
                   alt="Knife and Fish Pinterest"
                   src="//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg"
                 />
