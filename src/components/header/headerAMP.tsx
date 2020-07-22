@@ -22,7 +22,7 @@ class HeaderAMP extends PureComponent {
     return (
       <header>
         <Helmet>
-          <style>
+          <style amp-custom>
             {`
               .navigation {
                 display: flex;
