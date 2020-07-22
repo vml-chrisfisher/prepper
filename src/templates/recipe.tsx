@@ -300,6 +300,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         }
       }),
     }
+    console.log(post)
 
     return (
       <Layout location={this.props.location}>
@@ -359,7 +360,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               height={heroHeight}
-              debounce={1000}
               offset={100}
             >
               <picture>
@@ -367,7 +367,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                 <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
                 <img
                   src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                    windowWidth,
+                    heroHeight,
                   )}&fit=fill`}
                   alt={post.heroImage.description}
                 />
@@ -378,7 +378,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               height={bannerHeight}
-              debounce={1000}
               offset={100}
             >
               <picture>
@@ -386,7 +385,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                 <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
                 <img
                   src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                    windowWidth,
+                    bannerHeight,
                   )}&fit=fill`}
                   alt={post.bannerImage.description}
                 />
