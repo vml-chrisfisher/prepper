@@ -358,7 +358,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </div>
             <BrowserView>
               <LazyLoad
-                className="hidden-sm"
                 style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
                 once
                 height={heroHeight}
@@ -379,7 +378,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </BrowserView>
             <MobileView>
               <LazyLoad
-                className="hidden-lg"
                 style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
                 once
                 height={bannerHeight}
