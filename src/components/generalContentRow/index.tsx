@@ -53,7 +53,9 @@ const GeneralContentRow = () => {
           </Col6Full>
 
           <Col6Full className="col6">
-            <NewsletterContainer />
+            <LazyLoad>
+              <NewsletterContainer />
+            </LazyLoad>
           </Col6Full>
         </div>
       </Col6Full>
