@@ -357,6 +357,7 @@ export default ({ children }) => (
           font-size: 0.75em;
           color: #464646;
           text-align: center;
+          text-decoration: none;
           margin: 0 auto;
           display: block;
           font-weight: 600;

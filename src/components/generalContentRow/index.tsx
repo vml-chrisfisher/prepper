@@ -29,7 +29,9 @@ const GeneralContentRow = () => {
                 <StoryContainer>
                   <div className="eyebrow">Story</div>
                   <StoryTitle>This is the story of Knife and Fish</StoryTitle>
-                  <button className="primaryButton darkOutline">Our Story</button>
+                  <a href="/story" className="primaryButton darkOutline">
+                    Our Story
+                  </a>
                 </StoryContainer>
               </Col6FullOverlay>
               <Col3Full className="col3" />

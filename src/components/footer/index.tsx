@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
-import FooterProps from './interface'
 import LazyLoad from 'react-lazy-load'
+import FooterProps from './interface'
 
 interface ThemeProps {
   theme: string
@@ -37,7 +37,7 @@ class Footer extends PureComponent<FooterProps> {
             <FooterParagraph theme={themeValue}>
               From a love to a mission to help everyone learn how to cook to one signature dish.
             </FooterParagraph>
-            <FooterLinkMain theme={themeValue} href="">
+            <FooterLinkMain theme={themeValue} href="/story">
               Read
             </FooterLinkMain>
           </FooterColumn>
