@@ -20,10 +20,18 @@ class HeaderAMP extends PureComponent {
 
   render() {
     return (
-      <header>
+      <header className="header">
         <Helmet>
           <style amp-custom>
             {`
+              .header {
+                background-color: #fff;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 73px;
+
+              }
               .navigation {
                 display: flex;
                 justify-content: left;
