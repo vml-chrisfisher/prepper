@@ -338,7 +338,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
             {/* Structured data */}
             <script type="application/ld+json">{structuredDataArticle}</script>
-            <link rel="canonical" href={location.href}></link>
+            <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${post.slug}`}></link>
 
             {/* The title of your current page */}
             <title>{post.title} | Knife & Fish</title>
