@@ -300,7 +300,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         }
       }),
     }
-    console.log(post)
 
     return (
       <Layout location={this.props.location}>

@@ -54,8 +54,6 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
       chunked.push(postsCopy.splice(0, chunkSize))
     }
 
-    console.log(this.props)
-
     return (
       <Layout location={this.props.location}>
         <MainContainer>
