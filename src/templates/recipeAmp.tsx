@@ -235,7 +235,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                   display: inline-block;
                   width: 80%;
                   padding-right: 4%;
-                  padding - left: 10%;
+                  padding-left: 10%;
                 }
 
                 .ingredient {
