@@ -48,7 +48,7 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
                 type="email"
                 value={this.state.email}
                 onChange={event => this.setState({ email: event.target.value })}
-                placeholder="seedlings@seedlings.com"
+                placeholder="you@knifeandfish.com"
               />
             </NewsletterSignupLabel>
 
