@@ -329,17 +329,13 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               {`
                 .title {
                   padding: 0 0 0.4em 0;
-                  @media (max-width: 767px) {
-                    font-size: 3.5em;
-                    padding: 0;
+                  font-size: 3.5em;
+                  padding: 0;
                 }
                 .featured-spacer {
-                  padding-top: 50px;
-                  @media (max-width: 767px) {
-                    padding-left: 5%;
-                    padding-top: 0px;
-                    width: 90%;
-                  }
+                  padding-left: 5%;
+                  padding-top: 0px;
+                  width: 90%;
                 }
                 .group-title {
                   color: #464646;
