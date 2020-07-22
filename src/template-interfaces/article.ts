@@ -48,8 +48,15 @@ export interface ArticleTag {
 
 export interface ArticleBannerImage {
   description: string
-  file: ArticleBannerImageFile
-  title: string
+  file: {
+    details: {
+      image: {
+        height: number
+        width: number
+      }
+    }
+    url: string
+  }
 }
 
 export interface ArticleBannerImageFile {

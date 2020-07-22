@@ -3,7 +3,6 @@ import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
-import { BrowserView, isBrowser, isMobile, MobileView } from 'react-device-detect'
 import Helmet from 'react-helmet'
 import LazyLoad from 'react-lazy-load'
 import FeaturedContentRow from '../components/featuredContentRow'
@@ -301,7 +300,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         }
       }),
     }
-    console.log(post)
 
     return (
       <Layout location={this.props.location}>
@@ -356,46 +354,44 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <BrowserView>
-              <LazyLoad
-                style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
-                once
-                height={heroHeight}
-                debounce={1000}
-                offset={100}
-              >
-                <picture>
-                  <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
-                  <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
-                  <img
-                    src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                      windowWidth,
-                    )}&fit=fill`}
-                    alt={post.heroImage.description}
-                  />
-                </picture>
-              </LazyLoad>
-            </BrowserView>
-            <MobileView>
-              <LazyLoad
-                style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
-                once
-                height={bannerHeight}
-                debounce={1000}
-                offset={100}
-              >
-                <picture>
-                  <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
-                  <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
-                  <img
-                    src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                      windowWidth,
-                    )}&fit=fill`}
-                    alt={post.bannerImage.description}
-                  />
-                </picture>
-              </LazyLoad>
-            </MobileView>
+            <LazyLoad
+              className="hidden-sm"
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              once
+              height={heroHeight}
+              debounce={1000}
+              offset={100}
+            >
+              <picture>
+                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
+                <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
+                <img
+                  src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
+                    windowWidth,
+                  )}&fit=fill`}
+                  alt={post.heroImage.description}
+                />
+              </picture>
+            </LazyLoad>
+            <LazyLoad
+              className="hidden-lg"
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              once
+              height={bannerHeight}
+              debounce={1000}
+              offset={100}
+            >
+              <picture>
+                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
+                <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
+                <img
+                  src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
+                    windowWidth,
+                  )}&fit=fill`}
+                  alt={post.bannerImage.description}
+                />
+              </picture>
+            </LazyLoad>
             <div className="row">
               <div className="col2"></div>
               <div className="col8">

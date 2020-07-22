@@ -23,7 +23,6 @@ class ArticleTemplate extends React.Component<ArticleProps> {
   }
 
   render() {
-    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
       @media (max-width: 767px) {
@@ -177,6 +176,12 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       }),
     }
 
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
+    const heroHeight =
+      (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
+    const bannerHeight =
+      (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
+
     return (
       <Layout location={this.props.location}>
         <MainContainer style={{ background: '#fff' }}>
@@ -315,13 +320,24 @@ export const pageQuery = graphql`
       heroImage {
         description
         file {
+          details {
+            image {
+              height
+              width
+            }
+          }
           url
         }
-        title
       }
       bannerImage {
         description
         file {
+          details {
+            image {
+              height
+              width
+            }
+          }
           url
         }
       }
