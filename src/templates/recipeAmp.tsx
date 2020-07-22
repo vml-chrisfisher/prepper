@@ -29,14 +29,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
   }
 
   render() {
-    const Title = styled.h1`
-      padding: 0 0 0.4em 0;
-      @media (max-width: 767px) {
-        font-size: 3.5em;
-        padding: 0;
-      }
-    `
-
     const CreateDate = styled.div`
       text-align: center;
       font-family: 'Nunito', sans-serif;
@@ -158,15 +150,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
       font-family: 'Nunito', sans-serif;
       font-weight: 600;
       padding-bottom: 10px;
-    `
-
-    const FeaturedSpacer = styled.div`
-      padding-top: 50px;
-      @media (max-width: 767px) {
-        padding-left: 5%;
-        padding-top: 0px;
-        width: 90%;
-      }
     `
 
     let step = 0
@@ -342,6 +325,32 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             <title>{post.title} | Knife & Fish</title>
 
             {/* Default language and direction */}
+            <style amp-custom>
+              {`
+                .title {
+                  padding: 0 0 0.4em 0;
+                  @media (max-width: 767px) {
+                    font-size: 3.5em;
+                    padding: 0;
+                }
+                .featured-spacer {
+                  padding-top: 50px;
+                  @media (max-width: 767px) {
+                    padding-left: 5%;
+                    padding-top: 0px;
+                    width: 90%;
+                  }
+                }
+                .group-title {
+                  color: #464646;
+                  display: inline-block;
+                  font-size: 1.15em;
+                  font-family: 'Nunito', sans-serif;
+                  font-weight: 600;
+                  padding-bottom: 10px;
+                }
+                `}
+            </style>
 
             <html lang="en" amp />
           </Helmet>
@@ -349,7 +358,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             <div className="row">
               <div className="col3" />
               <div className="col6">
-                <Title className="section-headline">{post.title}</Title>
+                <h1 className="section-headline title">{post.title}</h1>
                 <CreateDate>{postCreate}</CreateDate>
               </div>
               <div className="col3" />
@@ -410,7 +419,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                       return (
                         <div style={{ paddingBottom: '30px' }} key={`recipe-group-${index}`}>
                           {recipeGroup.displayName && post.recipeGroup.length > 1 && (
-                            <GroupTitle>{recipeGroup.displayName}</GroupTitle>
+                            <div className="group-title">{recipeGroup.displayName}</div>
                           )}
                           {recipeGroup.ingredients.map((ingredient: RecipeIngredient, index: number) => {
                             return (
@@ -448,7 +457,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                       return (
                         <div style={{ paddingBottom: '30px' }} key={`instruction-group-${index}`}>
                           {instructionGroup.displayName && post.recipeInstructionGroups.length > 1 && (
-                            <GroupTitle>{instructionGroup.displayName}</GroupTitle>
+                            <div className="group-title">{instructionGroup.displayName}</div>
                           )}
                           {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
                             step++
@@ -479,13 +488,13 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                     })} */}
                   </TagContainer>
                 </div>
-                <FeaturedSpacer>
+                <div className="featured-spacer">
                   <FeaturedContentRow {...articleFeatures} />
                   <FeaturedContentRow {...recipeFeatures} />
-                </FeaturedSpacer>
-                <FeaturedSpacer>
+                </div>
+                <div className="featured-spacer">
                   <GeneralContentRow />
-                </FeaturedSpacer>
+                </div>
 
                 <Footer {...{ theme: HeaderTheme.DARK }} />
               </div>
