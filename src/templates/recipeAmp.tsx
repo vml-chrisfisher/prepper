@@ -460,13 +460,13 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                     })} */}
                   </div>
                 </div>
-                <div className="featured-spacer">
+                {/* <div className="featured-spacer">
                   <FeaturedContentRow {...articleFeatures} />
                   <FeaturedContentRow {...recipeFeatures} />
                 </div>
                 <div className="featured-spacer">
                   <GeneralContentRow />
-                </div>
+                </div> */}
 
                 <FooterAMP />
               </div>

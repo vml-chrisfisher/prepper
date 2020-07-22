@@ -36,7 +36,7 @@ class HeaderAMP extends PureComponent {
               
               .navigation-item {
                 font-family: 'Nunito', sans-serif;
-                color: #464646';
+                color: #464646;
                 text-decoration: none;
                 text-transform: uppercase;
                 font-size: 0.6em;
