@@ -11,6 +11,7 @@ import VideoStoryBackground from '../components/storyVideo'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
+import HeaderContainer from '../components/header/container'
 
 class StoryIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -67,6 +68,7 @@ class StoryIndex extends React.Component<HomeProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com/story"></link>
         </Helmet>

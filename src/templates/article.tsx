@@ -14,6 +14,7 @@ import GeneralContentRow from '../components/generalContentRow'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
+import HeaderContainer from '../components/header/container'
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   componentDidMount() {
@@ -184,6 +185,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer style={{ background: '#fff' }}>
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}

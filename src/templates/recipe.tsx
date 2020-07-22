@@ -20,6 +20,7 @@ import {
   RecipeInstruction,
   ProteinType,
 } from '../template-interfaces/recipe'
+import HeaderContainer from '../components/header/container'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -303,6 +304,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer style={{ background: '#fff' }}>
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}

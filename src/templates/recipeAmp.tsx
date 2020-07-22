@@ -18,6 +18,7 @@ import {
   ProteinType,
 } from '../template-interfaces/recipe'
 import FooterAMP from '../components/footer/footerAMP'
+import HeaderAMP from '../components/header/headerAMP'
 
 class RecipeAMPTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -321,6 +322,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
 
             <html lang="en" amp />
           </Helmet>
+          <HeaderAMP />
           <div>
             <div className="row">
               <div className="col3" />

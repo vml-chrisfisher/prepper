@@ -9,6 +9,7 @@ import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import { ArticlesEdge, ArticlesProps } from '../page-interfaces/articles'
+import HeaderContainer from '../components/header/container'
 
 class ArticlesIndex extends React.Component<ArticlesProps> {
   componentDidMount() {
@@ -47,6 +48,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer>
           <Helmet title="Articles | Knife & Fish">
             <link rel="canonical" href="https://www.knifeandfish.com/articles"></link>

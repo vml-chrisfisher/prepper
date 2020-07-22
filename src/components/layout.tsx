@@ -85,7 +85,7 @@ const Layout = ({ location, children }: Props) => {
         />
         <html lang="en" dir="ltr" />
       </Helmet>
-      <HeaderContainer {...theme} />
+
       {children}
     </Container>
   )

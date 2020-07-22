@@ -13,6 +13,7 @@ import Layout from '../components/layout'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
+import HeaderContainer from '../components/header/container'
 
 class RootIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -78,9 +79,11 @@ class RootIndex extends React.Component<HomeProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com"></link>
         </Helmet>
+
         <div style={{ background: '#fff', display: 'list-item' }}>
           <VideoBackground {...{ videoPath, mobileVideoPath }} />
         </div>

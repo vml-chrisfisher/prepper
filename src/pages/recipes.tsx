@@ -9,6 +9,7 @@ import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
+import HeaderContainer from '../components/header/container'
 
 class RecipeIndex extends React.Component<RecipesProps> {
   componentDidMount() {
@@ -54,10 +55,12 @@ class RecipeIndex extends React.Component<RecipesProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer>
           <Helmet title="Recipes | Knife & Fish">
             <link rel="canonical" href="https://wwww.knifeandfish.com/recipes"></link>
           </Helmet>
+
           <h1>Recipes</h1>
           <div className="wrapper">
             <div>

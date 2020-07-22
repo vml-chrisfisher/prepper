@@ -11,6 +11,7 @@ import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import { RecipesEdge } from '../page-interfaces/recipes'
 import { RecipeProps } from '../template-interfaces/recipe'
+import HeaderContainer from '../components/header/container'
 
 class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -56,6 +57,7 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
 
     return (
       <Layout location={this.props.location}>
+        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer>
           <Helmet title={`${posts[0].node.mealType} Recipes | Knife & Fish`}>
             <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${posts[0].node.mealType}`}></link>
