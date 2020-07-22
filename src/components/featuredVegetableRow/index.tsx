@@ -1,7 +1,7 @@
-import React from 'react'
-import ArticleSummary from '../articleSummary'
 import styled from '@emotion/styled'
+import React from 'react'
 import LazyLoad from 'react-lazy-load'
+import ArticleSummary from '../articleSummary'
 
 const FeaturedVegetableRow = () => {
   return (

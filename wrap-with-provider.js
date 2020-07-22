@@ -26,6 +26,3 @@ export default ({ element }) => {
   sagaMiddleware.run(rootSaga)
   return <Provider store={store}>{element}</Provider>
 }
-
-
-
