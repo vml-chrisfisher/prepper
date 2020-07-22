@@ -20,6 +20,7 @@ import {
   RecipeInstruction,
   ProteinType,
 } from '../template-interfaces/recipe'
+import { BrowserView, MobileView } from 'react-device-detect'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -354,44 +355,48 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            {/* <LazyLoad
-              className="hidden-sm"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
-              once
-              height={heroHeight}
-              debounce={1000}
-              offset={100}
-            > */}
-            <picture>
-              <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
-              <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
-              <img
-                src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                  windowWidth,
-                )}&fit=fill`}
-                alt={post.heroImage.description}
-              />
-            </picture>
-            {/* </LazyLoad>
-            <LazyLoad
-              className="hidden-lg"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
-              once
-              height={bannerHeight}
-              debounce={1000}
-              offset={100}
-            > */}
-            <picture>
-              <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
-              <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
-              <img
-                src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                  windowWidth,
-                )}&fit=fill`}
-                alt={post.bannerImage.description}
-              />
-            </picture>
-            {/* </LazyLoad> */}
+            <BrowserView>
+              <LazyLoad
+                className="hidden-sm"
+                style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+                once
+                height={heroHeight}
+                debounce={1000}
+                offset={100}
+              >
+                <picture>
+                  <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
+                  <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
+                  <img
+                    src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
+                      windowWidth,
+                    )}&fit=fill`}
+                    alt={post.heroImage.description}
+                  />
+                </picture>
+              </LazyLoad>
+            </BrowserView>
+            <MobileView>
+              <LazyLoad
+                className="hidden-lg"
+                style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+                once
+                height={bannerHeight}
+                debounce={1000}
+                offset={100}
+              >
+                <picture>
+                  <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
+                  <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
+                  <img
+                    src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
+                      windowWidth,
+                    )}&fit=fill`}
+                    alt={post.bannerImage.description}
+                  />
+                </picture>
+              </LazyLoad>
+            </MobileView>
             <div className="row">
               <div className="col2"></div>
               <div className="col8">
