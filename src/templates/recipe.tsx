@@ -3,6 +3,7 @@ import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
+import { BrowserView, isBrowser, isMobile, MobileView } from 'react-device-detect'
 import Helmet from 'react-helmet'
 import LazyLoad from 'react-lazy-load'
 import FeaturedContentRow from '../components/featuredContentRow'
@@ -300,6 +301,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         }
       }),
     }
+    console.log(post)
 
     return (
       <Layout location={this.props.location}>
@@ -354,14 +356,15 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <LazyLoad
+            {/* <LazyLoad
               className="hidden-sm"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               height={heroHeight}
               debounce={1000}
               offset={100}
-            >
+            > */}
+            <BrowserView>
               <picture>
                 <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
@@ -372,7 +375,8 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                   alt={post.heroImage.description}
                 />
               </picture>
-            </LazyLoad>
+            </BrowserView>
+            {/* </LazyLoad>
             <LazyLoad
               className="hidden-lg"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
@@ -380,7 +384,8 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               height={bannerHeight}
               debounce={1000}
               offset={100}
-            >
+            > */}
+            <MobileView>
               <picture>
                 <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
                 <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
@@ -391,7 +396,8 @@ class RecipeTemplate extends React.Component<RecipeProps> {
                   alt={post.bannerImage.description}
                 />
               </picture>
-            </LazyLoad>
+            </MobileView>
+            {/* </LazyLoad> */}
             <div className="row">
               <div className="col2"></div>
               <div className="col8">
