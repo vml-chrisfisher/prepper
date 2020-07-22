@@ -53,7 +53,7 @@ const GeneralContentRow = () => {
           </Col6Full>
 
           <Col6Full className="col6">
-            <NewsletterContainer {...{ position: 0 }} />
+            <NewsletterContainer />
           </Col6Full>
         </div>
       </Col6Full>

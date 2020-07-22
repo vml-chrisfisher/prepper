@@ -19,6 +19,13 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
       position: 0,
     }
   }
+  componentDidUpdate() {
+    const position = this.props.position
+    if (position === 0 && this.state.position === 2) {
+      this.setState({ email: '' })
+    }
+    this.setState({ position: this.props.position })
+  }
 
   componentDidMount() {
     this.props.onReset()
@@ -29,14 +36,9 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
   }
 
   render() {
-    const position = this.props.position
-    if (position === 0 && this.state.position === 2) {
-      this.setState({ email: '' })
-    }
-    this.setState({ position: this.props.position })
     return (
       <NewsletterSignupContainer>
-        <NewsletterSignupScroll stage={position}>
+        <NewsletterSignupScroll stage={this.props.position}>
           <NewsletterSignupForm>
             <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
             <SignupParagraph>Sign up to our newsletter and get the our latest news.</SignupParagraph>
