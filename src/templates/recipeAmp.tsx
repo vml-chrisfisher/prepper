@@ -29,129 +29,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
   }
 
   render() {
-    const CreateDate = styled.div`
-      text-align: center;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1em;
-      padding-bottom: 3.125em;
-    `
-
-    const BodyCopy = styled.div`
-      color: #464646;
-      font-size: 1em;
-      font-family: 'Nunito', sans-serif;
-      line-height: 2em;
-      padding-top: 1.875em;
-      padding-bottom: 1.875em;
-      text-align: justify;
-      @media (max-width: 767px) {
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
-
-    const BodyCopyTwoColumn = styled.div`
-      color: #464646;
-      column-count: 2;
-      font-size: 1em;
-      font-family: 'Nunito', sans-serif;
-      line-height: 2em;
-      padding-top: 1.875em;
-      padding-bottom: 1.875em;
-      text-align: justify;
-      @media (max-width: 767px) {
-        column-count: 1;
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
-
-    const MainContainer = styled.div`
-      background-color: #fff;
-      position: absolute;
-      top: 15.625em;
-      width: 100%;
-      @media (max-width: 767px) {
-        top: 6em;
-      }
-    `
-
-    const InstructionTitle = styled.h2`
-      color: #464646;
-      font-size: 2.25em;
-      padding-bottom: 50px;
-    `
-
-    const InstructionContainer = styled.div`
-      display: inline-block;
-      width: 66%;
-      @media (max-width: 767px) {
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
-
-    const Instruction = styled.div`
-      color: #464646;
-      font-size: 1em;
-      font-family: 'Nunito', sans-serif;
-      line-height: 2em;
-      padding-bottom: 1.75em;
-      text-align: justify;
-    `
-
-    const IngredientContainer = styled.div`
-      display: inline-block;
-      width: 30%;
-      padding-right: 4%;
-      @media (max-width: 767px) {
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
-
-    const IngredientTitle = styled.h2`
-      color: #464646;
-      font-size: 2.25em;
-      padding-bottom: 50px;
-    `
-
-    const Ingredient = styled.div`
-      color: #464646;
-      font-size: 1em;
-      font-family: 'Nunito', sans-serif;
-      line-height: 2em;
-      padding-bottom: 1.75em;
-    `
-
-    const TagContainer = styled.div`
-      display: inline-block;
-      width: 100%;
-      padding-right: 4%;
-      @media (max-width: 767px) {
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
-
-    const TagStyled = styled.p`
-      color: #464646;
-      display: inline-block;
-      font-size: 0.75em;
-      font-family: 'Nunito', sans-serif;
-      padding-right: 20px;
-      text-transform: uppercase;
-    `
-
-    const GroupTitle = styled.div`
-      color: #464646;
-      display: inline-block;
-      font-size: 1.15em;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      padding-bottom: 10px;
-    `
-
     let step = 0
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
     const postCreate = dateformat(post.createdAt, 'fullDate')
@@ -286,7 +163,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
 
     return (
       <Layout location={this.props.location}>
-        <MainContainer style={{ background: '#fff' }}>
+        <div className="main-container" style={{ background: '#fff' }}>
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}
             <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
@@ -345,6 +222,102 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                   font-weight: 600;
                   padding-bottom: 10px;
                 }
+
+                .tag-styled {
+                  color: #464646;
+                  display: inline-block;
+                  font-size: 0.75em;
+                  font-family: 'Nunito', sans-serif;
+                  padding-right: 20px;
+                  text-transform: uppercase;
+                }
+                .tag-container {
+                  display: inline-block;
+                  width: 80%;
+                  padding-right: 4%;
+                  padding - left: 10%;
+                }
+
+                .ingredient {
+                  color: #464646;
+                  font-size: 1em;
+                  font-family: 'Nunito', sans-serif;
+                  line-height: 2em;
+                  padding-bottom: 1.75em;
+                }
+
+                .ingredient-title {
+                  color: #464646;
+                  font-size: 2.25em;
+                  padding-bottom: 50px;
+                }
+
+                .ingredient-container {
+                  display: inline-block;
+                  width: 80%;
+                  padding-right: 4%;
+                  padding-left: 10%;
+                }
+
+                .instruction {
+                  color: #464646;
+                  font-size: 1em;
+                  font-family: 'Nunito', sans-serif;
+                  line-height: 2em;
+                  padding-bottom: 1.75em;
+                  text-align: justify;
+                }
+
+                .instruction-container {
+                  display: inline-block;
+                  width: 80%;
+                  padding-left: 10%;
+                }
+
+                .instruction-title {
+                  color: #464646;
+                  font-size: 2.25em;
+                  padding-bottom: 50px;
+                }
+
+                .main-container {
+                  background-color: #fff;
+                  position: absolute;
+                  top: 6em;
+                  width: 100%;       
+                }
+
+                .body-copy-two-column {
+                  color: #464646;
+                  column-count: 1;
+                  font-size: 1em;
+                  font-family: 'Nunito', sans-serif;
+                  line-height: 2em;
+                  padding-top: 1.875em;
+                  padding-left: 10%;
+                  padding-bottom: 1.875em;
+                  text-align: justify;
+                  width: 80%;
+                }
+
+                .body-copy {
+                  color: #464646;
+                  font-size: 1em;
+                  font-family: 'Nunito', sans-serif;
+                  line-height: 2em;
+                  padding-top: 1.875em;
+                  padding-left: 10%;
+                  padding-bottom: 1.875em;
+                  text-align: justify;
+                  width: 80%;
+                }
+
+                .create-date {
+                  text-align: center;
+                  font-family: 'Nunito', sans-serif;
+                  font-size: 1em;
+                  padding-bottom: 3.125em;
+                }
                 `}
             </style>
 
@@ -355,7 +328,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               <div className="col3" />
               <div className="col6">
                 <h1 className="section-headline title">{post.title}</h1>
-                <CreateDate>{postCreate}</CreateDate>
+                <div className="create-date">{postCreate}</div>
               </div>
               <div className="col3" />
             </div>
@@ -391,26 +364,28 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               <div className="col2"></div>
               <div className="col8">
                 {!bodyLong && (
-                  <BodyCopy
+                  <div
+                    className="body-copy"
                     dangerouslySetInnerHTML={{
                       __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
                     }}
-                  ></BodyCopy>
+                  ></div>
                 )}
                 {bodyLong && (
-                  <BodyCopyTwoColumn
+                  <div
+                    className="body-copy-two-column"
                     dangerouslySetInnerHTML={{
                       __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
                     }}
-                  ></BodyCopyTwoColumn>
+                  ></div>
                 )}
               </div>
               <div className="col2"></div>
               <div className="col2" />
               <div className="col8">
                 <div>
-                  <IngredientContainer>
-                    <IngredientTitle>Ingredients</IngredientTitle>
+                  <div className="ingredient-container">
+                    <h2 className="ingredient-title">Ingredients</h2>
                     {post.recipeGroup.map((recipeGroup: RecipeGroup, index: number) => {
                       return (
                         <div style={{ paddingBottom: '30px' }} key={`recipe-group-${index}`}>
@@ -419,7 +394,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                           )}
                           {recipeGroup.ingredients.map((ingredient: RecipeIngredient, index: number) => {
                             return (
-                              <Ingredient key={`ingredient-${index}`}>
+                              <div className="ingredient" key={`ingredient-${index}`}>
                                 {ingredient.recipeQuantity && ingredient.recipeQuantity.recipeQuantity && (
                                   <span
                                     dangerouslySetInnerHTML={{
@@ -440,15 +415,15 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                                   )}{' '}
                                 {ingredient.ingredient.ingredient}
                                 {ingredient.prep && <span>, {ingredient.prep.prep}</span>}
-                              </Ingredient>
+                              </div>
                             )
                           })}
                         </div>
                       )
                     })}
-                  </IngredientContainer>
-                  <InstructionContainer>
-                    <InstructionTitle>Instructions</InstructionTitle>
+                  </div>
+                  <div className="instruction-container">
+                    <h2 className="instruction-title">Instructions</h2>
                     {post.recipeInstructionGroups.map((instructionGroup: RecipeInstructionGroup, index: number) => {
                       return (
                         <div style={{ paddingBottom: '30px' }} key={`instruction-group-${index}`}>
@@ -458,22 +433,23 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                           {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
                             step++
                             return (
-                              <Instruction
+                              <div
+                                className="instruction"
                                 id={`Step${step}`}
                                 key={`instruction-${index}`}
                                 dangerouslySetInnerHTML={{
                                   __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody,
                                 }}
-                              ></Instruction>
+                              ></div>
                             )
                           })}
                         </div>
                       )
                     })}
-                  </InstructionContainer>
-                  <TagContainer className="col12">
+                  </div>
+                  <div className="tag-container col12">
                     <h3>Tags</h3>
-                    <TagStyled>{post.mealType}</TagStyled>
+                    <p className="tag-styled">{post.mealType}</p>
                     {/* {post.proteinType &&
                       post.proteinType.length > 0 &&
                       post.proteinType.map((proteinType: ProteinType, parentIndex: number) => {
@@ -482,7 +458,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                     {post.vegetableType.map((vegetable: string, index: number) => {
                       return <TagStyled key={`tag-${index}`}>{vegetable}</TagStyled>
                     })} */}
-                  </TagContainer>
+                  </div>
                 </div>
                 <div className="featured-spacer">
                   <FeaturedContentRow {...articleFeatures} />
@@ -502,7 +478,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               <div className="col12"></div>
             </div>
           </div>
-        </MainContainer>
+        </div>
       </Layout>
     )
   }
