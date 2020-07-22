@@ -118,8 +118,6 @@ export default ({ children }) => (
           text-align: justify;
         }
 
-        /* ==== GRID SYSTEM ==== */
-
         .container {
           width: 90%;
           margin-left: auto;
@@ -231,9 +229,11 @@ export default ({ children }) => (
         }
 
         @media (max-width: 767px) {
-          column-count: 1;
-          padding-left: 10%;
-          width: 80%;
+          .container {
+            column-count: 1;
+            padding-left: 10%;
+            width: 80%;
+          }
         }
 
         @media only screen and (min-width: 45em) {
@@ -302,18 +302,6 @@ export default ({ children }) => (
             width: 75%;
             max-width: 90rem;
           }
-        }
-
-        /**
- * article grid
- */
-        .article-list {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          grid-gap: 5vmin;
         }
 
         /**
