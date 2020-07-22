@@ -23,7 +23,7 @@ class FooterAMP extends PureComponent {
               .footer-column {
                 width: 21%;
                 padding-right: 4%;
-                padding - bottom: 100px;
+                padding-bottom: 100px;
                 padding-left: 5%;
                 width: 90%;           
               }
