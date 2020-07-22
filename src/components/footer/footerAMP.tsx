@@ -134,7 +134,15 @@ class FooterAMP extends PureComponent {
                   height="20"
                   alt="Knife andFish Facebook"
                   src="//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg"
-                />
+                >
+                  <noscript>
+                    <img
+                      src="//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg"
+                      width="20"
+                      height="20"
+                    />
+                  </noscript>
+                </amp-img>
               </a>
               <a aria-label="Knife and Fish Instagram" href="https://www.instagram.com/knifeandfish/">
                 <amp-img
@@ -143,7 +151,15 @@ class FooterAMP extends PureComponent {
                   height="20"
                   alt="Knife and Fish Instagram"
                   src="//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg"
-                />
+                >
+                  <noscript>
+                    <img
+                      src="//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg"
+                      width="20"
+                      height="20"
+                    />
+                  </noscript>
+                </amp-img>
               </a>
               <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
                 <amp-img
@@ -152,7 +168,15 @@ class FooterAMP extends PureComponent {
                   height="20"
                   alt="Knife and Fish Pinterest"
                   src="//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg"
-                />
+                >
+                  <noscript>
+                    <img
+                      src="//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg"
+                      width="20"
+                      height="20"
+                    />
+                  </noscript>
+                </amp-img>
               </a>
             </div>
             <div className="col6">
