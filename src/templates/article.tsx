@@ -242,7 +242,6 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               offset={100}
-              height={heroHeight}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
@@ -260,7 +259,6 @@ class ArticleTemplate extends React.Component<ArticleProps> {
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
               offset={100}
-              height={bannerHeight}
             >
               <picture>
                 <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />

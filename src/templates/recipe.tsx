@@ -358,7 +358,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               className="hidden-sm"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
-              height={heroHeight}
               offset={100}
             >
               <picture>
@@ -376,7 +375,6 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               className="hidden-lg"
               style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
               once
-              height={bannerHeight}
               offset={100}
             >
               <picture>
