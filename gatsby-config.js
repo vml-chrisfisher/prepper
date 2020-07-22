@@ -73,7 +73,7 @@ module.exports = {
               },
           },
         },
-        canonicalBaseUrl: 'http://www.knifeandfish.com/',
+        canonicalBaseUrl: 'https://www.knifeandfish.com/',
         components: ['amp-form'],
         excludedPaths: ['/404*', '/'],
         pathIdentifier: '/amp/',
