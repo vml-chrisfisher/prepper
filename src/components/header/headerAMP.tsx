@@ -30,7 +30,7 @@ class HeaderAMP extends PureComponent {
                 top: 0;
                 left: 0;
                 height: 73px;
-
+                z-index: 99999;
               }
               .navigation {
                 display: flex;
