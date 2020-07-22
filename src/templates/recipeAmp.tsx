@@ -307,11 +307,9 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}
             <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-            <script async src="https://cdn.ampproject.org/v0.js"></script>
 
             {/* The thumbnail of your website */}
             <meta name="image" content={post.heroImage.file.url} />
-            <link rel="canonical" href={`https://www.knifeandfish.com/recipes/${post.slug}`}></link>
             {/* Opengraph meta tags for Facebook & LinkedIn */}
             <meta property="og:url" content={`https://www.knifeandfish.com/article/${post.slug}`} />
             <meta property="og:type" content="NewsArticle" />
@@ -344,25 +342,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             <title>{post.title} | Knife & Fish</title>
 
             {/* Default language and direction */}
-
-            <style amp-custom>
-              {`body{
-                -webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
-                -moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
-                -ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;
-                animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}
-              }`}
-            </style>
-            <noscript>
-              {`<style amp-custom>
-                body{
-                  -webkit-animation:none;
-                  -moz-animation:none;
-                  -ms-animation:none;
-                  animation:none
-                }
-              </style>`}
-            </noscript>
 
             <html lang="en" amp />
           </Helmet>

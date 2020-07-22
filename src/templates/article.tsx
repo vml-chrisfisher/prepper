@@ -188,7 +188,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}
             <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-
+            <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1"></meta>
             {/* The thumbnail of your website */}
             <meta name="image" content={post.heroImage.file.url} />
 
