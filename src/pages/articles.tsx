@@ -48,7 +48,9 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
     return (
       <Layout location={this.props.location}>
         <MainContainer>
-          <Helmet title="Articles | Knife & Fish" />
+          <Helmet title="Articles | Knife & Fish">
+            <link rel="canonical" href="https://www.knifeandfish.com/articles"></link>
+          </Helmet>
           <h1>Articles</h1>
           <div className="wrapper">
             <div>

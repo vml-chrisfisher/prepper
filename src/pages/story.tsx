@@ -67,7 +67,9 @@ class StoryIndex extends React.Component<HomeProps> {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title="Knife & Fish" />
+        <Helmet title="Knife & Fish">
+          <link rel="canonical" href="https://www.knifeandfish.com/story"></link>
+        </Helmet>
         <div className={styles.homeContent}>
           <StoryContainer>
             <VideoStoryBackground {...{ videoPath, mobileVideoPath }} />

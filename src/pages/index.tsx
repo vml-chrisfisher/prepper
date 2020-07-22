@@ -78,7 +78,9 @@ class RootIndex extends React.Component<HomeProps> {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title="Knife & Fish" />
+        <Helmet title="Knife & Fish">
+          <link rel="canonical" href="https://www.knifeandfish.com"></link>
+        </Helmet>
         <div style={{ background: '#fff', display: 'list-item' }}>
           <VideoBackground {...{ videoPath, mobileVideoPath }} />
         </div>

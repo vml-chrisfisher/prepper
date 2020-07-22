@@ -55,7 +55,9 @@ class RecipeIndex extends React.Component<RecipesProps> {
     return (
       <Layout location={this.props.location}>
         <MainContainer>
-          <Helmet title="Recipes | Knife & Fish" />
+          <Helmet title="Recipes | Knife & Fish">
+            <link rel="canonical" href="https://wwww.knifeandfish.com/recipes"></link>
+          </Helmet>
           <h1>Recipes</h1>
           <div className="wrapper">
             <div>

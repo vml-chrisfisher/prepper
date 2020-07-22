@@ -35,8 +35,6 @@ const Layout = ({ location, children }: Props) => {
     <Container>
       <Helmet>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-
-        <link rel="canonical" href={location.href}></link>
         <meta
           name="description"
           content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails. Garden with confidence. Cook with passion. Enjoy your food. Create conversation.  Find recipes, search our encyclopedia of gardening and cooking tips and ingredients, watch food videos, and more."

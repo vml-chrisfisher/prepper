@@ -57,7 +57,9 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
     return (
       <Layout location={this.props.location}>
         <MainContainer>
-          <Helmet title="Recipes | Knife & Fish" />
+          <Helmet title="Recipes | Knife & Fish">
+            <link rel="canonical" href={location.href}></link>
+          </Helmet>
           <h1>{posts[0].node.mealType} Recipes</h1>
           <div className="wrapper">
             <div>
