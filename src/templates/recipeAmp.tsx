@@ -332,13 +332,14 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             </div>
             <amp-img
               class="hidden-sm"
-              src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
+              src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
               width={windowWidth}
               height={Math.round((windowWidth * 9) / 16)}
+              layout="responsive"
             >
               <noscript>
                 <img
-                  src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
+                  src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
                   width={windowWidth}
                   height={Math.round((windowWidth * 9) / 16)}
                 />
@@ -346,13 +347,14 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             </amp-img>
             <amp-img
               class="hidden-lg"
-              src={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
+              src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
               width={windowWidth}
               height={Math.round((windowWidth * 3) / 2)}
+              layout="responsive"
             >
               <noscript>
                 <img
-                  src={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
+                  src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
                   width={windowWidth}
                   height={Math.round((windowWidth * 3) / 2)}
                 />

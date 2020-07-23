@@ -340,13 +340,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
             {/* Structured data */}
             <script type="application/ld+json">{structuredDataArticle}</script>
-            <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${post.slug}`}></link>
+            <link rel="canonical" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`}></link>
 
             {/* The title of your current page */}
             <title>{post.title} | Knife & Fish</title>
 
             {/* Default language and direction */}
-            <html lang="en" dir="ltr" amp />
+            <html lang="en" dir="ltr" />
           </Helmet>
           <div>
             <div className="row">
