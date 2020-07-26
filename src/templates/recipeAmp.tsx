@@ -414,32 +414,34 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
               </div>
               <div className="col3" />
             </div>
-            <amp-img
-              class="hidden-sm"
-              src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
-              width={windowWidth}
-              height={heroHeight}
-              layout="responsive"
-            >
-              <noscript>
-                <img src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`} width={windowWidth} height={heroHeight} />
-              </noscript>
-            </amp-img>
-            <amp-img
-              class="hidden-lg"
-              src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
-              width={windowWidth}
-              height={bannerHeight}
-              layout="responsive"
-            >
-              <noscript>
-                <img
-                  src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
-                  width={windowWidth}
-                  height={bannerHeight}
-                />
-              </noscript>
-            </amp-img>
+            <div style={{ width: '100%' }}>
+              <amp-img
+                class="hidden-sm"
+                src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
+                width={windowWidth}
+                height={heroHeight}
+                layout="responsive"
+              >
+                <noscript>
+                  <img src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`} width={windowWidth} height={heroHeight} />
+                </noscript>
+              </amp-img>
+              <amp-img
+                class="hidden-lg"
+                src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
+                width={windowWidth}
+                height={bannerHeight}
+                layout="responsive"
+              >
+                <noscript>
+                  <img
+                    src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
+                    width={windowWidth}
+                    height={bannerHeight}
+                  />
+                </noscript>
+              </amp-img>
+            </div>
             <div className="row">
               <div className="col2"></div>
               <div className="col8">
