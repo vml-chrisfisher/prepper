@@ -408,7 +408,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                 src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
                 width={windowWidth}
                 height={heroHeight}
-                layout="responsive"
               >
                 <noscript>
                   <img
