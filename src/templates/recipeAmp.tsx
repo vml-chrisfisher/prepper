@@ -416,28 +416,16 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             </div>
             <div style={{ width: '100%' }}>
               <amp-img
-                class="hidden-sm"
-                src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
+                src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
                 width={windowWidth}
                 height={heroHeight}
                 layout="responsive"
               >
                 <noscript>
-                  <img src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`} width={windowWidth} height={heroHeight} />
-                </noscript>
-              </amp-img>
-              <amp-img
-                class="hidden-lg"
-                src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
-                width={windowWidth}
-                height={bannerHeight}
-                layout="responsive"
-              >
-                <noscript>
                   <img
-                    src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
+                    src={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`}
                     width={windowWidth}
-                    height={bannerHeight}
+                    height={heroHeight}
                   />
                 </noscript>
               </amp-img>
