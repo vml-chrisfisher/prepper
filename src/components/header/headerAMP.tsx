@@ -118,9 +118,7 @@ class HeaderAMP extends PureComponent {
                 width="100"
                 height="75"
                 alt="Knife and Fish Logo"
-                src={
-                  '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
-                }
+                src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
               >
                 <noscript>
                   <img
