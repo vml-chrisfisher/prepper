@@ -417,30 +417,30 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             <amp-img
               class="hidden-sm"
               src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
-              width={windowWidth}
-              height={Math.round((windowWidth * 9) / 16)}
+              width={`${windowWidth}px`}
+              height={`{Math.round((windowWidth * 9) / 16)}px`}
               layout="responsive"
             >
               <noscript>
                 <img
                   src={`${post.heroImage.file.url}?fm=webp&q=70&w=1200`}
-                  width={windowWidth}
-                  height={Math.round((windowWidth * 9) / 16)}
+                  width={`{windowWidth}px`}
+                  height={`{Math.round((windowWidth * 9) / 16)}px`}
                 />
               </noscript>
             </amp-img>
             <amp-img
               class="hidden-lg"
               src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
-              width={windowWidth}
-              height={Math.round((windowWidth * 3) / 2)}
+              width={`{windowWidth}px`}
+              height={`{Math.round((windowWidth * 3) / 2)}px`}
               layout="responsive"
             >
               <noscript>
                 <img
                   src={`${post.bannerImage.file.url}?fm=webp&q=70&w=767`}
-                  width={windowWidth}
-                  height={Math.round((windowWidth * 3) / 2)}
+                  width={`{windowWidth}px`}
+                  height={`{Math.round((windowWidth * 3) / 2)}px`}
                 />
               </noscript>
             </amp-img>
