@@ -199,13 +199,14 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             {/* The title of your current page */}
             <title>{post.title} | Knife & Fish</title>
             <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${post.slug}`}></link>
+            <script async="" src="https://cdn.ampproject.org/v0.js"></script>
             <script async="" custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
             <script
               async=""
               custom-element="amp-analytics"
               src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
             ></script>
-            <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+
             <meta name="amp-google-client-id-api" content="googleanalytics" />
             <style amp-boilerplate="">
               {`body {
