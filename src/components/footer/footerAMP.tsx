@@ -36,7 +36,7 @@ class FooterAMP extends PureComponent {
               }
 
               .footer-paragraph {
-                color: #464646
+                color: #464646;
                 font-size: 1em;
                 font-family: 'Nunito', sans-serif;
                 letter-spacing: -0.5px;

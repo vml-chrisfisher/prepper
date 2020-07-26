@@ -197,7 +197,86 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
 
             {/* The title of your current page */}
             <title>{post.title} | Knife & Fish</title>
+            <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${post.slug}`}></link>
+            <script async="" custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+            <script
+              async=""
+              custom-element="amp-analytics"
+              src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
+            ></script>
+            <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+            <meta name="amp-google-client-id-api" content="googleanalytics" />
+            <style amp-boilerplate="">
+              {`body {
+                  -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+                  -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+                  -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+                  animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+                }
 
+                @-webkit-keyframes -amp-start {
+                  from {
+                    visibility: hidden;
+                  }
+
+                  to {
+                    visibility: visible;
+                  }
+                }
+
+                @-moz-keyframes -amp-start {
+                  from {
+                    visibility: hidden;
+                  }
+
+                  to {
+                    visibility: visible;
+                  }
+                }
+
+                @-ms-keyframes -amp-start {
+                  from {
+                    visibility: hidden;
+                  }
+
+                  to {
+                    visibility: visible;
+                  }
+                }
+
+                @-o-keyframes -amp-start {
+                  from {
+                    visibility: hidden;
+                  }
+
+                  to {
+                    visibility: visible;
+                  }
+                }
+
+                @keyframes -amp-start {
+                  from {
+                    visibility: hidden;
+                  }
+
+                  to {
+                    visibility: visible;
+                  }
+                }`}
+            </style>
+            <noscript>
+              {`
+              <style amp-boilerplate="">
+              
+                body {
+                  -webkit-animation: none;
+                  -moz-animation: none;
+                  -ms-animation: none;
+                  animation: none;
+                }
+              </style>
+              `}
+            </noscript>
             {/* Default language and direction */}
             <style amp-custom>
               {`
@@ -321,6 +400,11 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             <html lang="en" amp />
           </Helmet>
           <HeaderAMP />
+          <amp-analytics type="gtag" data-credentials="include">
+            <script type="application/json">
+              {' {"vars":{"gtag_id":"UA-127393105-1","config":{"UA-127393105-1":{"page_location":${post.slug}}}}} '}
+            </script>
+          </amp-analytics>
           <div>
             <div className="row">
               <div className="col3" />

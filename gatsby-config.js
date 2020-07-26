@@ -57,31 +57,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-amp`,
-      options: {
-        analytics: {
-          type: 'gtag',
-          dataCredentials: 'include',
-          config: {
-            vars: {
-              gtag_id: 'UA-127393105-1',
-              config: {
-                      'UA-127393105-1': {
-                        page_location: '{{ pathname }}'
-                      },
-                    },
-              },
-          },
-        },
-        canonicalBaseUrl: 'https://www.knifeandfish.com/',
-        components: ['amp-form'],
-        excludedPaths: ['/404*', '/'],
-        pathIdentifier: '/amp/',
-        relAmpHtmlPattern: '{{ canonicalBaseUrl }}{{ pathname }}{{ pathIdentifier }}',
-        useAmpClientIdApi: true,
-      },
-    },
-    {
       resolve: `gatsby-remark-images`,
     }
   ],

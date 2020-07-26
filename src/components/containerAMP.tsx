@@ -305,18 +305,6 @@ export default ({ children }) => (
             max-width: 90rem;
           }
         }
-
-        /**
- *
- */
-        .section-headline {
-          padding: 0 0 0.4em 0;
-          margin: 0 0 5vmin 0;
-        }
-
-        /**
- *
- */
         .list-inline {
           margin: 0;
           padding: 0;
