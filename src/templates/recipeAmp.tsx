@@ -165,7 +165,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}
             <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-
+            <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"></meta>
             {/* The thumbnail of your website */}
             <meta name="image" content={post.heroImage.file.url} />
             {/* Opengraph meta tags for Facebook & LinkedIn */}
@@ -199,7 +199,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             {/* The title of your current page */}
             <title>{post.title} | Knife & Fish</title>
             <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${post.slug}`}></link>
-            <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js"></link>
+            <script async src="https://cdn.ampproject.org/v0.js"></script>
             <style amp-boilerplate="">
               {`body {
                   -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
