@@ -31,8 +31,9 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
-    const heroHeight =
-      (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
+    const heroHeight = Math.round(
+      (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width,
+    )
     const bannerHeight =
       (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
@@ -400,11 +401,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             <html lang="en" amp />
           </Helmet>
           <HeaderAMP />
-          <amp-analytics type="gtag" data-credentials="include">
-            <script type="application/json">
-              {' {"vars":{"gtag_id":"UA-127393105-1","config":{"UA-127393105-1":{"page_location":${post.slug}}}}} '}
-            </script>
-          </amp-analytics>
           <div>
             <div className="row">
               <div className="col3" />
