@@ -199,7 +199,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
             {/* The title of your current page */}
             <title>{post.title} | Knife & Fish</title>
             <link rel="canonical" href={`https://www.knifeandfish.com/recipe/${post.slug}`}></link>
-            <script async="" src="https://cdn.ampproject.org/v0.js"></script>
+            <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js"></link>
             <style amp-boilerplate="">
               {`body {
                   -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
