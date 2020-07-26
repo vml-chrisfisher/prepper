@@ -29,7 +29,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
     let step = 0
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
     const postCreate = dateformat(post.createdAt, 'fullDate')
-    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
+    const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 800
     const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
     const heroHeight = Math.round(
       (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width,
