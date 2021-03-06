@@ -58,8 +58,10 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     return (
       <header>
         <nav role="navigation">
-          <Navigation>
-            {/* <li>
+          <NavigationContainer>
+            <NavigationColumn>
+              <Navigation>
+                {/* <li>
               <NavigationItem
                 theme={themeValue}
                 onClick={() => {
@@ -69,35 +71,80 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                 Plants
               </NavigationItem>
             </li> */}
-            <li>
+                <li>
+                  <NavigationItem
+                    theme={themeValue}
+                    onClick={() => {
+                      this.onRecipesClick()
+                    }}
+                  >
+                    Recipes
+                  </NavigationItem>
+                </li>
+                <li>
+                  <NavigationItem theme={themeValue} href="/articles">
+                    Articles
+                  </NavigationItem>
+                </li>
+                <li>
+                  <NavigationItem theme={themeValue} href="/shop">
+                    Shop
+                  </NavigationItem>
+                </li>
+              </Navigation>
+            </NavigationColumn>
+            <NavigationColumn>
+              <LogoContainer>
+                <div>
+                  <LogoLink href="/">
+                    <LogoImage
+                      alt="Knife and Fish Logo"
+                      src={
+                        '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
+                      }
+                    />
+                  </LogoLink>
+                </div>
+              </LogoContainer>
+            </NavigationColumn>
+            <NavigationColumn>
+              <NavigationRight>
+                {/* <li>
               <NavigationItem
                 theme={themeValue}
                 onClick={() => {
-                  this.onRecipesClick()
+                  this.onSeedsClick()
                 }}
               >
-                Recipes
+                Plants
               </NavigationItem>
-            </li>
-            <li>
-              <NavigationItem theme={themeValue} href="/articles">
-                Articles
-              </NavigationItem>
-            </li>
-          </Navigation>
+            </li> */}
+                <li>
+                  <NavigationItemRight
+                    theme={themeValue}
+                    onClick={() => {
+                      this.onRecipesClick()
+                    }}
+                  >
+                    About
+                  </NavigationItemRight>
+                </li>
+                <li>
+                  <LogoLink href="/">
+                    <NavigationItemIcon alt="Search" src="/search_icon.svg"></NavigationItemIcon>
+                  </LogoLink>
+                </li>
+                <li>
+                  <li>
+                    <LogoLink href="/">
+                      <NavigationItemIcon alt="Profile" src="/profile_icon.svg"></NavigationItemIcon>
+                    </LogoLink>
+                  </li>
+                </li>
+              </NavigationRight>
+            </NavigationColumn>
+          </NavigationContainer>
         </nav>
-        <LogoContainer>
-          <div>
-            <LogoLink href="/">
-              <LogoImage
-                alt="Knife and Fish Logo"
-                src={
-                  '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
-                }
-              />
-            </LogoLink>
-          </div>
-        </LogoContainer>
         <HeaderOuter {...{ isUp: menuUp }} className="row">
           <HeaderInner12 {...{ isMenu: this.state.menuType === HeaderMenuType.PLANTS }} className="col12">
             <Col3Full className="col3">
@@ -264,9 +311,9 @@ const HeaderDetailItem = styled.a`
 `
 
 const HeaderNavItem = styled.li`
-  color: #464646;
+  color: #ffffff;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   list-style: none;
   padding-bottom: 20px;
@@ -342,10 +389,9 @@ const Col12Full = styled.div`
 `
 
 const LogoContainer = styled.div`
-  background-color: #fff;
   position: fixed;
   text-align: center;
-  width: 100%;
+  width: 33%;
   z-index: 999;
   @media (max-width: 767px) {
     text-align: right;
@@ -359,9 +405,20 @@ const LogoLink = styled.a`
 
 const LogoImage = styled.img`
   display: inline-block;
-  width: 100px;
+  width: 92px;
   @media (max-width: 767px) {
     padding-right: 20px;
+  }
+`
+
+const NavigationItemIcon = styled.img`
+  margin-top: 20px;
+  margin-right: 25px;
+  display: inline-block;
+  width: 22px;
+  &:hover {
+    color: #f24e11;
+    transition: color 1s ease;
   }
 `
 
@@ -434,7 +491,29 @@ const Navigation = styled.ul`
   display: flex;
   justify-content: left;
   list-style: none;
-  padding-left: 80px;
+  padding-left: 26px;
+  padding-top: 0px;
+  margin: 0;
+  font-size: 1.25em;
+  @media (max-width: 767px) {
+    padding-left: 20px;
+  }
+`
+const NavigationContainer = styled.div`
+  display: flex;
+  width: 100%;
+`
+const NavigationColumn = styled.div`
+  flex-grow: 1;
+  width: 33%;
+`
+
+const NavigationRight = styled.ul`
+  display: flex;
+  align-items: right;
+  justify-content: flex-end;
+  list-style: none;
+  padding-right: 1px;
   padding-top: 0px;
   margin: 0;
   font-size: 1.25em;
@@ -444,16 +523,15 @@ const Navigation = styled.ul`
 `
 
 const NavigationItem = styled.a<ThemeProps>`
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: ${props => {
-    return props.theme === 'white' ? '#464646' : '#464646'
+    return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
   text-decoration: none;
-  text-transform: uppercase;
   font-size: 0.6em;
-  font-weight: 600;
+  font-weight: 100;
   transition: color 1s ease;
-  margin-right: 40px;
+  margin-right: 38px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -466,7 +544,34 @@ const NavigationItem = styled.a<ThemeProps>`
   width: 48px;
   height: 48px;
   &:hover {
-    color: #999999;
+    color: #f24e11;
+    transition: color 1s ease;
+  }
+`
+
+const NavigationItemRight = styled.a<ThemeProps>`
+  font-family: 'Roboto', sans-serif;
+  color: ${props => {
+    return props.theme === 'white' ? '#FFFFFF' : '#464646'
+  }};
+  text-decoration: none;
+  font-size: 0.6em;
+  font-weight: 100;
+  transition: color 1s ease;
+  margin-right: 25px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: block;
+  padding-top: 25px;
+  width: 31px;
+  height: 48px;
+  &:hover {
+    color: #f24e11;
     transition: color 1s ease;
   }
 `

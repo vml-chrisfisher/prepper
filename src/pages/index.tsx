@@ -7,13 +7,13 @@ import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import FeaturedVegetableRow from '../components/featuredVegetableRow'
 import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import HomeHero from '../components/homeHero'
 import Layout from '../components/layout'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
-import HeaderContainer from '../components/header/container'
 
 class RootIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -27,7 +27,7 @@ class RootIndex extends React.Component<HomeProps> {
     const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'
     const mobileVideoPath = 'https://knifeandfish.s3.amazonaws.com/knifeandfishmobile.mp4'
-    const headline = post.node.headline.childMarkdownRemark.rawMarkdownBody
+    const headline = 'Delicious<br>organic,<br>locally sourced</br>sustainable<br>meals for everyone.'
     const searchQuestion = post.node.searchQuestion
     const searchPlaceholder = post.node.searchPlaceholder
 
@@ -35,7 +35,7 @@ class RootIndex extends React.Component<HomeProps> {
     const recipeFeatures: FeatureContentRowProps = {
       details: {
         title: 'Recipes',
-        description: 'Creating a meal, creates conversations and brings people to together. Let us help you.',
+        description: 'Delicious<br>organic,<br>locally sourced</br>sustainable<br>meals for everyone.',
         buttonCaption: 'Find Recipes',
         slug: '/recipes',
         theme: HeaderTheme.LIGHT,
