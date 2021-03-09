@@ -33,9 +33,10 @@ class StoryIndex extends React.Component<HomeProps> {
     `
 
     const Title = styled.h2`
-      color: #333
+      color: #333;
       text-align: left;
       padding-top: 30px;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -50,6 +51,7 @@ class StoryIndex extends React.Component<HomeProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -59,8 +61,9 @@ class StoryIndex extends React.Component<HomeProps> {
     const Quote = styled.h4`
       color: #333;
       padding-bottom: 100px;
+
       @media (max-width: 767px) {
-        padding-bottom: 0px;
+        padding-bottom: 0;
         padding-left: 10%;
         width: 80%;
       }

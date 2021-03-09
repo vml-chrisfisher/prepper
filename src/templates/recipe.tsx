@@ -32,6 +32,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
   render() {
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
+
       @media (max-width: 767px) {
         font-size: 3.5em;
         padding: 0;
@@ -53,6 +54,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -68,6 +70,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
+
       @media (max-width: 767px) {
         column-count: 1;
         padding-left: 10%;
@@ -80,6 +83,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       position: absolute;
       top: 15.625em;
       width: 100%;
+
       @media (max-width: 767px) {
         top: 6em;
       }
@@ -94,6 +98,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const InstructionContainer = styled.div`
       display: inline-block;
       width: 66%;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -113,6 +118,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       display: inline-block;
       width: 30%;
       padding-right: 4%;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -137,6 +143,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       display: inline-block;
       width: 100%;
       padding-right: 4%;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -163,9 +170,10 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
     const FeaturedSpacer = styled.div`
       padding-top: 50px;
+
       @media (max-width: 767px) {
         padding-left: 5%;
-        padding-top: 0px;
+        padding-top: 0;
         width: 90%;
       }
     `

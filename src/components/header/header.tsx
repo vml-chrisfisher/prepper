@@ -46,6 +46,18 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     this.setState(state => ({ ...state, menuUp: true }))
   }
 
+  onSearchClick() {
+    if (this.props.onShowSearch) {
+      this.props.onShowSearch
+    }
+  }
+
+  onProfileClick() {
+    if (this.props.onShowProfile) {
+      this.props.onShowProfile()
+    }
+  }
+
   componentDidMount = () => {
     if (this.props.onFetch) {
       this.props.onFetch()
@@ -130,13 +142,21 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                   </NavigationItemRight>
                 </li>
                 <li>
-                  <LogoLink href="/">
+                  <LogoLink
+                    onClick={() => {
+                      this.onSearchClick()
+                    }}
+                  >
                     <NavigationItemIcon alt="Search" src="/search_icon.svg"></NavigationItemIcon>
                   </LogoLink>
                 </li>
                 <li>
                   <li>
-                    <LogoLink href="/">
+                    <LogoLink
+                      onClick={() => {
+                        this.onProfileClick()
+                      }}
+                    >
                       <NavigationItemIcon alt="Profile" src="/profile_icon.svg"></NavigationItemIcon>
                     </LogoLink>
                   </li>

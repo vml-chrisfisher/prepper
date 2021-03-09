@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetch } from '../../store/actions'
+import { fetch, onShowHeaderProfile, onShowSearch } from '../../store/actions'
 import { onCategorySelected, onFamilySelected } from './../../store/actions/index'
 import Header from './header'
 
@@ -24,6 +24,12 @@ const mapDispatchToProps = (dispatch: any) => {
     },
     onCategorySelected: (id?: string) => {
       dispatch(onCategorySelected(id))
+    },
+    onShowSearch: () => {
+      dispatch(onShowSearch())
+    },
+    onShowHeaderProfile: () => {
+      dispatch(onShowHeaderProfile())
     },
   }
 }

@@ -26,6 +26,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
   render() {
     const Title = styled.h1`
       padding: 0 0 0.4em 0;
+
       @media (max-width: 767px) {
         font-size: 3.5em;
         padding: 0;
@@ -43,6 +44,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       display: inline-block;
       width: 100%;
       padding-right: 4%;
+
       @media (max-width: 767px) {
         padding-left: 10%;
         width: 80%;
@@ -67,6 +69,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
+
       @media (max-width: 767px) {
         column-count: 1;
         padding-left: 10%;
@@ -78,6 +81,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       background-color: #fff;
       position: absolute;
       top: 15.625em;
+
       @media (max-width: 767px) {
         top: 6em;
       }
@@ -85,6 +89,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
     const Col2Full = styled.div`
       width: 16.66%;
+
       @media (max-width: 767px) {
         width: 100%;
       }
@@ -92,6 +97,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
     const Col8Full = styled.div`
       width: 66.66%;
+
       @media (max-width: 767px) {
         width: 100%;
       }

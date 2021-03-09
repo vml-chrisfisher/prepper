@@ -24,8 +24,10 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
       position: absolute;
       top: 15.625em;
       width: 100%;
-      @media (max-width:767px) {
+
+      @media (max-width: 767px) {
         top: 6em;
+      }
     `
     const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: ArticlesEdge[] = get(this, 'props.data.allContentfulArticle.edges')

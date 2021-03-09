@@ -1,4 +1,3 @@
-import { css, Global } from '@emotion/core'
 import React from 'react'
 import Helmet from 'react-helmet'
 import Container from './container'

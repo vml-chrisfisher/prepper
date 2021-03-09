@@ -1,2 +1,2 @@
-export const hero: string;
-export const homeContent: string;
+export const hero: string
+export const homeContent: string

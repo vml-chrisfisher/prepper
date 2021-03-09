@@ -219,7 +219,7 @@ export default ({ children }) => (
         }
 
         .white-text {
-          color: #ffffff;
+          color: #fff;
         }
 
         @media only screen and (min-width: 33.75em) {
@@ -336,7 +336,7 @@ export default ({ children }) => (
           text-transform: uppercase;
           padding: 20px 25px;
           letter-spacing: 2px;
-          color: #000000;
+          color: #000;
         }
 
         .primaryButton {
@@ -364,8 +364,8 @@ export default ({ children }) => (
 
         .darkOutline {
           background-color: transparent;
-          border: #000000 solid 0.5px;
-          color: #000000;
+          border: #000 solid 0.5px;
+          color: #000;
         }
 
         .lds-grid {

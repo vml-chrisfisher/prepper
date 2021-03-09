@@ -22,13 +22,15 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
 
   render() {
     const MainContainer = styled.div`
-          background-color: #fff;
-          position: absolute;
-          top: 15.625em;
-          width: 100%;
-          @media (max-width:767px) {
-            top: 6em;
-        `
+      background-color: #fff;
+      position: absolute;
+      top: 15.625em;
+      width: 100%;
+
+      @media (max-width: 767px) {
+        top: 6em;
+      }
+    `
     const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4

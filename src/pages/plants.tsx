@@ -143,7 +143,8 @@ class PlantsIndex extends React.Component<PlantsProps> {
       -moz-transition: all 1s;
       -o-transition: all 1s;
       transition: all 1s;
-      &:before {
+
+      &::before {
         position: absolute;
         content: ' ';
         top: 0;
@@ -183,7 +184,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
     const ArticleDescription = styled.div`
       font-family: 'Nunito', sans-serif;
       font-size: 0.75em;
-      color: #ffffff;
+      color: #fff;
       height: 100px;
       max-height: 100px;
       display: block;
@@ -199,7 +200,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       font-family: 'Nunito', sans-serif;
       font-size: 1.5em;
       font-weight: 600;
-      color: #333333;
+      color: #333;
       display: block;
     `
 
@@ -207,7 +208,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       font-family: 'Nunito', sans-serif;
       font-size: 1em;
       font-weight: 300;
-      color: #333333;
+      color: #333;
       display: block;
     `
 
@@ -216,7 +217,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       border: none;
       font-family: 'Nunito', sans-serif;
       font-size: 0.75rem;
-      color: #ffffff;
+      color: #fff;
       text-align: center;
       margin: 20px auto;
       display: block;

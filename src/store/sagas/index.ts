@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
-import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES } from './../actions/types'
+import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES, SEARCH_ACTION_TYPES } from './../actions/types'
 
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>(resolve => {
@@ -92,8 +92,49 @@ export function* submitNewsletterEmailAsync(action: any) {
       })
     }
   } else {
+    yield put({ type: NEWSLETTER_ACTION_TYPES.ADDED_FAILURE, error: new Error('sdf') })
+  }
+}
+
+const submitSearch = (value: string) => {
+  const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
+  return axios.post(
+    url,
+    {
+      search: value,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  )
+}
+
+export function* submitSearchAsync(action: any) {
+  yield put({
+    type: SEARCH_ACTION_TYPES.SEARCHING,
+  })
+  const { search } = action
+  if (search) {
+    try {
+      const response = yield call(submitSearch, search)
+      console.log(response)
+      yield delay(3000)
+      yield put({
+        type: SEARCH_ACTION_TYPES.SEARCH_SUCCESS,
+        searchResults: response,
+      })
+    } catch (error) {
+      console.log('ERROR: ', error)
+      yield put({
+        type: SEARCH_ACTION_TYPES.SEARCH_FAILURE,
+        error: error,
+      })
+    }
+  } else {
     yield put({
-      type: NEWSLETTER_ACTION_TYPES.ADDED_FAILURE,
+      type: SEARCH_ACTION_TYPES.SEARCH_FAILURE,
     })
   }
 }
@@ -106,6 +147,10 @@ function* watchSubmitNewsletterEmail() {
   yield takeEvery(NEWSLETTER_ACTION_TYPES.SUBMIT, submitNewsletterEmailAsync)
 }
 
+function* watchSearch() {
+  yield takeEvery(SEARCH_ACTION_TYPES.SEARCH, submitSearchAsync)
+}
+
 export default function* rootSaga() {
-  yield all([watchFetchHeaderProductCategoryDetail(), watchSubmitNewsletterEmail()])
+  yield all([watchFetchHeaderProductCategoryDetail(), watchSubmitNewsletterEmail(), watchSearch])
 }

@@ -129,5 +129,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([articlesPromise, recipesPromise, recipesAMPPromise, recipeMealTypePromises]);
+  return Promise.all([articlesPromise, recipesPromise, recipesAMPPromise, recipeMealTypePromises])
 }
