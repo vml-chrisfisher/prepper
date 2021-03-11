@@ -15,6 +15,7 @@ export interface HeaderProps {
   data?: ProductFamily[]
   categories?: ProductCategory[]
   categoryDetail?: ProductCategoryDetail
+  showHeaderProfile: boolean
   onFetch?: () => void
   onFamilySelected?: (id: string) => void
   onCategorySelected?: (id?: string) => void

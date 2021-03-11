@@ -4,6 +4,10 @@ interface Action {
 
 const initialState = {
   isDarkMode: false,
+  showSearch: false,
+  showHeaderProfile: false,
+  showAccount: true,
+  showCart: false,
 }
 
 const headerUI = (state = initialState) => {

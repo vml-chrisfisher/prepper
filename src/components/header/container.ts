@@ -7,10 +7,12 @@ const mapStateToProps = (state: any) => {
   const { data } = state.header
   const { categories } = state.header
   const { categoryDetail } = state.header
+  const { showHeaderProfile } = state.visibilityFilter
   return {
     data,
     categories,
     categoryDetail,
+    showHeaderProfile,
   }
 }
 
@@ -28,7 +30,7 @@ const mapDispatchToProps = (dispatch: any) => {
     onShowSearch: () => {
       dispatch(onShowSearch())
     },
-    onShowHeaderProfile: () => {
+    onShowProfile: () => {
       dispatch(onShowHeaderProfile())
     },
   }

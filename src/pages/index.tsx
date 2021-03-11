@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
@@ -9,8 +10,10 @@ import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
 import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
 import HomeHero from '../components/homeHero'
 import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
 import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
@@ -77,26 +80,38 @@ class RootIndex extends React.Component<HomeProps> {
       }),
     }
 
+    // const MainContainer = styled.div`
+    //   background-color: #fff;
+    //   position: absolute;
+    //   top: 15.625em;
+
+    //   @media (max-width: 767px) {
+    //     top: 6em;
+    //   }
+    // `
+
     return (
       <Layout location={this.props.location}>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com"></link>
         </Helmet>
-
-        <div style={{ background: '#fff', display: 'list-item' }}>
-          <VideoBackground {...{ videoPath, mobileVideoPath }} />
-        </div>
-        <div className={styles.homeContent}>
-          <div className="container">
-            <HomeHero {...{ headline, searchPlaceholder, searchQuestion }}></HomeHero>
-            {/* <FeaturedVegetableRow /> */}
-            <FeaturedContentRow {...recipeFeatures} />
-            <FeaturedContentRow {...articleFeatures} />
-            <GeneralContentRow />
-            <Footer {...{ theme: HeaderTheme.LIGHT }} />
+        <MainContainer id="mainContainer">
+          <div style={{ background: '#fff', display: 'list-item' }}>
+            <VideoBackground {...{ videoPath, mobileVideoPath }} />
           </div>
-        </div>
+          <div className={styles.homeContent}>
+            <div className="container">
+              <HomeHero {...{ headline, searchPlaceholder, searchQuestion }}></HomeHero>
+              {/* <FeaturedVegetableRow /> */}
+              <FeaturedContentRow {...recipeFeatures} />
+              <FeaturedContentRow {...articleFeatures} />
+              <GeneralContentRow />
+              <Footer {...{ theme: HeaderTheme.LIGHT }} />
+            </div>
+          </div>
+        </MainContainer>
+        <Sidebar></Sidebar>
       </Layout>
     )
   }

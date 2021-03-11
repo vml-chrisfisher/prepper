@@ -76,15 +76,6 @@ export default ({ children }) => (
           color: currentColor;
         }
 
-        nav {
-          background: transparent;
-          position: fixed;
-          z-index: 9999;
-          top: 0;
-          left: 0;
-          width: 100%;
-        }
-
         .wrapper {
           width: calc(100% - 10vmin);
           margin: 0 auto;

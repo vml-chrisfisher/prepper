@@ -2,66 +2,74 @@ import styled from '@emotion/styled'
 import React from 'react'
 import { isBrowser, isMobile } from 'react-device-detect'
 import LazyLoad from 'react-lazy-load'
+import { useDispatch, useSelector } from 'react-redux'
 import VideoBackgroundProps from './interface'
 
-const VideoBackground = (props: VideoBackgroundProps) => (
-  <>
-    <VideoBackgroundContainer className="hidden-sm">
-      <HeroVideo
-        src={props.videoPath}
-        placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
-"
-        preload="true"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-    </VideoBackgroundContainer>
-    <VideoBackgroundContainer className="hidden-lg">
-      <LazyLoad once offset={100}>
-        <img
-          alt="Knife and Fish Story"
-          src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
-        />
-      </LazyLoad>
-    </VideoBackgroundContainer>
-  </>
-)
+const VideoBackground = (props: VideoBackgroundProps) => {
+  const dispatch = useDispatch()
+  const showHeaderProfile = useSelector(state => {
+    return state.visibilityFilter.showHeaderProfile
+  })
 
-const VideoBackgroundContainer = styled.div`
-  position: fixed;
-  height: 100vh;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100vw;
-`
-
-const HeroVideo = styled.video`
-  position: absolute;
-  z-index: 99;
-  width: 100vw;
-  height: auto;
-  object-fit: fill;
-`
-
-const HeroVideoMobile = styled.video`
-  position: absolute;
-  z-index: 99;
-  width: auto;
-  height: 100vh;
-  object-fit: fill;
-`
-
-const VideoOverlay = styled.div`
-  &:before {
-    content: '';
-    position: absolute;
-    z-index: 100;
-    width: 100%;
+  const VideoBackgroundContainer = styled.div`
+    position: fixed;
     height: 100vh;
-  }
-`
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 100vw;
+  `
+
+  const HeroVideo = styled.video`
+    position: absolute;
+    z-index: 99;
+    width: 100vw;
+    height: auto;
+    object-fit: fill;
+  `
+
+  const HeroVideoMobile = styled.video`
+    position: absolute;
+    z-index: 99;
+    width: auto;
+    height: 100vh;
+    object-fit: fill;
+  `
+
+  const VideoOverlay = styled.div`
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: 100;
+      width: 100%;
+      height: 100vh;
+    }
+  `
+  return (
+    <>
+      <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-sm">
+        <HeroVideo
+          src={props.videoPath}
+          placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
+"
+          preload="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      </VideoBackgroundContainer>
+      <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-lg">
+        <LazyLoad once offset={100}>
+          <img
+            alt="Knife and Fish Story"
+            src="//images.ctfassets.net/ce6fbxhy1t51/whmhpuAWUCAtZmNtPm9co/d7e43e22c6b525d8947c188695ff2f67/mobile-placeholder.jpg"
+          />
+        </LazyLoad>
+      </VideoBackgroundContainer>
+    </>
+  )
+}
 
 export default VideoBackground

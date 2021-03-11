@@ -1,9 +1,10 @@
-import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES } from '../actions/types'
+import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES, SEARCH_ACTION_TYPES } from '../actions/types'
 
-const visibilityFilter = (state = { position: 0 }, action: { type: string; id: string; filter: string }) => {
+const visibilityFilter = (
+  state = { position: 0, showSearch: false, showHeaderProfile: false },
+  action: { type: string; id: string; filter: string },
+) => {
   switch (action.type) {
-    case HEADER_ACTION_TYPES.TEST:
-      return action.filter
     case NEWSLETTER_ACTION_TYPES.RESET:
       return { ...state, position: 0 }
     case NEWSLETTER_ACTION_TYPES.SUBMITTING:
@@ -12,6 +13,14 @@ const visibilityFilter = (state = { position: 0 }, action: { type: string; id: s
       return { ...state, position: 2 }
     case NEWSLETTER_ACTION_TYPES.ADDED_FAILURE:
       return action
+    case HEADER_ACTION_TYPES.SHOW_SEARCH:
+      return { ...state, showSearch: true, showHeaderProfile: false }
+    case HEADER_ACTION_TYPES.HIDE_SEARCH:
+      return { ...state, showSearch: false }
+    case HEADER_ACTION_TYPES.SHOW_PROFILE_LOGIN:
+      return { ...state, showSearch: false, showHeaderProfile: true }
+    case HEADER_ACTION_TYPES.HIDE_PROFILE_LOGIN:
+      return { ...state, showHeaderProfile: false }
     default:
       return state
   }

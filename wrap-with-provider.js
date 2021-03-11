@@ -4,6 +4,7 @@ import { applyMiddleware, combineReducers, createStore as reduxCreateStore } fro
 import createSagaMiddleware from 'redux-saga'
 import header from './src/store/reducers/header'
 import visibilityFilter from './src/store/reducers/visibility'
+import sidebar from './src/store/reducers/sidebar'
 import rootSaga from './src/store/sagas'
 
 // import createStore from "./src/store"
@@ -19,7 +20,8 @@ export default ({ element }) => {
 
   const reducer = combineReducers({
     header,
-    visibilityFilter
+    visibilityFilter,
+    sidebar
   })
 
   const store = reduxCreateStore(reducer, applyMiddleware(sagaMiddleware))

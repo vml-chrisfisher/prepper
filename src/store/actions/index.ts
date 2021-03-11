@@ -1,4 +1,4 @@
-import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES, SEARCH_ACTION_TYPES } from './types'
+import { HEADER_ACTION_TYPES, NEWSLETTER_ACTION_TYPES, SEARCH_ACTION_TYPES, SIDEBAR_ACTION_TYPES } from './types'
 
 export const fetch = () => ({
   type: HEADER_ACTION_TYPES.FETCH,
@@ -37,9 +37,29 @@ export const onHideSearch = () => ({
 })
 
 export const onShowHeaderProfile = () => ({
-  type: HEADER_ACTION_TYPES.SHOW_SEARCH,
+  type: HEADER_ACTION_TYPES.SHOW_PROFILE_LOGIN,
 })
 
 export const onHideHeaderProfile = () => ({
-  type: HEADER_ACTION_TYPES.HIDE_PROFILE,
+  type: HEADER_ACTION_TYPES.HIDE_PROFILE_LOGIN,
+})
+
+export const showSidebarAccount = () => ({
+  type: SIDEBAR_ACTION_TYPES.SHOW_ACCOUNT,
+})
+
+export const showSidebarCart = () => ({
+  type: SIDEBAR_ACTION_TYPES.SHOW_CART,
+})
+
+export const showLogin = () => ({
+  type: SIDEBAR_ACTION_TYPES.SHOW_LOGIN,
+})
+
+export const showRegister = () => ({
+  type: SIDEBAR_ACTION_TYPES.SHOW_REGISTER,
+})
+
+export const showProfile = () => ({
+  type: SIDEBAR_ACTION_TYPES.SHOW_PROFILE,
 })

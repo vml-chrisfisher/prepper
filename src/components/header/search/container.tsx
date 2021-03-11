@@ -1,11 +1,11 @@
 import Search from '.'
 import { connect } from 'react-redux'
-import { onSearch } from './../../store/actions/index'
+import { onHideSearch, onSearch } from '../../../store/actions/index'
 
 const mapStateToProps = (state: any) => {
-  const { data } = state.header
+  const { showSearch } = state.visibilityFilter
   return {
-    data,
+    showSearch,
   }
 }
 
@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch: any) => {
   return {
     onSearch: (value: string) => {
       dispatch(onSearch(value))
+    },
+    onCloseSearch: () => {
+      dispatch(onHideSearch())
     },
   }
 }

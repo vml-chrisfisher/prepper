@@ -1,6 +1,12 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
+import { useSelector } from 'react-redux'
 import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
+import SearchContainer from './search/container'
+
+interface MainContainerPositionProps {
+  showProfile: boolean
+}
 
 interface MenuProps {
   isUp: boolean
@@ -46,14 +52,16 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
     this.setState(state => ({ ...state, menuUp: true }))
   }
 
-  onSearchClick() {
+  onSearchClick(event: React.MouseEvent) {
     if (this.props.onShowSearch) {
-      this.props.onShowSearch
+      event.preventDefault()
+      this.props.onShowSearch()
     }
   }
 
-  onProfileClick() {
+  onProfileClick(event: React.MouseEvent) {
     if (this.props.onShowProfile) {
+      event.preventDefault()
       this.props.onShowProfile()
     }
   }
@@ -67,9 +75,10 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   render() {
     const themeValue = this.props.theme
     const menuUp = this.state.menuUp
+    const showHeaderProfile = this.props.showHeaderProfile
     return (
       <header>
-        <nav role="navigation">
+        <NavigationHeader role="navigation" showProfile={showHeaderProfile}>
           <NavigationContainer>
             <NavigationColumn>
               <Navigation>
@@ -142,29 +151,29 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                   </NavigationItemRight>
                 </li>
                 <li>
-                  <LogoLink
-                    onClick={() => {
-                      this.onSearchClick()
+                  <SVGLink
+                    onClick={(event: React.MouseEvent) => {
+                      this.onSearchClick(event)
                     }}
                   >
                     <NavigationItemIcon alt="Search" src="/search_icon.svg"></NavigationItemIcon>
-                  </LogoLink>
+                  </SVGLink>
                 </li>
                 <li>
                   <li>
-                    <LogoLink
-                      onClick={() => {
-                        this.onProfileClick()
+                    <SVGLink
+                      onClick={(event: React.MouseEvent) => {
+                        this.onProfileClick(event)
                       }}
                     >
                       <NavigationItemIcon alt="Profile" src="/profile_icon.svg"></NavigationItemIcon>
-                    </LogoLink>
+                    </SVGLink>
                   </li>
                 </li>
               </NavigationRight>
             </NavigationColumn>
           </NavigationContainer>
-        </nav>
+        </NavigationHeader>
         <HeaderOuter {...{ isUp: menuUp }} className="row">
           <HeaderInner12 {...{ isMenu: this.state.menuType === HeaderMenuType.PLANTS }} className="col12">
             <Col3Full className="col3">
@@ -298,10 +307,21 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
             </Col12Full>
           </HeaderInner4>
         </HeaderOuter>
+        <SearchContainer></SearchContainer>
       </header>
     )
   }
 }
+
+const NavigationHeader = styled.nav<MainContainerPositionProps>`
+  background: transparent;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: ${props => (props.showProfile ? '-400px' : '0')};
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+`
 
 const HeaderNavDetailImg = styled.img`
   width: 80%;
@@ -421,6 +441,14 @@ const LogoContainer = styled.div`
 
 const LogoLink = styled.a`
   text-decoration: none;
+`
+
+const SVGLink = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    filter: invert(56%) sepia(66%) saturate(7365%) hue-rotate(358deg) brightness(99%) contrast(91%);
+  }
 `
 
 const LogoImage = styled.img`
