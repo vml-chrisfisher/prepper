@@ -77,7 +77,7 @@ const Sidebar = () => {
     display: ${props => {
       return props.isSelected ? 'block' : 'none'
     }};
-    padding-top: 60px;
+    padding-top: 20px;
   `
 
   const CartContainer = styled.div``

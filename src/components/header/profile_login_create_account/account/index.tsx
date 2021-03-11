@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { showLogin, showRegister } from '../../../../store/actions'
 import { HEADER_ACTION_TYPES } from '../../../store/actions/types'
 import { ProfileLoginProps } from './interface'
+import Login from './login'
 import RegisterAccount from './register'
 
 const SidebarAccount = () => {
@@ -67,7 +68,7 @@ const SidebarAccount = () => {
     display: ${props => {
       return props.isSelected ? 'block' : 'none'
     }};
-    padding-top: 60px;
+    padding-top: 20px;
   `
 
   const CartContainer = styled.div``
@@ -92,11 +93,13 @@ const SidebarAccount = () => {
           Register
         </Tab>
       </TabContainer>
-      <SubContainer isSelected={showLoginState}>Login</SubContainer>
+      <SubContainer isSelected={showLoginState}>
+        <Login />
+      </SubContainer>
       <SubContainer isSelected={showRegisterState}>
         <RegisterAccount />
       </SubContainer>
-      <SubContainer isSelected={showProfileState}>Account</SubContainer>
+      <SubContainer isSelected={showProfileState}>Profile</SubContainer>
     </>
   )
 }
