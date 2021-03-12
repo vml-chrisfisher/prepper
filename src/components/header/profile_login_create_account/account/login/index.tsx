@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Form, Formik } from 'formik'
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import * as Yup from 'yup'
 
 const Login = () => {
   const Container = styled.div`
@@ -28,6 +28,14 @@ const Login = () => {
       font-weight: 300;
       font-family: 'Playfair Display', serif;
     }
+  `
+
+  const FormError = styled.div`
+    color: #f24e11;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   `
 
   const PrimaryButton = styled.button`
@@ -57,19 +65,37 @@ const Login = () => {
     loginPassword: '',
   }
 
-  const onSubmit1 = values => {
-    console.log('here', values)
+  const loginValidationSchema = Yup.object().shape({
+    loginEmail: Yup.string()
+      .email('We need a valid email address to even to start to think about logging you in.')
+      .required('Email required'),
+    loginPassword: Yup.string().required('We need your password.'),
+  })
+
+  const onSubmit = (values: { loginEmail: string; loginPassword: string }) => {
     const { loginEmail, loginPassword } = values
-    console.log(loginEmail, loginPassword)
   }
   return (
     <Container>
-      <Formik initialValues={initialValues} onSubmit={onSubmit1}>
-        <Form>
-          <SearchInput id="loginEmail" name="loginEmail" type="email" placeholder="Email Address" />
-          <SearchInput id="loginPassword" name="loginPassword" type="password" placeholder="Password" />
-          <PrimaryButton type="submit">LOGIN</PrimaryButton>
-        </Form>
+      <Formik initialValues={initialValues} validationSchema={loginValidationSchema} onSubmit={onSubmit}>
+        {({ errors, touched }) => {
+          console.log(errors)
+          return (
+            <Form>
+              {errors.loginEmail && touched.loginEmail ? <FormError>{errors.loginEmail}</FormError> : <></>}
+              {errors.loginPassword && touched.loginPassword ? <FormError>{errors.loginPassword}</FormError> : <></>}
+              <SearchInput id="loginEmail" name="loginEmail" type="email" placeholder="Email Address" />
+              <SearchInput
+                id="loginPassword"
+                name="loginPassword"
+                autoComplete="current-password"
+                type="password"
+                placeholder="Password"
+              />
+              <PrimaryButton type="submit">LOGIN</PrimaryButton>
+            </Form>
+          )
+        }}
       </Formik>
     </Container>
   )
