@@ -8,11 +8,11 @@ const RegisterAccount = () => {
   const Container = styled.div`
     margin-left: 16px;
     margin-right: 16px;
-    margin-tio: 40px;
+    margin-top: 40px;
   `
 
   const SearchInput = styled.input`
-    width: 100%;
+    width: calc(100% - 20px);
     height: 27px;
     background-color: transparent;
     border: none;
