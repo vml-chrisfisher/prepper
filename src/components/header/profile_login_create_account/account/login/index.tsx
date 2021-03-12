@@ -18,7 +18,7 @@ const Login = () => {
     border-bottom: solid 0.5px #333333;
     font-size: 14px;
     color: #333333;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
     margin: auto 0;
     margin-bottom: 30px;
     padding-bottom: 5px;
