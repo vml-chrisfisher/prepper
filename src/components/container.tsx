@@ -444,6 +444,24 @@ export default ({ children }) => (
         .cls-1 {
           fill: #fff;
         }
+
+        @keyframes moveMovie {
+          from {
+            transform: translateX(0px);
+          }
+          to {
+            transform: translateX(-300px);
+          }
+        }
+
+        @keyframes moveMovieBack {
+          from {
+            transform: translateX(-300px);
+          }
+          to {
+            transform: translateX(0px);
+          }
+        }
       `}
     />
     <div>{children}</div>

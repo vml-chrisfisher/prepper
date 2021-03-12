@@ -1,17 +1,9 @@
 import styled from '@emotion/styled'
+import { Form, Formik } from 'formik'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Login = () => {
-  interface TabProps {
-    isSelected: boolean
-  }
-
-  const dispatch = useDispatch()
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
   const Container = styled.div`
     margin-left: 16px;
     margin-right: 16px;
@@ -38,12 +30,47 @@ const Login = () => {
     }
   `
 
-  const CartContainer = styled.div``
+  const PrimaryButton = styled.button`
+    background-color: #f24e11;
+    border: 1px solid transparent;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    height: 60px;
+    letter-spacing: 3px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    text-transform: uppercase;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 100%;
+    &:hover {
+      background-color: #ffffff;
+      border: 1px solid #333333;
+      color: #f24e11;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  `
 
+  const initialValues = {
+    loginEmail: '',
+    loginPassword: '',
+  }
+
+  const onSubmit1 = values => {
+    console.log('here', values)
+    const { loginEmail, loginPassword } = values
+    console.log(loginEmail, loginPassword)
+  }
   return (
     <Container>
-      <SearchInput type="email" value={email} placeholder="Email Address" />
-      <SearchInput type="password" value={password} placeholder="Password" />
+      <Formik initialValues={initialValues} onSubmit={onSubmit1}>
+        <Form>
+          <SearchInput id="loginEmail" name="loginEmail" type="email" placeholder="Email Address" />
+          <SearchInput id="loginPassword" name="loginPassword" type="password" placeholder="Password" />
+          <PrimaryButton type="submit">LOGIN</PrimaryButton>
+        </Form>
+      </Formik>
     </Container>
   )
 }

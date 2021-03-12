@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/actions/types'
 
 interface Props {
   /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -11,7 +12,7 @@ interface Props {
 
 const MainContainer = ({ children, id }: Props) => {
   interface MainContainerPositionProps {
-    showProfile: boolean
+    showProfile: string
   }
 
   const dispatch = useDispatch()
@@ -25,9 +26,20 @@ const MainContainer = ({ children, id }: Props) => {
     height: 100%;
     top: 0px;
     left: 0px;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    transform: ${props => (props.showProfile ? 'translateX(-300px)' : 'translateX(0)')};
+    animation: ${props => {
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT) {
+        return ''
+      }
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.SHOW) {
+        return 'moveMovie 0.5s ease-out forwards '
+      }
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
+        return 'moveMovieBack 0.5s ease-out forwards '
+      }
+      return ''
+    }};
     background-color: #ffffff;
+    -webkit-backface-visibility: hidden;
     z-index: 2;
   `
   return (

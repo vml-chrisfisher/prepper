@@ -17,7 +17,6 @@ const VideoBackground = (props: VideoBackgroundProps) => {
     overflow: hidden;
     top: 0;
     left: 0;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     width: 100vw;
   `
 
@@ -48,7 +47,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
   `
   return (
     <>
-      <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-sm">
+      <VideoBackgroundContainer className="hidden-sm">
         <HeroVideo
           src={props.videoPath}
           placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
@@ -60,7 +59,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
           playsInline
         />
       </VideoBackgroundContainer>
-      <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-lg">
+      <VideoBackgroundContainer className="hidden-lg">
         <LazyLoad once offset={100}>
           <img
             alt="Knife and Fish Story"

@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
 import { useSelector } from 'react-redux'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/actions/types'
 import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 import SearchContainer from './search/container'
 
 interface MainContainerPositionProps {
-  showProfile: boolean
+  showProfile: SIDEBAR_ANIMATION_STEPS
 }
 
 interface MenuProps {
@@ -318,9 +319,14 @@ const NavigationHeader = styled.nav<MainContainerPositionProps>`
   position: fixed;
   z-index: 9999;
   top: 0;
-  left: ${props => (props.showProfile ? '-400px' : '0')};
+  left: ${props => {
+    if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT || props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
+      return '0px'
+    }
+    return '-400px'
+  }};
   width: 100%;
-  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.5s ease-out;
 `
 
 const HeaderNavDetailImg = styled.img`
@@ -448,6 +454,7 @@ const SVGLink = styled.a`
   text-decoration: none;
   &:hover {
     filter: invert(56%) sepia(66%) saturate(7365%) hue-rotate(358deg) brightness(99%) contrast(91%);
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   }
 `
 
