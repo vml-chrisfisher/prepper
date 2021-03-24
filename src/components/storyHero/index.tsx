@@ -63,7 +63,7 @@ const Headline = styled.h1`
 
 const Mission = styled.h3`
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   font-weight: 600;
   text-align: center;
@@ -108,7 +108,7 @@ const HomeHeroQuestionInput = styled.input`
   border-bottom: solid 0.5px #ffffff;
   font-size: 19px;
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
 `
 
 export default StoryHero

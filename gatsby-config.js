@@ -39,7 +39,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto:100, 300,500', 'Playfair Display:ital&display=swap']
+          families: ['Roboto:100, 300,500', 'Playfair Display&display=swap']
         }
       }
     },

@@ -2,9 +2,11 @@ import styled from '@emotion/styled'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { showLogin, showRegister } from '../../../../store/actions'
+import { AppState } from '../../../../store/rootReducer'
 import { HEADER_ACTION_TYPES } from '../../../store/actions/types'
 import { ProfileLoginProps } from './interface'
 import Login from './login'
+import Profile from './profile'
 import RegisterAccount from './register'
 
 const SidebarAccount = () => {
@@ -12,16 +14,25 @@ const SidebarAccount = () => {
     isSelected: boolean
   }
 
+  interface SliderProps {
+    position: number
+  }
+
   const dispatch = useDispatch()
 
-  const showLoginState = useSelector(state => {
-    return state.sidebar.showLogin
+  const showLoginState = useSelector((state: AppState) => {
+    console.log('LOGIN PREF: ', state)
+    return state.sidebarActionReducers.showLogin
   })
-  const showRegisterState = useSelector(state => {
-    return state.sidebar.showRegister
+  const showRegisterState = useSelector((state: AppState) => {
+    return state.sidebarActionReducers.showRegister
   })
-  const showProfileState = useSelector(state => {
-    return state.sidebar.showProfile
+  const showProfileState = useSelector((state: AppState) => {
+    return state.sidebarActionReducers.showProfile
+  })
+
+  const isLoggedIn = useSelector((state: AppState) => {
+    return state?.loginReducer?.userId ? 1 : 0
   })
 
   const onLoginClick = () => {
@@ -71,35 +82,64 @@ const SidebarAccount = () => {
     padding-top: 20px;
   `
 
+  const Wrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  `
+
+  const Slider = styled.div<SliderProps>`
+    display: flex;
+    height: 100%;
+    width: 200%;
+    transform: ${props => {
+      return 'translateX(' + props.position * -50 + '%)'
+    }};
+    transition-property: transform;
+    transition-durarion: 1s;
+  `
+  const SliderContainer = styled.div`
+    margin-top: 0px;
+    width: calc(50%);
+  `
+
   const CartContainer = styled.div``
 
   return (
     <>
-      <TabContainer>
-        <Tab
-          onClick={() => {
-            onLoginClick()
-          }}
-          isSelected={showLoginState}
-        >
-          Login
-        </Tab>
-        <Tab
-          onClick={() => {
-            onRegisterClick()
-          }}
-          isSelected={showRegisterState}
-        >
-          Register
-        </Tab>
-      </TabContainer>
-      <SubContainer isSelected={showLoginState}>
-        <Login />
-      </SubContainer>
-      <SubContainer isSelected={showRegisterState}>
-        <RegisterAccount />
-      </SubContainer>
-      <SubContainer isSelected={showProfileState}>Profile</SubContainer>
+      <Wrapper>
+        <Slider position={isLoggedIn}>
+          <SliderContainer>
+            <TabContainer>
+              <Tab
+                onClick={() => {
+                  onLoginClick()
+                }}
+                isSelected={showLoginState}
+              >
+                Login
+              </Tab>
+              <Tab
+                onClick={() => {
+                  onRegisterClick()
+                }}
+                isSelected={showRegisterState}
+              >
+                Register
+              </Tab>
+            </TabContainer>
+            <SubContainer isSelected={showLoginState}>
+              <Login />
+            </SubContainer>
+            <SubContainer isSelected={showRegisterState}>
+              <RegisterAccount />
+            </SubContainer>
+          </SliderContainer>
+          <SliderContainer>
+            <Profile />
+          </SliderContainer>
+        </Slider>
+      </Wrapper>
     </>
   )
 }

@@ -9,6 +9,7 @@ import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import {
@@ -20,7 +21,6 @@ import {
   RecipeInstruction,
   ProteinType,
 } from '../template-interfaces/recipe'
-import HeaderContainer from '../components/header/container'
 
 class RecipeTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -41,7 +41,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
     const CreateDate = styled.div`
       text-align: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 1em;
       padding-bottom: 3.125em;
     `
@@ -49,7 +49,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const BodyCopy = styled.div`
       color: #464646;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-top: 1.875em;
       padding-bottom: 1.875em;
@@ -65,7 +65,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       color: #464646;
       column-count: 2;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-top: 1.875em;
       padding-bottom: 1.875em;
@@ -108,7 +108,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const Instruction = styled.div`
       color: #464646;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-bottom: 1.75em;
       text-align: justify;
@@ -134,7 +134,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     const Ingredient = styled.div`
       color: #464646;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-bottom: 1.75em;
     `
@@ -154,7 +154,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       color: #464646;
       display: inline-block;
       font-size: 0.75em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       padding-right: 20px;
       text-transform: uppercase;
     `
@@ -163,7 +163,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       color: #464646;
       display: inline-block;
       font-size: 1.15em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-weight: 600;
       padding-bottom: 10px;
     `

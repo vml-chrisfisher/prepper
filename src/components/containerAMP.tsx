@@ -26,7 +26,7 @@ export default ({ children }) => (
         }
 
         p {
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 0.75em;
           color: #fff;
           letter-spacing: 2px;
@@ -68,7 +68,7 @@ export default ({ children }) => (
         h4 {
           font-size: 1.25em;
           font-weight: 600;
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           letter-spacing: -0.5px;
           margin: 0;
         }
@@ -315,7 +315,7 @@ export default ({ children }) => (
         }
 
         .eyebrow {
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 0.9em;
           text-align: center;
           margin: 0 auto;
@@ -330,7 +330,7 @@ export default ({ children }) => (
         .primaryButton {
           background-color: #fff;
           border: none;
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 0.75em;
           color: #464646;
           text-align: center;

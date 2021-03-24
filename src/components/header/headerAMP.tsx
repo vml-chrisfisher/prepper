@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
-import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 import Helmet from 'react-helmet'
+import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 
 interface MenuProps {
   isUp: boolean
@@ -43,7 +43,7 @@ class HeaderAMP extends PureComponent {
               }
               
               .navigation-item {
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Roboto', sans-serif;
                 color: #464646;
                 text-decoration: none;
                 text-transform: uppercase;

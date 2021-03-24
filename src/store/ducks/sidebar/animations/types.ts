@@ -1,0 +1,5 @@
+export enum SIDEBAR_ANIMATION_STEPS {
+  DEFAULT = 'DEFAULT',
+  SHOW = 'SHOW',
+  HIDE = 'HIDE',
+}

@@ -1,34 +1,61 @@
 import styled from '@emotion/styled'
-import { Form, Formik } from 'formik'
-import React from 'react'
+import { Field, Form, Formik, FormikHelpers, useField, useFormikContext } from 'formik'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
+import { onSubmitLogin } from '../../../../../store/ducks/login/actions'
+import { LOGIN_STEPS } from '../../../../../store/ducks/login/types'
+import { AppState } from '../../../../../store/rootReducer'
+import Profile from '../profile'
 
 const Login = () => {
+  interface SliderProps {
+    position: number
+  }
+
+  const dispatch = useDispatch()
+
+  const sliderPosition = useSelector((state: AppState) => {
+    console.log('STATE: ', state.loginReducer?.loginStep)
+    const step = state?.loginReducer?.loginStep
+    switch (step) {
+      case LOGIN_STEPS.DEFAULT:
+        return 0
+      case LOGIN_STEPS.LOGGING_IN:
+        return 1
+      case LOGIN_STEPS.LOGIN_FAILURE:
+        return 0
+      default:
+        return 0
+    }
+  })
+
+  const Wrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  `
+
+  const Slider = styled.div<SliderProps>`
+    display: flex;
+    height: 100%;
+    width: 200%;
+    transform: ${props => {
+      return 'translateX(' + props.position * -50 + '%)'
+    }};
+    transition-property: transform;
+    transition-durarion: 1s;
+  `
   const Container = styled.div`
     margin-left: 16px;
     margin-right: 16px;
     margin-top: 40px;
+    width: calc(50% - 32px);
   `
 
-  const SearchInput = styled.input`
-    width: calc(100% - 20px);
-    height: 27px;
-    background-color: transparent;
-    border: none;
-    border-bottom: solid 0.5px #333333;
-    font-size: 14px;
-    color: #333333;
-    font-family: 'Roboto', sans-serif;
-    margin: auto 0;
-    margin-bottom: 30px;
-    padding-bottom: 5px;
-    &::placeholder {
-      color: #b4b2b2;
-      font-size: 14px;
-      font-weight: 300;
-      font-family: 'Playfair Display', serif;
-    }
-  `
+  const FormInput = ({ ...props }) => {
+    return <Field className="form--input" {...props} />
+  }
 
   const FormError = styled.div`
     color: #f24e11;
@@ -60,6 +87,24 @@ const Login = () => {
     }
   `
 
+  const StatusSpinner = styled.img`
+    width: 50px;
+    margin: 0 auto;
+    padding-top: 50px;
+  `
+
+  const Status = styled.div`
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    text-align: center;
+  `
+
+  interface Values {
+    loginEmail: string
+    loginPassword: string
+  }
   const initialValues = {
     loginEmail: '',
     loginPassword: '',
@@ -72,32 +117,51 @@ const Login = () => {
     loginPassword: Yup.string().required('We need your password.'),
   })
 
-  const onSubmit = (values: { loginEmail: string; loginPassword: string }) => {
+  const onSubmit = (values: Values) => {
     const { loginEmail, loginPassword } = values
+    console.log('on submit:', values)
+    dispatch(
+      onSubmitLogin({
+        username: loginEmail,
+        password: loginPassword,
+      }),
+    )
   }
   return (
-    <Container>
-      <Formik initialValues={initialValues} validationSchema={loginValidationSchema} onSubmit={onSubmit}>
-        {({ errors, touched }) => {
-          console.log(errors)
-          return (
-            <Form>
-              {errors.loginEmail && touched.loginEmail ? <FormError>{errors.loginEmail}</FormError> : <></>}
-              {errors.loginPassword && touched.loginPassword ? <FormError>{errors.loginPassword}</FormError> : <></>}
-              <SearchInput id="loginEmail" name="loginEmail" type="email" placeholder="Email Address" />
-              <SearchInput
-                id="loginPassword"
-                name="loginPassword"
-                autoComplete="current-password"
-                type="password"
-                placeholder="Password"
-              />
-              <PrimaryButton type="submit">LOGIN</PrimaryButton>
-            </Form>
-          )
-        }}
-      </Formik>
-    </Container>
+    <Wrapper>
+      <Slider position={sliderPosition}>
+        <Container>
+          <Formik initialValues={initialValues} onSubmit={onSubmit}>
+            {({ errors, touched }) => {
+              console.log(errors)
+              return (
+                <Form>
+                  {errors.loginEmail && touched.loginEmail ? <FormError>{errors.loginEmail}</FormError> : <></>}
+                  {errors.loginPassword && touched.loginPassword ? (
+                    <FormError>{errors.loginPassword}</FormError>
+                  ) : (
+                    <></>
+                  )}
+                  <FormInput id="loginEmail" name="loginEmail" type="email" placeholder="Email Address" />
+                  <FormInput
+                    id="loginPassword"
+                    name="loginPassword"
+                    autoComplete="current-password"
+                    type="password"
+                    placeholder="Password"
+                  />
+                  <PrimaryButton type="submit">LOGIN</PrimaryButton>
+                </Form>
+              )
+            }}
+          </Formik>
+        </Container>
+        <Container>
+          <StatusSpinner src="/spinner.svg" />
+          <Status>Seeing if we know you.</Status>
+        </Container>
+      </Slider>
+    </Wrapper>
   )
 }
 

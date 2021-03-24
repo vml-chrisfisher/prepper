@@ -5,11 +5,11 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
 import Footer from '../components/footer'
+import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
-import HeaderContainer from '../components/header/container'
 
 class RecipeIndex extends React.Component<RecipesProps> {
   componentDidMount() {
@@ -29,7 +29,6 @@ class RecipeIndex extends React.Component<RecipesProps> {
         top: 6em;
       }
     `
-    const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []

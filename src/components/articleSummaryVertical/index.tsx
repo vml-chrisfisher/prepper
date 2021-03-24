@@ -169,8 +169,9 @@ const OverlayContainer = styled.div`
 `
 
 const ArticleDescription = styled.div`
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.85em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
   color: #ffffff;
   height: 100px;
   max-height: 100px;

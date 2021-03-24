@@ -18,7 +18,10 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
       <FeatureContainer style={{ backgroundColor: props.backgroundColor }}>
         <DetailContainer>
           <FeatureTitle theme={themeValue}>{props.title}</FeatureTitle>
-          <FeatureDescription theme={themeValue}>{props.description}</FeatureDescription>
+          <FeatureDescription
+            theme={themeValue}
+            dangerouslySetInnerHTML={{ __html: props.description }}
+          ></FeatureDescription>
           <FeatureButton href={props.slug} theme={themeValue}>
             {props.buttonCaption}
           </FeatureButton>
@@ -50,10 +53,11 @@ const FeatureTitle = styled.h2<ThemeProps>`
 `
 
 const FeatureDescription = styled.div<ThemeProps>`
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-left: 10%;
   width: 80%;
-  font-size: 1em;
+  font-size: 12px;
+  font-weight: 500;
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
@@ -66,7 +70,7 @@ const FeatureButton = styled.a<ThemeProps>`
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
   border: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75em;
   color: ${props => {
     return props.theme === 'white' ? '#464646' : '#FFFFFF'

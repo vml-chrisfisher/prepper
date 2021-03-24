@@ -1,6 +1,6 @@
-import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import VegetablesSummary from '../components/vegetableSummary'
@@ -9,7 +9,6 @@ import { VegetablesEdge, VegetablesProps } from '../page-interfaces/vegetables'
 
 class VegetablesIndex extends React.Component<VegetablesProps> {
   render() {
-    const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: VegetablesEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
 
     return (

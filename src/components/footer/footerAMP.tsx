@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
-import FooterProps from './interface'
 import Helmet from 'react-helmet'
+import FooterProps from './interface'
 
 class FooterAMP extends PureComponent {
   render() {
@@ -38,7 +38,7 @@ class FooterAMP extends PureComponent {
               .footer-paragraph {
                 color: #464646;
                 font-size: 1em;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Roboto', sans-serif;
                 letter-spacing: -0.5px;
                 padding-bottom: 20px;
                 min-height: 100px;
@@ -50,7 +50,7 @@ class FooterAMP extends PureComponent {
                 cursor: pointer;
                 display: inline-block;
                 font-size: 0.875em;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Roboto', sans-serif;
                 font-weight: 600;
                 letter-spacing: -0.5px;
                 padding-bottom: 10px;
@@ -74,7 +74,7 @@ class FooterAMP extends PureComponent {
                 cursor: pointer;
                 display: block;
                 font-size: 0.9em;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Roboto', sans-serif;
                 font-weight: 600;
                 letter-spacing: -0.5px;
                 padding-top: 25px;

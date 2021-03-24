@@ -4,7 +4,10 @@ import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import FooterAMP from '../components/footer/footerAMP'
+import HeaderAMP from '../components/header/headerAMP'
 import { HeaderTheme } from '../components/header/interface'
+import LayoutAMP from '../components/layoutAMP'
 import {
   RecipeProps,
   AllContentfulRecipe,
@@ -14,9 +17,6 @@ import {
   RecipeInstruction,
   ProteinType,
 } from '../template-interfaces/recipe'
-import FooterAMP from '../components/footer/footerAMP'
-import HeaderAMP from '../components/header/headerAMP'
-import LayoutAMP from '../components/layoutAMP'
 
 class RecipeAMPTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -34,8 +34,6 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
     const heroHeight = Math.round(
       (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width,
     )
-    const bannerHeight =
-      (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
     const keywords = new Array<string>()
     keywords.push(post.mealType)
@@ -114,50 +112,8 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
     }`
 
     const recipes = get(this, 'props.data.allContentfulRecipe.edges')
-    const recipeFeatures: FeatureContentRowProps = {
-      details: {
-        title: 'Recipes',
-        description: 'Creating a meal, creates conversations and brings people to together. Let us help you.',
-        buttonCaption: 'Find Recipes',
-        backgroundColor: '#790505',
-        slug: '/recipes',
-        theme: HeaderTheme.LIGHT,
-      },
-      basePath: 'recipes',
-      features: recipes.map((recipe: any) => {
-        return {
-          title: recipe.node.title,
-          slug: recipe.node.slug,
-          description: recipe.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
-          imagePath: recipe.node.bannerImage.file.url,
-          imageDescription: recipe.node.bannerImage.title,
-          basePath: 'recipe',
-        }
-      }),
-    }
 
     const articles = get(this, 'props.data.allContentfulArticle.edges')
-    const articleFeatures: FeatureContentRowProps = {
-      details: {
-        title: 'Articles',
-        description: 'From learning the best knife to buy or how to cut an onion correctly.',
-        buttonCaption: 'Explore',
-        slug: '/articles',
-        theme: HeaderTheme.LIGHT,
-        backgroundColor: '#790505',
-      },
-      basePath: 'articles',
-      features: articles.map((article: any) => {
-        return {
-          title: article.node.title,
-          slug: article.node.slug,
-          description: article.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
-          imagePath: article.node.bannerImage.file.url,
-          imageDescription: article.node.bannerImage.title,
-          basePath: 'article',
-        }
-      }),
-    }
 
     return (
       <LayoutAMP location={this.props.location}>
@@ -288,7 +244,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                   color: #464646;
                   display: inline-block;
                   font-size: 1.15em;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   font-weight: 600;
                   padding-bottom: 10px;
                 }
@@ -297,7 +253,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                   color: #464646;
                   display: inline-block;
                   font-size: 0.75em;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   padding-right: 20px;
                   text-transform: uppercase;
                 }
@@ -311,7 +267,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                 .ingredient {
                   color: #464646;
                   font-size: 1em;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   line-height: 2em;
                   padding-bottom: 1.75em;
                 }
@@ -332,7 +288,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                 .instruction {
                   color: #464646;
                   font-size: 1em;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   line-height: 2em;
                   padding-bottom: 1.75em;
                   text-align: justify;
@@ -361,7 +317,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                   color: #464646;
                   column-count: 1;
                   font-size: 1em;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   line-height: 2em;
                   padding-top: 1.875em;
                   padding-left: 10%;
@@ -373,7 +329,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
                 .body-copy {
                   color: #464646;
                   font-size: 1em;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   line-height: 2em;
                   padding-top: 1.875em;
                   padding-left: 10%;
@@ -384,7 +340,7 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
 
                 .create-date {
                   text-align: center;
-                  font-family: 'Nunito', sans-serif;
+                  font-family: 'Roboto', sans-serif;
                   font-size: 1em;
                   padding-bottom: 3.125em;
                 }

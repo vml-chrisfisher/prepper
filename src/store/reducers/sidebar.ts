@@ -19,8 +19,6 @@ const sidebar = (state = initialState, action: { type: string; id: string; filte
       return { ...state, showRegister: true, showLogin: false, showProfile: false }
     case SIDEBAR_ACTION_TYPES.SHOW_LOGIN:
       return { ...state, showRegister: false, showLogin: true, showProfile: false }
-    case SIDEBAR_ACTION_TYPES.SHOW_PROFILE:
-      return { ...state, showRegister: false, showLogin: false, showProfile: true }
     default:
       return state
   }

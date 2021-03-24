@@ -1,17 +1,16 @@
 import styled from '@emotion/styled'
-import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import ArticleSummaryInterface from '../components/articleSummary/interface'
 import Footer from '../components/footer'
+import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import { RecipesEdge } from '../page-interfaces/recipes'
 import { RecipeProps } from '../template-interfaces/recipe'
-import HeaderContainer from '../components/header/container'
 
 class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
   componentDidMount() {
@@ -31,7 +30,6 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
         top: 6em;
       }
     `
-    const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []

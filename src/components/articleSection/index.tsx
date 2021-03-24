@@ -97,7 +97,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
 const TwoColumns = styled.div`
   column-count: 2;
   color: #464646;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   line-height: 2em;
   padding-bottom: 30px;
@@ -114,7 +114,7 @@ const TwoColumns = styled.div`
 
 const OneColumn = styled.div`
   color: #464646;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   line-height: 2em;
   padding-bottom: 30px;

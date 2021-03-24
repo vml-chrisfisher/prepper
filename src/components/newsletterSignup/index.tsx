@@ -101,9 +101,9 @@ class NewsletterSignup extends PureComponent<NewsletterProps, NewsletterState> {
 
 const SignupParagraph = styled.p`
   color: #ffffff;
-  font-size: 0.9em;
-  font-family: 'Nunito', sans-serif;
-  letter-spacing: -0.5px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0px;
 `
 
 const NewsletterSignupTitle = styled.h3`
@@ -114,7 +114,7 @@ const NewsletterSignupTitle = styled.h3`
 
 const NewsletterSignupLabel = styled.label`
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   text-transform: uppercase;
@@ -128,14 +128,14 @@ const NewsletterSignupInput = styled.input`
   border-bottom: solid 0.5px #ffffff;
   font-size: 1.15em;
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 20px;
   &:placeholder {
     color: #8d8b8b;
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 `
 
@@ -184,7 +184,7 @@ const NewsletterSignupLoader = styled.div`
 
 const NewletterSignupStateText = styled.div`
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75rem;
   padding: 1rem 2rem;
   text-align: center;

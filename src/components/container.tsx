@@ -25,7 +25,7 @@ export default ({ children }) => (
         }
 
         p {
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 0.75em;
           color: #fff;
           letter-spacing: 2px;
@@ -67,7 +67,7 @@ export default ({ children }) => (
         h4 {
           font-size: 1.25em;
           font-weight: 600;
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           letter-spacing: -0.5px;
           margin: 0;
         }
@@ -318,7 +318,7 @@ export default ({ children }) => (
         }
 
         .eyebrow {
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 0.9em;
           text-align: center;
           margin: 0 auto;
@@ -333,7 +333,7 @@ export default ({ children }) => (
         .primaryButton {
           background-color: #fff;
           border: none;
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 0.75em;
           color: #464646;
           text-align: center;
@@ -447,8 +447,9 @@ export default ({ children }) => (
 
         @keyframes moveMovie {
           from {
-            transform: translateX(0px);
+            transform: translateX(0);
           }
+
           to {
             transform: translateX(-300px);
           }
@@ -458,8 +459,30 @@ export default ({ children }) => (
           from {
             transform: translateX(-300px);
           }
+
           to {
-            transform: translateX(0px);
+            transform: translateX(0);
+          }
+        }
+
+        .form--input {
+          width: calc(100% - 20px);
+          height: 27px;
+          background-color: transparent;
+          border: none;
+          border-bottom: solid 0.5px #333;
+          font-size: 14px;
+          color: #333;
+          font-family: 'Roboto', sans-serif;
+          margin: auto 0;
+          margin-bottom: 30px;
+          padding-bottom: 5px;
+
+          &::placeholder {
+            color: #b4b2b2;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: 'Playfair Display', serif;
           }
         }
       `}

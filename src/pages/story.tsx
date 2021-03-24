@@ -4,14 +4,13 @@ import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import Footer from '../components/footer'
+import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import StoryHero from '../components/storyHero'
 import VideoStoryBackground from '../components/storyVideo'
-import VideoBackground from '../components/videoBackground'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
 import styles from './blog.css'
-import HeaderContainer from '../components/header/container'
 
 class StoryIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -25,7 +24,6 @@ class StoryIndex extends React.Component<HomeProps> {
     const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'
     const mobileVideoPath = 'https://knifeandfish.s3.amazonaws.com/knifeandfishmobile.mp4'
-    const headline = post.node.headline.childMarkdownRemark.rawMarkdownBody
 
     const StoryContainer = styled.div`
       position: relative;
@@ -46,7 +44,7 @@ class StoryIndex extends React.Component<HomeProps> {
     const BodyCopy = styled.div`
       color: #464646;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-top: 1.875em;
       padding-bottom: 1.875em;

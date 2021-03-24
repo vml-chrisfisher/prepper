@@ -3,11 +3,12 @@ import React from 'react'
 import { isBrowser, isMobile } from 'react-device-detect'
 import LazyLoad from 'react-lazy-load'
 import { useDispatch, useSelector } from 'react-redux'
+import { AppState } from '../../store/rootReducer'
 import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => {
   const dispatch = useDispatch()
-  const showHeaderProfile = useSelector(state => {
+  const showHeaderProfile = useSelector((state: AppState) => {
     return state.visibilityFilter.showHeaderProfile
   })
 

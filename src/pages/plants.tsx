@@ -20,8 +20,6 @@ class PlantsIndex extends React.Component<PlantsProps> {
       accessToken: contentfulConfig.accessToken,
     })
 
-    const asset = client.getAsset('4OuUgHVL5sM7lUtyvzTWTE').then((asset: any) => console.log(asset.fields.file.url))
-    const siteTitle: string = get(this, 'props.data.site.siteMetadata.title')
     const posts: PlantsEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
     const vegetablesByParent = [
       {
@@ -107,7 +105,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       column-gap: 40px;
       color: #464646;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-top: 1.875em;
       padding-bottom: 1.875em;
@@ -182,8 +180,9 @@ class PlantsIndex extends React.Component<PlantsProps> {
     `
 
     const ArticleDescription = styled.div`
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.75em;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
       color: #fff;
       height: 100px;
       max-height: 100px;
@@ -197,7 +196,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
     `
 
     const VegetableGroupTitle = styled.h2`
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 1.5em;
       font-weight: 600;
       color: #333;
@@ -205,7 +204,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
     `
 
     const VegetableTitle = styled.h2`
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 1em;
       font-weight: 300;
       color: #333;
@@ -215,7 +214,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
     const PrimaryButton = styled.button`
       background-color: #0f9114;
       border: none;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 0.75rem;
       color: #fff;
       text-align: center;

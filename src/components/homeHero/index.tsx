@@ -77,7 +77,7 @@ const HomeHeroQuestionInput = styled.input`
   border-bottom: solid 0.5px #ffffff;
   font-size: 19px;
   color: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   @media (max-width: 767px) {
     font-size: 16px;
   }

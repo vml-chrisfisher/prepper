@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { showSidebarAccount, showSidebarCart } from '../../../store/actions'
 import { HEADER_ACTION_TYPES } from '../../../store/actions/types'
+import { AppState } from '../../../store/rootReducer'
 import SidebarAccount from './account'
 
 const Sidebar = () => {
@@ -12,11 +13,11 @@ const Sidebar = () => {
 
   const dispatch = useDispatch()
 
-  const showAccount = useSelector(state => {
+  const showAccount = useSelector((state: AppState) => {
     console.log(state)
     return state.sidebar.showAccount
   })
-  const showCart = useSelector(state => {
+  const showCart = useSelector((state: AppState) => {
     return state.sidebar.showCart
   })
 
@@ -29,7 +30,7 @@ const Sidebar = () => {
   }
 
   const Container = styled.div`
-    position: absolute;
+    position: fixed;
     width: 300px;
     height: 100%;
     top: 0;

@@ -163,9 +163,10 @@ const FooterParagraph = styled.div<ThemeProps>`
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
-  font-size: 0.9em;
-  font-family: 'Nunito', sans-serif;
-  letter-spacing: -0.5px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  letter-spacing: 0px;
   min-height: 150px;
   @media (max-width: 767px) {
     font-size: 1em;
@@ -184,7 +185,7 @@ const FooterLinkMain = styled.a<ThemeProps>`
   cursor: pointer;
   display: inline-block;
   font-size: 0.875em;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   letter-spacing: -0.5px;
   padding-bottom: 10px;
@@ -222,7 +223,7 @@ const FooterLinkBottom = styled.a<ThemeProps>`
   cursor: pointer;
   display: inline-block;
   font-size: 0.8em;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   letter-spacing: -0.5px;
   padding-top: 5px;

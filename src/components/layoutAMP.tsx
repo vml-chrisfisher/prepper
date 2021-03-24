@@ -1,8 +1,5 @@
-import { css, Global } from '@emotion/core'
 import React from 'react'
 import Helmet from 'react-helmet'
-import Container from './container'
-import { HeaderProps, HeaderTheme } from './header/interface'
 import ContainerAMP from './containerAMP'
 
 interface Props {
@@ -15,11 +12,6 @@ interface Props {
 const LayoutAMP = ({ location, children }: Props) => {
   const rootPath = '/'
   const homePath = ''
-  let theme: HeaderProps = { theme: HeaderTheme.DARK }
-
-  if (location.pathname === rootPath || location.pathname === homePath) {
-    theme = { theme: HeaderTheme.LIGHT }
-  }
 
   const gTag = `
     window.dataLayer = window.dataLayer || []
@@ -45,7 +37,7 @@ const LayoutAMP = ({ location, children }: Props) => {
         <link
           rel="preconnect"
           crossOrigin="anonymous"
-          href="https://fonts.googleapis.com/css?family=Nunito:300,600%7CPlayfair+Display&display=swap"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,600%7CPlayfair+Display&display=swap"
         ></link>
         {/* <link as="script" rel="preconnect" crossOrigin="anonymous" href="https://www.google-analytics.com"></link> */}
 

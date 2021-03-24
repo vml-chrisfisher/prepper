@@ -11,10 +11,10 @@ import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
-import HeaderContainer from '../components/header/container'
 
 class ArticleTemplate extends React.Component<ArticleProps> {
   componentDidMount() {
@@ -35,7 +35,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
 
     const CreateDate = styled.div`
       text-align: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 1em;
       padding-bottom: 3.125em;
     `
@@ -55,7 +55,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       color: #464646;
       display: inline-block;
       font-size: 0.75em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       padding-right: 20px;
       text-transform: uppercase;
     `
@@ -64,7 +64,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       color: #464646;
       column-count: 2;
       font-size: 1em;
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-top: 1.875em;
       padding-bottom: 1.875em;

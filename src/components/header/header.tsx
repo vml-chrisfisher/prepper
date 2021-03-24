@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
-import { useSelector } from 'react-redux'
 import { SIDEBAR_ANIMATION_STEPS } from '../../store/actions/types'
 import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 import SearchContainer from './search/container'
@@ -161,15 +160,13 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
                   </SVGLink>
                 </li>
                 <li>
-                  <li>
-                    <SVGLink
-                      onClick={(event: React.MouseEvent) => {
-                        this.onProfileClick(event)
-                      }}
-                    >
-                      <NavigationItemIcon alt="Profile" src="/profile_icon.svg"></NavigationItemIcon>
-                    </SVGLink>
-                  </li>
+                  <SVGLink
+                    onClick={(event: React.MouseEvent) => {
+                      this.onProfileClick(event)
+                    }}
+                  >
+                    <NavigationItemIcon alt="Profile" src="/profile_icon.svg"></NavigationItemIcon>
+                  </SVGLink>
                 </li>
               </NavigationRight>
             </NavigationColumn>
@@ -342,7 +339,7 @@ const HeaderNavDetailP = styled.p`
 const HeaderDetailItem = styled.a`
   color: #464646;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1em;
   line-height: 2.5em;
   list-style: none;
@@ -409,7 +406,7 @@ const HeaderClose = styled.div`
   padding-top: 13.5%;
   padding-left: 13.9%;
   cursor: pointer;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.5em;
   font-weight: 300;
   color: #ccc;

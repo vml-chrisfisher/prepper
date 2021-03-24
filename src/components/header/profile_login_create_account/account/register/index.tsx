@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import { Form, Formik, yupToFormErrors } from 'formik'
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import * as Yup from 'yup'
 
 const RegisterAccount = () => {

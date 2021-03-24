@@ -174,7 +174,7 @@ const VegetablePricingImage = styled.img`
 
 const VegetablePricingCategory = styled.div`
   color: #464646;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   text-align: center;
@@ -200,7 +200,7 @@ const VegetableProductContainer = styled.div`
 const VegetablePricingProduct = styled.div`
   color: #afa7a7;
   display: inline-block;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   text-align: center;

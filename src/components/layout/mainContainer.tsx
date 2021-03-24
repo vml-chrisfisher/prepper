@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SIDEBAR_ANIMATION_STEPS } from '../../store/actions/types'
+import { AppState } from '../../store/rootReducer'
 
 interface Props {
   /* eslint-disable  @typescript-eslint/no-explicit-any */
@@ -16,8 +17,8 @@ const MainContainer = ({ children, id }: Props) => {
   }
 
   const dispatch = useDispatch()
-  const showHeaderProfile = useSelector(state => {
-    return state.visibilityFilter.showHeaderProfile
+  const showHeaderProfile = useSelector((state: AppState) => {
+    return state?.visibilityFilter?.showHeaderProfile
   })
 
   const Container = styled.div<MainContainerPositionProps>`
@@ -26,6 +27,7 @@ const MainContainer = ({ children, id }: Props) => {
     height: 100%;
     top: 0px;
     left: 0px;
+    background-color: #ffffff;
     animation: ${props => {
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT) {
         return ''
