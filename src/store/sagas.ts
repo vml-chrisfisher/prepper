@@ -31,7 +31,6 @@ function* watchProfile() {
 }
 
 export default function* rootSaga() {
-  console.log('root saga')
   yield all([
     watchFetchHeaderProductCategoryDetail(),
     watchSubmitNewsletterEmail(),

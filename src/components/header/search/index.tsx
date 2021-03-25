@@ -25,27 +25,29 @@ class Search extends PureComponent<SearchProps, SearchState> {
 
   render() {
     return (
-      this.props.showSearch && (
-        <SearchDivContainer>
-          <SearchClose
-            onClick={() => {
-              this.onCloseClick()
-            }}
-          ></SearchClose>
-          <Col4Full></Col4Full>
-          <Col4Full>
-            <SearchInputWrapper>
-              <SearchInput
-                type="input"
-                value={this.state.searchTerm}
-                onChange={event => this.setState({ searchTerm: event.target.value })}
-                onKeyUp={event => this.onHandleSubmit(event)}
-                placeholder="What are you hungry for?"
-              />
-            </SearchInputWrapper>
-          </Col4Full>
-        </SearchDivContainer>
-      )
+      <>
+        {this.props.showSearch && (
+          <SearchDivContainer>
+            <SearchClose
+              onClick={() => {
+                this.onCloseClick()
+              }}
+            ></SearchClose>
+            <Col4Full></Col4Full>
+            <Col4Full>
+              <SearchInputWrapper>
+                <SearchInput
+                  type="input"
+                  value={this.state.searchTerm}
+                  onChange={event => this.setState({ searchTerm: event.target.value })}
+                  onKeyUp={event => this.onHandleSubmit(event)}
+                  placeholder="What are you hungry for?"
+                />
+              </SearchInputWrapper>
+            </Col4Full>
+          </SearchDivContainer>
+        )}
+      </>
     )
   }
 }

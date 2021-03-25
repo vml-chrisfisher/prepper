@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
 import { NEWSLETTER_ACTION_TYPES } from './types'
 
@@ -10,7 +10,7 @@ const delay = (ms: number): Promise<void> => {
   })
 }
 
-const submitNewsletterEmail = (email: string) => {
+const submitNewsletterEmail = (email: string): Promise<AxiosResponse<any>> => {
   const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
   return axios.post(
     url,
@@ -33,7 +33,6 @@ export function* submitNewsletterEmailAsync(action: any) {
   if (email) {
     try {
       const response = yield call(submitNewsletterEmail, email)
-      console.log(response)
       yield put({
         type: NEWSLETTER_ACTION_TYPES.ADDED_SUCCESS,
       })

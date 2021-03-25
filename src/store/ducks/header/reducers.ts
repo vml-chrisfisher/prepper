@@ -2,10 +2,11 @@ import { products } from '../../static/products'
 import { SIDEBAR_ACTION_TYPES } from '../sidebar/actions/types'
 import { SIDEBAR_ANIMATION_STEPS } from '../sidebar/animations/types'
 import { ProductCategoryDetail } from './../../../components/header/interface'
+import initialState from './initialState'
 import { HeaderAction } from './interfaces'
 import { HEADER_ACTION_TYPES } from './types'
 
-const headerReducers = (state: any = {}, action: HeaderAction) => {
+const headerReducers = (state = initialState, action: HeaderAction) => {
   let selectedCategory: ProductCategoryDetail = {}
   switch (action.type) {
     case HEADER_ACTION_TYPES.FETCH:

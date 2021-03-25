@@ -5,6 +5,7 @@ export const hasLoggedInBefore = () => {
   //   return false;
   // }
 
-  console.log('LOCAL STORAGE: ', localStorage.getItem('hasLoggedInBefore') === 'true')
-  return localStorage.getItem('hasLoggedInBefore') === 'true'
+  if (isBrowser) {
+    return localStorage.getItem('hasLoggedInBefore') === 'true'
+  }
 }

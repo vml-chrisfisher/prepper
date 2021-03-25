@@ -42,6 +42,7 @@ const DetailContainer = styled.div`
   top: 50%;
   transform: translateY(-50%);
   left: 0;
+  width: 100%;
 `
 
 const FeatureTitle = styled.h2<ThemeProps>`

@@ -1,11 +1,11 @@
 import NewsletterSignup from '.'
 import { connect } from 'react-redux'
-import { onNewsletterReset, onNewsletterSubmit } from '../../store/actions'
+import { onNewsletterReset, onNewsletterSubmit } from '../../store/ducks/newsletter/actions'
 
 const mapStateToProps = (state: any) => {
   const { position } = state.visibilityFilter
-  const { categories } = state.header
-  const { categoryDetail } = state.header
+  const { categories } = state.headerReducers
+  const { categoryDetail } = state.headerReducers
   return {
     position,
     categories,

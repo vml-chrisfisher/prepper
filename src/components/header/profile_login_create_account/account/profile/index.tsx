@@ -1,15 +1,12 @@
 import styled from '@emotion/styled'
-import { Field, Form, Formik, FormikHelpers, useField, useFormikContext } from 'formik'
+import { Field } from 'formik'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import * as Yup from 'yup'
-import { onSubmitLogin } from '../../../../../store/ducks/login/actions'
-import { LOGIN_STEPS } from '../../../../../store/ducks/login/types'
 import { onFetchProfile } from '../../../../../store/ducks/profile/actions'
 import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types'
 import { AppState } from '../../../../../store/rootReducer'
 
-const Profile = (props: { userId?: string }) => {
+const Profile = () => {
   interface SliderProps {
     position: number
   }
@@ -17,10 +14,6 @@ const Profile = (props: { userId?: string }) => {
   const dispatch = useDispatch()
 
   const userId = useSelector((state: AppState) => {
-    if (state?.profileReducer?.userId) {
-      console.log('PROFILE USERSELECTOR: ', state)
-    }
-
     return state?.profileReducer?.userId
   })
 
@@ -43,7 +36,6 @@ const Profile = (props: { userId?: string }) => {
   })
 
   const nextShipmentDate = useSelector((state: AppState) => {
-    console.log(state)
     const expectedShipDateRaw: Date = state?.profileReducer?.shipments?.next?.expectedShipDate
     if (expectedShipDateRaw) {
       const monthes = [
@@ -60,7 +52,6 @@ const Profile = (props: { userId?: string }) => {
         'November',
         'December',
       ]
-      const month = expectedShipDateRaw.getMonth()
       return `${
         monthes[expectedShipDateRaw.getMonth()]
       } ${expectedShipDateRaw.getDate()}, ${expectedShipDateRaw.getFullYear()}`
@@ -108,7 +99,6 @@ const Profile = (props: { userId?: string }) => {
         'November',
         'December',
       ]
-      const month = nextBillingDateRaw.getMonth()
       return `${
         monthes[nextBillingDateRaw.getMonth()]
       } ${nextBillingDateRaw.getDate()}, ${nextBillingDateRaw.getFullYear()}`
@@ -118,7 +108,6 @@ const Profile = (props: { userId?: string }) => {
 
   useEffect(() => {
     if (userId) {
-      console.log('IN COMPONENT USER ID: ', userId)
       dispatch(onFetchProfile(userId))
     }
   }, [userId])
@@ -159,10 +148,6 @@ const Profile = (props: { userId?: string }) => {
     margin-top: 0px;
     width: 50%;
   `
-
-  const FormInput = ({ ...props }) => {
-    return <Field className="form--input" {...props} />
-  }
 
   const PrimaryButton = styled.button`
     background-color: transparent;
@@ -225,10 +210,7 @@ const Profile = (props: { userId?: string }) => {
     loginEmail: string
     loginPassword: string
   }
-  const initialValues = {
-    loginEmail: '',
-    loginPassword: '',
-  }
+
   return (
     <Wrapper>
       <Slider position={sliderPosition}>

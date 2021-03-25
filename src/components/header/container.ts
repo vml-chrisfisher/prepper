@@ -1,13 +1,18 @@
 import { connect } from 'react-redux'
-import { fetch, onShowHeaderProfile, onShowSearch } from '../../store/actions'
-import { onCategorySelected, onFamilySelected } from './../../store/actions/index'
+import {
+  fetch,
+  onCategorySelected,
+  onFamilySelected,
+  onShowHeaderProfile,
+  onShowSearch,
+} from './../../store/ducks/header/actions'
 import Header from './header'
 
 const mapStateToProps = (state: any) => {
-  const { data } = state.header
-  const { categories } = state.header
-  const { categoryDetail } = state.header
-  const { showHeaderProfile } = state.visibilityFilter
+  const { data } = state.headerReducers
+  const { categories } = state.headerReducers
+  const { categoryDetail } = state.headerReducers
+  const { showHeaderProfile } = state.headerReducers
   return {
     data,
     categories,

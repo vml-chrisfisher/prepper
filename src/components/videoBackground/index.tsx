@@ -1,24 +1,37 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { isBrowser, isMobile } from 'react-device-detect'
 import LazyLoad from 'react-lazy-load'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
 import { AppState } from '../../store/rootReducer'
 import VideoBackgroundProps from './interface'
 
 const VideoBackground = (props: VideoBackgroundProps) => {
-  const dispatch = useDispatch()
+  interface MainContainerPositionProps {
+    showProfile: string
+  }
+
   const showHeaderProfile = useSelector((state: AppState) => {
-    return state.visibilityFilter.showHeaderProfile
+    return state?.headerReducers?.showHeaderProfile
   })
 
-  const VideoBackgroundContainer = styled.div`
+  const VideoBackgroundContainer = styled.div<MainContainerPositionProps>`
     position: fixed;
     height: 100vh;
     overflow: hidden;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: ${props => {
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT || props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
+        return '100vw'
+      }
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.SHOW) {
+        return 'calc(100vw - 300px)'
+      }
+      return '100vw'
+    }};
+    transform: translateZ(0);
+    transition: all 0.5s ease-out;
   `
 
   const HeroVideo = styled.video`
@@ -48,7 +61,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
   `
   return (
     <>
-      <VideoBackgroundContainer className="hidden-sm">
+      <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-sm">
         <HeroVideo
           src={props.videoPath}
           placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
@@ -60,7 +73,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
           playsInline
         />
       </VideoBackgroundContainer>
-      <VideoBackgroundContainer className="hidden-lg">
+      <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-lg">
         <LazyLoad once offset={100}>
           <img
             alt="Knife and Fish Story"

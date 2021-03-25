@@ -6,7 +6,6 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
     case LOGIN_STEPS.DEFAULT:
       return { ...state, loginStep: LOGIN_STEPS.DEFAULT }
     case LOGIN_STEPS.SUBMIT_LOGIN:
-      console.log('YOYO')
       return { ...state, loginStep: LOGIN_STEPS.SUBMIT_LOGIN, creditials: action.payload }
     case LOGIN_STEPS.LOGGING_IN:
       return { ...state, loginStep: LOGIN_STEPS.LOGGING_IN }

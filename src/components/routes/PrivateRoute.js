@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 // import { isLoggedIn } from '../utils/auth';
 
-interface Location {
-  pathname: string
-}
 
-const PrivateRoute = ({ component: Component, location: Location, ...rest }) => {
+const PrivateRoute = ({ component: Component, location, ...rest }) => {
   // if (!isLoggedIn() && location.pathname !== `/app/login`) {
   //   // If we’re not logged in, redirect to the home page.
   //   navigate(`/app/login`)

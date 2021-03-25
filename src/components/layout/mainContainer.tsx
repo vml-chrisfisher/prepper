@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { SIDEBAR_ANIMATION_STEPS } from '../../store/actions/types'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
 import { AppState } from '../../store/rootReducer'
 
 interface Props {
@@ -18,7 +18,7 @@ const MainContainer = ({ children, id }: Props) => {
 
   const dispatch = useDispatch()
   const showHeaderProfile = useSelector((state: AppState) => {
-    return state?.visibilityFilter?.showHeaderProfile
+    return state?.headerReducers?.showHeaderProfile
   })
 
   const Container = styled.div<MainContainerPositionProps>`
@@ -26,21 +26,16 @@ const MainContainer = ({ children, id }: Props) => {
     width: 100%;
     height: 100%;
     top: 0px;
-    left: 0px;
-    background-color: #ffffff;
-    animation: ${props => {
-      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT) {
-        return ''
+    left: ${props => {
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT || props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
+        return '0px'
       }
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.SHOW) {
-        return 'moveMovie 0.5s ease-out forwards '
+        return '-300px'
       }
-      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
-        return 'moveMovieBack 0.5s ease-out forwards '
-      }
-      return ''
     }};
     background-color: #ffffff;
+    transition: all 0.5s ease-out;
     -webkit-backface-visibility: hidden;
     z-index: 2;
   `

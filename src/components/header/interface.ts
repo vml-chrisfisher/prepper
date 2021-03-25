@@ -1,3 +1,5 @@
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
+
 export enum HeaderTheme {
   LIGHT = 'white',
   DARK = 'dark',
@@ -15,7 +17,7 @@ export interface HeaderProps {
   data?: ProductFamily[]
   categories?: ProductCategory[]
   categoryDetail?: ProductCategoryDetail
-  showHeaderProfile: boolean
+  showHeaderProfile: SIDEBAR_ANIMATION_STEPS
   onFetch?: () => void
   onFamilySelected?: (id: string) => void
   onCategorySelected?: (id?: string) => void

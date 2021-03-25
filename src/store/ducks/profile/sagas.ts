@@ -236,7 +236,6 @@ const fetchProfile = (userId: string) => {
 }
 
 export function* fetchProfileAsync(action: any) {
-  console.log('PROFILE', action)
   yield put({
     type: PROFILE_STEPS.LOADING,
   })
@@ -245,7 +244,6 @@ export function* fetchProfileAsync(action: any) {
   if (userId) {
     try {
       const profileResponse = yield call(fetchProfile, userId)
-      console.log('PROFILE SUCCESS: ', profileResponse)
       yield delay(3000)
       yield put({
         type: PROFILE_STEPS.LOADING_SUCCESS,

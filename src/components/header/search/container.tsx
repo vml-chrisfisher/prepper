@@ -1,9 +1,10 @@
 import Search from '.'
 import { connect } from 'react-redux'
-import { onHideSearch, onSearch } from '../../../store/actions/index'
+import { onHideSearch } from '../../../store/ducks/header/actions'
+import { onSearch } from '../../../store/ducks/search/actions'
 
 const mapStateToProps = (state: any) => {
-  const { showSearch } = state.visibilityFilter
+  const { showSearch } = state.headerReducers
   return {
     showSearch,
   }

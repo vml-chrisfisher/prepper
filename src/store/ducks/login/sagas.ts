@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
+import { isBrowser } from '../../../utils/auth'
 import { LOGIN_STEPS } from './types'
 
 const delay = (ms: number): Promise<void> => {
@@ -15,18 +16,19 @@ const submitLogin = (creditials: { username: string; password: string }) => {
 }
 
 export function* submitLoginAsync(action: any) {
-  console.log('HELLO', action)
   yield put({
     type: LOGIN_STEPS.LOGGING_IN,
   })
 
   const { username, password } = action.payload
   const creditials = { username, password }
-  console.log('submit: ', creditials)
   if (creditials) {
     try {
       const loginResponse = yield call(submitLogin, creditials)
-      localStorage.setItem('hasLoggedInBefore', 'true')
+      if (isBrowser) {
+        localStorage.setItem('hasLoggedInBefore', 'true')
+      }
+
       yield put({
         type: LOGIN_STEPS.LOGIN_SUCCESS,
         payload: loginResponse.data.message,

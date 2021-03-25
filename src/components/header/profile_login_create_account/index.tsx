@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { showSidebarAccount, showSidebarCart } from '../../../store/actions'
-import { HEADER_ACTION_TYPES } from '../../../store/actions/types'
+import { HEADER_ACTION_TYPES } from '../../../store/ducks/header/types'
+import { showSidebarAccount, showSidebarCart } from '../../../store/ducks/sidebar/actions/actions'
 import { AppState } from '../../../store/rootReducer'
 import SidebarAccount from './account'
 
@@ -14,7 +14,6 @@ const Sidebar = () => {
   const dispatch = useDispatch()
 
   const showAccount = useSelector((state: AppState) => {
-    console.log(state)
     return state.sidebar.showAccount
   })
   const showCart = useSelector((state: AppState) => {
@@ -25,7 +24,6 @@ const Sidebar = () => {
     dispatch(showSidebarAccount())
   }
   const onCartClick = () => {
-    console.log('here')
     dispatch(showSidebarCart())
   }
 

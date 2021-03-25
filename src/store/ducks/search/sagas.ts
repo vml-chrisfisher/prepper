@@ -33,7 +33,6 @@ export function* submitSearchAsync(action: any) {
   if (search) {
     try {
       const response = yield call(submitSearch, search)
-      console.log(response)
       yield delay(3000)
       yield put({
         type: SEARCH_ACTION_TYPES.SEARCH_SUCCESS,

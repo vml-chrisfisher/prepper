@@ -1,10 +1,8 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { showLogin, showRegister } from '../../../../store/actions'
+import { showLogin, showRegister } from '../../../../store/ducks/sidebar/actions/actions'
 import { AppState } from '../../../../store/rootReducer'
-import { HEADER_ACTION_TYPES } from '../../../store/actions/types'
-import { ProfileLoginProps } from './interface'
 import Login from './login'
 import Profile from './profile'
 import RegisterAccount from './register'
@@ -21,7 +19,6 @@ const SidebarAccount = () => {
   const dispatch = useDispatch()
 
   const showLoginState = useSelector((state: AppState) => {
-    console.log('LOGIN PREF: ', state)
     return state.sidebarActionReducers.showLogin
   })
   const showRegisterState = useSelector((state: AppState) => {

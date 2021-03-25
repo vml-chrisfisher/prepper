@@ -1,14 +1,12 @@
 import { combineReducers } from 'redux'
+import headerReducers from './ducks/header/reducers'
 import loginReducer from './ducks/login/reducers'
 import profileReducer from './ducks/profile/reducers'
 import sidebarActionReducers from './ducks/sidebar/actions/reducers'
-import header from './reducers/header'
-import sidebar from './reducers/sidebar'
-import visibilityFilter from './reducers/visibility'
+import sidebar from './ducks/sidebar/actions/reducers'
 
 export const reducers = combineReducers({
-  header,
-  visibilityFilter,
+  headerReducers,
   sidebar,
   loginReducer,
   profileReducer,

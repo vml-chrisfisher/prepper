@@ -16,7 +16,6 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const sliderPosition = useSelector((state: AppState) => {
-    console.log('STATE: ', state.loginReducer?.loginStep)
     const step = state?.loginReducer?.loginStep
     switch (step) {
       case LOGIN_STEPS.DEFAULT:
@@ -119,7 +118,6 @@ const Login = () => {
 
   const onSubmit = (values: Values) => {
     const { loginEmail, loginPassword } = values
-    console.log('on submit:', values)
     dispatch(
       onSubmitLogin({
         username: loginEmail,

@@ -124,7 +124,6 @@ const createFourGridOption4 = (chunk: ArticleSummaryInterface[]) => {
 
 const createGrid = (chunk: ArticleSummaryInterface[]) => {
   let option
-  console.log(option)
   switch (chunk.length) {
     case 1:
       return (

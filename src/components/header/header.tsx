@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import React, { PureComponent } from 'react'
-import { SIDEBAR_ANIMATION_STEPS } from '../../store/actions/types'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
 import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 import SearchContainer from './search/container'
 
@@ -141,12 +141,7 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
               </NavigationItem>
             </li> */}
                 <li>
-                  <NavigationItemRight
-                    theme={themeValue}
-                    onClick={() => {
-                      this.onRecipesClick()
-                    }}
-                  >
+                  <NavigationItemRight href="/story" theme={themeValue}>
                     About
                   </NavigationItemRight>
                 </li>
