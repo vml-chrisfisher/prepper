@@ -30,7 +30,7 @@ function* watchProfile() {
   yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
 }
 
-function watchCreateProfile() {
+function* watchCreateProfile() {
   yield takeEvery(PROFILE_STEPS.CREATE_PROFILE, createProfileAsync)
 }
 

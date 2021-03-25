@@ -7,7 +7,7 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
     case PROFILE_STEPS.LOADING:
       return { ...state, profileStep: PROFILE_STEPS.LOADING }
     case PROFILE_STEPS.LOADING_SUCCESS:
-      return { ...state, profileStep: PROFILE_STEPS.LOADING_SUCCESS, ...action.payload }
+      return { ...state, profileStep: PROFILE_STEPS.LOADING_SUCCESS }
     case PROFILE_STEPS.LOADING_FAILURE:
       return state
     case PROFILE_STEPS.UPDATING:

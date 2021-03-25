@@ -18,11 +18,12 @@ const Profile = () => {
   })
 
   const householdMembers = useSelector((state: AppState) => {
-    return state?.profileReducer?.householdMembers
+    console.log(state)
+    return state?.householdReducers?.householdMembers
   })
 
   const householdMembersPronoun = useSelector((state: AppState) => {
-    const length = state?.profileReducer?.householdMembers.length
+    const length = state?.householdReducers?.householdMembers?.length
     switch (length) {
       case 1:
         return 'person'
@@ -36,7 +37,7 @@ const Profile = () => {
   })
 
   const nextShipmentDate = useSelector((state: AppState) => {
-    const expectedShipDateRaw: Date = state?.profileReducer?.shipments?.next?.expectedShipDate
+    const expectedShipDateRaw: Date = state?.shipmentsReducers?.shipments?.next?.expectedShipDate
     if (expectedShipDateRaw) {
       const monthes = [
         'January',
@@ -60,15 +61,15 @@ const Profile = () => {
   })
 
   const preferencesEmail = useSelector((state: AppState) => {
-    return state?.profileReducer?.emailPreferences?.email
+    return state?.emailPreferencesReducers?.emailPreferences?.email
   })
 
   const groceries = useSelector((state: AppState) => {
-    return state?.profileReducer?.groceries
+    return state?.groceriesReducers?.groceries
   })
 
   const groceriesPronoun = useSelector((state: AppState) => {
-    const length = state?.profileReducer?.groceries.length
+    const length = state?.groceriesReducers?.groceries?.length
     switch (length) {
       case 1:
         return 'item'
@@ -83,7 +84,7 @@ const Profile = () => {
   })
 
   const nextBillingDate = useSelector((state: AppState) => {
-    const nextBillingDateRaw = state?.profileReducer?.billingInformation?.nextBilling
+    const nextBillingDateRaw = state?.billingReducers?.billingInformation?.nextBilling
     if (nextBillingDateRaw) {
       const monthes = [
         'January',
@@ -222,7 +223,7 @@ const Profile = () => {
           <PrimaryButton>
             <Category>Household</Category>
             <CategoryDetail>
-              {householdMembers.length} {householdMembersPronoun} in your household.
+              {householdMembers?.length} {householdMembersPronoun} in your household.
             </CategoryDetail>
           </PrimaryButton>
           <PrimaryButton>
@@ -233,7 +234,7 @@ const Profile = () => {
           <PrimaryButton>
             <Category>Groceries</Category>
             <CategoryDetail>
-              {groceries.length}&nbsp;{groceriesPronoun} in your grocery list
+              {groceries?.length}&nbsp;{groceriesPronoun} in your grocery list
             </CategoryDetail>
           </PrimaryButton>
           <PrimaryButton>
