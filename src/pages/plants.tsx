@@ -15,10 +15,6 @@ class PlantsIndex extends React.Component<PlantsProps> {
     const contentfulConfig = require('../../.contentful.json')
     /* eslint-enable  @typescript-eslint/no-var-requires */
     /* eslint-enable  no-undef */
-    const client = contentful.createClient({
-      space: contentfulConfig.spaceId,
-      accessToken: contentfulConfig.accessToken,
-    })
 
     const posts: PlantsEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
     const vegetablesByParent = [
@@ -227,7 +223,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
     `
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 900
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <div style={{ background: '#fff', paddingTop: '250px', position: 'absolute', top: '0', width: '100%' }}>
           <Helmet title="Knife and Fisher | Plants" />
           <h1>Plants</h1>

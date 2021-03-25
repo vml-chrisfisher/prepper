@@ -12,7 +12,7 @@ class VegetablesIndex extends React.Component<VegetablesProps> {
     const posts: VegetablesEdge[] = get(this, 'props.data.allContentfulVegetable.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <div style={{ background: '#fff', paddingTop: '144px' }}>
           <Helmet title="Knife and Fisher | Vegetables" />
           <h1>Vegetables</h1>

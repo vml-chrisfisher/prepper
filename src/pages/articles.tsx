@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
-import ArticleSummaryInterface from '../components/articleSummary/interface'
+import { ArticleSummaryInterface, ArticleSummaryNode } from '../components/articleSummary/interface'
 import Footer from '../components/footer'
 import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
@@ -32,7 +32,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
     const posts: ArticlesEdge[] = get(this, 'props.data.allContentfulArticle.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []
-    const postsCopy: ArticleSummaryInterface[] = posts.map((post: any) => {
+    const postsCopy: ArticleSummaryInterface[] = posts.map((post: ArticleSummaryNode) => {
       return {
         description: '',
         title: post.node.title,
@@ -48,7 +48,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
     }
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer>
           <Helmet title="Articles | Knife & Fish">

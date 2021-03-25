@@ -55,7 +55,7 @@ class RecipeIndex extends React.Component<RecipesProps> {
     }
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer>
           <Helmet title="Recipes | Knife & Fish">

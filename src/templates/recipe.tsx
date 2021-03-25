@@ -311,7 +311,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
     }
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer style={{ background: '#fff' }}>
           <Helmet>

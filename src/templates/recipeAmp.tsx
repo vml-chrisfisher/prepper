@@ -3,10 +3,8 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
-import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import FooterAMP from '../components/footer/footerAMP'
 import HeaderAMP from '../components/header/headerAMP'
-import { HeaderTheme } from '../components/header/interface'
 import LayoutAMP from '../components/layoutAMP'
 import {
   RecipeProps,
@@ -111,12 +109,8 @@ class RecipeAMPTemplate extends React.Component<RecipeProps> {
       "recipeInstructions": [${instructions.toString()}]
     }`
 
-    const recipes = get(this, 'props.data.allContentfulRecipe.edges')
-
-    const articles = get(this, 'props.data.allContentfulArticle.edges')
-
     return (
-      <LayoutAMP location={this.props.location}>
+      <LayoutAMP>
         <div className="main-container" style={{ background: '#fff' }}>
           <Helmet>
             {/* The description that appears under the title of your website appears on search engines results */}

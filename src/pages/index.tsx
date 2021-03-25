@@ -89,7 +89,7 @@ class RootIndex extends React.Component<HomeProps> {
     // `
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com"></link>

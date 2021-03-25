@@ -21,7 +21,6 @@ class StoryIndex extends React.Component<HomeProps> {
 
   render() {
     const posts: HomeEdge[] = get(this, 'props.data.allContentfulHomePage.edges')
-    const post: HomeEdge = posts[0]
     const videoPath = 'https://knifeandfish.s3.amazonaws.com/knifefishbackground.mp4'
     const mobileVideoPath = 'https://knifeandfish.s3.amazonaws.com/knifeandfishmobile.mp4'
 
@@ -68,7 +67,7 @@ class StoryIndex extends React.Component<HomeProps> {
     `
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com/story"></link>

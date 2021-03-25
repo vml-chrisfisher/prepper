@@ -3,16 +3,12 @@ import Helmet from 'react-helmet'
 import ContainerAMP from './containerAMP'
 
 interface Props {
-  location: Location
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   children?: any
   /* eslint-enable  @typescript-eslint/no-explicit-any */
 }
 
-const LayoutAMP = ({ location, children }: Props) => {
-  const rootPath = '/'
-  const homePath = ''
-
+const LayoutAMP = ({ children }: Props) => {
   const gTag = `
     window.dataLayer = window.dataLayer || []
     function gtag() {

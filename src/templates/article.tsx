@@ -190,7 +190,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer style={{ background: '#fff' }}>
           <Helmet>

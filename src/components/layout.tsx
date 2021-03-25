@@ -3,16 +3,12 @@ import Helmet from 'react-helmet'
 import Container from './container'
 
 interface Props {
-  location: Location
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   children?: any
   /* eslint-enable  @typescript-eslint/no-explicit-any */
 }
 
-const Layout = ({ location, children }: Props) => {
-  const rootPath = '/'
-  const homePath = ''
-
+const Layout = ({ children }: Props) => {
   const gTag = `
     window.dataLayer = window.dataLayer || []
     function gtag() {

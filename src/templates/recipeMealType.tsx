@@ -56,7 +56,7 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
     }
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <MainContainer>
           <Helmet title={`${posts[0].node.mealType} Recipes | Knife & Fish`}>
