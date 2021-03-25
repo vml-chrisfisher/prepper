@@ -5,7 +5,7 @@ import { submitLoginAsync } from './ducks/login/sagas'
 import { LOGIN_STEPS } from './ducks/login/types'
 import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
 import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
-import { fetchProfileAsync } from './ducks/profile/sagas'
+import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE_STEPS } from './ducks/profile/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
@@ -30,6 +30,10 @@ function* watchProfile() {
   yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
 }
 
+function watchCreateProfile() {
+  yield takeEvery(PROFILE_STEPS.CREATE_PROFILE, createProfileAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchFetchHeaderProductCategoryDetail(),
@@ -37,5 +41,6 @@ export default function* rootSaga() {
     watchSearch(),
     watchLogin(),
     watchProfile(),
+    watchCreateProfile(),
   ])
 }

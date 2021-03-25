@@ -2,12 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore as reduxCreateStore, Store } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-// import loginReducer from './src/store/ducks/login/reducers';
-// import profileReducer from './src/store/ducks/profile/reducers';
-// import sidebarActionReducers from './src/store/ducks/sidebar/actions/reducers';
-// import header from './src/store/reducers/header';
-// import sidebar from './src/store/reducers/sidebar';
-// import visibilityFilter from './src/store/reducers/visibility';
 import rootSaga from './src/store/sagas';
 import { reducers as rootReducer } from './src/store/rootReducer'
 
@@ -21,15 +15,6 @@ export default ({ element }) => {
   const initialState = {}
 
   const sagaMiddleware = createSagaMiddleware()
-
-  // const reducer = combineReducers({
-  //   header,
-  //   visibilityFilter,
-  //   sidebar,
-  //   loginReducer,
-  //   profileReducer,
-  //   sidebarActionReducers
-  // })
   const store = reduxCreateStore(rootReducer, applyMiddleware(sagaMiddleware))
   sagaMiddleware.run(rootSaga)
   return <Provider store={store}>{element}</Provider>

@@ -261,3 +261,15 @@ export function* fetchProfileAsync(action: any) {
     })
   }
 }
+
+const createProfile = () => {
+  return Promise.resolve({
+    userId: 'sdfdsfdd',
+  })
+}
+
+export function* createProfileAsync(action: any) {
+  yield put({
+    type: PROFILE_STEPS.CREATING_PROFILE,
+  })
+}
