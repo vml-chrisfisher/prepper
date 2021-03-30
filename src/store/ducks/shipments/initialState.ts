@@ -1,3 +1,4 @@
 export default {
-  shipments: [],
+  nextShipment: undefined,
+  previousShipments: undefined,
 }
