@@ -1,10 +1,11 @@
-import { PROFILE_STEPS } from '../profile/types'
+import { HouseholdMember, PROFILE_STEPS } from '../profile/types'
 import initialState from './initialState'
+import { Household } from './interfaces'
 
-const householdReducers = (state = initialState, action: { type?: string; payload?: any }) => {
+const householdReducers = (state: Household = initialState, action: { type?: string; payload?: any }) => {
   switch (action?.type) {
     case PROFILE_STEPS.LOADING_SUCCESS:
-      return { ...state, householdMembers: action.payload.householdMembers }
+      return { ...state, household: action.payload.household }
     default:
       return state
   }
