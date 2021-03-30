@@ -1,3 +1,7 @@
+import { HouseholdMember } from './interfaces'
+
 export default {
-  householdMembers: [],
+  id: undefined,
+  name: undefined,
+  householdMembers: new Array<HouseholdMember>(),
 }
