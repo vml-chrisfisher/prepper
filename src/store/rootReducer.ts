@@ -11,16 +11,16 @@ import sidebarActionReducers from './ducks/sidebar/actions/reducers'
 import sidebar from './ducks/sidebar/actions/reducers'
 
 export const reducers = combineReducers({
-  headerReducers,
+  header: headerReducers,
   sidebar,
-  loginReducer,
-  profileReducer,
-  sidebarActionReducers,
-  householdReducers,
-  shipmentsReducers,
-  groceriesReducers,
-  emailPreferencesReducers,
-  billingReducers,
+  login: loginReducer,
+  profile: profileReducer,
+  sidebarActions: sidebarActionReducers,
+  household: householdReducers,
+  shipments: shipmentsReducers,
+  groceries: groceriesReducers,
+  emailPreferences: emailPreferencesReducers,
+  billing: billingReducers,
 })
 
 export type AppState = ReturnType<typeof reducers>

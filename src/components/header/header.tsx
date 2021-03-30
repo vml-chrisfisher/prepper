@@ -60,9 +60,19 @@ class Header extends PureComponent<HeaderProps, HeaderState> {
   }
 
   onProfileClick(event: React.MouseEvent) {
-    if (this.props.onShowProfile) {
-      event.preventDefault()
-      this.props.onShowProfile()
+    event.preventDefault()
+    if (window) {
+      requestAnimationFrame(() => {
+        const videoBackground: HTMLVideoElement | null = document.getElementById('videoBackground') as HTMLVideoElement
+        if (videoBackground) {
+          videoBackground.pause()
+        }
+        setTimeout(() => {
+          if (this.props.onShowProfile) {
+            this.props.onShowProfile()
+          }
+        }, 500)
+      })
     }
   }
 
@@ -314,6 +324,9 @@ const NavigationHeader = styled.nav<MainContainerPositionProps>`
   left: ${props => {
     if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT || props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
       return '0px'
+    }
+    if (props.showProfile === SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION) {
+      return '-100vw'
     }
     return '-400px'
   }};

@@ -5,7 +5,7 @@ export const onFetchProfile = (userId: string) => ({
   payload: { userId: userId },
 })
 
-export const createProfile = (profileInfo: any) => ({
-  type: PROFILE_STEPS.CREATE_PROFILE,
+export const startCreateProfile = (profileInfo: any) => ({
+  type: PROFILE_STEPS.START_CREATE_PROFILE,
   payload: profileInfo,
 })

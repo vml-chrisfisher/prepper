@@ -1,0 +1,6 @@
+export enum EMAIL_SEND_FREQUENCY {
+  NONE = 'NONE',
+  DAILY = 'DAILY',
+  WEEKLY = 'WEEKLY',
+  MONTHLY = 'MONTHLY',
+}

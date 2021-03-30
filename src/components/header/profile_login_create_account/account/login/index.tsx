@@ -16,7 +16,7 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const sliderPosition = useSelector((state: AppState) => {
-    const step = state?.loginReducer?.loginStep
+    const step = state?.login?.loginStep
     switch (step) {
       case LOGIN_STEPS.DEFAULT:
         return 0

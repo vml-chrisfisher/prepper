@@ -4,8 +4,8 @@ import { onNewsletterReset, onNewsletterSubmit } from '../../store/ducks/newslet
 
 const mapStateToProps = (state: any) => {
   const { position } = state.visibilityFilter
-  const { categories } = state.headerReducers
-  const { categoryDetail } = state.headerReducers
+  const { categories } = state.header
+  const { categoryDetail } = state.header
   return {
     position,
     categories,

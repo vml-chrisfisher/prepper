@@ -4,7 +4,7 @@ import { onHideSearch } from '../../../store/ducks/header/actions'
 import { onSearch } from '../../../store/ducks/search/actions'
 
 const mapStateToProps = (state: any) => {
-  const { showSearch } = state.headerReducers
+  const { showSearch } = state.header
   return {
     showSearch,
   }

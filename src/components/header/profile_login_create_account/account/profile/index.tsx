@@ -14,16 +14,16 @@ const Profile = () => {
   const dispatch = useDispatch()
 
   const userId = useSelector((state: AppState) => {
-    return state?.profileReducer?.userId
+    return state?.profile?.userId
   })
 
   const householdMembers = useSelector((state: AppState) => {
     console.log(state)
-    return state?.householdReducers?.householdMembers
+    return state?.household?.householdMembers
   })
 
   const householdMembersPronoun = useSelector((state: AppState) => {
-    const length = state?.householdReducers?.householdMembers?.length
+    const length = state?.household?.householdMembers?.length
     switch (length) {
       case 1:
         return 'person'
@@ -37,7 +37,7 @@ const Profile = () => {
   })
 
   const nextShipmentDate = useSelector((state: AppState) => {
-    const expectedShipDateRaw: Date = state?.shipmentsReducers?.shipments?.next?.expectedShipDate
+    const expectedShipDateRaw: Date = state?.shipments?.shipments?.next?.expectedShipDate
     if (expectedShipDateRaw) {
       const monthes = [
         'January',
@@ -61,15 +61,15 @@ const Profile = () => {
   })
 
   const preferencesEmail = useSelector((state: AppState) => {
-    return state?.emailPreferencesReducers?.emailPreferences?.email
+    return state?.emailPreferences?.emailPreferences?.email
   })
 
   const groceries = useSelector((state: AppState) => {
-    return state?.groceriesReducers?.groceries
+    return state?.groceries?.groceries
   })
 
   const groceriesPronoun = useSelector((state: AppState) => {
-    const length = state?.groceriesReducers?.groceries?.length
+    const length = state?.groceries?.groceries?.length
     switch (length) {
       case 1:
         return 'item'
@@ -84,7 +84,7 @@ const Profile = () => {
   })
 
   const nextBillingDate = useSelector((state: AppState) => {
-    const nextBillingDateRaw = state?.billingReducers?.billingInformation?.nextBilling
+    const nextBillingDateRaw = state?.billing?.billingInformation?.nextBilling
     if (nextBillingDateRaw) {
       const monthes = [
         'January',
@@ -114,7 +114,7 @@ const Profile = () => {
   }, [userId])
 
   const sliderPosition = useSelector((state: AppState) => {
-    const step = state?.profileReducer?.profileStep
+    const step = state?.profile?.profileStep
     switch (step) {
       case PROFILE_STEPS.LOADING:
         return 0
@@ -222,30 +222,46 @@ const Profile = () => {
         <Container>
           <PrimaryButton>
             <Category>Household</Category>
-            <CategoryDetail>
-              {householdMembers?.length} {householdMembersPronoun} in your household.
-            </CategoryDetail>
+            {householdMembers && householdMembers.length && (
+              <CategoryDetail>
+                {householdMembers?.length} {householdMembersPronoun} in your household.
+              </CategoryDetail>
+            )}
           </PrimaryButton>
           <PrimaryButton>
             <Category>Shipments</Category>
-            <CategoryDetail>Next Shipment: </CategoryDetail>
-            <CategoryDetailHighlight>&nbsp; {nextShipmentDate}</CategoryDetailHighlight>
+            {nextShipmentDate && (
+              <>
+                <CategoryDetail>Next Shipment: </CategoryDetail>
+                <CategoryDetailHighlight>&nbsp; {nextShipmentDate}</CategoryDetailHighlight>
+              </>
+            )}
           </PrimaryButton>
           <PrimaryButton>
             <Category>Groceries</Category>
-            <CategoryDetail>
-              {groceries?.length}&nbsp;{groceriesPronoun} in your grocery list
-            </CategoryDetail>
+            {groceries && groceries.length && (
+              <CategoryDetail>
+                {groceries?.length}&nbsp;{groceriesPronoun} in your grocery list
+              </CategoryDetail>
+            )}
           </PrimaryButton>
           <PrimaryButton>
             <Category>Preferences</Category>
-            <CategoryDetail>Sending emails to:&nbsp;</CategoryDetail>
-            <CategoryDetailHighlight>{preferencesEmail}</CategoryDetailHighlight>
+            {preferencesEmail && (
+              <>
+                <CategoryDetail>Sending emails to:&nbsp;</CategoryDetail>
+                <CategoryDetailHighlight>{preferencesEmail}</CategoryDetailHighlight>
+              </>
+            )}
           </PrimaryButton>
           <PrimaryButton>
             <Category>Billing</Category>
-            <CategoryDetail>Next approximate billing date:&nbsp;</CategoryDetail>
-            <CategoryDetailHighlight>{nextBillingDate}</CategoryDetailHighlight>
+            {nextBillingDate && (
+              <>
+                <CategoryDetail>Next approximate billing date:&nbsp;</CategoryDetail>
+                <CategoryDetailHighlight>{nextBillingDate}</CategoryDetailHighlight>
+              </>
+            )}
           </PrimaryButton>
           <PrimaryButton>
             <Category>Sign Out</Category>

@@ -18,7 +18,7 @@ const MainContainer = ({ children, id }: Props) => {
 
   const dispatch = useDispatch()
   const showHeaderProfile = useSelector((state: AppState) => {
-    return state?.headerReducers?.showHeaderProfile
+    return state?.header?.showHeaderProfile
   })
 
   const Container = styled.div<MainContainerPositionProps>`
@@ -29,6 +29,9 @@ const MainContainer = ({ children, id }: Props) => {
     left: ${props => {
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT || props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
         return '0px'
+      }
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION) {
+        return '-100vw'
       }
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.SHOW) {
         return '-300px'

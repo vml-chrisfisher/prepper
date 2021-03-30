@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { HEADER_ACTION_TYPES } from '../../../store/ducks/header/types'
 import { showSidebarAccount, showSidebarCart } from '../../../store/ducks/sidebar/actions/actions'
+import { SIDEBAR_ANIMATION_STEPS } from '../../../store/ducks/sidebar/animations/types'
 import { AppState } from '../../../store/rootReducer'
 import SidebarAccount from './account'
 
@@ -11,7 +12,15 @@ const Sidebar = () => {
     isSelected: boolean
   }
 
+  interface MainContainerPositionProps {
+    showProfile: string
+  }
+
   const dispatch = useDispatch()
+
+  const showHeaderProfile = useSelector((state: AppState) => {
+    return state?.header?.showHeaderProfile
+  })
 
   const showAccount = useSelector((state: AppState) => {
     return state.sidebar.showAccount
@@ -27,12 +36,18 @@ const Sidebar = () => {
     dispatch(showSidebarCart())
   }
 
-  const Container = styled.div`
+  const Container = styled.div<MainContainerPositionProps>`
     position: fixed;
     width: 300px;
     height: 100%;
     top: 0;
-    right: 0;
+    right: ${props => {
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION) {
+        return '-300px'
+      }
+      return '0px'
+    }};
+    transition: all 1s ease-out;
     background-color: #ffffff;
     z-index: 1;
   `
@@ -82,7 +97,7 @@ const Sidebar = () => {
   const CartContainer = styled.div``
 
   return (
-    <Container>
+    <Container showProfile={showHeaderProfile}>
       <SidebarClose onClick={() => dispatch({ type: HEADER_ACTION_TYPES.HIDE_PROFILE_LOGIN })} />
       <TabContainer>
         <Tab isSelected={showAccount} onClick={() => onAccountClick()}>

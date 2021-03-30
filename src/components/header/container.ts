@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import Header from './header'
 import {
   fetch,
   onCategorySelected,
@@ -6,13 +7,12 @@ import {
   onShowHeaderProfile,
   onShowSearch,
 } from './../../store/ducks/header/actions'
-import Header from './header'
 
 const mapStateToProps = (state: any) => {
-  const { data } = state.headerReducers
-  const { categories } = state.headerReducers
-  const { categoryDetail } = state.headerReducers
-  const { showHeaderProfile } = state.headerReducers
+  const { data } = state.header
+  const { categories } = state.header
+  const { categoryDetail } = state.header
+  const { showHeaderProfile } = state.header
   return {
     data,
     categories,

@@ -1,3 +1,5 @@
 export default {
-  groceries: [],
+  preferredStores: [],
+  closeStores: [],
+  groceriesList: [],
 }

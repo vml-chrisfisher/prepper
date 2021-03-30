@@ -7,7 +7,7 @@ import Login from './login'
 import Profile from './profile'
 import RegisterAccount from './register'
 
-const SidebarAccount = () => {
+const ProfileCreator = () => {
   interface TabProps {
     isSelected: boolean
   }
@@ -100,31 +100,18 @@ const SidebarAccount = () => {
     width: calc(50%);
   `
 
+  const LeftContainer = styled.div`
+    width: 33%;
+  `
+
   const CartContainer = styled.div``
 
   return (
     <>
+      <LeftContainer>dsfds</LeftContainer>
       <Wrapper>
         <Slider position={isLoggedIn}>
           <SliderContainer>
-            <TabContainer>
-              <Tab
-                onClick={() => {
-                  onLoginClick()
-                }}
-                isSelected={showLoginState}
-              >
-                Login
-              </Tab>
-              <Tab
-                onClick={() => {
-                  onRegisterClick()
-                }}
-                isSelected={showRegisterState}
-              >
-                Register
-              </Tab>
-            </TabContainer>
             <SubContainer isSelected={showLoginState}>
               <Login />
             </SubContainer>
@@ -141,4 +128,4 @@ const SidebarAccount = () => {
   )
 }
 
-export default SidebarAccount
+export default ProfileCreator

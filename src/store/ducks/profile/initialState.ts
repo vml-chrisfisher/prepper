@@ -1,4 +1,3 @@
-import { string } from 'yup/lib/locale'
 import { PROFILE_STEPS } from './types'
 
 export default {
@@ -10,4 +9,5 @@ export default {
   shipments: [],
   groceries: [],
   billingInformation: undefined,
+  creationTempProfile: {},
 }

@@ -3,8 +3,9 @@ import { Field, Form, Formik } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
-import { createProfile } from '../../../../../store/ducks/profile/actions'
+import { startCreateProfile } from '../../../../../store/ducks/profile/actions'
 import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types'
+import { AppState } from '../../../../../store/rootReducer'
 
 const RegisterAccount = () => {
   interface SliderProps {
@@ -14,11 +15,12 @@ const RegisterAccount = () => {
   const dispatch = useDispatch()
 
   const sliderPosition = useSelector((state: AppState) => {
-    const step = state?.loginReducer?.loginStep
+    const step = state?.profile?.profileStep
     switch (step) {
       case PROFILE_STEPS.CREATE_PROFILE_DEFAULT:
         return 0
       case PROFILE_STEPS.CREATING_PROFILE:
+      case PROFILE_STEPS.START_CREATE_PROFILE:
         return 1
       case PROFILE_STEPS.CREATE_PROFILE_FAILURE:
         return 0
@@ -144,7 +146,7 @@ const RegisterAccount = () => {
   const onSubmit = (values: Values) => {
     const { registerFirstName, registerLastName, registerEmail, registerPassword } = values
     dispatch(
-      createProfile({
+      startCreateProfile({
         registerFirstName,
         registerLastName,
         registerEmail,
@@ -173,7 +175,7 @@ const RegisterAccount = () => {
     <Wrapper>
       <Slider position={sliderPosition}>
         <Container>
-          <Formik initialValues={initialValues} validationSchema={registerValidationSchema} onSubmit={onSubmit}>
+          <Formik initialValues={initialValues} onSubmit={onSubmit}>
             {({ errors, touched }) => {
               return (
                 <Form>

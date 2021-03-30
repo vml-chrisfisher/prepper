@@ -12,7 +12,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
   }
 
   const showHeaderProfile = useSelector((state: AppState) => {
-    return state?.headerReducers?.showHeaderProfile
+    return state?.header?.showHeaderProfile
   })
 
   const VideoBackgroundContainer = styled.div<MainContainerPositionProps>`
@@ -28,6 +28,9 @@ const VideoBackground = (props: VideoBackgroundProps) => {
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.SHOW) {
         return 'calc(100vw - 300px)'
       }
+      if (props.showProfile === SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION) {
+        return '-100vw'
+      }
       return '100vw'
     }};
     transform: translateZ(0);
@@ -40,6 +43,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
     width: 100vw;
     height: auto;
     object-fit: fill;
+    transform: translateZ(0);
   `
 
   const HeroVideoMobile = styled.video`
@@ -63,6 +67,7 @@ const VideoBackground = (props: VideoBackgroundProps) => {
     <>
       <VideoBackgroundContainer showProfile={showHeaderProfile} className="hidden-sm">
         <HeroVideo
+          id="videoBackground"
           src={props.videoPath}
           placeholder="//images.ctfassets.net/ce6fbxhy1t51/1vApipwsb7YV9oVqMRG6xz/9522c94bfd8535004f9b45d8560f2880/desktop_placeholde.jpg
 "
