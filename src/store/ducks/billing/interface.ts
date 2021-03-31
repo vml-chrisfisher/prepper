@@ -28,8 +28,14 @@ export interface BillingInformationCardInformation {
   ccv?: number
 }
 
+export interface Billing {
+  date: Date
+}
+
 export interface BillingInformation {
   contact: BillingInformationContactInformation
   address: BillingInformationAddress
   cardInformation: BillingInformationCardInformation
+  nextBilling: Billing
+  previousBillings: Array<Billing>
 }

@@ -37,7 +37,7 @@ const Profile = () => {
   })
 
   const nextShipmentDate = useSelector((state: AppState) => {
-    const expectedShipDateRaw: Date = state?.shipments?.shipments?.next?.expectedShipDate
+    const expectedShipDateRaw: Date | undefined = state?.shipments?.nextShipment?.expectingChangesUntil
     if (expectedShipDateRaw) {
       const monthes = [
         'January',
@@ -61,15 +61,17 @@ const Profile = () => {
   })
 
   const preferencesEmail = useSelector((state: AppState) => {
-    return state?.emailPreferences?.emailPreferences?.email
+    return state?.emailPreferences?.emailAddress
   })
 
   const groceries = useSelector((state: AppState) => {
-    return state?.groceries?.groceries
+    if (state?.groceries?.groceriesList.length > 0) {
+      return state?.groceries?.groceriesList[0]
+    }
   })
 
   const groceriesPronoun = useSelector((state: AppState) => {
-    const length = state?.groceries?.groceries?.length
+    const length = state?.groceries?.groceriesList[0].groceries.length
     switch (length) {
       case 1:
         return 'item'
@@ -84,7 +86,7 @@ const Profile = () => {
   })
 
   const nextBillingDate = useSelector((state: AppState) => {
-    const nextBillingDateRaw = state?.billing?.billingInformation?.nextBilling
+    const nextBillingDateRaw = state?.billing?.nextBilling.date
     if (nextBillingDateRaw) {
       const monthes = [
         'January',

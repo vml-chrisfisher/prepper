@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
-import { LOGIN_STEPS, PROFILE_STEPS } from './types'
+import { PROFILE_STEPS } from './types'
 
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>(resolve => {

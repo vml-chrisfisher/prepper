@@ -5,6 +5,7 @@ import groceriesReducers from './ducks/groceries/reducers'
 import headerReducers from './ducks/header/reducers'
 import householdReducers from './ducks/household/reducers'
 import loginReducer from './ducks/login/reducers'
+import newsletterReducers from './ducks/newsletter/reducers'
 import profileReducer from './ducks/profile/reducers'
 import shipmentsReducers from './ducks/shipments/reducers'
 import sidebarActionReducers from './ducks/sidebar/actions/reducers'
@@ -21,6 +22,7 @@ export const reducers = combineReducers({
   groceries: groceriesReducers,
   emailPreferences: emailPreferencesReducers,
   billing: billingReducers,
+  newsletter: newsletterReducers,
 })
 
 export type AppState = ReturnType<typeof reducers>

@@ -1,6 +1,8 @@
 import { all, takeEvery } from 'redux-saga/effects'
 import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
 import { HEADER_ACTION_TYPES } from './ducks/header/types'
+import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas'
+import { CREATE_HOUSEHOLD_FROM } from './ducks/household/types'
 import { submitLoginAsync } from './ducks/login/sagas'
 import { LOGIN_STEPS } from './ducks/login/types'
 import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
@@ -30,8 +32,12 @@ function* watchProfile() {
   yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
 }
 
-function* watchCreateProfile() {
-  yield takeEvery(PROFILE_STEPS.CREATE_PROFILE, createProfileAsync)
+function* watchCreateHouseholdFromNewsletter() {
+  yield takeEvery(CREATE_HOUSEHOLD_FROM.NEWSLETTER, createHouseholdFromNewsletterAsync)
+}
+
+function* watchCreateHouseholdFromSurvey() {
+  yield takeEvery(CREATE_HOUSEHOLD_FROM.SURVEY, createHouseholdFromSurveyAsync)
 }
 
 export default function* rootSaga() {
@@ -41,6 +47,7 @@ export default function* rootSaga() {
     watchSearch(),
     watchLogin(),
     watchProfile(),
-    watchCreateProfile(),
+    watchCreateHouseholdFromNewsletter(),
+    watchCreateHouseholdFromSurvey(),
   ])
 }
