@@ -6,7 +6,6 @@ import * as Yup from 'yup'
 import { onSubmitLogin } from '../../../../../store/ducks/login/actions'
 import { LOGIN_STEPS } from '../../../../../store/ducks/login/types'
 import { AppState } from '../../../../../store/rootReducer'
-import Profile from '../profile'
 
 const Login = () => {
   interface SliderProps {

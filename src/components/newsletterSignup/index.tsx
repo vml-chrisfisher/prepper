@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Field, Form, Formik } from 'formik'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CREATE_HOUSEHOLD_FROM } from '../../store/ducks/household/types'
@@ -6,6 +7,9 @@ import { onNewsletterReset, onNewsletterSubmit } from '../../store/ducks/newslet
 import { AppState } from '../../store/rootReducer'
 
 const NewsletterSignup = () => {
+  interface NewsletterPositionProps {
+    stage: number
+  }
   const SignupParagraph = styled.p`
     color: #ffffff;
     font-size: 12px;
@@ -110,6 +114,54 @@ const NewsletterSignup = () => {
     }
   `
 
+  const FormInput = ({ ...props }) => {
+    return <Field className="form--input" {...props} />
+  }
+
+  const FormError = styled.div`
+    color: #f24e11;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  `
+
+  const PrimaryButton = styled.button`
+    background-color: #f24e11;
+    border: 1px solid transparent;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    height: 60px;
+    letter-spacing: 3px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    text-transform: uppercase;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 100%;
+    &:hover {
+      background-color: #ffffff;
+      border: 1px solid #333333;
+      color: #f24e11;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  `
+
+  const StatusSpinner = styled.img`
+    width: 50px;
+    margin: 0 auto;
+    padding-top: 50px;
+  `
+
+  const Status = styled.div`
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    text-align: center;
+  `
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -120,8 +172,16 @@ const NewsletterSignup = () => {
     return state?.newsletter?.position
   })
 
-  const handleSubmit = () => {
-    dispatch(onNewsletterSubmit('sdfd', 'sdfdsf', 'sdfd'))
+  const onSubmit = (values: Values) => {
+    const { newsletterEmail } = values
+    dispatch(onNewsletterSubmit(newsletterEmail))
+  }
+
+  interface Values {
+    newsletterEmail: string
+  }
+  const initialValues = {
+    newsletterEmail: '',
   }
 
   return (
@@ -130,40 +190,22 @@ const NewsletterSignup = () => {
         <NewsletterSignupForm>
           <NewsletterSignupTitle className="white-text">Get our latest updates</NewsletterSignupTitle>
           <SignupParagraph>Sign up to our newsletter and get the our latest news.</SignupParagraph>
-          <NewsletterSignupLabel>
-            Email Address
-            <NewsletterSignupInput
-              type="email"
-              value={this.state.email}
-              onChange={event => this.setState({ email: event.target.value })}
-              placeholder="you@knifeandfish.com"
-            />
-          </NewsletterSignupLabel>
-
-          <button
-            onClick={e => {
-              handleSubmit()
+          <Formik initialValues={initialValues} onSubmit={onSubmit}>
+            {({ errors, touched }) => {
+              console.log(errors)
+              return (
+                <Form>
+                  {errors.newsletterEmail ? <FormError>{errors.newsletterEmail}</FormError> : <></>}
+                  <FormInput id="newsletterEmail" name="newsletterEmail" type="email" placeholder="Email Address" />
+                  <PrimaryButton type="submit">Signup</PrimaryButton>
+                </Form>
+              )
             }}
-            className="primaryButton"
-          >
-            Sign up
-          </button>
+          </Formik>
         </NewsletterSignupForm>
         <NewsletterSignupStatus>
-          <NewsletterSignupLoader>
-            <div className="lds-grid">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <NewletterSignupStateText>Adding you to the list.</NewletterSignupStateText>
-          </NewsletterSignupLoader>
+          <StatusSpinner src="/spinner.svg" />
+          <Status>Let&pos;s add you to the list.</Status>
         </NewsletterSignupStatus>
         <NewsletterSignupConfirmation>
           <NewsletterSignupLoader>

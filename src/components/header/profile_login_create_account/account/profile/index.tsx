@@ -71,7 +71,7 @@ const Profile = () => {
   })
 
   const groceriesPronoun = useSelector((state: AppState) => {
-    const length = state?.groceries?.groceriesList[0].groceries.length
+    const length = state?.groceries?.groceriesList[0]?.groceries?.length
     switch (length) {
       case 1:
         return 'item'
@@ -86,7 +86,7 @@ const Profile = () => {
   })
 
   const nextBillingDate = useSelector((state: AppState) => {
-    const nextBillingDateRaw = state?.billing?.nextBilling.date
+    const nextBillingDateRaw = state?.billing?.nextBilling?.date
     if (nextBillingDateRaw) {
       const monthes = [
         'January',

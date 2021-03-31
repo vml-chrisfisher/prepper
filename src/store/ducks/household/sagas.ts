@@ -1,5 +1,6 @@
-import { AxiosResponse } from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
+import { HouseholdMember } from '../profile/types'
 import { Household } from './interfaces'
 import {
   CREATE_HOUSEHOLD_NEWLETTER_ASYNC_STEPS,
@@ -15,8 +16,20 @@ const delay = (ms: number): Promise<void> => {
   })
 }
 
-const createHousehold = (household: Household): Promise<Household> => {
-  return Promise.resolve(household)
+const createHousehold = (household: Household): Promise<AxiosResponse<HouseholdMember>> => {
+  const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
+  return axios.post(
+    url,
+    {
+      household: household,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  )
+  // return Promise.resolve(household)
 }
 
 export function* createHouseholdFromSurveyAsync(action: any) {
@@ -24,8 +37,8 @@ export function* createHouseholdFromSurveyAsync(action: any) {
     type: CREATE_HOUSEHOLD_SURVEY_ASYNC_STEPS.SUBMITTING,
   })
 
-  const { userId } = action.payload
-  if (userId) {
+  const { household } = action.payload
+  if (household) {
     try {
       const profileResponse = yield call(createHousehold, new Household())
       yield delay(3000)

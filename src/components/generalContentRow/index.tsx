@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
+import newsletter from '../../store/ducks/newsletter'
 import ArticleSummaryVertical from '../articleSummaryVertical'
+import NewsletterSignup from '../newsletterSignup'
 import NewsletterContainer from '../newsletterSignup/container'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
@@ -56,7 +58,7 @@ const GeneralContentRow = () => {
 
           <Col6Full className="col6">
             <LazyLoad>
-              <NewsletterContainer />
+              <NewsletterSignup />
             </LazyLoad>
           </Col6Full>
         </div>
