@@ -15,11 +15,11 @@ export enum HOUSEHOLD_ROLE {
 }
 
 export interface HouseholdMember {
-  firstName: string
-  lastName: string
-  avatar: string
-  phoneNumber: string
+  firstName?: string
+  lastName?: string
+  avatar?: string
+  phoneNumber?: string
   email: string
-  password: string
+  password?: string
   role: HOUSEHOLD_ROLE
 }

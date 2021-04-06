@@ -1,5 +1,8 @@
 import axios, { AxiosResponse } from 'axios'
 import { all, call, put, takeEvery } from 'redux-saga/effects'
+import { EmailPreferences } from '../emailPreferences/interfaces'
+import { EMAIL_SEND_FREQUENCY } from '../emailPreferences/types'
+import { Household, HOUSEHOLD_MEMBER_ROLE, HouseholdMember } from '../household/interfaces'
 import { NEWSLETTER_ACTION_TYPES } from './types'
 
 const delay = (ms: number): Promise<void> => {
@@ -10,12 +13,12 @@ const delay = (ms: number): Promise<void> => {
   })
 }
 
-const submitNewsletterEmail = (email: string): Promise<AxiosResponse<any>> => {
+const submitNewsletterEmail = (household: Household): Promise<AxiosResponse<any>> => {
   const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
   return axios.post(
     url,
     {
-      email: email,
+      household: household,
     },
     {
       headers: {
@@ -30,9 +33,21 @@ export function* submitNewsletterEmailAsync(action: any) {
     type: NEWSLETTER_ACTION_TYPES.SUBMITTING,
   })
   const { email } = action
+  const household: Household = {}
+  const householdMember: HouseholdMember = {
+    emailAddress: email,
+    role: HOUSEHOLD_MEMBER_ROLE.FAMILY_OWNER,
+  }
+  const emailPreferences: EmailPreferences = {
+    recipes: EMAIL_SEND_FREQUENCY.DAILY,
+    articles: EMAIL_SEND_FREQUENCY.DAILY,
+    roundups: EMAIL_SEND_FREQUENCY.MONTHLY,
+  }
+  household.householdMembers = [householdMember]
+  household.emailPreferences = emailPreferences
   if (email) {
     try {
-      const response = yield call(submitNewsletterEmail, email)
+      const response = yield call(submitNewsletterEmail, household)
       yield put({
         type: NEWSLETTER_ACTION_TYPES.ADDED_SUCCESS,
       })

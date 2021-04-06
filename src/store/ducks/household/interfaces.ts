@@ -1,4 +1,9 @@
-export enum HouseholdMemberRole {
+import { Billing } from '../billing/interface'
+import { EmailPreferences } from '../emailPreferences/interfaces'
+import { GroceriesPreferences, GroceryList } from '../groceries/interfaces'
+import { Shipments } from '../shipments/interfaces'
+
+export enum HOUSEHOLD_MEMBER_ROLE {
   FAMILY_OWNER = 'Family Owner',
   APPROVER = 'Approver',
   MEMBER = 'Member',
@@ -19,11 +24,11 @@ export interface HouseholdMember {
   lastNamse?: string
   avatar?: string
   phoneNumber?: string
-  emailAddrress?: string
+  emailAddress?: string
   passwordLength?: number
   passwordResetQuestionsAnswers?: Array<PasswordResetQuestionAnswer>
-  role?: HouseholdMemberRole
-  diet: {
+  role?: HOUSEHOLD_MEMBER_ROLE
+  diet?: {
     allergies?: Array<string>
     calorieCouting?: {
       atLeast?: number
@@ -31,7 +36,7 @@ export interface HouseholdMember {
     }
     currentDiets?: Array<string>
   }
-  foods: {
+  foods?: {
     like: Array<FoodLikeDislike>
     dislike: Array<FoodLikeDislike>
   }
@@ -40,5 +45,9 @@ export interface HouseholdMember {
 export interface Household {
   id?: string
   name?: string
-  householdMembers: Array<HouseholdMember>
+  householdMembers?: Array<HouseholdMember>
+  shipments?: Shipments
+  groceries?: GroceriesPreferences
+  emailPreferences?: EmailPreferences
+  billings?: Billing
 }
