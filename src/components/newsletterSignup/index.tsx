@@ -86,8 +86,13 @@ const NewsletterSignup = () => {
     width: 100%;
   `
 
+  const NewletterSignupStatusWrapper = styled.div`
+    display: inline-block;
+    margin-top: calc(50% - 50px);
+  `
+
   const NewsletterSignupLoader = styled.div`
-    padding-top: 75%;
+    padding-top: 50%;
     @media (max-width: 767px) {
       padding-top: 35%;
     }
@@ -115,7 +120,7 @@ const NewsletterSignup = () => {
   `
 
   const FormInput = ({ ...props }) => {
-    return <Field className="form--input" {...props} />
+    return <Field className="form--input white-text" {...props} />
   }
 
   const FormError = styled.div`
@@ -155,7 +160,7 @@ const NewsletterSignup = () => {
   `
 
   const Status = styled.div`
-    color: #333333;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 100;
@@ -204,8 +209,10 @@ const NewsletterSignup = () => {
           </Formik>
         </NewsletterSignupForm>
         <NewsletterSignupStatus>
-          <StatusSpinner src="/spinner.svg" />
-          <Status>Let&pos;s add you to the list.</Status>
+          <NewletterSignupStatusWrapper>
+            <StatusSpinner src="/spinner.svg" />
+            <Status dangerouslySetInnerHTML={{ __html: 'Let&apos;s add you to the list.' }}></Status>
+          </NewletterSignupStatusWrapper>
         </NewsletterSignupStatus>
         <NewsletterSignupConfirmation>
           <NewsletterSignupLoader>

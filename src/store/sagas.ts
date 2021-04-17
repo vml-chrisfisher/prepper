@@ -32,9 +32,9 @@ function* watchProfile() {
   yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
 }
 
-function* watchCreateHouseholdFromNewsletter() {
-  yield takeEvery(CREATE_HOUSEHOLD_FROM.NEWSLETTER, createHouseholdFromNewsletterAsync)
-}
+// function* watchCreateHouseholdFromNewsletter() {
+//   yield takeEvery(CREATE_HOUSEHOLD_FROM.NEWSLETTER, createHouseholdFromNewsletterAsync)
+// }
 
 function* watchCreateHouseholdFromSurvey() {
   yield takeEvery(CREATE_HOUSEHOLD_FROM.SURVEY, createHouseholdFromSurveyAsync)
@@ -47,7 +47,6 @@ export default function* rootSaga() {
     watchSearch(),
     watchLogin(),
     watchProfile(),
-    watchCreateHouseholdFromNewsletter(),
     watchCreateHouseholdFromSurvey(),
   ])
 }

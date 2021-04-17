@@ -250,7 +250,6 @@ export function* fetchProfileAsync(action: any) {
         payload: profileResponse.data.message,
       })
     } catch (error) {
-      console.log('PROFILE ERROR: ', error)
       yield put({
         type: PROFILE_STEPS.LOADING_FAILURE,
       })

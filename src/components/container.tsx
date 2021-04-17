@@ -206,11 +206,11 @@ export default ({ children }) => (
         }
 
         .dark-text {
-          color: #484848;
+          color: #484848 !important;
         }
 
         .white-text {
-          color: #fff;
+          color: #fff !important;
         }
 
         @media only screen and (min-width: 33.75em) {

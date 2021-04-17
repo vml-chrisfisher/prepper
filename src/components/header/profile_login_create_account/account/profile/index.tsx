@@ -18,7 +18,6 @@ const Profile = () => {
   })
 
   const householdMembers = useSelector((state: AppState) => {
-    console.log(state)
     return state?.household?.householdMembers
   })
 

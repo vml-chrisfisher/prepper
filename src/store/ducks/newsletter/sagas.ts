@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { all, call, put, takeEvery } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import { EmailPreferences } from '../emailPreferences/interfaces'
 import { EMAIL_SEND_FREQUENCY } from '../emailPreferences/types'
 import { Household, HOUSEHOLD_MEMBER_ROLE, HouseholdMember } from '../household/interfaces'
@@ -14,7 +14,7 @@ const delay = (ms: number): Promise<void> => {
 }
 
 const submitNewsletterEmail = (household: Household): Promise<AxiosResponse<any>> => {
-  const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
+  const url = 'https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/newsletter'
   return axios.post(
     url,
     {
@@ -54,7 +54,6 @@ export function* submitNewsletterEmailAsync(action: any) {
       yield delay(3000)
       yield put({ type: NEWSLETTER_ACTION_TYPES.RESET })
     } catch (error) {
-      console.log('ERROR: ', error)
       yield put({
         type: NEWSLETTER_ACTION_TYPES.ADDED_FAILURE,
         error: error,

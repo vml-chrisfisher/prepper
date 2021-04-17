@@ -6,11 +6,11 @@ const newsletterReducers = (state = initialState, action: { type?: string; paylo
   switch (action.type) {
     case NEWSLETTER_ACTION_TYPES.RESET:
       return { ...state, position: 0 }
-    case CREATE_HOUSEHOLD_NEWLETTER_ASYNC_STEPS.SUBMITTING:
+    case NEWSLETTER_ACTION_TYPES.SUBMITTING:
       return { ...state, position: 1 }
-    case CREATE_HOUSEHOLD_NEWLETTER_ASYNC_STEPS.SUCCESS:
+    case NEWSLETTER_ACTION_TYPES.ADDED_SUCCESS:
       return { ...state, position: 2 }
-    case CREATE_HOUSEHOLD_NEWLETTER_ASYNC_STEPS.FAILURE:
+    case NEWSLETTER_ACTION_TYPES.ADDED_FAILURE:
       return state
     default:
       return state
