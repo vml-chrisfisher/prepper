@@ -484,6 +484,30 @@ export default ({ children }) => (
             font-weight: 300;
             font-family: 'Playfair Display', serif;
           }
+          @media (max-width: 767px) {
+            width: 100%;
+          }
+        }
+
+        .text-area {
+          width: calc(100% - 20px);
+          background-color: transparent
+          border: solid 0.5px #3333;
+          font-size: 14px;
+          font-family: 'Roboto', sans-serif;
+          margin: auto 0;
+          margin-bottom: 30px;
+          padding-bottom: 5px;
+
+          &::placeholder {
+            color: #b4b2b2;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: 'Playfair Display', serif;
+          }
+          @media (max-width: 767px) {
+            width: 98%;
+          }
         }
       `}
     />

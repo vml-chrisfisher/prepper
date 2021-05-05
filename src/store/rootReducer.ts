@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import billingReducers from './ducks/billing/reducers'
+import contactReducers from './ducks/contact/reducers'
 import emailPreferencesReducers from './ducks/emailPreferences/reducers'
 import groceriesReducers from './ducks/groceries/reducers'
 import headerReducers from './ducks/header/reducers'
@@ -12,16 +13,17 @@ import sidebarActionReducers from './ducks/sidebar/actions/reducers'
 import sidebar from './ducks/sidebar/actions/reducers'
 
 export const reducers = combineReducers({
+  billing: billingReducers,
+  contact: contactReducers,
+  emailPreferences: emailPreferencesReducers,
+  groceries: groceriesReducers,
   header: headerReducers,
-  sidebar,
+  household: householdReducers,
   login: loginReducer,
   profile: profileReducer,
+  sidebar,
   sidebarActions: sidebarActionReducers,
-  household: householdReducers,
   shipments: shipmentsReducers,
-  groceries: groceriesReducers,
-  emailPreferences: emailPreferencesReducers,
-  billing: billingReducers,
   newsletter: newsletterReducers,
 })
 

@@ -1,211 +1,312 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
-    
-  <style type="text/css">
-	@font-face {font-family:'EngraversMTBold';        src:url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");        font-weight:bold;        font-style:normal;}
-		body{
-			background-color:#ffffff;
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+	<style type="text/css">
+		@font-face {
+			font-family: 'EngraversMTBold';
+			src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+			font-weight: bold;
+			font-style: normal;
 		}
-		.title{
-			color:#333333;
-			font-family:'Cormorant Garamond',serif;
-			font-size:40px;
-			letter-spacing:0;
-			line-height:35px;
-			padding-top:48px;
-			padding-bottom:25px;
-			width:100%;
-			text-align:center;
+
+		body {
+			background-color: #ffffff;
 		}
-		.logo-title{
-			color:#333333;
-			font-family:'Cormorant Garamond',serif;
-			font-size:40px;
-			letter-spacing:0;
-			line-height:35px;
-			padding-top:5px;
-			padding-bottom:25px;
-			width:100%;
-			text-align:center;
+
+		.title {
+			color: #333333;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: 40px;
+			letter-spacing: 0;
+			line-height: 35px;
+			padding-top: 48px;
+			padding-bottom: 25px;
+			width: 100%;
+			text-align: center;
 		}
-		.subTitle{
-			color:#333333;
-			font-family:'Cormorant Garamond',serif;
-			font-size:35px;
-			padding-top:10px;
-			padding-bottom:25px;
-			width:100%;
-			text-align:center;
+
+		.logo-title {
+			color: #333333;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: 60px;
+			letter-spacing: 0;
+			line-height: 35px;
+			padding-top: 5px;
+			padding-bottom: 25px;
+			width: 100%;
+			text-align: center;
 		}
-		.eyebrow{
-			color:#333333;
-			font-family:'Roboto',sans-serif;
-			font-size:14px;
-			letter-spacing:0;
-			padding-bottom:10px;
-			text-transform:uppercase;
-			text-align:center;
+
+		.subTitle {
+			color: #333333;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: 35px;
+			padding-top: 10px;
+			padding-bottom: 25px;
+			width: 100%;
+			text-align: center;
 		}
-		.copy{
-			color:#333333;
-			font-family:'Cormorant Garamond',serif;
-			font-size:28px;
-			line-height:56px;
-			padding-left:20px;
-			padding-right:20px;
-			text-align:center;
+
+		.eyebrow {
+			color: #333333;
+			font-family: 'Roboto', sans-serif;
+			font-size: 14px;
+			letter-spacing: 0;
+			padding-bottom: 10px;
+			text-transform: uppercase;
+			text-align: center;
 		}
-		.mainTitleTop{
-			padding-top:100px;
+
+		.copy {
+			color: #333333;
+			font-family: 'Cormorant Garamond', serif;
+			font-size: 28px;
+			line-height: 56px;
+			padding-left: 20px;
+			padding-right: 20px;
+			text-align: left;
 		}
-		.mainTitleBottom{
-			padding-bottom:100px;
+
+		.mainTitleTop {
+			padding-top: 100px;
 		}
-		.disclaimer{
-			color:#745a34;
-			font-family:'Oswald',sans-serif;
-			font-weight:200;
-			font-size:18px;
-			line-height:26px;
-			padding-left:57px;
-			padding-right:57px;
+
+		.mainTitleBottom {
+			padding-bottom: 100px;
 		}
-		.line{
-			border-bottom:1px solid #745a34;
-			padding-bottom:3px;
+
+		.disclaimer {
+			color: #745a34;
+			font-family: 'Oswald', sans-serif;
+			font-weight: 200;
+			font-size: 18px;
+			line-height: 26px;
+			padding-left: 57px;
+			padding-right: 57px;
 		}
-		.footer-container{
-			background-color:#333333;
+
+		.line {
+			border-bottom: 1px solid #745a34;
+			padding-bottom: 3px;
 		}
-		.drink-responsibly{
-			color:#FFFFFF;
-			display:inline-block;
-			font-family:'EngraversMTBold','Times New Roman',Times,serif;
-			font-weight:900;
-			font-size:16px;
-			letter-spacing:-1px;
-			line-height:16px;
-			margin-left:30px;
-			padding:0;
-			text-align:left;
-			width:173px;
+
+		.footer-container {
+			background-color: #333333;
 		}
-		.footer-links-container{
-			display:inline-block;
-			margin-left:20px;
-			margin-top:42px;
-			padding:0;
+
+		.drink-responsibly {
+			color: #FFFFFF;
+			display: inline-block;
+			font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+			font-weight: 900;
+			font-size: 16px;
+			letter-spacing: -1px;
+			line-height: 16px;
+			margin-left: 30px;
+			padding: 0;
+			text-align: left;
+			width: 173px;
 		}
-		.footer-link{
-			color:#FFFFFF;
-			display:inline-block;
-			font-family:'Oswald',Arial,Helvetica,sans-serif;
-			font-weight:200;
-			font-size:12px;
-			margin-bottom:10px;
-			text-decoration:none;
+
+		.footer-links-container {
+			display: inline-block;
+			margin-left: 20px;
+			margin-top: 42px;
+			padding: 0;
 		}
-		.social-link{
-			height:22px;
+
+		.footer-link {
+			color: #FFFFFF;
+			display: inline-block;
+			font-family: 'Oswald', Arial, Helvetica, sans-serif;
+			font-weight: 200;
+			font-size: 12px;
+			margin-bottom: 10px;
+			text-decoration: none;
 		}
-		.dotted-border{
-			border-bottom:#333333 dotted 1px;
-			display:block;
-			width:75%;
-			margin:30px auto;
+
+		.social-link {
+			height: 22px;
 		}
-		.tan-container{
-			background-color:#E8DCC6;
+
+		.dotted-border {
+			border-bottom: #333333 dotted 1px;
+			display: block;
+			width: 75%;
+			margin: 30px auto;
 		}
-		.white-container{
-			background-color:#fff;
+
+		.tan-container {
+			background-color: #E8DCC6;
 		}
-		li{
-			padding-bottom:30px;
+
+		.white-container {
+			background-color: #fff;
 		}
-		.icon{
-			display:block;
-			width:75px;
-			margin:0 auto;
-			padding-top:50px;
+
+		li {
+			padding-bottom: 30px;
 		}
-</style></head>
-  <body>
-    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
-      <tr>
-        <td align="center" valign="top">
-          <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600" id="emailContainer">
-            <tr>
-              <td align="center">
-                <img style="padding-bottom: 10px" width="100" src="https://gallery.mailchimp.com/425ef9cb30cfd334e3020dc9f/images/48e697e4-ee43-4663-8aac-a2531dc67b07.jpg" alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
-              </td>
-            </tr>
-            <tr>
-              <td align="center" class="logo-title" style="padding-bottom:100px;">
-                Buffalo Projects
-              </td>
-            </tr>
-            <tr>
-              <td align="center">
-                <img style="width: 100%" src="https://gallery.mailchimp.com/425ef9cb30cfd334e3020dc9f/images/daac0158-ad8c-4643-85d6-963e1dbe4307.jpg" alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
-              </td>
-            </tr>
-            <tr>
-              <td class="mainTitleTop eyebrow" align="center">
-                <span class="eyebrow">Buffalo Projects</span>
-              </td>
-            </tr>
-            <tr>
-              <td class="mainTitleBottom" align="center">
-                <span class="title">Newsletter Field Guide</span>
-                
-              </td>
-            </tr>
-            <tr>
-              <td class="copy">
-                There is no expiration for the gratitude we have, to you, for the amount of hope you have given us by coming along on for the ride.
-                Our purpose how has always been to create technology that fades into the background and allow us to be human again.  We believe we are creating more than just a app but a shift in how we enteract with technology and what it means to be a technology company.  <br>
-                <br>
-                Consider this email your field guide on what to expect and where to go.
-              </td>
-            </tr>
-            <tr>
-              <td width="100%">
-                <img class="icon" src="https://gallery.mailchimp.com/425ef9cb30cfd334e3020dc9f/images/d88f9812-4523-4eef-89f1-d87d66060a75.png" alt="">
-              </td>
-            </tr>
-            <tr>
-              <td class="subTitle">
-                Transparent Utilitarian Beauty
-              </td>
-            </tr>
-            <tr>
-              <td class="copy">
-                
-                Radical transparency to gain trust.<br>  Fine-tuned usability that borderlines obsessive.<br> Visual beauty that draws everyone is.<br>
-                Created to stand the test of time, these three founding principles are what guides us as we make decisions on how we develop Buffalo Projects, today and into the future.
-              </td>
-            </tr>
-            <tr>
-              <td width="100%">
-                <img class="icon" src="https://gallery.mailchimp.com/425ef9cb30cfd334e3020dc9f/images/328c407f-3e32-45ad-b070-d8f8d7586b2a.png" alt="">
-              </td>
-            </tr>
-            <tr>
-              <td class="subTitle">
-                Journal
-              </td>
-            </tr>
-            <tr>
-              <td class="copy">
-                Radical transparency means reporting. <b>Roam</b> will be the place where we will place our random thoughts of this journey.  From keeping our promise of transparency to design and code discussions.
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
+
+		.icon {
+			display: block;
+			width: 75px;
+			margin: 0 auto;
+			padding-top: 150px;
+		}
+
+		.link-button {
+			background-color: #f24e11;
+			color: #FFFFFF;
+			display: block;
+			font-family: 'Oswald', Arial, Helvetica, sans-serif;
+			font-size: 28px;
+			margin-left: 10%;
+			margin-top: 30px;
+			width: 80%;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+	</style>
+</head>
+
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+		<tr>
+			<td align="center" valign="top">
+				<table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+					id="emailContainer">
+					<tr>
+						<td align="center">
+							<img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+								src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+								alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+						</td>
+					</tr>
+					<tr>
+						<td align="center" class="logo-title" style="padding-bottom:100px;">
+							Knife & Fish
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<img style="width: 100%"
+								src="https://gallery.mailchimp.com/425ef9cb30cfd334e3020dc9f/images/601c771d-1947-4b71-be04-a5766f4e0b0b.png"
+								alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+						</td>
+					</tr>
+					<tr>
+						<td class="mainTitleTop eyebrow" align="center">
+							<span class="eyebrow">Knife & Fish</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="mainTitleBottom" align="center">
+							<span class="title">Newsletter Field Guide</span>
+
+						</td>
+					</tr>
+					<tr>
+						<td class="copy">
+							A half-remembered quote that goes, "Sit at my table and eat my food, you will know who I
+							am." has always rung true for us. We believe food represents everything good about the world.
+							A meal creates an atmosphere for laughter, conversations, debates, and just simple humanity.
+							It's something we have always needed but now more than ever. <br><br> It has always been our
+							passion to give everyone the tools and knowledge to be able to cook and bring back those
+							conversations. Along the way, if we can sway someone to cook a little more organic and a bit
+							more sustainable then we help create an impact that makes everyone's life a little better.
+							<br><br> Our ideas are big and far-reaching making us excited and scared like the Apollo
+							astronauts. Though it is our passion to help move cooking forward.<br><br> There is no expiration for the gratitude we have, to you, for the amount of hope
+							you have given us by coming along on for the ride. We know there is no shortage of recipes
+							and food blogs out there, so we are always challenge ourselves to make Knife &amp; Fish your
+							first choice.<br><br> Consider this email your field guide on what to expect and
+							where to go.
+						</td>
+					</tr>
+					<tr>
+						<td width="100%">
+							<img class="icon" src="https://knifeandfish.s3.amazonaws.com/cutting_board_icon.jpg" alt="">
+						</td>
+					</tr>
+					<tr>
+						<td class="subTitle">
+							Recipes
+						</td>
+					</tr>
+					<tr>
+						<td class="copy">
+							We are combing through all of our recipes, testing them, and perfecting them. It's a process
+							but we are cooking through them and adding new recipes daily. If you have one you want us to
+							try <a href="https://www.knifeandfish.com/recipes">email us</a> and we'll give it a try.
+						</td>
+					</tr>
+					<tr>
+						<td width="100%">
+							<a class="link-button" href="https://www.knifeandfish.com/recipes">Find a recipe</a>
+						</td>
+					</tr>
+					<tr>
+						<td width="100%">
+							<img class="icon"
+								src="https://knifeandfish.s3.amazonaws.com/rocket.jpg"
+								alt="">
+						</td>
+					</tr>
+					<tr>
+						<td class="subTitle">
+							Apollo
+						</td>
+					</tr>
+					<tr>
+						<td class="copy">
+							We are always spitballing ideas and shooting for the moon on how we can make cooking and gardening easier for you. If it's
+							developing machine learning to help with meal planning or simply making your ingredients to
+							a recipe a little easier to see, we are rapidly testing the details. So keep an eye out and
+							you will be the first to know.</a>.<br><br> If you see anything that needs fixing, have a
+							suggestion for a recipe, or just want to say hi, feel free to <a
+								href="https://www.knifeandfish.com/contact">contact us</a>.
+						</td>
+					</tr>
+					<tr>
+						<td width="100%">
+							<a class="link-button" href="https://www.knifeandfish.com/contact">Give us a shout</a>
+						</td>
+					</tr>
+					<tr>
+						<td width="100%">
+							<img class="icon"
+								src="https://knifeandfish.s3.amazonaws.com/chef.jpg"
+								alt="">
+						</td>
+					</tr>
+					<tr>
+						<td class="subTitle">
+							Profile
+						</td>
+					</tr>
+					<tr>
+						<td class="copy">
+							We have your email, though completing your profile lets us help you save your recipes, give
+							you better recipe recommendations, and just a better experience overall. Heck, knowing your
+							name would send us over the moon.
+						</td>
+					</tr>
+					<tr>
+						<td width="100%">
+							<a class="link-button" href="https://www.knifeandfish.com/profile">Complete your profile</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+
 </html>
