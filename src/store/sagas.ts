@@ -1,4 +1,17 @@
 import { all, takeEvery } from 'redux-saga/effects'
+import {
+  submitHelloContactAsync,
+  submitPartnershipContactAsync,
+  submitRecipeContactAsync,
+  submitSuggestionContactAsync,
+} from './ducks/contact/sagas'
+import {
+  CONTACT_ACTION_TYPES,
+  CONTACT_HELLO_STEPS,
+  CONTACT_PARTNERSHIP_STEPS,
+  CONTACT_RECIPE_STEPS,
+  CONTACT_SUGGESTION_STEPS,
+} from './ducks/contact/types'
 import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
 import { HEADER_ACTION_TYPES } from './ducks/header/types'
 import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas'
@@ -32,6 +45,22 @@ function* watchProfile() {
   yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
 }
 
+function* watchHelloContact() {
+  yield takeEvery(CONTACT_HELLO_STEPS.SUBMIT_HELLO, submitHelloContactAsync)
+}
+
+function* watchRecipeContact() {
+  yield takeEvery(CONTACT_RECIPE_STEPS.SUBMIT_RECIPE, submitRecipeContactAsync)
+}
+
+function* watchSuggestionContact() {
+  yield takeEvery(CONTACT_SUGGESTION_STEPS.SUBMIT_SUGGESTION, submitSuggestionContactAsync)
+}
+
+function* watchPartnershipContact() {
+  yield takeEvery(CONTACT_PARTNERSHIP_STEPS.SUBMIT_PARTNERSHIP, submitPartnershipContactAsync)
+}
+
 // function* watchCreateHouseholdFromNewsletter() {
 //   yield takeEvery(CREATE_HOUSEHOLD_FROM.NEWSLETTER, createHouseholdFromNewsletterAsync)
 // }
@@ -42,11 +71,15 @@ function* watchCreateHouseholdFromSurvey() {
 
 export default function* rootSaga() {
   yield all([
-    watchFetchHeaderProductCategoryDetail(),
-    watchSubmitNewsletterEmail(),
-    watchSearch(),
-    watchLogin(),
-    watchProfile(),
     watchCreateHouseholdFromSurvey(),
+    watchFetchHeaderProductCategoryDetail(),
+    watchHelloContact(),
+    watchLogin(),
+    watchPartnershipContact(),
+    watchProfile(),
+    watchRecipeContact(),
+    watchSearch(),
+    watchSubmitNewsletterEmail(),
+    watchSuggestionContact(),
   ])
 }

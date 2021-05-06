@@ -4,6 +4,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
 import { string } from 'yup/lib/locale'
+import { AppState } from '../../store/rootReducer'
+import ContactTabsInterface from './interface'
 import {
   onSubmitContactHello,
   onSubmitContactPartnership,
@@ -21,8 +23,6 @@ import {
   CONTACT_RECIPE_STEPS,
   CONTACT_SUGGESTION_STEPS,
 } from '../../store/ducks/contact/types'
-import { AppState } from '../../store/rootReducer'
-import ContactTabsInterface from './interface'
 
 const ContactTabs = (props: ContactTabsInterface) => {
   interface SliderProps {
