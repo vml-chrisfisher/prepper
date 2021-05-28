@@ -1,10 +1,11 @@
 import styled from '@emotion/styled'
 import { Field, Form, Formik, useField } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
 import { string } from 'yup/lib/locale'
 import { AppState } from '../../store/rootReducer'
+import DropZone from '../dropzone'
 import ContactTabsInterface from './interface'
 import {
   onSubmitContactHello,
@@ -38,6 +39,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
   }
 
   const dispatch = useDispatch()
+  const [uploadedFiles, setUploadFiles] = useState(new Array<string>())
 
   const helloSliderPosition = useSelector((state: AppState) => {
     const step = state?.contact.helloStep
@@ -122,7 +124,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
 
   const onRecipeSubmit = (values: RecipeValues) => {
     const { recipeName, recipeEmail, recipeMessage } = values
-    dispatch(onSubmitContactRecipe({ recipeName, recipeEmail, recipeMessage }))
+    dispatch(onSubmitContactRecipe({ recipeName, recipeEmail, recipeMessage, uploadedFiles }))
   }
 
   const onSuggestionClick = () => {
@@ -149,6 +151,10 @@ const ContactTabs = (props: ContactTabsInterface) => {
         partnershipMessage,
       }),
     )
+  }
+
+  const uploadedFilesUpdated = (files: Array<string>) => {
+    setUploadFiles(files)
   }
 
   const Container = styled.div`
@@ -239,6 +245,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
     text-transform: uppercase;
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     width: 300px;
+    padding-top: 20px;
     &:hover {
       background-color: #ffffff;
       border: 1px solid #333333;
@@ -417,6 +424,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
                         placeholder="Your email"
                       />
                       <FormTextArea name="recipeMessage" rows="6" placeholder="A short story about your recipe." />
+                      <DropZone uploadedFileUpdate={uploadedFilesUpdated}></DropZone>
                       <PrimaryButton type="submit">TRY THIS RECIPE</PrimaryButton>
                     </Form>
                   )

@@ -42,7 +42,12 @@ export function* submitHelloContactAsync(action: any) {
   }
 }
 
-const submitContactRecipe = (payload: { recipeName: string; recipeEmail: string; recipeMessage: string }) => {
+const submitContactRecipe = (payload: {
+  recipeName: string
+  recipeEmail: string
+  recipeMessage: string
+  uploadedFiles: Array<string>
+}) => {
   return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', payload)
 }
 
@@ -50,8 +55,8 @@ export function* submitRecipeContactAsync(action: any) {
   yield put({
     type: CONTACT_RECIPE_STEPS.SUBMITTING_RECIPE,
   })
-  const { recipeName, recipeEmail, recipeMessage } = action.payload
-  const payload = { recipeName, recipeEmail, recipeMessage }
+  const { recipeName, recipeEmail, recipeMessage, uploadedFiles } = action.payload
+  const payload = { recipeName, recipeEmail, recipeMessage, uploadedFiles }
   if (payload) {
     try {
       const response = yield call(submitContactRecipe, payload)
@@ -73,7 +78,11 @@ export function* submitRecipeContactAsync(action: any) {
   }
 }
 
-const submitContactSuggestion = (payload: { recipeName: string; recipeEmail: string; recipeMessage: string }) => {
+const submitContactSuggestion = (payload: {
+  suggestionName: string
+  suggestionEmail: string
+  suggestionMessage: string
+}) => {
   return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', payload)
 }
 
