@@ -7,7 +7,7 @@ import {
   CONTACT_SUGGESTION_STEPS,
 } from './types'
 
-const contactReducers = (state = initialState, action: { type: string; id: string; filter: string }) => {
+const contactReducers = (state = initialState, action: { type: string; id: string; filter: string; payload: any }) => {
   switch (action.type) {
     case CONTACT_ACTION_TYPES.SHOW_HELLO:
     case CONTACT_ACTION_TYPES.SHOW_RECIPE:
@@ -38,6 +38,9 @@ const contactReducers = (state = initialState, action: { type: string; id: strin
     case CONTACT_PARTNERSHIP_STEPS.SUBMITTING_PARTNERSHIP:
     case CONTACT_PARTNERSHIP_STEPS.PARTNERSHIP_RESET:
       return { ...state, partnershipStep: action.type }
+    case CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOADED:
+      console.log(action)
+      return { ...state, recipesUploaded: action.payload }
     default:
       return state
   }

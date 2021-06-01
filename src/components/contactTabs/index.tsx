@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
 import { string } from 'yup/lib/locale'
+import { getUploadedFiles } from '../../store/ducks/contact/selectors'
 import { AppState } from '../../store/rootReducer'
 import DropZone from '../dropzone'
 import ContactTabsInterface from './interface'
@@ -39,7 +40,6 @@ const ContactTabs = (props: ContactTabsInterface) => {
   }
 
   const dispatch = useDispatch()
-  const [uploadedFiles, setUploadFiles] = useState(new Array<string>())
 
   const helloSliderPosition = useSelector((state: AppState) => {
     const step = state?.contact.helloStep
@@ -124,6 +124,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
 
   const onRecipeSubmit = (values: RecipeValues) => {
     const { recipeName, recipeEmail, recipeMessage } = values
+    const uploadedFiles = useSelector(getUploadedFiles)
     dispatch(onSubmitContactRecipe({ recipeName, recipeEmail, recipeMessage, uploadedFiles }))
   }
 
@@ -151,10 +152,6 @@ const ContactTabs = (props: ContactTabsInterface) => {
         partnershipMessage,
       }),
     )
-  }
-
-  const uploadedFilesUpdated = (files: Array<string>) => {
-    setUploadFiles(files)
   }
 
   const Container = styled.div`
@@ -320,6 +317,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
     recipeName: '',
     recipeEmail: '',
     recipeMessage: '',
+    uploadedFiles: [''],
   }
 
   interface SuggestionValues {
@@ -380,7 +378,6 @@ const ContactTabs = (props: ContactTabsInterface) => {
             <SliderContainer>
               <Formik initialValues={helloInitialValues} onSubmit={onHelloSubmit}>
                 {({ errors, touched }) => {
-                  console.log(errors)
                   return (
                     <Form>
                       <FormInput id="helloName" name="hellloName" type="text" placeholder="Your name" />
@@ -412,7 +409,6 @@ const ContactTabs = (props: ContactTabsInterface) => {
             <SliderContainer>
               <Formik initialValues={recipeInitialValues} onSubmit={onRecipeSubmit}>
                 {({ errors, touched }) => {
-                  console.log(errors)
                   return (
                     <Form>
                       <FormInput id="recipeName" name="recipeName" type="text" placeholder="Your name" />
@@ -424,7 +420,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
                         placeholder="Your email"
                       />
                       <FormTextArea name="recipeMessage" rows="6" placeholder="A short story about your recipe." />
-                      <DropZone uploadedFileUpdate={uploadedFilesUpdated}></DropZone>
+                      <DropZone></DropZone>
                       <PrimaryButton type="submit">TRY THIS RECIPE</PrimaryButton>
                     </Form>
                   )
@@ -445,7 +441,6 @@ const ContactTabs = (props: ContactTabsInterface) => {
             <SliderContainer>
               <Formik initialValues={suggestionInitialValues} onSubmit={onSuggestionSubmit}>
                 {({ errors, touched }) => {
-                  console.log(errors)
                   return (
                     <Form>
                       <FormInput id="suggestionName" name="suggestionName" type="text" placeholder="Your name" />
@@ -481,7 +476,6 @@ const ContactTabs = (props: ContactTabsInterface) => {
             <SliderContainer>
               <Formik initialValues={partnershipInitialValues} onSubmit={onPartnershipSubmit}>
                 {({ errors, touched }) => {
-                  console.log(errors)
                   return (
                     <Form>
                       <FormInput id="partnershipName" name="partnershipName" type="text" placeholder="Your name" />

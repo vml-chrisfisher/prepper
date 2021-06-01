@@ -2,11 +2,15 @@ import styled from '@emotion/styled'
 import * as AWS from 'aws-sdk'
 import { PutObjectRequest } from 'aws-sdk/clients/s3'
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { onRecipeUploaded } from '../../../store/ducks/contact/action'
 import DropZoneItemInterface from './interface'
 
 const DropZoneItem = (props: DropZoneItemInterface) => {
   const { file, removeFile } = props
   const [uploadPercentage, setUploadPercentage] = useState(0)
+
+  const dispatch = useDispatch()
 
   interface UploadPercentageProps {
     percentage: number
@@ -113,7 +117,7 @@ const DropZoneItem = (props: DropZoneItemInterface) => {
     transition: all 0.5s ease-out;
   `
 
-  useEffect(() => {
+  const upload = () => {
     const bucketName = 'knife-and-fish-user-recipes'
     const bucketRegion = 'us-east-1'
     const identityPoolId = 'arn:aws:iam::078936372766:role/Cognito_RecipeUploadPoolUnauth_Role'
@@ -139,11 +143,20 @@ const DropZoneItem = (props: DropZoneItemInterface) => {
     s3.upload(putRequest, (err: Error, data: AWS.S3.ManagedUpload.SendData) => {
       console.log('ERROR: ', err)
       console.log('DATA:', data)
+      if (data && data.Location) {
+        console.log('COMPLEE')
+        dispatch(onRecipeUploaded(data.Location))
+        // props.uploadCompleted(data.Location)
+      }
     }).on('httpUploadProgress', (progress: AWS.S3.ManagedUpload.Progress) => {
       console.log('PROGRESS: ', progress)
       console.log((progress.loaded * 100) / progress.total)
       setUploadPercentage((progress.loaded * 100) / progress.total)
     })
+  }
+
+  useEffect(() => {
+    upload()
   })
 
   const fileSize = (size: any) => {

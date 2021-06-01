@@ -2,13 +2,12 @@ import styled from '@emotion/styled'
 import * as AWS from 'aws-sdk'
 import { PutObjectRequest } from 'aws-sdk/clients/s3'
 import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { isNonNullExpression } from 'typescript'
+import { onRecipeUploaded } from '../../store/ducks/contact/action'
 import DropZoneItem from './dropzoneItem'
-import DropZoneInterface from './interface'
 
-const DropZone = (props: DropZoneInterface) => {
-  const { uploadedFileUpdate } = props
-
+const DropZone = () => {
   const Container = styled.div`
     width: calc(100% - 15px);
     & p {
@@ -177,6 +176,8 @@ const DropZone = (props: DropZoneInterface) => {
   const [validFiles, setValidFiles] = useState(new Array<any>())
   const [uploadedFiles, setUploadFiles] = useState(new Array<string>())
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     console.log('SELECTED USED EFFECT: ', selectedFiles)
     const filteredArray = selectedFiles.reduce((file, current) => {
@@ -191,7 +192,8 @@ const DropZone = (props: DropZoneInterface) => {
   }, [selectedFiles])
 
   useEffect(() => {
-    uploadedFileUpdate(uploadedFiles)
+    console.log('UPDALOAD FILES DROP ZONE: ', uploadedFiles)
+    // dispatch(onRecipeUploaded(uploadedFiles))
   }, [uploadedFiles])
 
   const dragOver = (e: any) => {
@@ -250,10 +252,6 @@ const DropZone = (props: DropZoneInterface) => {
     setSelectedFiles([...selectedFiles])
   }
 
-  const uploadComplete = (name: string) => {
-    setUploadFiles([...uploadedFiles, name])
-  }
-
   return (
     <>
       <Container>
@@ -265,7 +263,7 @@ const DropZone = (props: DropZoneInterface) => {
         </DropContainer>
         <FileDisplayContainer>
           {validFiles.map((data: any, i) => {
-            return <DropZoneItem key={i} file={data} removeFile={removeFile} uploadComplete={uploadComplete} />
+            return <DropZoneItem key={i} file={data} removeFile={removeFile} />
           })}
         </FileDisplayContainer>
       </Container>

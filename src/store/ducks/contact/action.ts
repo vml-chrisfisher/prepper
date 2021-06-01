@@ -68,6 +68,11 @@ export const onContactRecipeReset = () => ({
   type: CONTACT_RECIPE_STEPS.RECIPE_RESET,
 })
 
+export const onRecipeUploaded = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOADED,
+  payload,
+})
+
 /*
 Actions for submitting a suggestion from the contact page
 */

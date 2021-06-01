@@ -19,3 +19,7 @@ export const getSuggestionStep = (state: any) => {
 export const getPartnershipStep = (state: any) => {
   return getContactData(state).partnershipStep
 }
+
+export const getUploadedFiles = (state: any) => {
+  return getContactData(state).recipesUploaded
+}
