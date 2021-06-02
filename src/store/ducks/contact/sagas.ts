@@ -1,7 +1,24 @@
+import { buffers, eventChannel } from '@redux-saga/core'
+import * as AWS from 'aws-sdk'
+import { ManagedUpload, PutObjectRequest } from 'aws-sdk/clients/s3'
 import axios from 'axios'
-import { all, call, put, takeEvery } from 'redux-saga/effects'
+import { all, call, put, take, takeEvery } from 'redux-saga/effects'
 import { isBrowser } from '../../../utils/auth'
 import { CONTACT_HELLO_STEPS, CONTACT_PARTNERSHIP_STEPS, CONTACT_RECIPE_STEPS, CONTACT_SUGGESTION_STEPS } from './types'
+
+const bucketName = 'knife-and-fish-user-recipes'
+const bucketRegion = 'us-east-1'
+const identityPoolId = 'arn:aws:iam::078936372766:role/Cognito_RecipeUploadPoolUnauth_Role'
+
+AWS.config.region = 'us-east-1' // Region
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+  IdentityPoolId: 'us-east-1:f74b6d29-5575-4ded-a0e7-374af44c6d7c',
+})
+
+const s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  params: { Bucket: bucketName },
+})
 
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>(resolve => {
@@ -12,7 +29,7 @@ const delay = (ms: number): Promise<void> => {
 }
 
 const submitHelloContact = (payload: { helloName: string; helloEmail: string; helloMessage: string }) => {
-  return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', payload)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/hello', payload)
 }
 
 export function* submitHelloContactAsync(action: any) {
@@ -30,7 +47,6 @@ export function* submitHelloContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('HELLO CONTACT ERROR: ', error)
       yield put({
         type: CONTACT_HELLO_STEPS.HELLO_SUBMIT_FAILURE,
       })
@@ -48,7 +64,7 @@ const submitContactRecipe = (payload: {
   recipeMessage: string
   uploadedFiles: Array<string>
 }) => {
-  return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', payload)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/recipe', payload)
 }
 
 export function* submitRecipeContactAsync(action: any) {
@@ -78,12 +94,66 @@ export function* submitRecipeContactAsync(action: any) {
   }
 }
 
+const uploadRecipe = (putRequest: PutObjectRequest) => {
+  console.log('PUT REQUEST: ', putRequest)
+  return eventChannel(emitter => {
+    const stream: AWS.S3.ManagedUpload = s3
+      .upload(putRequest, (err: Error, data: AWS.S3.ManagedUpload.SendData) => {
+        console.log('ERROR HERE: ', err)
+        console.log('DATA HERE: ', data)
+        if (data) {
+          emitter({
+            bucketLocation: data.Location,
+            fileName: putRequest.Key,
+            completed: true,
+            completedPercentage: 100,
+          })
+        }
+      })
+      .on('httpUploadProgress', (progress: AWS.S3.ManagedUpload.Progress) => {
+        console.log('PROGRESS: ', progress)
+        emitter({
+          bucketLocation: undefined,
+          fileName: putRequest.Key,
+          completed: false,
+          completedPercentage: (progress.loaded * 100) / progress.total,
+        })
+      })
+    return () => {
+      stream.abort()
+    }
+  }, buffers.sliding(2))
+}
+
+export function* uploadRecipeAsync(action: any) {
+  console.log(action)
+  const { file, fileName } = action.payload
+
+  const putRequest: PutObjectRequest = {
+    Bucket: bucketName,
+    Key: fileName,
+    Body: file,
+    ACL: 'public-read',
+  }
+  if (putRequest.Key && putRequest.Key.length > 0) {
+    const channel = yield call(uploadRecipe, putRequest)
+    while (true) {
+      const response = yield take(channel)
+      console.log('REPONSE: ', response)
+      yield put({
+        type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOAD_STATUS,
+        payload: response,
+      })
+    }
+  }
+}
+
 const submitContactSuggestion = (payload: {
   suggestionName: string
   suggestionEmail: string
   suggestionMessage: string
 }) => {
-  return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', payload)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/suggestion', payload)
 }
 
 export function* submitSuggestionContactAsync(action: any) {
@@ -120,7 +190,7 @@ const submitContactPartnership = (payload: {
   partnershipPhone: string
   partnershipMessage: string
 }) => {
-  return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', payload)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/partnership', payload)
 }
 
 export function* submitPartnershipContactAsync(action: any) {

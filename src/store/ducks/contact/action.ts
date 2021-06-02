@@ -68,8 +68,18 @@ export const onContactRecipeReset = () => ({
   type: CONTACT_RECIPE_STEPS.RECIPE_RESET,
 })
 
-export const onRecipeUploaded = (payload: any) => ({
-  type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOADED,
+export const onUploadRecipe = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.UPLOAD_RECIPE,
+  payload,
+})
+
+export const onRecipeUploadStatus = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOAD_STATUS,
+  payload,
+})
+
+export const onRecipeRemove = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.REMOVE_RECIPE,
   payload,
 })
 

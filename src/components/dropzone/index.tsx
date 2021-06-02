@@ -1,10 +1,7 @@
 import styled from '@emotion/styled'
-import * as AWS from 'aws-sdk'
-import { PutObjectRequest } from 'aws-sdk/clients/s3'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { isNonNullExpression } from 'typescript'
-import { onRecipeUploaded } from '../../store/ducks/contact/action'
+import { onRecipeRemove, onUploadRecipe } from '../../store/ducks/contact/action'
 import DropZoneItem from './dropzoneItem'
 
 const DropZone = () => {
@@ -179,7 +176,6 @@ const DropZone = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('SELECTED USED EFFECT: ', selectedFiles)
     const filteredArray = selectedFiles.reduce((file, current) => {
       const x = file.find((item: any) => item.name === current.name)
       if (!x) {
@@ -190,11 +186,6 @@ const DropZone = () => {
     }, [])
     setValidFiles([...filteredArray])
   }, [selectedFiles])
-
-  useEffect(() => {
-    console.log('UPDALOAD FILES DROP ZONE: ', uploadedFiles)
-    // dispatch(onRecipeUploaded(uploadedFiles))
-  }, [uploadedFiles])
 
   const dragOver = (e: any) => {
     e.preventDefault()
@@ -217,7 +208,16 @@ const DropZone = () => {
   }
 
   const handleFiles = (files: any) => {
-    console.log('HANDLE FILES: ', selectedFiles)
+    const bucketFileNameRaw = `${files[0].name}_${new Date().toISOString()}`
+    const bucketFileName = bucketFileNameRaw.replaceAll(' ', '-')
+
+    dispatch(
+      onUploadRecipe({
+        file: files[0],
+        fileName: bucketFileName,
+      }),
+    )
+    files[0].bucketFileName = bucketFileName
     for (let i = 0; i < files.length; i++) {
       if (validateFile(files[i])) {
         setSelectedFiles(selectedFiles => [...selectedFiles, files[i]])
@@ -250,6 +250,8 @@ const DropZone = () => {
     const selectedFileIndex = selectedFiles.findIndex(e => e.name === name)
     selectedFiles.splice(selectedFileIndex, 1)
     setSelectedFiles([...selectedFiles])
+
+    dispatch(onRecipeRemove({ fileName: name }))
   }
 
   return (
@@ -263,7 +265,7 @@ const DropZone = () => {
         </DropContainer>
         <FileDisplayContainer>
           {validFiles.map((data: any, i) => {
-            return <DropZoneItem key={i} file={data} removeFile={removeFile} />
+            return <DropZoneItem key={i} file={data} removeFile={removeFile} bucketFileName={data.bucketFileName} />
           })}
         </FileDisplayContainer>
       </Container>

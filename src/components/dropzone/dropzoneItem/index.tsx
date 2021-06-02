@@ -1,16 +1,15 @@
 import styled from '@emotion/styled'
-import * as AWS from 'aws-sdk'
-import { PutObjectRequest } from 'aws-sdk/clients/s3'
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { onRecipeUploaded } from '../../../store/ducks/contact/action'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUploadedFileStatus } from '../../../store/ducks/contact/selectors'
 import DropZoneItemInterface from './interface'
 
 const DropZoneItem = (props: DropZoneItemInterface) => {
-  const { file, removeFile } = props
-  const [uploadPercentage, setUploadPercentage] = useState(0)
+  const { file, removeFile, bucketFileName } = props
 
   const dispatch = useDispatch()
+
+  const uploadPercentage = useSelector(state => getUploadedFileStatus(state, bucketFileName))
 
   interface UploadPercentageProps {
     percentage: number
@@ -116,48 +115,6 @@ const DropZoneItem = (props: DropZoneItemInterface) => {
     background-color: #f24e11;
     transition: all 0.5s ease-out;
   `
-
-  const upload = () => {
-    const bucketName = 'knife-and-fish-user-recipes'
-    const bucketRegion = 'us-east-1'
-    const identityPoolId = 'arn:aws:iam::078936372766:role/Cognito_RecipeUploadPoolUnauth_Role'
-
-    AWS.config.region = 'us-east-1' // Region
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: 'us-east-1:f74b6d29-5575-4ded-a0e7-374af44c6d7c',
-    })
-
-    const s3 = new AWS.S3({
-      apiVersion: '2006-03-01',
-      params: { Bucket: bucketName },
-    })
-
-    const fileName = file.name
-    const fileURL = `https://${bucketName}.amazon.aws.com/${fileName}`
-    const putRequest: PutObjectRequest = {
-      Bucket: bucketName,
-      Key: fileName,
-      Body: file,
-      ACL: 'public-read',
-    }
-    s3.upload(putRequest, (err: Error, data: AWS.S3.ManagedUpload.SendData) => {
-      console.log('ERROR: ', err)
-      console.log('DATA:', data)
-      if (data && data.Location) {
-        console.log('COMPLEE')
-        dispatch(onRecipeUploaded(data.Location))
-        // props.uploadCompleted(data.Location)
-      }
-    }).on('httpUploadProgress', (progress: AWS.S3.ManagedUpload.Progress) => {
-      console.log('PROGRESS: ', progress)
-      console.log((progress.loaded * 100) / progress.total)
-      setUploadPercentage((progress.loaded * 100) / progress.total)
-    })
-  }
-
-  useEffect(() => {
-    upload()
-  })
 
   const fileSize = (size: any) => {
     if (size === 0) return '0 Bytes'

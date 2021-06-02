@@ -17,7 +17,7 @@ const delay = (ms: number): Promise<void> => {
 }
 
 const createHousehold = (household: Household): Promise<AxiosResponse<HouseholdMember>> => {
-  const url = 'https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/newletter'
+  const url = 'https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/newsletter'
   return axios.post(
     url,
     {

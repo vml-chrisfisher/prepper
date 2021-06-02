@@ -1,5 +1,6 @@
 export default interface DropZoneItemInterface {
   file: DropZoneFile
+  bucketFileName: string
   removeFile: (name: string) => void
 }
 

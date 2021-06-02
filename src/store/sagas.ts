@@ -1,17 +1,4 @@
 import { all, takeEvery } from 'redux-saga/effects'
-import {
-  submitHelloContactAsync,
-  submitPartnershipContactAsync,
-  submitRecipeContactAsync,
-  submitSuggestionContactAsync,
-} from './ducks/contact/sagas'
-import {
-  CONTACT_ACTION_TYPES,
-  CONTACT_HELLO_STEPS,
-  CONTACT_PARTNERSHIP_STEPS,
-  CONTACT_RECIPE_STEPS,
-  CONTACT_SUGGESTION_STEPS,
-} from './ducks/contact/types'
 import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
 import { HEADER_ACTION_TYPES } from './ducks/header/types'
 import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas'
@@ -24,6 +11,20 @@ import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE_STEPS } from './ducks/profile/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
+import {
+  submitHelloContactAsync,
+  submitPartnershipContactAsync,
+  submitRecipeContactAsync,
+  submitSuggestionContactAsync,
+  uploadRecipeAsync,
+} from './ducks/contact/sagas'
+import {
+  CONTACT_ACTION_TYPES,
+  CONTACT_HELLO_STEPS,
+  CONTACT_PARTNERSHIP_STEPS,
+  CONTACT_RECIPE_STEPS,
+  CONTACT_SUGGESTION_STEPS,
+} from './ducks/contact/types'
 
 function* watchFetchHeaderProductCategoryDetail() {
   yield takeEvery(HEADER_ACTION_TYPES.CATEGORY_SELECTED, fetchHeaderProductCategoryDetailAsync)
@@ -69,6 +70,10 @@ function* watchCreateHouseholdFromSurvey() {
   yield takeEvery(CREATE_HOUSEHOLD_FROM.SURVEY, createHouseholdFromSurveyAsync)
 }
 
+function* watchUploadRecipe() {
+  yield takeEvery(CONTACT_RECIPE_STEPS.UPLOAD_RECIPE, uploadRecipeAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchCreateHouseholdFromSurvey(),
@@ -81,5 +86,6 @@ export default function* rootSaga() {
     watchSearch(),
     watchSubmitNewsletterEmail(),
     watchSuggestionContact(),
+    watchUploadRecipe(),
   ])
 }

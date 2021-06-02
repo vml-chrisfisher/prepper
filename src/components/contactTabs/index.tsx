@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
 import { Field, Form, Formik, useField } from 'formik'
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
-import { string } from 'yup/lib/locale'
-import { getUploadedFiles } from '../../store/ducks/contact/selectors'
+import { getUploadedFilesBucketName } from '../../store/ducks/contact/selectors'
 import { AppState } from '../../store/rootReducer'
 import DropZone from '../dropzone'
 import ContactTabsInterface from './interface'
+
 import {
   onSubmitContactHello,
   onSubmitContactPartnership,
@@ -124,7 +124,7 @@ const ContactTabs = (props: ContactTabsInterface) => {
 
   const onRecipeSubmit = (values: RecipeValues) => {
     const { recipeName, recipeEmail, recipeMessage } = values
-    const uploadedFiles = useSelector(getUploadedFiles)
+    const uploadedFiles = useSelector(getUploadedFilesBucketName)
     dispatch(onSubmitContactRecipe({ recipeName, recipeEmail, recipeMessage, uploadedFiles }))
   }
 

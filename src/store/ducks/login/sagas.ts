@@ -12,7 +12,7 @@ const delay = (ms: number): Promise<void> => {
 }
 
 const submitLogin = (creditials: { username: string; password: string }) => {
-  return axios.post('https://rzg7h98b14.execute-api.us-east-1.amazonaws.com/stage/login', creditials)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/login', creditials)
 }
 
 export function* submitLoginAsync(action: any) {

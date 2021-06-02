@@ -10,7 +10,14 @@ export default {
   contactTabShowing: CONTACT_ACTION_TYPES.SHOW_HELLO,
   helloStep: CONTACT_HELLO_STEPS.DEFAULT,
   recipeStep: CONTACT_RECIPE_STEPS.DEFAULT,
-  recipesUploaded: new Array<string>(),
+  recipesUploaded: new Array<RecipeUploadStatus>(),
   suggestionStep: CONTACT_SUGGESTION_STEPS.DEFAULT,
   partnershipStep: CONTACT_PARTNERSHIP_STEPS.DEFAULT,
+}
+
+export interface RecipeUploadStatus {
+  bucketLocation: string
+  fileName: string
+  completed: boolean
+  completedPercentage: number
 }
