@@ -20,4 +20,5 @@ export interface RecipeUploadStatus {
   fileName: string
   completed: boolean
   completedPercentage: number
+  file: any
 }

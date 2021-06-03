@@ -1,13 +1,11 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { getUploadedFileStatus } from '../../../store/ducks/contact/selectors'
 import DropZoneItemInterface from './interface'
 
 const DropZoneItem = (props: DropZoneItemInterface) => {
   const { file, removeFile, bucketFileName } = props
-
-  const dispatch = useDispatch()
 
   const uploadPercentage = useSelector(state => getUploadedFileStatus(state, bucketFileName))
 
@@ -140,7 +138,7 @@ const DropZoneItem = (props: DropZoneItemInterface) => {
           <UploadPercentage percentage={uploadPercentage} />
         </UploadContainer>
       </div>
-      <FileRemove onClick={() => removeFile(file.name)}>X</FileRemove>
+      <FileRemove onClick={() => removeFile(file.bucketFileName)}>X</FileRemove>
     </FileStatusBar>
   )
 }

@@ -107,6 +107,7 @@ const uploadRecipe = (putRequest: PutObjectRequest) => {
             fileName: putRequest.Key,
             completed: true,
             completedPercentage: 100,
+            file: putRequest.Body,
           })
         }
       })
@@ -117,6 +118,7 @@ const uploadRecipe = (putRequest: PutObjectRequest) => {
           fileName: putRequest.Key,
           completed: false,
           completedPercentage: (progress.loaded * 100) / progress.total,
+          file: putRequest.Body,
         })
       })
     return () => {

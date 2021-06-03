@@ -3,6 +3,7 @@ import { Field, Form, Formik, useField } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
+import { RecipeUploadStatus } from '../../store/ducks/contact/initialState'
 import { getUploadedFilesBucketName } from '../../store/ducks/contact/selectors'
 import { AppState } from '../../store/rootReducer'
 import DropZone from '../dropzone'
@@ -105,6 +106,12 @@ const ContactTabs = (props: ContactTabsInterface) => {
     }
   })
 
+  const uploadedFilesBucketNames = useSelector((state: AppState) => {
+    return state?.contact.recipesUploaded.map((item: RecipeUploadStatus) => {
+      return item.bucketLocation
+    })
+  })
+
   const selectedTab = useSelector((state: AppState) => {
     return state.contact.contactTabShowing
   })
@@ -124,8 +131,8 @@ const ContactTabs = (props: ContactTabsInterface) => {
 
   const onRecipeSubmit = (values: RecipeValues) => {
     const { recipeName, recipeEmail, recipeMessage } = values
-    const uploadedFiles = useSelector(getUploadedFilesBucketName)
-    dispatch(onSubmitContactRecipe({ recipeName, recipeEmail, recipeMessage, uploadedFiles }))
+    // const uploadedFiles = useSelector(getUploadedFilesBucketName)
+    dispatch(onSubmitContactRecipe({ recipeName, recipeEmail, recipeMessage, uploadedFilesBucketNames }))
   }
 
   const onSuggestionClick = () => {

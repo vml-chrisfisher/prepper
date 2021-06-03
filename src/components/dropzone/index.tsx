@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 import React, { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { onRecipeRemove, onUploadRecipe } from '../../store/ducks/contact/action'
+import { getUploadedRecipes } from '../../store/ducks/contact/selectors'
 import DropZoneItem from './dropzoneItem'
 
 const DropZone = () => {
@@ -207,52 +208,32 @@ const DropZone = () => {
     return true
   }
 
-  const handleFiles = (files: any) => {
-    const bucketFileNameRaw = `${files[0].name}_${new Date().toISOString()}`
-    const bucketFileName = bucketFileNameRaw.replaceAll(' ', '-')
+  const handleFiles = (file: any) => {
+    const bucketFileName = `${file.name}_${new Date().toISOString()}`.replaceAll(' ', '-')
+
+    file.bucketFileName = bucketFileName
 
     dispatch(
       onUploadRecipe({
-        file: files[0],
+        file: file,
         fileName: bucketFileName,
       }),
     )
-    files[0].bucketFileName = bucketFileName
-    for (let i = 0; i < files.length; i++) {
-      if (validateFile(files[i])) {
-        setSelectedFiles(selectedFiles => [...selectedFiles, files[i]])
-      } else {
-        files[i]['invalid'] = true
-        setSelectedFiles(prevArray => [...prevArray, files[i]])
-      }
-    }
   }
 
   const fileDrop = (e: any) => {
     e.preventDefault()
     const files = e.dataTransfer.files
-    if (files.length) {
-      handleFiles(files)
+    if (files.length && validateFile(files[0])) {
+      handleFiles(files[0])
     }
   }
 
   const removeFile = (name: any) => {
-    // find the index of the item
-    // remove the item from array
-
-    const validFileIndex = validFiles.findIndex(e => e.name === name)
-    validFiles.splice(validFileIndex, 1)
-    setValidFiles([...validFiles])
-
-    uploadedFiles.splice(validFileIndex, 1)
-    setUploadFiles(uploadedFiles)
-
-    const selectedFileIndex = selectedFiles.findIndex(e => e.name === name)
-    selectedFiles.splice(selectedFileIndex, 1)
-    setSelectedFiles([...selectedFiles])
-
     dispatch(onRecipeRemove({ fileName: name }))
   }
+
+  const uploadedRecipes = useSelector(getUploadedRecipes)
 
   return (
     <>
@@ -264,8 +245,8 @@ const DropZone = () => {
           </DropMessage>
         </DropContainer>
         <FileDisplayContainer>
-          {validFiles.map((data: any, i) => {
-            return <DropZoneItem key={i} file={data} removeFile={removeFile} bucketFileName={data.bucketFileName} />
+          {uploadedRecipes.map((data: any, i: number) => {
+            return <DropZoneItem key={i} file={data.file} removeFile={removeFile} bucketFileName={data.filesName} />
           })}
         </FileDisplayContainer>
       </Container>

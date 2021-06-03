@@ -22,6 +22,10 @@ export const getPartnershipStep = (state: any) => {
   return getContactData(state).partnershipStep
 }
 
+export const getUploadedRecipes = (state: any) => {
+  return getContactData(state).recipesUploaded
+}
+
 export const getUploadedFilesBucketName = (state: any) => {
   return getContactData(state).recipesUploaded.map((item: RecipeUploadStatus) => {
     return item.bucketLocation
