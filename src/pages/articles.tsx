@@ -28,7 +28,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-    `
+`
     const posts: ArticlesEdge[] = get(this, 'props.data.allContentfulArticle.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []

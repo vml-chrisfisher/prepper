@@ -37,14 +37,14 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         font-size: 3.5em;
         padding: 0;
       }
-    `
+`
 
     const CreateDate = styled.div`
       text-align: center;
       font-family: 'Roboto', sans-serif;
       font-size: 1em;
       padding-bottom: 3.125em;
-    `
+`
 
     const BodyCopy = styled.div`
       color: #464646;
@@ -59,7 +59,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const BodyCopyTwoColumn = styled.div`
       color: #464646;
@@ -76,7 +76,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const MainContainer = styled.div`
       background-color: #fff;
@@ -87,13 +87,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-    `
+`
 
     const InstructionTitle = styled.h2`
       color: #464646;
       font-size: 2.25em;
       padding-bottom: 50px;
-    `
+`
 
     const InstructionContainer = styled.div`
       display: inline-block;
@@ -103,7 +103,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const Instruction = styled.div`
       color: #464646;
@@ -112,7 +112,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       line-height: 2em;
       padding-bottom: 1.75em;
       text-align: justify;
-    `
+`
 
     const IngredientContainer = styled.div`
       display: inline-block;
@@ -123,13 +123,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const IngredientTitle = styled.h2`
       color: #464646;
       font-size: 2.25em;
       padding-bottom: 50px;
-    `
+`
 
     const Ingredient = styled.div`
       color: #464646;
@@ -137,7 +137,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-bottom: 1.75em;
-    `
+`
 
     const TagContainer = styled.div`
       display: inline-block;
@@ -148,7 +148,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const TagStyled = styled.p`
       color: #464646;
@@ -157,7 +157,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Roboto', sans-serif;
       padding-right: 20px;
       text-transform: uppercase;
-    `
+`
 
     const GroupTitle = styled.div`
       color: #464646;
@@ -166,7 +166,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Roboto', sans-serif;
       font-weight: 600;
       padding-bottom: 10px;
-    `
+`
 
     const FeaturedSpacer = styled.div`
       padding-top: 50px;
@@ -176,7 +176,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-top: 0;
         width: 90%;
       }
-    `
+`
 
     let step = 0
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
@@ -367,7 +367,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </div>
             <LazyLoad
               className="hidden-sm"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
               once
               offset={100}
             >
@@ -384,7 +384,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
             </LazyLoad>
             <LazyLoad
               className="hidden-lg"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
               once
               offset={100}
             >

@@ -68,6 +68,25 @@ export const onContactRecipeReset = () => ({
   type: CONTACT_RECIPE_STEPS.RECIPE_RESET,
 })
 
+export const onRecipeNameUpdate = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_NAME,
+  payload
+})
+
+export const onRecipeEmailUpdate = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_EMAIL,
+  payload
+})
+
+export const onRecipeMessageUpdate = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_MESSAGE,
+  payload
+})
+
+export const onRecipeFormReset = () => ({
+  type: CONTACT_RECIPE_STEPS.RECIPE_FORM_RESET
+})
+
 export const onUploadRecipe = (payload: any) => ({
   type: CONTACT_RECIPE_STEPS.UPLOAD_RECIPE,
   payload,
@@ -75,6 +94,11 @@ export const onUploadRecipe = (payload: any) => ({
 
 export const onRecipeUploadStatus = (payload: any) => ({
   type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOAD_STATUS,
+  payload,
+})
+
+export const onTryRecipeRemove = (payload: any) => ({
+  type: CONTACT_RECIPE_STEPS.TRY_REMOVE_RECIPE,
   payload,
 })
 

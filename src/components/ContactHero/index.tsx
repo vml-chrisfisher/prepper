@@ -1,12 +1,13 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import ContactTabs from '../contactTabs'
-import ContactHeroInterface from './interface'
+import styled from '@emotion/styled';
+import React from 'react';
+import ContactTabs from '../contactTabs';
+import ContactHeroInterface from './interface';
 
 const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 900
 const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 450
 
-const ContactHero = (props: ContactHeroInterface) => (
+const ContactHero = (props: ContactHeroInterface) => {
+  return (
   <div>
     <div className="row">
       <FullWidthCol className="col12">
@@ -30,7 +31,7 @@ const ContactHero = (props: ContactHeroInterface) => (
       <ContactTabs {...props}></ContactTabs>
     </div>
   </div>
-)
+)}
 
 const FullWidthCol = styled.div`
   width: 50%;

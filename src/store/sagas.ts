@@ -1,4 +1,12 @@
 import { all, takeEvery } from 'redux-saga/effects'
+import {
+  removeRecipeAsync,
+  submitHelloContactAsync,
+  submitPartnershipContactAsync,
+  submitRecipeContactAsync,
+  submitSuggestionContactAsync,
+  uploadRecipeAsync,
+} from './ducks/contact/sagas'
 import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
 import { HEADER_ACTION_TYPES } from './ducks/header/types'
 import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas'
@@ -12,14 +20,6 @@ import { PROFILE_STEPS } from './ducks/profile/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
 import {
-  submitHelloContactAsync,
-  submitPartnershipContactAsync,
-  submitRecipeContactAsync,
-  submitSuggestionContactAsync,
-  uploadRecipeAsync,
-} from './ducks/contact/sagas'
-import {
-  CONTACT_ACTION_TYPES,
   CONTACT_HELLO_STEPS,
   CONTACT_PARTNERSHIP_STEPS,
   CONTACT_RECIPE_STEPS,
@@ -74,6 +74,10 @@ function* watchUploadRecipe() {
   yield takeEvery(CONTACT_RECIPE_STEPS.UPLOAD_RECIPE, uploadRecipeAsync)
 }
 
+function* watchRemoveRecipe() {
+  yield takeEvery(CONTACT_RECIPE_STEPS.TRY_REMOVE_RECIPE, removeRecipeAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchCreateHouseholdFromSurvey(),
@@ -87,5 +91,6 @@ export default function* rootSaga() {
     watchSubmitNewsletterEmail(),
     watchSuggestionContact(),
     watchUploadRecipe(),
+    watchRemoveRecipe(),
   ])
 }

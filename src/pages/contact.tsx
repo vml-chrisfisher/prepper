@@ -27,7 +27,7 @@ class ContactIndex extends React.Component {
     const StoryContainer = styled.div`
       position: relative;
       width: 100%;
-    `
+`
 
     const BodyCopy = styled.div`
       color: #464646;
@@ -42,8 +42,8 @@ class ContactIndex extends React.Component {
         padding-left: 10%;
         width: 80%;
       }
-    `
-
+`
+    console.log(layout.node.recipeCopy.content[0].content[0].value)
     return (
       <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />

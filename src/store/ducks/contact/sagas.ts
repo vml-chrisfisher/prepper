@@ -1,14 +1,27 @@
-import { buffers, eventChannel } from '@redux-saga/core'
-import * as AWS from 'aws-sdk'
-import { ManagedUpload, PutObjectRequest } from 'aws-sdk/clients/s3'
-import axios from 'axios'
-import { all, call, put, take, takeEvery } from 'redux-saga/effects'
-import { isBrowser } from '../../../utils/auth'
-import { CONTACT_HELLO_STEPS, CONTACT_PARTNERSHIP_STEPS, CONTACT_RECIPE_STEPS, CONTACT_SUGGESTION_STEPS } from './types'
+import { buffers, eventChannel } from '@redux-saga/core';
+import * as AWS from 'aws-sdk';
+import { PutObjectRequest } from 'aws-sdk/clients/s3';
+import axios from 'axios';
+import { getUploadedRecipeBucketNames } from './selectors';
+import {
+  CONTACT_HELLO_STEPS,
+  CONTACT_PARTNERSHIP_STEPS,
+  CONTACT_RECIPE_STEPS,
+  CONTACT_SUGGESTION_STEPS
+  } from './types';
+
+/* eslint no-empty-function: 0 */
+/* @typescript-eslint/no-empty-function: 0 */
+
+import {
+  all,
+  call,
+  put,
+  select,
+  take,
+  } from 'redux-saga/effects';
 
 const bucketName = 'knife-and-fish-user-recipes'
-const bucketRegion = 'us-east-1'
-const identityPoolId = 'arn:aws:iam::078936372766:role/Cognito_RecipeUploadPoolUnauth_Role'
 
 AWS.config.region = 'us-east-1' // Region
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -19,14 +32,6 @@ const s3 = new AWS.S3({
   apiVersion: '2006-03-01',
   params: { Bucket: bucketName },
 })
-
-const delay = (ms: number): Promise<void> => {
-  return new Promise<void>(resolve => {
-    setTimeout(() => {
-      resolve()
-    }, ms)
-  })
-}
 
 const submitHelloContact = (payload: { helloName: string; helloEmail: string; helloMessage: string }) => {
   return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/hello', payload)
@@ -47,6 +52,7 @@ export function* submitHelloContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
+      console.log('HELLO ERROR: ', error)
       yield put({
         type: CONTACT_HELLO_STEPS.HELLO_SUBMIT_FAILURE,
       })
@@ -62,7 +68,7 @@ const submitContactRecipe = (payload: {
   recipeName: string
   recipeEmail: string
   recipeMessage: string
-  uploadedFiles: Array<string>
+  uploadedFilesBucketNames: Array<string>
 }) => {
   return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/recipe', payload)
 }
@@ -71,8 +77,9 @@ export function* submitRecipeContactAsync(action: any) {
   yield put({
     type: CONTACT_RECIPE_STEPS.SUBMITTING_RECIPE,
   })
-  const { recipeName, recipeEmail, recipeMessage, uploadedFiles } = action.payload
-  const payload = { recipeName, recipeEmail, recipeMessage, uploadedFiles }
+  const { recipeName, recipeEmail, recipeMessage } = action.payload
+  const uploadedFilesBucketNames = yield select(getUploadedRecipeBucketNames)
+  const payload = { recipeName, recipeEmail, recipeMessage, uploadedFilesBucketNames }
   if (payload) {
     try {
       const response = yield call(submitContactRecipe, payload)
@@ -82,7 +89,7 @@ export function* submitRecipeContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('HELLO RECIPE ERROR: ', error)
+      console.log('RECIPE ERROR: ', error)
       yield put({
         type: CONTACT_RECIPE_STEPS.RECIPE_SUBMIT_FAILURE,
       })
@@ -95,12 +102,9 @@ export function* submitRecipeContactAsync(action: any) {
 }
 
 const uploadRecipe = (putRequest: PutObjectRequest) => {
-  console.log('PUT REQUEST: ', putRequest)
   return eventChannel(emitter => {
     const stream: AWS.S3.ManagedUpload = s3
       .upload(putRequest, (err: Error, data: AWS.S3.ManagedUpload.SendData) => {
-        console.log('ERROR HERE: ', err)
-        console.log('DATA HERE: ', data)
         if (data) {
           emitter({
             bucketLocation: data.Location,
@@ -112,7 +116,6 @@ const uploadRecipe = (putRequest: PutObjectRequest) => {
         }
       })
       .on('httpUploadProgress', (progress: AWS.S3.ManagedUpload.Progress) => {
-        console.log('PROGRESS: ', progress)
         emitter({
           bucketLocation: undefined,
           fileName: putRequest.Key,
@@ -128,7 +131,6 @@ const uploadRecipe = (putRequest: PutObjectRequest) => {
 }
 
 export function* uploadRecipeAsync(action: any) {
-  console.log(action)
   const { file, fileName } = action.payload
 
   const putRequest: PutObjectRequest = {
@@ -141,12 +143,40 @@ export function* uploadRecipeAsync(action: any) {
     const channel = yield call(uploadRecipe, putRequest)
     while (true) {
       const response = yield take(channel)
-      console.log('REPONSE: ', response)
       yield put({
         type: CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOAD_STATUS,
         payload: response,
       })
     }
+  }
+}
+
+const removeRecipe = (request: {Bucket: string, Key: string}) => {
+  s3.deleteObject(request, (err, data) => {
+
+  }).promise()
+}
+
+export function* removeRecipeAsync(action: any) {
+  const {fileName } = action.payload
+
+  const deleteRequest = {
+    Bucket: bucketName,
+    Key: fileName
+  }
+  try {
+    const response = yield call(removeRecipe, deleteRequest)
+
+    yield put({
+      type: CONTACT_RECIPE_STEPS.REMOVE_RECIPE,
+      payload: fileName
+    })
+  }
+  catch (error) {
+    yield put({
+      type: CONTACT_RECIPE_STEPS.REMOVE_RECIPE,
+      payload: fileName
+    })
   }
 }
 
@@ -173,7 +203,7 @@ export function* submitSuggestionContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('HELLO RECIPE ERROR: ', error)
+      console.log('SUGGESTION ERROR: ', error)
       yield put({
         type: CONTACT_SUGGESTION_STEPS.SUGGESTION_SUBMIT_FAILURE,
       })
@@ -190,6 +220,7 @@ const submitContactPartnership = (payload: {
   partnershipCompany: string
   partnershipEmail: string
   partnershipPhone: string
+  partnershipWebsite: string
   partnershipMessage: string
 }) => {
   return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/contact/partnership', payload)
@@ -199,8 +230,8 @@ export function* submitPartnershipContactAsync(action: any) {
   yield put({
     type: CONTACT_PARTNERSHIP_STEPS.SUBMITTING_PARTNERSHIP,
   })
-  const { partnershipName, partnershipCompany, partnershipEmail, partnershipPhone, partnershipMessage } = action.payload
-  const payload = { partnershipName, partnershipCompany, partnershipEmail, partnershipPhone, partnershipMessage }
+  const { partnershipName, partnershipCompany, partnershipEmail, partnershipPhone, partnershipWebsite, partnershipMessage } = action.payload
+  const payload = { partnershipName, partnershipCompany, partnershipEmail, partnershipPhone, partnershipWebsite, partnershipMessage }
   if (payload) {
     try {
       const response = yield call(submitContactPartnership, payload)
@@ -210,7 +241,7 @@ export function* submitPartnershipContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('HELLO RECIPE ERROR: ', error)
+      console.log('PARTNERSHIP ERROR: ', error)
       yield put({
         type: CONTACT_PARTNERSHIP_STEPS.PARTNERSHIP_SUBMIT_FAILURE,
       })

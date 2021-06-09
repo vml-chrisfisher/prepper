@@ -27,7 +27,7 @@ class StoryIndex extends React.Component<HomeProps> {
     const StoryContainer = styled.div`
       position: relative;
       width: 100%;
-    `
+`
 
     const Title = styled.h2`
       color: #333;
@@ -38,7 +38,7 @@ class StoryIndex extends React.Component<HomeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const BodyCopy = styled.div`
       color: #464646;
@@ -53,7 +53,7 @@ class StoryIndex extends React.Component<HomeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const Quote = styled.h4`
       color: #333;
@@ -64,7 +64,7 @@ class StoryIndex extends React.Component<HomeProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     return (
       <Layout>

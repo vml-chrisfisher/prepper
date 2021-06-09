@@ -29,7 +29,7 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-    `
+`
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []

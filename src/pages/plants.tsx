@@ -106,7 +106,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       padding-top: 1.875em;
       padding-bottom: 1.875em;
       text-align: justify;
-    `
+`
 
     const VideoBackgroundContainer = styled.div`
       position: relative;
@@ -115,13 +115,13 @@ class PlantsIndex extends React.Component<PlantsProps> {
       left: 0;
       width: 100vw;
       height: 100vh;
-    `
+`
 
     const HeroVideo = styled.video`
       position: absolute;
       z-index: 99;
       max-width: 100%;
-    `
+`
 
     const ArticleInside = styled.div`
       display: block;
@@ -149,13 +149,13 @@ class PlantsIndex extends React.Component<PlantsProps> {
         z-index: 0;
         background-color: rgba(51, 51, 51, 0.25);
       }
-    `
+`
 
     const ArticleImageParent = styled.div`
       width: 100%;
       overflow: hidden;
       position: relative;
-    `
+`
 
     const ArticleOverlay = styled.div`
       position: absolute;
@@ -164,7 +164,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       left: 20px;
       width: calc(100% - 40px);
       color: #fff;
-    `
+`
 
     const OverlayContainer = styled.div`
       position: absolute;
@@ -173,7 +173,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       top: 0;
       bottom: 20px;
       overflow: hidden;
-    `
+`
 
     const ArticleDescription = styled.div`
       font-family: 'Roboto', sans-serif;
@@ -184,12 +184,12 @@ class PlantsIndex extends React.Component<PlantsProps> {
       max-height: 100px;
       display: block;
       padding-top: 20px;
-    `
+`
 
     const VegetableGroup = styled.div`
       padding-top: 20px;
       padding-bottom: 40px;
-    `
+`
 
     const VegetableGroupTitle = styled.h2`
       font-family: 'Roboto', sans-serif;
@@ -197,7 +197,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       font-weight: 600;
       color: #333;
       display: block;
-    `
+`
 
     const VegetableTitle = styled.h2`
       font-family: 'Roboto', sans-serif;
@@ -205,7 +205,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       font-weight: 300;
       color: #333;
       display: block;
-    `
+`
 
     const PrimaryButton = styled.button`
       background-color: #0f9114;
@@ -220,7 +220,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
       text-transform: uppercase;
       padding: 15px 25px;
       letter-spacing: 2px;
-    `
+`
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 900
     return (
       <Layout>
@@ -312,7 +312,7 @@ class PlantsIndex extends React.Component<PlantsProps> {
                                       return (
                                         <div className="col4" key={index}>
                                           <LazyLoad
-                                            style={{ width: '100%', backgroundColor: '#FEFEFE' }}
+                                            style={{ width: '100%', backgroundColor: '#fefefe' }}
                                             once
                                             offset={100}
                                           >

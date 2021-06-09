@@ -31,14 +31,14 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         font-size: 3.5em;
         padding: 0;
       }
-    `
+`
 
     const CreateDate = styled.div`
       text-align: center;
       font-family: 'Roboto', sans-serif;
       font-size: 1em;
       padding-bottom: 3.125em;
-    `
+`
 
     const TagContainer = styled.div`
       display: inline-block;
@@ -49,7 +49,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const TagStyled = styled.p`
       color: #464646;
@@ -58,7 +58,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       font-family: 'Roboto', sans-serif;
       padding-right: 20px;
       text-transform: uppercase;
-    `
+`
 
     const BodyCopy = styled.div`
       color: #464646;
@@ -75,7 +75,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
         padding-left: 10%;
         width: 80%;
       }
-    `
+`
 
     const MainContainer = styled.div`
       background-color: #fff;
@@ -85,7 +85,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-    `
+`
 
     const Col2Full = styled.div`
       width: 16.66%;
@@ -93,7 +93,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       @media (max-width: 767px) {
         width: 100%;
       }
-    `
+`
 
     const Col8Full = styled.div`
       width: 66.66%;
@@ -101,7 +101,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
       @media (max-width: 767px) {
         width: 100%;
       }
-    `
+`
 
     const post: AllContentfulArticle = get(this.props, 'data.contentfulArticle')
     const postCreate = dateformat(post.createdAt, 'fullDate')
@@ -247,7 +247,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
             </div>
             <LazyLoad
               className="hidden-sm"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
               once
               offset={100}
             >
@@ -264,7 +264,7 @@ class ArticleTemplate extends React.Component<ArticleProps> {
             </LazyLoad>
             <LazyLoad
               className="hidden-lg"
-              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#FEFEFE' }}
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
               once
               offset={100}
             >

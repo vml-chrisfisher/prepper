@@ -1,4 +1,4 @@
-import initialState, { RecipeUploadStatus } from './initialState'
+import initialState, { RecipeUploadStatus } from './initialState';
 import {
   CONTACT_ACTION_TYPES,
   CONTACT_HELLO_STEPS,
@@ -39,7 +39,7 @@ const contactReducers = (state = initialState, action: { type: string; id: strin
     case CONTACT_PARTNERSHIP_STEPS.PARTNERSHIP_RESET:
       return { ...state, partnershipStep: action.type }
     case CONTACT_RECIPE_STEPS.UPDATE_RECIPE_UPLOAD_STATUS: {
-      const uploadedRecipeStatuses = state.recipesUploaded
+      const uploadedRecipeStatuses = [...state.recipesUploaded]
       const index = state.recipesUploaded.findIndex(
         (item: RecipeUploadStatus) => item.fileName === action.payload.fileName,
       )
@@ -56,6 +56,15 @@ const contactReducers = (state = initialState, action: { type: string; id: strin
       })
       return { ...state, recipesUploaded: filteredRecipes }
     }
+
+    case CONTACT_RECIPE_STEPS.UPDATE_RECIPE_NAME:
+      return { ...state, recipeName: action.payload.recipeName}
+    case CONTACT_RECIPE_STEPS.UPDATE_RECIPE_EMAIL:
+      return { ...state, recipeEmail: action.payload.recipeEmail}
+    case CONTACT_RECIPE_STEPS.UPDATE_RECIPE_MESSAGE:
+      return { ...state, recipeMessage: action.payload.recipeMessage}
+    case CONTACT_RECIPE_STEPS.RECIPE_FORM_RESET:
+      return { ...state, recipeName: '', recipeEmail: '', recipeMessage: ''}
     default:
       return state
   }
