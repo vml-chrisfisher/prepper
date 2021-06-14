@@ -5,6 +5,8 @@ import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import LazyLoad from 'react-lazy-load'
+import { useDispatch, useSelector } from 'react-redux'
+import Bookmark from '../components/common/buttons/bookmark'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import Footer from '../components/footer'
@@ -12,6 +14,8 @@ import GeneralContentRow from '../components/generalContentRow'
 import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
+import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
+import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
 import {
   RecipeProps,
   AllContentfulRecipe,
@@ -37,14 +41,14 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         font-size: 3.5em;
         padding: 0;
       }
-`
+    `
 
     const CreateDate = styled.div`
       text-align: center;
       font-family: 'Roboto', sans-serif;
       font-size: 1em;
       padding-bottom: 3.125em;
-`
+    `
 
     const BodyCopy = styled.div`
       color: #464646;
@@ -59,7 +63,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-`
+    `
 
     const BodyCopyTwoColumn = styled.div`
       color: #464646;
@@ -76,7 +80,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-`
+    `
 
     const MainContainer = styled.div`
       background-color: #fff;
@@ -87,13 +91,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-`
+    `
 
     const InstructionTitle = styled.h2`
       color: #464646;
       font-size: 2.25em;
       padding-bottom: 50px;
-`
+    `
 
     const InstructionContainer = styled.div`
       display: inline-block;
@@ -103,7 +107,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-`
+    `
 
     const Instruction = styled.div`
       color: #464646;
@@ -112,7 +116,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       line-height: 2em;
       padding-bottom: 1.75em;
       text-align: justify;
-`
+    `
 
     const IngredientContainer = styled.div`
       display: inline-block;
@@ -123,13 +127,13 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-`
+    `
 
     const IngredientTitle = styled.h2`
       color: #464646;
       font-size: 2.25em;
       padding-bottom: 50px;
-`
+    `
 
     const Ingredient = styled.div`
       color: #464646;
@@ -137,7 +141,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Roboto', sans-serif;
       line-height: 2em;
       padding-bottom: 1.75em;
-`
+    `
 
     const TagContainer = styled.div`
       display: inline-block;
@@ -148,7 +152,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-left: 10%;
         width: 80%;
       }
-`
+    `
 
     const TagStyled = styled.p`
       color: #464646;
@@ -157,7 +161,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Roboto', sans-serif;
       padding-right: 20px;
       text-transform: uppercase;
-`
+    `
 
     const GroupTitle = styled.div`
       color: #464646;
@@ -166,7 +170,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
       font-family: 'Roboto', sans-serif;
       font-weight: 600;
       padding-bottom: 10px;
-`
+    `
 
     const FeaturedSpacer = styled.div`
       padding-top: 50px;
@@ -176,13 +180,14 @@ class RecipeTemplate extends React.Component<RecipeProps> {
         padding-top: 0;
         width: 90%;
       }
-`
+    `
 
     let step = 0
     const post: AllContentfulRecipe = get(this.props, 'data.contentfulRecipe')
     const postCreate = dateformat(post.createdAt, 'fullDate')
     const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
     const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
+    const recipeId = post.id
     const heroHeight =
       (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
     const bannerHeight =
@@ -201,6 +206,18 @@ class RecipeTemplate extends React.Component<RecipeProps> {
 
     const expirationDateRaw = new Date(post.updatedAt)
     expirationDateRaw.setFullYear(expirationDateRaw.getFullYear())
+
+    const isSelected = useSelector(state => getRecipeBoxIsRecipeSelected(state, recipeId))
+
+    const dispatch = useDispatch()
+
+    const onRecipeClick = () => {
+      if (isSelected) {
+        dispatch(onTryDeleteRecipe({ recipeId: recipeId }))
+      } else {
+        dispatch(onTryAddRecipe({ recipeId: recipeId }))
+      }
+    }
 
     const ingredients = post.recipeGroup.map((group: RecipeGroup) => {
       return group.ingredients.map((ingredient: RecipeIngredient) => {
@@ -362,6 +379,7 @@ class RecipeTemplate extends React.Component<RecipeProps> {
               <div className="col6">
                 <Title className="section-headline">{post.title}</Title>
                 <CreateDate>{postCreate}</CreateDate>
+                <Bookmark isSelected={true} onClick={onRecipeClick} />
               </div>
               <div className="col3" />
             </div>
@@ -532,6 +550,7 @@ export const pageQuery = graphql`
       }
       createdAt
       updatedAt
+      id
       heroImage {
         description
         file {

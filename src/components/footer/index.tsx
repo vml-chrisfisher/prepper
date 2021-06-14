@@ -184,18 +184,17 @@ const FooterLinkMain = styled.a<ThemeProps>`
   }};
   cursor: pointer;
   display: inline-block;
-  font-size: 0.875em;
+  font-size: 12px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.5px;
   padding-bottom: 10px;
   text-decoration: none;
-  text-transform: uppercase;
   transition: all 1s ease;
   transition-property: color, border;
   &:hover {
     border-bottom: #999999 solid 0.5px;
-    color: #999999;
+    color: #f24e11;
     transition: all 1s ease;
     transition-property: color, border;
   }
@@ -222,9 +221,9 @@ const FooterLinkBottom = styled.a<ThemeProps>`
   }};
   cursor: pointer;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 9px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.5px;
   padding-top: 5px;
   padding-right: 20px;
@@ -246,7 +245,7 @@ const FooterLinkBottom = styled.a<ThemeProps>`
     width: 100%;
   }
   &:hover {
-    color: #999999;
+    color: #f24e11;
     transition: color 1s ease;
   }
 `

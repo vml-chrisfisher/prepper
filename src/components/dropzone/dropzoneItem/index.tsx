@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { getUploadedFileStatus } from '../../../store/ducks/contact/selectors';
-import DropZoneItemInterface from './interface';
+import styled from '@emotion/styled'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { getUploadedFileStatus } from '../../../store/ducks/contact/selectors'
+import DropZoneItemInterface from './interface'
 
 const DropZoneItem = (props: DropZoneItemInterface) => {
   const { file, removeFile, bucketFileName } = props
@@ -128,20 +128,21 @@ const DropZoneItem = (props: DropZoneItemInterface) => {
 
   return (
     <>
-      {file && <FileStatusBar>
-        <div>
-          <FileTypeLogo></FileTypeLogo>
-          <FileType>{fileType(file.name)}</FileType>
-          <FileName>{file.name}</FileName>
-          <FileSize>{fileSize(file.size)}</FileSize>
-          <UploadContainer percentage={uploadPercentage}>
-            <UploadTotal></UploadTotal>
-            <UploadPercentage percentage={uploadPercentage} />
-          </UploadContainer>
-        </div>
-        <FileRemove onClick={() => removeFile(file.bucketName)}>X</FileRemove>
-      </FileStatusBar>
-      }
+      {file && (
+        <FileStatusBar>
+          <div>
+            <FileTypeLogo></FileTypeLogo>
+            <FileType>{fileType(file.name)}</FileType>
+            <FileName>{file.name}</FileName>
+            <FileSize>{fileSize(file.size)}</FileSize>
+            <UploadContainer percentage={uploadPercentage}>
+              <UploadTotal></UploadTotal>
+              <UploadPercentage percentage={uploadPercentage} />
+            </UploadContainer>
+          </div>
+          <FileRemove onClick={() => removeFile(file.bucketName)}>X</FileRemove>
+        </FileStatusBar>
+      )}
     </>
   )
 }

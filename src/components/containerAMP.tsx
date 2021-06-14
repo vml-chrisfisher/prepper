@@ -373,55 +373,55 @@ export default ({ children }) => (
           animation: lds-grid 1.2s linear infinite;
         }
 
-        .lds-grid div:nth-child(1) {
+        .lds-grid div:nth-of-type(1) {
           top: 0;
           left: 0;
           animation-delay: 0s;
         }
 
-        .lds-grid div:nth-child(2) {
+        .lds-grid div:nth-of-type(2) {
           top: 0;
           left: 12px;
           animation-delay: -0.4s;
         }
 
-        .lds-grid div:nth-child(3) {
+        .lds-grid div:nth-of-type(3) {
           top: 0;
           left: 24px;
           animation-delay: -0.8s;
         }
 
-        .lds-grid div:nth-child(4) {
+        .lds-grid div:nth-of-type(4) {
           top: 12px;
           left: 0;
           animation-delay: -0.4s;
         }
 
-        .lds-grid div:nth-child(5) {
+        .lds-grid div:nth-of-type(5) {
           top: 12px;
           left: 12px;
           animation-delay: -0.8s;
         }
 
-        .lds-grid div:nth-child(6) {
+        .lds-grid div:nth-of-type(6) {
           top: 12px;
           left: 24px;
           animation-delay: -1.2s;
         }
 
-        .lds-grid div:nth-child(7) {
+        .lds-grid div:nth-of-type(7) {
           top: 24px;
           left: 0;
           animation-delay: -0.8s;
         }
 
-        .lds-grid div:nth-child(8) {
+        .lds-grid div:nth-of-type(8) {
           top: 24px;
           left: 12px;
           animation-delay: -1.2s;
         }
 
-        .lds-grid div:nth-child(9) {
+        .lds-grid div:nth-of-type(9) {
           top: 24px;
           left: 24px;
           animation-delay: -1.6s;
