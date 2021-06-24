@@ -13,7 +13,9 @@ import Footer from '../components/footer'
 import GeneralContentRow from '../components/generalContentRow'
 import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
 import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
 import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
 import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
 import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
@@ -84,7 +86,7 @@ const RecipeTemplate = (props: RecipeProps) => {
     }
   `
 
-  const MainContainer = styled.div`
+  const RecipeMainContainer = styled.div`
     background-color: #fff;
     position: absolute;
     top: 15.625em;
@@ -367,103 +369,104 @@ const RecipeTemplate = (props: RecipeProps) => {
   return (
     <Layout>
       <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
-      <MainContainer style={{ background: '#fff' }}>
-        <Helmet>
-          {/* The description that appears under the title of your website appears on search engines results */}
-          <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-          <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1"></meta>
-          {/* The thumbnail of your website */}
-          <meta name="image" content={post.heroImage.file.url} />
+      <Helmet>
+        {/* The description that appears under the title of your website appears on search engines results */}
+        <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+        <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1"></meta>
+        {/* The thumbnail of your website */}
+        <meta name="image" content={post.heroImage.file.url} />
 
-          {/* Opengraph meta tags for Facebook & LinkedIn */}
-          <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
-          <meta property="og:type" content="NewsArticle" />
-          <meta property="og:title" content={post.title} />
-          <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-          <meta property="og:image" content={post.heroImage.file.url} />
-          <meta property="og:article:published_time" content={post.createdAt} />
-          <meta property="og:article:modified_time" content={post.updatedAt} />
-          <meta property="og:article:expiration_time" content={expirationDateRaw.toISOString()} />
-          <meta property="og:article:author" content="Chris Fisher" />
-          <meta property="og:article:section" content="Cooking" />
-          <meta property="og:article:tag" content={keywords.toString()} />
+        {/* Opengraph meta tags for Facebook & LinkedIn */}
+        <meta property="og:url" content="'https://www.knifeandfish.com/article/${post.slug}'" />
+        <meta property="og:type" content="NewsArticle" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+        <meta property="og:image" content={post.heroImage.file.url} />
+        <meta property="og:article:published_time" content={post.createdAt} />
+        <meta property="og:article:modified_time" content={post.updatedAt} />
+        <meta property="og:article:expiration_time" content={expirationDateRaw.toISOString()} />
+        <meta property="og:article:author" content="Chris Fisher" />
+        <meta property="og:article:section" content="Cooking" />
+        <meta property="og:article:tag" content={keywords.toString()} />
 
-          {/* These tags work for Twitter & Slack, notice I've included more custom tags like reading time etc... */}
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:creator" content="knifeandfisher1" />
-          <meta name="twitter:site" content="knifeandfisher1" />
-          <meta name="twitter:title" content={post.title} />
-          <meta name="twitter:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
-          <meta name="twitter:image:src" content={post.heroImage.file.url} />
-          <meta
-            name="twitter:image:alt"
-            content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
-          />
+        {/* These tags work for Twitter & Slack, notice I've included more custom tags like reading time etc... */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="knifeandfisher1" />
+        <meta name="twitter:site" content="knifeandfisher1" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />
+        <meta name="twitter:image:src" content={post.heroImage.file.url} />
+        <meta
+          name="twitter:image:alt"
+          content="Knife and Fish is a food and cocktail blog, from the midwest, with a focus on approachable meals and classic cocktails."
+        />
 
-          {/* Structured data */}
-          <script type="application/ld+json">{structuredDataArticle}</script>
-          <link rel="canonical" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`}></link>
-          <link rel="amphtml" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`} />
-          {/* The title of your current page */}
-          <title>{post.title} | Knife & Fish</title>
+        {/* Structured data */}
+        <script type="application/ld+json">{structuredDataArticle}</script>
+        <link rel="canonical" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`}></link>
+        <link rel="amphtml" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`} />
+        {/* The title of your current page */}
+        <title>{post.title} | Knife & Fish</title>
 
-          {/* Default language and direction */}
-          <html lang="en" dir="ltr" />
-        </Helmet>
-        <div>
-          <div className="row">
-            <div className="col3" />
-            <div className="col6">
-              <Title className="section-headline">{post.title}</Title>
-              <CreateDate>{postCreate}</CreateDate>
+        {/* Default language and direction */}
+        <html lang="en" dir="ltr" />
+      </Helmet>
+      <MainContainer id="mainContainer">
+        <RecipeMainContainer style={{ background: '#fff' }}>
+          <div>
+            <div className="row">
+              <div className="col3" />
+              <div className="col6">
+                <Title className="section-headline">{post.title}</Title>
+                <CreateDate>{postCreate}</CreateDate>
+              </div>
+              <div className="col3" />
             </div>
-            <div className="col3" />
-          </div>
-          <LazyLoad
-            className="hidden-sm"
-            style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
-            once
-            offset={100}
-          >
-            <picture>
-              <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
-              <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
-              <img
-                src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                  heroHeight,
-                )}&fit=fill`}
-                alt={post.heroImage.description}
-              />
-            </picture>
-          </LazyLoad>
-          <LazyLoad
-            className="hidden-lg"
-            style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
-            once
-            offset={100}
-          >
-            <picture>
-              <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
-              <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
-              <img
-                src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
-                  bannerHeight,
-                )}&fit=fill`}
-                alt={post.bannerImage.description}
-              />
-            </picture>
-          </LazyLoad>
-          <div className="row">
-            <div className="col2"></div>
-            <div className="col8">
-              <div className="row">
-                <div className="col6 col-12-sm"></div>
-                <div className="col6 col-12-sm">
-                  <SocialBar>
-                    <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
-                      <InstagramSocialIcon>
-                        <path
-                          d="M0,10c0.1-2.8,1.1-5.2,3-7.1S7.3,0,10,0c2.9,0.1,5.3,1,7.2,3C19,4.9,20,7.3,20,10c-0.1,2.8-1.1,5.2-3,7.1
+            <LazyLoad
+              className="hidden-sm"
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
+              once
+              offset={100}
+            >
+              <picture>
+                <source type="image/webp" srcSet={`${post.heroImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
+                <source type="image/jpg" srcSet={`${post.heroImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
+                <img
+                  src={`${post.heroImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
+                    heroHeight,
+                  )}&fit=fill`}
+                  alt={post.heroImage.description}
+                />
+              </picture>
+            </LazyLoad>
+            <LazyLoad
+              className="hidden-lg"
+              style={{ width: '100%', paddingBottom: '56%', backgroundColor: '#fefefe' }}
+              once
+              offset={100}
+            >
+              <picture>
+                <source type="image/webp" srcSet={`${post.bannerImage.file.url}?fm=webp&q=70&w=${windowWidth}`} />
+                <source type="image/jpg" srcSet={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${windowWidth}`} />
+                <img
+                  src={`${post.bannerImage.file.url}?fm=jpg&q=70&w=${Math.round(windowWidth)}&h=${Math.round(
+                    bannerHeight,
+                  )}&fit=fill`}
+                  alt={post.bannerImage.description}
+                />
+              </picture>
+            </LazyLoad>
+            <div className="row">
+              <div className="col2"></div>
+              <div className="col8">
+                <div className="row">
+                  <div className="col6 col-12-sm"></div>
+                  <div className="col6 col-12-sm">
+                    <SocialBar>
+                      <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
+                        <InstagramSocialIcon>
+                          <path
+                            d="M0,10c0.1-2.8,1.1-5.2,3-7.1S7.3,0,10,0c2.9,0.1,5.3,1,7.2,3C19,4.9,20,7.3,20,10c-0.1,2.8-1.1,5.2-3,7.1
 	C15,19,12.7,20,10,20c-0.9,0-1.9-0.1-2.8-0.4c0.2-0.3,0.4-0.6,0.5-1c0.2-0.4,0.5-1.3,0.8-2.5c0.1-0.3,0.2-0.8,0.4-1.4
 	C9,15,9.4,15.3,9.8,15.6c1.2,0.5,2.4,0.5,3.7-0.2c1.4-0.8,2.3-2,2.8-3.6c0.5-1.7,0.4-3.3-0.2-4.8c-0.6-1.5-1.6-2.5-3.1-3.2
 	C11.1,3.3,9.3,3.3,7.5,4s-3,1.8-3.8,3.4C3.5,8,3.4,8.6,3.4,9.2c0,0.6,0,1.2,0.1,1.7C3.5,11.5,3.7,12,4,12.4c0.3,0.4,0.7,0.8,1.2,1
@@ -472,13 +475,13 @@ const RecipeTemplate = (props: RecipeProps) => {
 	c-0.1,0.7-0.4,1.4-0.8,2.1c-0.7,1-1.4,1.5-2.3,1.6c-0.5,0-0.9-0.2-1.3-0.6c-0.3-0.4-0.4-0.8-0.3-1.3c0.1-0.3,0.2-0.8,0.5-1.7
 	c0.3-0.8,0.4-1.5,0.4-1.9c-0.1-1-0.5-1.5-1.4-1.5C8.4,7.3,7.9,7.6,7.6,8.1S7.1,9.2,7.1,9.8c0.1,0.8,0.2,1.3,0.4,1.6
 	c-0.3,1.2-0.5,2.1-0.7,2.8c-0.1,0.2-0.2,0.7-0.4,1.7C6.1,16.8,6,17.6,6,18v1.1c-1.8-0.9-3.3-2.1-4.4-3.7S0,12,0,10z"
-                        />
-                      </InstagramSocialIcon>
-                    </a>
-                    <a aria-label="Knife and Fish Instagram" href="https://www.instagram.com/knifeandfish/">
-                      <InstagramSocialIcon>
-                        <path
-                          d="M15.3,3.5L15.3,3.5c-0.7,0-1.2,0.5-1.2,1.2s0.5,1.2,1.2,1.2c0.7,0,1.2-0.5,1.2-1.2S16,3.5,15.3,3.5L15.3,3.5z
+                          />
+                        </InstagramSocialIcon>
+                      </a>
+                      <a aria-label="Knife and Fish Instagram" href="https://www.instagram.com/knifeandfish/">
+                        <InstagramSocialIcon>
+                          <path
+                            d="M15.3,3.5L15.3,3.5c-0.7,0-1.2,0.5-1.2,1.2s0.5,1.2,1.2,1.2c0.7,0,1.2-0.5,1.2-1.2S16,3.5,15.3,3.5L15.3,3.5z
 	 M19.9,5.9c0-0.8-0.2-1.7-0.5-2.4c-0.3-0.7-0.7-1.3-1.2-1.8c-0.5-0.5-1.1-0.9-1.8-1.2c-0.8-0.3-1.6-0.5-2.4-0.5C13.1,0,12.7,0,10,0
 	S6.9,0,5.9,0.1C5,0.1,4.2,0.2,3.4,0.5C2.8,0.8,2.2,1.2,1.7,1.7C1.2,2.2,0.8,2.8,0.5,3.4C0.2,4.2,0.1,5,0.1,5.9C0,6.9,0,7.3,0,10
 	s0,3.1,0.1,4.1c0,0.8,0.2,1.7,0.5,2.4c0.2,0.7,0.6,1.3,1.1,1.8c0.5,0.5,1.1,0.9,1.8,1.1c0.8,0.3,1.6,0.5,2.4,0.5
@@ -490,121 +493,121 @@ const RecipeTemplate = (props: RecipeProps) => {
 	c0.3,0.3,0.6,0.7,0.8,1.1C18,4.7,18.1,5.4,18.1,6c0,1,0.1,1.4,0.1,4S18.2,13,18.1,14z M10,4.9c-2.8,0-5.1,2.3-5.1,5.1
 	c0,2.8,2.3,5.1,5.1,5.1c2.8,0,5.1-2.3,5.1-5.1C15.1,7.2,12.9,4.9,10,4.9C10,4.9,10,4.9,10,4.9z M10,13.3c-1.8,0-3.3-1.5-3.3-3.3
 	S8.2,6.7,10,6.7s3.3,1.5,3.3,3.3l0,0C13.3,11.8,11.8,13.3,10,13.3z"
-                        />
-                      </InstagramSocialIcon>
-                    </a>
-                    <a aria-label="Knife and Fish Facebook" href="https://www.facebook.com/knifeandfish">
-                      <InstagramSocialIcon>
-                        <path
-                          d="M20,10c0-5.5-4.5-10-10-10S0,4.5,0,10c0,5,3.7,9.1,8.4,9.9v-7H5.9V10h2.5V7.8c0-2.5,1.5-3.9,3.8-3.9
+                          />
+                        </InstagramSocialIcon>
+                      </a>
+                      <a aria-label="Knife and Fish Facebook" href="https://www.facebook.com/knifeandfish">
+                        <InstagramSocialIcon>
+                          <path
+                            d="M20,10c0-5.5-4.5-10-10-10S0,4.5,0,10c0,5,3.7,9.1,8.4,9.9v-7H5.9V10h2.5V7.8c0-2.5,1.5-3.9,3.8-3.9
 	c1.1,0,2.2,0.2,2.2,0.2v2.5h-1.3c-1.2,0-1.6,0.8-1.6,1.6V10h2.8l-0.4,2.9h-2.3v7C16.3,19.1,20,15,20,10z"
-                        />
-                        <path
-                          d="M711.3,660L734,512H592v-96c0-40.5,19.8-80,83.4-80H740V210c0,0-58.6-10-114.6-10
+                          />
+                          <path
+                            d="M711.3,660L734,512H592v-96c0-40.5,19.8-80,83.4-80H740V210c0,0-58.6-10-114.6-10
 	c-117,0-193.4,70.9-193.4,199.2V512H302v148h130v357.8c53,8.3,107,8.3,160,0V660H711.3z"
-                        />
-                      </InstagramSocialIcon>
-                    </a>
-                  </SocialBar>
-                  <Bookmark
-                    isSelected={isSelected}
-                    onClick={(event: React.MouseEvent) => {
-                      onRecipeClick(event)
-                    }}
-                  />
+                          />
+                        </InstagramSocialIcon>
+                      </a>
+                    </SocialBar>
+                    <Bookmark
+                      isSelected={isSelected}
+                      onClick={(event: React.MouseEvent) => {
+                        onRecipeClick(event)
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
+              <div className="col2"></div>
             </div>
-            <div className="col2"></div>
-          </div>
-          <div className="row">
-            <div className="col2"></div>
-            <div className="col8">
-              {!bodyLong && (
-                <BodyCopy
-                  dangerouslySetInnerHTML={{
-                    __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
-                  }}
-                ></BodyCopy>
-              )}
-              {bodyLong && (
-                <BodyCopyTwoColumn
-                  dangerouslySetInnerHTML={{
-                    __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
-                  }}
-                ></BodyCopyTwoColumn>
-              )}
-            </div>
-            <div className="col2"></div>
-            <div className="col2" />
-            <div className="col8">
-              <div>
-                <IngredientContainer>
-                  <IngredientTitle>Ingredients</IngredientTitle>
-                  {post.recipeGroup.map((recipeGroup: RecipeGroup, index: number) => {
-                    return (
-                      <div style={{ paddingBottom: '30px' }} key={`recipe-group-${index}`}>
-                        {recipeGroup.displayName && post.recipeGroup.length > 1 && (
-                          <GroupTitle>{recipeGroup.displayName}</GroupTitle>
-                        )}
-                        {recipeGroup.ingredients.map((ingredient: RecipeIngredient, index: number) => {
-                          return (
-                            <Ingredient key={`ingredient-${index}`}>
-                              {ingredient.recipeQuantity && ingredient.recipeQuantity.recipeQuantity && (
-                                <span
-                                  dangerouslySetInnerHTML={{
-                                    __html:
-                                      ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark
-                                        .rawMarkdownBody,
-                                  }}
-                                ></span>
-                              )}{' '}
-                              {ingredient.recipeQuantity &&
-                                ingredient.recipeQuantity.recipeMeasurement &&
-                                ingredient.recipeQuantity.recipeMeasurement.mesurement && (
-                                  <span>
-                                    {ingredient.recipeQuantity &&
-                                      ingredient.recipeQuantity.recipeMeasurement.mesurement.childMarkdownRemark
-                                        .rawMarkdownBody}
-                                  </span>
+            <div className="row">
+              <div className="col2"></div>
+              <div className="col8">
+                {!bodyLong && (
+                  <BodyCopy
+                    dangerouslySetInnerHTML={{
+                      __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+                    }}
+                  ></BodyCopy>
+                )}
+                {bodyLong && (
+                  <BodyCopyTwoColumn
+                    dangerouslySetInnerHTML={{
+                      __html: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+                    }}
+                  ></BodyCopyTwoColumn>
+                )}
+              </div>
+              <div className="col2"></div>
+              <div className="col2" />
+              <div className="col8">
+                <div>
+                  <IngredientContainer>
+                    <IngredientTitle>Ingredients</IngredientTitle>
+                    {post.recipeGroup.map((recipeGroup: RecipeGroup, index: number) => {
+                      return (
+                        <div style={{ paddingBottom: '30px' }} key={`recipe-group-${index}`}>
+                          {recipeGroup.displayName && post.recipeGroup.length > 1 && (
+                            <GroupTitle>{recipeGroup.displayName}</GroupTitle>
+                          )}
+                          {recipeGroup.ingredients.map((ingredient: RecipeIngredient, index: number) => {
+                            return (
+                              <Ingredient key={`ingredient-${index}`}>
+                                {ingredient.recipeQuantity && ingredient.recipeQuantity.recipeQuantity && (
+                                  <span
+                                    dangerouslySetInnerHTML={{
+                                      __html:
+                                        ingredient.recipeQuantity.recipeQuantity.quantity.childMarkdownRemark
+                                          .rawMarkdownBody,
+                                    }}
+                                  ></span>
                                 )}{' '}
-                              {ingredient.ingredient.ingredient}
-                              {ingredient.prep && <span>, {ingredient.prep.prep}</span>}
-                            </Ingredient>
-                          )
-                        })}
-                      </div>
-                    )
-                  })}
-                </IngredientContainer>
-                <InstructionContainer>
-                  <InstructionTitle>Instructions</InstructionTitle>
-                  {post.recipeInstructionGroups.map((instructionGroup: RecipeInstructionGroup, index: number) => {
-                    return (
-                      <div style={{ paddingBottom: '30px' }} key={`instruction-group-${index}`}>
-                        {instructionGroup.displayName && post.recipeInstructionGroups.length > 1 && (
-                          <GroupTitle>{instructionGroup.displayName}</GroupTitle>
-                        )}
-                        {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
-                          step++
-                          return (
-                            <Instruction
-                              id={`Step${step}`}
-                              key={`instruction-${index}`}
-                              dangerouslySetInnerHTML={{
-                                __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody,
-                              }}
-                            ></Instruction>
-                          )
-                        })}
-                      </div>
-                    )
-                  })}
-                </InstructionContainer>
-                <TagContainer className="col12">
-                  <h3>Tags</h3>
-                  <TagStyled>{post.mealType}</TagStyled>
-                  {/* {post.proteinType &&
+                                {ingredient.recipeQuantity &&
+                                  ingredient.recipeQuantity.recipeMeasurement &&
+                                  ingredient.recipeQuantity.recipeMeasurement.mesurement && (
+                                    <span>
+                                      {ingredient.recipeQuantity &&
+                                        ingredient.recipeQuantity.recipeMeasurement.mesurement.childMarkdownRemark
+                                          .rawMarkdownBody}
+                                    </span>
+                                  )}{' '}
+                                {ingredient.ingredient.ingredient}
+                                {ingredient.prep && <span>, {ingredient.prep.prep}</span>}
+                              </Ingredient>
+                            )
+                          })}
+                        </div>
+                      )
+                    })}
+                  </IngredientContainer>
+                  <InstructionContainer>
+                    <InstructionTitle>Instructions</InstructionTitle>
+                    {post.recipeInstructionGroups.map((instructionGroup: RecipeInstructionGroup, index: number) => {
+                      return (
+                        <div style={{ paddingBottom: '30px' }} key={`instruction-group-${index}`}>
+                          {instructionGroup.displayName && post.recipeInstructionGroups.length > 1 && (
+                            <GroupTitle>{instructionGroup.displayName}</GroupTitle>
+                          )}
+                          {instructionGroup.instructions.map((instruction: RecipeInstruction, index: number) => {
+                            step++
+                            return (
+                              <Instruction
+                                id={`Step${step}`}
+                                key={`instruction-${index}`}
+                                dangerouslySetInnerHTML={{
+                                  __html: instruction.instruction.childMarkdownRemark.rawMarkdownBody,
+                                }}
+                              ></Instruction>
+                            )
+                          })}
+                        </div>
+                      )
+                    })}
+                  </InstructionContainer>
+                  <TagContainer className="col12">
+                    <h3>Tags</h3>
+                    <TagStyled>{post.mealType}</TagStyled>
+                    {/* {post.proteinType &&
                       post.proteinType.length > 0 &&
                       post.proteinType.map((proteinType: ProteinType, parentIndex: number) => {
                         return <TagStyled key={`tag=${parentIndex}`}>{proteinType.protein}</TagStyled>
@@ -612,27 +615,29 @@ const RecipeTemplate = (props: RecipeProps) => {
                     {post.vegetableType.map((vegetable: string, index: number) => {
                       return <TagStyled key={`tag-${index}`}>{vegetable}</TagStyled>
                     })} */}
-                </TagContainer>
-              </div>
-              <FeaturedSpacer>
-                <FeaturedContentRow {...articleFeatures} />
-                <FeaturedContentRow {...recipeFeatures} />
-              </FeaturedSpacer>
-              <FeaturedSpacer>
-                <GeneralContentRow />
-              </FeaturedSpacer>
+                  </TagContainer>
+                </div>
+                <FeaturedSpacer>
+                  <FeaturedContentRow {...articleFeatures} />
+                  <FeaturedContentRow {...recipeFeatures} />
+                </FeaturedSpacer>
+                <FeaturedSpacer>
+                  <GeneralContentRow />
+                </FeaturedSpacer>
 
-              <Footer {...{ theme: HeaderTheme.DARK }} />
+                <Footer {...{ theme: HeaderTheme.DARK }} />
+              </div>
+
+              <div className="col2" />
             </div>
 
-            <div className="col2" />
+            <div className="row">
+              <div className="col12"></div>
+            </div>
           </div>
-
-          <div className="row">
-            <div className="col12"></div>
-          </div>
-        </div>
+        </RecipeMainContainer>
       </MainContainer>
+      <Sidebar></Sidebar>
     </Layout>
   )
 }
