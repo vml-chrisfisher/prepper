@@ -5,9 +5,10 @@ export const getRecipeBoxRecipes = (state: any) => {
 }
 
 export const getRecipeBoxIsRecipeSelected = (state: any, recipeId: string) => {
-  const recipesFound = getRecipeBoxRecipes(state).filter((recipe: string) => {
+  console.log(state)
+  const recipesFound = getRecipeBoxRecipes(state)?.filter((recipe: string) => {
     return recipe === recipeId
   })
 
-  return recipesFound.length
+  return recipesFound && recipesFound.length > 0
 }

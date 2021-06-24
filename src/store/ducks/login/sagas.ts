@@ -28,7 +28,7 @@ export function* submitLoginAsync(action: any) {
       if (isBrowser) {
         localStorage.setItem('hasLoggedInBefore', 'true')
       }
-
+      console.log(loginResponse)
       yield put({
         type: LOGIN_STEPS.LOGIN_SUCCESS,
         payload: loginResponse.data.message,

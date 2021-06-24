@@ -9,7 +9,11 @@ import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
 import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
 import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE_STEPS } from './ducks/profile/types'
-import { submitRecipeBoxRecipeAddAsync, submitRecipeBoxRecipeDeleteAsync } from './ducks/recipesBox/sagas'
+import {
+  fetchRecipesBoxAsync,
+  submitRecipeBoxRecipeAddAsync,
+  submitRecipeBoxRecipeDeleteAsync,
+} from './ducks/recipesBox/sagas'
 import { RECIPEBOX } from './ducks/recipesBox/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
@@ -80,6 +84,10 @@ function* watchRemoveRecipe() {
   yield takeEvery(CONTACT_RECIPE_STEPS.TRY_REMOVE_RECIPE, removeRecipeAsync)
 }
 
+function* watchFetchRecipesBox() {
+  yield takeEvery(RECIPEBOX.TRY_FETCH_RECIPEBOX, fetchRecipesBoxAsync)
+}
+
 function* watchRecipeBoxAddRecipe() {
   yield takeEvery(RECIPEBOX.TRY_ADD_RECIPE, submitRecipeBoxRecipeAddAsync)
 }
@@ -92,17 +100,18 @@ export default function* rootSaga() {
   yield all([
     watchCreateHouseholdFromSurvey(),
     watchFetchHeaderProductCategoryDetail(),
+    watchFetchRecipesBox(),
     watchHelloContact(),
     watchLogin(),
     watchPartnershipContact(),
     watchProfile(),
+    watchRecipeBoxAddRecipe(),
+    watchRecipeBoxDeleteRecipe(),
     watchRecipeContact(),
+    watchRemoveRecipe(),
     watchSearch(),
     watchSubmitNewsletterEmail(),
     watchSuggestionContact(),
     watchUploadRecipe(),
-    watchRemoveRecipe(),
-    watchRecipeBoxAddRecipe(),
-    watchRecipeBoxDeleteRecipe(),
   ])
 }

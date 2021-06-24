@@ -25,7 +25,18 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
     case PROFILE_STEPS.CREATING_PROFILE:
       return { ...state, createProfileStep: PROFILE_STEPS.CREATING_PROFILE }
     case LOGIN_STEPS.LOGIN_SUCCESS:
-      return { ...state, accessToken: action.payload.accessToken, userId: action.payload.userData[0].user_id }
+      localStorage.setItem(
+        'knifeAndFish',
+        JSON.stringify({
+          accessToken: action.payload.accessToken,
+          userId: action.payload.userData[0].identities[0].user_id,
+        }),
+      )
+      return {
+        ...state,
+        accessToken: action.payload.accessToken,
+        userId: action.payload.userData[0].identities[0].user_id,
+      }
     default:
       return state
   }
