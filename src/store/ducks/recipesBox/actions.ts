@@ -1,4 +1,4 @@
-import { RECIPEBOX } from './types'
+import { RECIPEBOX } from './types';
 
 export const onTryFetchRecipesBox = (payload: any) => ({
   type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
@@ -14,3 +14,15 @@ export const onTryDeleteRecipe = (payload: any) => ({
   type: RECIPEBOX.TRY_DELETE_RECIPE,
   payload,
 })
+
+export const onTryAddArticle = (payload: any) => ({
+  type: RECIPEBOX.TRY_ADD_ARTICLE,
+  payload
+})
+
+export const onTryDeleteArticle = (payload: any) => ({
+  type: RECIPEBOX.TRY_DELETE_ARTICLE,
+  payload
+})
+
+

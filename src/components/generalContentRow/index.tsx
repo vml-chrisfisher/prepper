@@ -1,10 +1,11 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import LazyLoad from 'react-lazy-load'
-import newsletter from '../../store/ducks/newsletter'
-import ArticleSummaryVertical from '../articleSummaryVertical'
-import NewsletterSignup from '../newsletterSignup'
-import NewsletterContainer from '../newsletterSignup/container'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React from 'react';
+import LazyLoad from 'react-lazy-load';
+import newsletter from '../../store/ducks/newsletter';
+import ArticleSummaryVertical from '../articleSummaryVertical';
+import NewsletterSignup from '../newsletterSignup';
+import NewsletterContainer from '../newsletterSignup/container';
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
@@ -31,9 +32,9 @@ const GeneralContentRow = () => {
                 <StoryContainer>
                   <div className="eyebrow">Story</div>
                   <StoryTitle>This is the story of Knife and Fish</StoryTitle>
-                  <a href="/story" className="primaryButton darkOutline">
+                  <Link to="/story" className="primaryButton darkOutline">
                     Our Story
-                  </a>
+                  </Link>
                 </StoryContainer>
               </Col6FullOverlay>
               <Col3Full className="col3" />

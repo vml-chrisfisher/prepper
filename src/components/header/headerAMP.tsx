@@ -1,7 +1,14 @@
-import styled from '@emotion/styled'
-import React, { PureComponent } from 'react'
-import Helmet from 'react-helmet'
-import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React, { PureComponent } from 'react';
+import Helmet from 'react-helmet';
+import {
+  HeaderMenuType,
+  HeaderProps,
+  HeaderState,
+  ProductCategory,
+  ProductFamily
+  } from './interface';
 
 interface MenuProps {
   isUp: boolean
@@ -99,20 +106,20 @@ class HeaderAMP extends PureComponent {
               </NavigationItem>
             </li> */}
             <li>
-              <a className="navigation-item" href="/recipes">
+              <Link className="navigation-item" to="/recipes">
                 Recipes
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="navigation-item" href="/articles">
+              <Link className="navigation-item" to="/articles">
                 Articles
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
         <div className="logo-container">
           <div>
-            <a className="logo-link" href="/">
+            <Link className="logo-link" to="/">
               <amp-img
                 class="logo-"
                 width="100"
@@ -128,7 +135,7 @@ class HeaderAMP extends PureComponent {
                   />
                 </noscript>
               </amp-img>
-            </a>
+            </Link>
           </div>
         </div>
       </header>

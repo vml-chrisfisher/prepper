@@ -1,7 +1,8 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import LazyLoad from 'react-lazy-load'
-import ArticleSummaryInterface from '../articleSummary/interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React from 'react';
+import LazyLoad from 'react-lazy-load';
+import ArticleSummaryInterface from '../articleSummary/interface';
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 const windowWidthQuarter = typeof window !== 'undefined' ? window.innerWidth / 4 : 300
@@ -13,7 +14,7 @@ const ArticleSummaryVertical = (props: ArticleSummaryInterface) => {
   const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
   return (
     <Article key={props.slug}>
-      <a href={`/${props.basePath}/${props.slug}`}>
+      <Link to={`/${props.basePath}/${props.slug}`}>
         <ArticleImageParent>
           <ArticleInside>
             <LazyLoad height="170%" once offset={100}>
@@ -43,7 +44,7 @@ const ArticleSummaryVertical = (props: ArticleSummaryInterface) => {
         <OverlainContainerMobile className="hidden-lg">
           <TitleMobile>{props.title}</TitleMobile>
         </OverlainContainerMobile>
-      </a>
+      </Link>
     </Article>
   )
 }

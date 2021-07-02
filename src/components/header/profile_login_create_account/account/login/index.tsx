@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
-import { Field, Form, Formik } from 'formik'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import * as Yup from 'yup'
-import { onSubmitLogin } from '../../../../../store/ducks/login/actions'
-import { LOGIN_STEPS } from '../../../../../store/ducks/login/types'
-import { AppState } from '../../../../../store/rootReducer'
+import styled from '@emotion/styled';
+import { Field, Form, Formik } from 'formik';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as Yup from 'yup';
+import { onSubmitLogin } from '../../../../../store/ducks/login/actions';
+import { LOGIN_STEPS } from '../../../../../store/ducks/login/types';
+import { AppState } from '../../../../../store/rootReducer';
 
 const Login = () => {
   interface SliderProps {
@@ -139,13 +139,14 @@ const Login = () => {
                   ) : (
                     <></>
                   )}
-                  <FormInput id="loginEmail" name="loginEmail" type="email" placeholder="Email Address" />
+                  <FormInput id="loginEmail" autoComplete="username" name="loginEmail" type="email" placeholder="Email Address" />
                   <FormInput
                     id="loginPassword"
                     name="loginPassword"
                     autoComplete="current-password"
                     type="password"
                     placeholder="Password"
+                    suggested="current-password"
                   />
                   <PrimaryButton type="submit">LOGIN</PrimaryButton>
                 </Form>

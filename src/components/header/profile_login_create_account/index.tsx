@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { HEADER_ACTION_TYPES } from '../../../store/ducks/header/types'
-import { showSidebarAccount, showSidebarCart } from '../../../store/ducks/sidebar/actions/actions'
-import { SIDEBAR_ANIMATION_STEPS } from '../../../store/ducks/sidebar/animations/types'
-import { AppState } from '../../../store/rootReducer'
-import SidebarAccount from './account'
+import styled from '@emotion/styled';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { HEADER_ACTION_TYPES } from '../../../store/ducks/header/types';
+import { showSidebarAccount, showSidebarCart } from '../../../store/ducks/sidebar/actions/actions';
+import { SIDEBAR_ANIMATION_STEPS } from '../../../store/ducks/sidebar/animations/types';
+import { AppState } from '../../../store/rootReducer';
+import SidebarAccount from './account';
 
 const Sidebar = () => {
   interface TabProps {
@@ -23,7 +23,7 @@ const Sidebar = () => {
   })
 
   const showAccount = useSelector((state: AppState) => {
-    return state.sidebar.showAccount
+    return state.sidebar.showAccount 
   })
   const showCart = useSelector((state: AppState) => {
     return state.sidebar.showCart

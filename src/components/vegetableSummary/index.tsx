@@ -1,16 +1,17 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import VegetablesSummaryInterface from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React from 'react';
+import VegetablesSummaryInterface from './interface';
 
 const VegetablesSummary = (props: VegetablesSummaryInterface) => (
   <VegetableArticle key={props.slug}>
-    <a href={`/vegetables/${props.slug}`}>
+    <Link to={`/vegetables/${props.slug}`}>
       <VegetableArticleInside style={{ backgroundImage: `url(${props.imagePath})` }}></VegetableArticleInside>
       <VegetableArticleOverlay>
         <h4 className="darkText">{props.parentVegetable}</h4>
         <h3 className="darkText">{props.title}</h3>
       </VegetableArticleOverlay>
-    </a>
+    </Link>
   </VegetableArticle>
 )
 

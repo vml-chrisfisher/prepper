@@ -1,12 +1,17 @@
-import { LOGIN_STEPS } from './types'
+import { LOGIN_STEPS } from './types';
 
 export const onSubmitLogin = (creditials: { username: string; password: string }) => ({
   type: LOGIN_STEPS.SUBMIT_LOGIN,
   payload: creditials,
 })
 
-export const onLpginSuccess = () => ({
+export const onLoginSuccess = () => ({
   type: LOGIN_STEPS.LOGIN_SUCCESS,
+})
+
+export const onRelogin = (payload: any) => ( {
+  type: LOGIN_STEPS.RELOGIN,
+  payload
 })
 
 export const onLoginFailure = () => ({
@@ -15,4 +20,8 @@ export const onLoginFailure = () => ({
 
 export const onLoginReset = () => ({
   type: LOGIN_STEPS.DEFAULT,
+})
+
+export const tryLocalStorageLogin = () => ({
+  type: LOGIN_STEPS.TRY_LOCAL_STORAGE_LOGIN
 })

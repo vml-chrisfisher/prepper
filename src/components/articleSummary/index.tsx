@@ -1,7 +1,8 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import LazyLoad from 'react-lazy-load'
-import ArticleSummaryInterface from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React from 'react';
+import LazyLoad from 'react-lazy-load';
+import ArticleSummaryInterface from './interface';
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
@@ -13,7 +14,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
 
   return (
     <Article key={props.slug}>
-      <a href={`/${props.basePath}/${props.slug}`}>
+      <Link to={`/${props.basePath}/${props.slug}`}>
         <ArticleImageParent>
           <ArticleInside>
             <LazyLoad once offset={100}>
@@ -49,7 +50,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
         <OverlainContainerMobile className="hidden-lg">
           <TitleMobile>{props.title}</TitleMobile>
         </OverlainContainerMobile>
-      </a>
+      </Link>
     </Article>
   )
 }

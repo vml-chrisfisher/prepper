@@ -1,4 +1,4 @@
-import { HEADER_ACTION_TYPES } from './types'
+import { HEADER_ACTION_TYPES, HEADER_NOTIFICATION_TYPES } from './types';
 
 export const fetch = () => ({
   type: HEADER_ACTION_TYPES.FETCH,
@@ -28,4 +28,8 @@ export const onShowHeaderProfile = () => ({
 
 export const onHideHeaderProfile = () => ({
   type: HEADER_ACTION_TYPES.HIDE_PROFILE_LOGIN,
+})
+
+export const onShowRecipesBoxLoginRegisterNotifcation = () => ({
+  type: HEADER_NOTIFICATION_TYPES.SHOW_RECIPES_BOX_LOGIN_REGISTER_NOTIFICATION
 })

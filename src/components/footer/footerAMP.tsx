@@ -1,7 +1,8 @@
-import styled from '@emotion/styled'
-import React, { PureComponent } from 'react'
-import Helmet from 'react-helmet'
-import FooterProps from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React, { PureComponent } from 'react';
+import Helmet from 'react-helmet';
+import FooterProps from './interface';
 
 class FooterAMP extends PureComponent {
   render() {
@@ -100,27 +101,27 @@ class FooterAMP extends PureComponent {
             <div className="footer-paragraph">
               From learning the best knife to buy or how to cut an onion correctly.
             </div>
-            <a className="footer-link-main" href="/articles">
+            <Link className="footer-link-main" to="/articles">
               Read One
-            </a>
+            </Link>
           </div>
           <div className="col3 footer-column">
             <div className="footer-title">Recipes</div>
             <div className="footer-paragraph">
               Creating a meal, creates conversations and brings people to together. Let us help you.
             </div>
-            <a className="footer-link-main" href="/recipes">
+            <Link className="footer-link-main" to="/recipes">
               Get Recipes
-            </a>
+            </Link>
           </div>
           <div className="col3 footer-column">
             <div className="footer-title">Story</div>
             <div className="footer-paragraph">
               From a love to a mission to help everyone learn how to cook to one signature dish.
             </div>
-            <a className="footer-link-main" href="/story">
+            <Link className="footer-link-main" to="/story">
               Read
-            </a>
+            </Link>
           </div>
         </div>
         <div className="row footer-bottom-container">
@@ -184,12 +185,12 @@ class FooterAMP extends PureComponent {
                 {/* <FooterLinkBottom theme={themeValue} href="/plants">
                   Plants
                 </FooterLinkBottom> */}
-                <a className="footer-link-bottom" href="/recipes">
+                <Link className="footer-link-bottom" to="/recipes">
                   Recipes
-                </a>
-                <a className="footer-link-bottom" href="/contact">
+                </Link>
+                <Link className="footer-link-bottom" to="/contact">
                   Contact Us
-                </a>
+                </Link>
                 {/* <FooterLinkBottom theme={themeValue} href="/shipping">
                   Shipping
                 </FooterLinkBottom>
@@ -205,9 +206,9 @@ class FooterAMP extends PureComponent {
                 {/* <FooterLinkBottom theme={themeValue} href="careers">
                   Careers
                 </FooterLinkBottom> */}
-                <a className="footer-link-bottom" href="/sitemap.xml">
+                <Link className="footer-link-bottom" to="/sitemap.xml">
                   Sitemap
-                </a>
+                </Link>
               </div>
             </div>
           </div>

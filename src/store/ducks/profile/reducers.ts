@@ -1,6 +1,7 @@
-import { LOGIN_STEPS } from '../login/types'
-import initialState from './initialState'
-import { PROFILE_STEPS } from './types'
+import jwt_decode from 'jwt-decode';
+import { LOGIN_STEPS } from '../login/types';
+import initialState from './initialState';
+import { PROFILE_STEPS } from './types';
 
 const profileReducers = (state = initialState, action: { type?: string; payload?: any }) => {
   switch (action?.type) {
@@ -24,6 +25,13 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
       return { ...state, createProfileStep: PROFILE_STEPS.CREATE_PROFILE_SUCCESS }
     case PROFILE_STEPS.CREATING_PROFILE:
       return { ...state, createProfileStep: PROFILE_STEPS.CREATING_PROFILE }
+    case LOGIN_STEPS.RELOGIN:
+      console.log(action.payload)
+      return {
+        ...state,
+        accessToken: action.payload.accessToken,
+        userId: action.payload.userId,
+      }
     case LOGIN_STEPS.LOGIN_SUCCESS:
       localStorage.setItem(
         'knifeAndFish',
@@ -32,10 +40,21 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
           userId: action.payload.userData[0].identities[0].user_id,
         }),
       )
+      console.log(action.payload)
       return {
         ...state,
         accessToken: action.payload.accessToken,
         userId: action.payload.userData[0].identities[0].user_id,
+      }
+    case LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS:
+      console.log("SUCCESS LOCAL: ", action)
+      const accessToken = action.payload.accessToken;
+      const decoded = jwt_decode(accessToken);
+      console.log(decoded)
+      return {
+        ...state,
+        accessToken: action.payload.accessToken,
+        userId: action.payload.userId,
       }
     default:
       return state

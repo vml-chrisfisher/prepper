@@ -1,14 +1,14 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import ArticleSummary from '../articleSummary'
-import ArticleSummaryVertical from '../articleSummaryVertical'
-import FeatureContentRowDetail from './featuredContentRowDetail'
-import FeatureContentRowProps from './interface'
+import styled from '@emotion/styled';
+import React from 'react';
+import ArticleSummary from '../articleSummary';
+import ArticleSummaryVertical from '../articleSummaryVertical';
+import FeatureContentRowDetail from './featuredContentRowDetail';
+import FeatureContentRowProps from './interface';
 
 const FeaturedContentRow = (props: FeatureContentRowProps) => {
   return (
     <FeatureContainer className="row">
-      <Col3Full className="col3">
+      {/* <Col3Full className="col3">
         <ArticleSummaryVertical {...props.features[0]} />
       </Col3Full>
       <Col3Full className="col3">
@@ -19,7 +19,7 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
       </Col3Full>
       <Col3Full className="col3">
         <FeatureContentRowDetail {...props.details} />
-      </Col3Full>
+      </Col3Full> */}
     </FeatureContainer>
   )
 }

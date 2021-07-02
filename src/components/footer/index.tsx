@@ -1,7 +1,8 @@
-import styled from '@emotion/styled'
-import React, { PureComponent } from 'react'
-import LazyLoad from 'react-lazy-load'
-import FooterProps from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React, { PureComponent } from 'react';
+import LazyLoad from 'react-lazy-load';
+import FooterProps from './interface';
 
 interface ThemeProps {
   theme: string
@@ -88,10 +89,10 @@ class Footer extends PureComponent<FooterProps> {
                 {/* <FooterLinkBottom theme={themeValue} href="/plants">
                   Plants
                 </FooterLinkBottom> */}
-                <FooterLinkBottom theme={themeValue} href="/recipes">
+                <FooterLinkBottom theme={themeValue} to="/recipes">
                   Recipes
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="/contact">
+                <FooterLinkBottom theme={themeValue} to="/contact">
                   Contact Us
                 </FooterLinkBottom>
                 {/* <FooterLinkBottom theme={themeValue} href="/shipping">
@@ -109,7 +110,7 @@ class Footer extends PureComponent<FooterProps> {
                 {/* <FooterLinkBottom theme={themeValue} href="careers">
                   Careers
                 </FooterLinkBottom> */}
-                <FooterLinkBottom theme={themeValue} href="/sitemap.xml">
+                <FooterLinkBottom theme={themeValue} to="/sitemap.xml">
                   Sitemap
                 </FooterLinkBottom>
               </FooterBottomLinkContainer>
@@ -215,7 +216,7 @@ const FooterBottomLinkContainer = styled.div`
   }
 `
 
-const FooterLinkBottom = styled.a<ThemeProps>`
+const FooterLinkBottom = styled(props => <Link {...props} />)<ThemeProps>`
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};

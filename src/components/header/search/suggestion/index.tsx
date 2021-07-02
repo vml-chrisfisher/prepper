@@ -1,6 +1,7 @@
-import styled from '@emotion/styled'
-import React, { PureComponent } from 'react'
-import { SearchSuggestionProps } from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React, { PureComponent } from 'react';
+import { SearchSuggestionProps } from './interface';
 
 class SearchSuggestion extends PureComponent<SearchSuggestionProps> {
   constructor(props: SearchSuggestionProps) {
@@ -12,7 +13,7 @@ class SearchSuggestion extends PureComponent<SearchSuggestionProps> {
   }
 }
 
-const SearchSuggestionLink = styled.a`
+const SearchSuggestionLink = styled.Link`
   display: block;
   width: 100%;
 `

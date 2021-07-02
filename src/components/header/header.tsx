@@ -1,11 +1,21 @@
-import styled from '@emotion/styled'
-import React, { PureComponent, useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { onFetchProfile } from '../../store/ducks/profile/actions'
-import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions'
-import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
-import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
-import SearchContainer from './search/container'
+import styled from '@emotion/styled';
+import { Link, navigate } from 'gatsby';
+import React, { PureComponent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions';
+import { onFetchProfile } from '../../store/ducks/profile/actions';
+import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors';
+import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions';
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types';
+import {
+  HeaderMenuType,
+  HeaderProps,
+  HeaderState,
+  ProductCategory,
+  ProductFamily
+  } from './interface';
+import HeaderNoticationContainer from './notifications';
+import SearchContainer from './search/container';
 import {
   fetch,
   onCategorySelected,
@@ -37,6 +47,17 @@ const Header = (props: HeaderProps) => {
 
   const [menuUp, setMenuUp] = useState(true)
   const [menuType, setMenuType] = useState(HeaderMenuType.PLANTS)
+
+  const userId = useSelector(getUserId);
+  const accessToken = useSelector(getAccessToken);
+
+  useEffect(() => {
+    console.log("YOYO: ", userId, accessToken)
+    if(userId && accessToken) {
+      dispatch(onTryFetchRecipesBox(userId))
+      dispatch(onRelogin({userId: userId, accessToken: accessToken}))
+    }
+  }, [userId, accessToken])
 
   const onSeedsClick = () => {
     setMenuUp(false)
@@ -77,15 +98,15 @@ const Header = (props: HeaderProps) => {
     }
   }
 
-  useEffect(() => {
-    dispatch(fetch())
-    const knifeAndFishLocalStorage = localStorage.getItem('knifeAndFish')
-    if (knifeAndFishLocalStorage) {
-      const json = JSON.parse(knifeAndFishLocalStorage)
-      const userId = json.userId
-      dispatch(onTryFetchRecipesBox({ userId: userId }))
-    }
-  })
+  // useEffect(() => {
+  //   dispatch(fetch())
+  //   const knifeAndFishLocalStorage = localStorage.getItem('knifeAndFish')
+  //   if (knifeAndFishLocalStorage) {
+  //     const json = JSON.parse(knifeAndFishLocalStorage)
+  //     const userId = json.userId
+  //     dispatch(onTryFetchRecipesBox({ userId: userId }))
+  //   }
+  // })
 
   const NavigationHeader = styled.nav<MainContainerPositionProps>`
     background: transparent;
@@ -115,7 +136,24 @@ const Header = (props: HeaderProps) => {
     margin-left: 10%;
   `
 
-  const HeaderDetailItem = styled.a`
+  const HeaderDetailItem = styled(props => <Link {...props} />)`
+    color: #464646;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    line-height: 2.5em;
+    list-style: none;
+    text-align: left;
+    transition: color 1s ease;
+    text-decoration: none;
+    display: block;
+    &:hover {
+      color: #cccccc;
+      transition: color 1s ease;
+    }
+  `
+
+  const HeaderDetailItemFunction = styled(props => <span {...props} />)`
     color: #464646;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
@@ -221,11 +259,11 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const LogoLink = styled.a`
+  const LogoLink = styled(props => <Link {...props} />)`
     text-decoration: none;
   `
 
-  const SVGLink = styled.a`
+  const SVGLink = styled(props => <span {...props} />)`
     width: 20px;
     height: 20px;
   `
@@ -376,7 +414,7 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const NavigationItem = styled.a<ThemeProps>`
+  const NavigationItem = styled(props => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
       return props.theme === 'white' ? '#FFFFFF' : '#464646'
@@ -403,7 +441,35 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const NavigationItemRight = styled.a<ThemeProps>`
+  const NavigationItemFunctionLink = styled(props => <div {...props} />)<ThemeProps>`
+    font-family: 'Roboto', sans-serif;
+    color: ${props => {
+      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+    }};
+    text-decoration: none;
+    font-size: 0.6em;
+    font-weight: 100;
+    transition: color 1s ease;
+    margin-right: 38px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    display: block;
+    padding-top: 25px;
+    width: 48px;
+    height: 48px;
+    &:hover {
+      color: #f24e11;
+      transition: color 1s ease;
+    }
+  `
+
+
+  const NavigationItemRight = styled(props => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
       return props.theme === 'white' ? '#FFFFFF' : '#464646'
@@ -449,22 +515,22 @@ const Header = (props: HeaderProps) => {
               </NavigationItem>
             </li> */}
               <li>
-                <NavigationItem
+                <NavigationItemFunctionLink
                   theme={themeValue}
                   onClick={() => {
                     onRecipesClick()
                   }}
                 >
                   Recipes
-                </NavigationItem>
+                </NavigationItemFunctionLink>
               </li>
               <li>
-                <NavigationItem theme={themeValue} href="/articles">
+                <NavigationItem theme={themeValue} to="/articles">
                   Articles
                 </NavigationItem>
               </li>
               <li>
-                <NavigationItem theme={themeValue} href="/shop">
+                <NavigationItem theme={themeValue} to="/shop">
                   Shop
                 </NavigationItem>
               </li>
@@ -473,7 +539,7 @@ const Header = (props: HeaderProps) => {
           <NavigationColumn>
             <LogoContainer>
               <div>
-                <LogoLink href="/">
+                <LogoLink to="/">
                   <LogoImage
                     alt="Knife and Fish Logo"
                     src={
@@ -497,7 +563,7 @@ const Header = (props: HeaderProps) => {
               </NavigationItem>
             </li> */}
               <li>
-                <NavigationItemRight href="/story" theme={themeValue}>
+                <NavigationItemRight to="/story" theme={themeValue}>
                   About
                 </NavigationItemRight>
               </li>
@@ -579,7 +645,7 @@ const Header = (props: HeaderProps) => {
             <HeaderMainNav>
               <ul>
                 <HeaderNavHeaderLi>
-                  <a href="/plants">Plants</a>
+                  <Link to="/plants">Plants</Link>
                 </HeaderNavHeaderLi>
                 {props.data?.map((top: ProductFamily, index: number) => {
                   return (
@@ -600,7 +666,7 @@ const Header = (props: HeaderProps) => {
             <Columns>
               {props.categories?.map((category: ProductCategory, index: number) => {
                 return (
-                  <HeaderDetailItem
+                  <HeaderDetailItemFunction
                     key={`header-detail-item-${index}`}
                     onMouseOver={() => {
                       dispatch(onCategorySelected(category.productId))
@@ -610,11 +676,11 @@ const Header = (props: HeaderProps) => {
                     }}
                     onClick={() => {
                       const link = `/plants/${category.name.toLowerCase().replace(' ', '+')}`
-                      window.location.replace(link)
+                      navigate(link);
                     }}
                   >
                     {category.name}
-                  </HeaderDetailItem>
+                  </HeaderDetailItemFunction>
                 )
               })}
             </Columns>
@@ -640,15 +706,15 @@ const Header = (props: HeaderProps) => {
             </HeaderClose>
             <HeaderMainNav style={{ paddingLeft: '70px' }}>
               <HeaderNavHeader>
-                <a href="/articles">Articles</a>
+                <Link to="/articles">Articles</Link>
               </HeaderNavHeader>
               <div className="row">
                 <div className="col6">
-                  <HeaderDetailItem>Soil</HeaderDetailItem>
-                  <HeaderDetailItem>Planting</HeaderDetailItem>
-                  <HeaderDetailItem>Gardening</HeaderDetailItem>
-                  <HeaderDetailItem>Harvesting</HeaderDetailItem>
-                  <HeaderDetailItem>Storage</HeaderDetailItem>
+                  <HeaderDetailItem to="/articles/soil">Soil</HeaderDetailItem>
+                  <HeaderDetailItem to="/articles/planting">Planting</HeaderDetailItem>
+                  <HeaderDetailItem to="/articles/gardening">Gardening</HeaderDetailItem>
+                  <HeaderDetailItem to="/articles/harvesting">Harvesting</HeaderDetailItem>
+                  <HeaderDetailItem to="/articles/storage">Storage</HeaderDetailItem>
                 </div>
               </div>
             </HeaderMainNav>
@@ -666,27 +732,27 @@ const Header = (props: HeaderProps) => {
             </HeaderClose>
             <HeaderMainNav style={{ paddingLeft: '70px' }}>
               <HeaderNavHeader>
-                <a href="/recipes">Recipes</a>
+                <Link to="/recipes">Recipes</Link>
               </HeaderNavHeader>
               <div className="row">
                 <Col6Full className="col6">
-                  <HeaderDetailItem style={{ color: '#C5724B', fontWeight: 'bold' }} href="/recipes">
+                  <HeaderDetailItem style={{ color: '#C5724B', fontWeight: 'bold' }} to="/recipes">
                     All
                   </HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/appetizer">Appetizer</HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/condiment">Condiment</HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/dessert">Dessert</HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/drink">Drink</HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/main">Main</HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/side">Side</HeaderDetailItem>
-                  <HeaderDetailItem href="/recipes/snack">Snack</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/appetizer">Appetizer</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/condiment">Condiment</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/dessert">Dessert</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/drink">Drink</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/main">Main</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/side">Side</HeaderDetailItem>
+                  <HeaderDetailItem to="/recipes/snack">Snack</HeaderDetailItem>
                 </Col6Full>
                 {/* <Col6Full className="col6">
-                    <HeaderDetailItem href="/recipes/breakfast">Charcuterie</HeaderDetailItem>
-                    <HeaderDetailItem href="/recipes/breakfast">Baking</HeaderDetailItem>
-                    <HeaderDetailItem href="/recipes/breakfast">Pickling</HeaderDetailItem>
-                    <HeaderDetailItem href="/recipes/breakfast">Fermentation</HeaderDetailItem>
-                    <HeaderDetailItem href="/recipes/breakfast">Condiments</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/breakfast">Charcuterie</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/breakfast">Baking</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/breakfast">Pickling</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/breakfast">Fermentation</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/breakfast">Condiments</HeaderDetailItem>
                   </Col6Full> */}
               </div>
             </HeaderMainNav>
@@ -694,6 +760,7 @@ const Header = (props: HeaderProps) => {
         </HeaderInner4>
       </HeaderOuter>
       <SearchContainer></SearchContainer>
+      <HeaderNoticationContainer></HeaderNoticationContainer>
     </header>
   )
 }

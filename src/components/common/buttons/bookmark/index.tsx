@@ -1,10 +1,10 @@
-import styled from '@emotion/styled'
-import { Form, Formik, useField } from 'formik'
-import React from 'react'
-import BookmarkProps from './interface'
+import styled from '@emotion/styled';
+import { Form, Formik, useField } from 'formik';
+import React from 'react';
+import BookmarkProps from './interface';
 
 const Bookmark = (props: BookmarkProps) => {
-  const { isSelected, onClick } = props
+  const { isSelected, onClick, selectedCaption, unselectedCaption } = props
 
   interface RibbonProps {
     isSelected: boolean
@@ -123,7 +123,7 @@ const Bookmark = (props: BookmarkProps) => {
               </g>
             </svg>
           </Container>
-          <div className="caption">Add To Recipes box</div>
+          <div className="caption">{unselectedCaption}</div>
         </PrimaryButton>
       )}
 
@@ -141,7 +141,7 @@ const Bookmark = (props: BookmarkProps) => {
               </g>
             </svg>
           </Container>
-          <div className="caption">Add To Recipes box</div>
+          <div className="caption">{selectedCaption}</div>
         </SecondaryButton>
       )}
     </>

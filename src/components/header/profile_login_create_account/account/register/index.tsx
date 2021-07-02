@@ -1,11 +1,11 @@
-import styled from '@emotion/styled'
-import { Field, Form, Formik } from 'formik'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import * as Yup from 'yup'
-import { startCreateProfile } from '../../../../../store/ducks/profile/actions'
-import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types'
-import { AppState } from '../../../../../store/rootReducer'
+import styled from '@emotion/styled';
+import { Field, Form, Formik } from 'formik';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as Yup from 'yup';
+import { startCreateProfile } from '../../../../../store/ducks/profile/actions';
+import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types';
+import { AppState } from '../../../../../store/rootReducer';
 
 const RegisterAccount = () => {
   interface SliderProps {
@@ -204,15 +204,16 @@ const RegisterAccount = () => {
                   ) : (
                     <></>
                   )}
-                  <FormInput id="registerFirstName" name="registerFirstName" type="input" placeholder="First Name" />
-                  <FormInput id="registerLastName" name="registerLastName" type="input" placeholder="Last Name" />
-                  <FormInput id="registerEmail" name="registerEmail" placeholder="Email Address" />
-                  <FormInput id="registerPassword" name="registerPassword" placeholder="Password" />
+                  <FormInput id="registerFirstName" autoComplete="given-name" name="registerFirstName" type="input" placeholder="First Name" />
+                  <FormInput id="registerLastName" autoComplete="family-name" name="registerLastName" type="input" placeholder="Last Name" />
+                  <FormInput id="registerEmail" autoComplete="email" name="registerEmail" placeholder="Email Address" />
+                  <FormInput id="registerPassword" autoComplete="off" name="registerPassword" placeholder="Password" />
                   <FormInput
                     id="registerConfirmPassword"
                     name="registerConfirmPassword"
                     type="password"
                     placeholder="Confirm Password"
+                    autoComplete="off"
                   />
                   <Legal>
                     Your password must be at 10 character long, include one capital letter, one lowercase letter and at

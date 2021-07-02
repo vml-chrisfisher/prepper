@@ -17,12 +17,14 @@ export interface ArticleSiteMetaData {
 }
 
 export interface AllContentfulArticle {
+  id: string
   bannerImage: ArticleBannerImage
   bodyCopy: {
     childMarkdownRemark: {
       rawMarkdownBody: string
     }
   }
+  slug: string
   createdAt: string
   updatedAt: string
   heroImage: ArticleBannerImage
