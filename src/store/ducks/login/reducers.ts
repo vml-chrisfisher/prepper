@@ -31,8 +31,8 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
         return {
           ...state,
           loginStep: LOGIN_STEPS.LOGIN_SUCCESS,
-        accessToken: action.payload.accessToken,
-        userId: action.payload.userId,
+          accessToken: action.payload.accessToken,
+          userId: action.payload.userId,
         }
     default:
       return state

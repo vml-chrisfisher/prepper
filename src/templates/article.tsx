@@ -215,6 +215,8 @@ const ArticleTemplate = (props: ArticleProps) => {
 
   const dispatch = useDispatch();
 
+  const isSelected = useSelector(state => getRecipesBoxIsArticleSelected(state, articleId))
+
   const onArticleBookmarkClick = (event: React.MouseEvent) => {
     event.preventDefault()
     console.log("ARTICLE USER ID: ", userId)
@@ -229,8 +231,6 @@ const ArticleTemplate = (props: ArticleProps) => {
       dispatch(onShowRecipesBoxLoginRegisterNotifcation())
     }
   }
-
-  const isSelected = useSelector(state => getRecipesBoxIsArticleSelected(state, articleId))
 
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
   const heroHeight =

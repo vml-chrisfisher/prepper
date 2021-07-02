@@ -5,11 +5,7 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
   console.log(action)
   switch (action?.type) {
     case RECIPEBOX.ADD_RECIPE_SUCCESS:
-      console.log()
-      const modified: ModifiedRecipeArticle = action.payload;
-      modified.type = 'recipe';
-      modified.action = 'add';
-      return { ...state, lastModified: [...state.lastModified, modified] }
+      return { ...state, lastModified: [...state.lastModified, {...action.payload, type: 'recipe', action: 'add'}] }
     case RECIPEBOX.FETCHED_RECIPEBOX_SUCCESS:
       return { 
         ...state, 
@@ -18,6 +14,7 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
       }
     case RECIPEBOX.ADD_RECIPE_FAILURE:
     case RECIPEBOX.DELETE_RECIPE_SUCCESS:
+      return { ...state, lastModified: [...state.lastModified, {...action.payload, type: 'recipe', action: 'delete'}] }
     case RECIPEBOX.DELETE_RECIPE_FAILURE:
       return state;
 
