@@ -60,9 +60,11 @@ const localStorageLogin = () => {
       const json = JSON.parse(knifeAndFishLocalStorage)
       const userId = json.userId
       const accessToken = json.accessToken
+      const name = json.name
       resolve({
         userId: userId,
-        accessToken: accessToken
+        accessToken: accessToken,
+        name: name
       })
     } else {
       reject()

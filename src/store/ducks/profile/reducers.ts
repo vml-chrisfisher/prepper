@@ -38,16 +38,16 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
         JSON.stringify({
           accessToken: action.payload.accessToken,
           userId: action.payload.userData[0].identities[0].user_id,
+          name: action.payload.userData[0].name
         }),
       )
-      console.log(action.payload)
       return {
         ...state,
         accessToken: action.payload.accessToken,
         userId: action.payload.userData[0].identities[0].user_id,
+        name: action.payload.userData[0].name
       }
     case LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS:
-      console.log("SUCCESS LOCAL: ", action)
       const accessToken = action.payload.accessToken;
       const decoded = jwt_decode(accessToken);
       console.log(decoded)
@@ -55,6 +55,7 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
         ...state,
         accessToken: action.payload.accessToken,
         userId: action.payload.userId,
+        name: action.payload.name
       }
     default:
       return state
