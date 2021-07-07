@@ -53,9 +53,9 @@ const QuestionOverlay = styled.div`
 
 const Headline = styled.h1`
   text-align: center;
-  font-size: 5em;
+  font-size: 4em;
   line-height: 1.4em;
-  letter-spacing: 2px;
+  letter-spacing: -2.5px;
   @media (max-width: 767px) {
     font-size: 4em;
   }
@@ -64,12 +64,12 @@ const Headline = styled.h1`
 const Mission = styled.h3`
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+  font-size: 12px;
   font-weight: 600;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: -0.5px;
-  line-height: 2em;
+  letter-spacing: 0px;
+  line-height: -1.5px;
 `
 
 const AstrickCaption = styled.h3`
