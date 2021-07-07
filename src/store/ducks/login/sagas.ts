@@ -10,6 +10,7 @@ import { onTryFetchRecipesBox } from '../recipesBox/actions';
 import { RECIPEBOX } from '../recipesBox/types';
 import { LOGIN_STEPS } from './types';
 
+
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>(resolve => {
     setTimeout(() => {
@@ -55,7 +56,7 @@ export function* submitLoginAsync(action: any) {
 
 const localStorageLogin = () => {
   return new Promise<{} | void>((resolve, reject) => {
-       const knifeAndFishLocalStorage = localStorage.getItem('knifeAndFish')
+      const knifeAndFishLocalStorage = isBrowser ? localStorage.getItem('knifeAndFish') : undefined
     if (knifeAndFishLocalStorage) {
       const json = JSON.parse(knifeAndFishLocalStorage)
       const userId = json.userId

@@ -2,6 +2,8 @@ import jwt_decode from 'jwt-decode';
 import { LOGIN_STEPS } from '../login/types';
 import initialState from './initialState';
 import { PROFILE_STEPS } from './types';
+export const isBrowser = typeof window !== 'undefined'
+
 
 const profileReducers = (state = initialState, action: { type?: string; payload?: any }) => {
   switch (action?.type) {
@@ -33,14 +35,17 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
         userId: action.payload.userId,
       }
     case LOGIN_STEPS.LOGIN_SUCCESS:
-      localStorage.setItem(
-        'knifeAndFish',
-        JSON.stringify({
-          accessToken: action.payload.accessToken,
-          userId: action.payload.userData[0].identities[0].user_id,
-          name: action.payload.userData[0].name
-        }),
-      )
+      if(isBrowser) {
+        localStorage.setItem(
+          'knifeAndFish',
+          JSON.stringify({
+            accessToken: action.payload.accessToken,
+            userId: action.payload.userData[0].identities[0].user_id,
+            name: action.payload.userData[0].name
+          }),
+        )
+      }
+      
       return {
         ...state,
         accessToken: action.payload.accessToken,
