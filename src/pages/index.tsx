@@ -1,21 +1,21 @@
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React from 'react';
-import Helmet from 'react-helmet';
-import { connect } from 'react-redux';
-import FeaturedContentRow from '../components/featuredContentRow';
-import FeatureContentRowProps from '../components/featuredContentRow/interface';
-import Footer from '../components/footer';
-import GeneralContentRow from '../components/generalContentRow';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Sidebar from '../components/header/profile_login_create_account';
-import HomeHero from '../components/homeHero';
-import Layout from '../components/layout';
-import MainContainer from '../components/layout/mainContainer';
-import VideoBackground from '../components/videoBackground';
-import { HomeEdge, HomeProps } from '../page-interfaces/home';
-import styles from './blog.css';
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React from 'react'
+import Helmet from 'react-helmet'
+import { connect } from 'react-redux'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
+import HomeHero from '../components/homeHero'
+import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
+import VideoBackground from '../components/videoBackground'
+import { HomeEdge, HomeProps } from '../page-interfaces/home'
+import styles from './blog.css'
 
 class RootIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -34,6 +34,7 @@ class RootIndex extends React.Component<HomeProps> {
     const searchPlaceholder = post.node.searchPlaceholder
 
     const recipes = get(this, 'props.data.allContentfulRecipe.edges')
+    console.log(recipes)
     const recipeFeatures: FeatureContentRowProps = {
       details: {
         title: 'Recipes',
@@ -55,6 +56,7 @@ class RootIndex extends React.Component<HomeProps> {
         }
       }),
     }
+    console.log(recipeFeatures)
 
     const articles = get(this, 'props.data.allContentfulArticle.edges')
     const articleFeatures: FeatureContentRowProps = {
@@ -91,7 +93,7 @@ class RootIndex extends React.Component<HomeProps> {
 
     return (
       <Layout>
-        <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
+        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com"></link>
         </Helmet>

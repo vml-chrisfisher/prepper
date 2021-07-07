@@ -28,7 +28,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-`
+    `
     const posts: ArticlesEdge[] = get(this, 'props.data.allContentfulArticle.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []
@@ -49,7 +49,7 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
 
     return (
       <Layout>
-        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
+        <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <MainContainer>
           <Helmet title="Articles | Knife & Fish">
             <link rel="canonical" href="https://www.knifeandfish.com/articles"></link>

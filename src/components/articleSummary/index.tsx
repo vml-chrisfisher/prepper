@@ -1,12 +1,13 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React from 'react';
-import LazyLoad from 'react-lazy-load';
-import ArticleSummaryInterface from './interface';
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import React from 'react'
+import LazyLoad from 'react-lazy-load'
+import ArticleSummaryInterface from './interface'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
 const ArticleSummary = (props: ArticleSummaryInterface) => {
+  console.log(props)
   const copyLength = props.description.length < 200 ? props.description.length : 200
   const copyRaw = props.description.substr(0, copyLength)
   const lastPeriod = copyRaw.lastIndexOf('.')
@@ -14,7 +15,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
 
   return (
     <Article key={props.slug}>
-      <Link to={`/${props.basePath}/${props.slug}`}>
+      <Link style={{ textDecoration: 'none' }} to={`/${props.basePath}/${props.slug}`}>
         <ArticleImageParent>
           <ArticleInside>
             <LazyLoad once offset={100}>
@@ -43,8 +44,8 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
         </ArticleImageParent>
         <OverlayContainer className="hidden-sm">
           <ArticleOverlay>
-            <h3>{props.title}</h3>
-            <ArticleDescription>{copy}</ArticleDescription>
+            <ArticleTitle>{props.title}</ArticleTitle>
+            {props.description && <ArticleDescription>{props.description}</ArticleDescription>}
           </ArticleOverlay>
         </OverlayContainer>
         <OverlainContainerMobile className="hidden-lg">
@@ -87,17 +88,6 @@ const Article = styled.div`
   display: inline-block;
   height: 150%;
   position: relative;
-  &:hover ${ArticleInside} {
-    -ms-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: all 7s linear;
-    -moz-transition: all 7s linear;
-    -o-transition: all 7s linear;
-    transition: all 7s linear;
-  }
 `
 
 const ArticleImageParent = styled.div`
@@ -106,62 +96,13 @@ const ArticleImageParent = styled.div`
   position: relative;
 `
 
-const ArticleOverlay = styled.div`
-  position: absolute;
-  z-index: 100;
-  bottom: -98px;
-  left: 20px;
-  width: calc(100% - 40px);
-  color: #fff;
-  -webkit-transition: bottom 0.5s ease-out;
-  -moz-transition: bottom 0.5s ease-out;
-  -o-transition: bottom 0.5s ease-out;
-  transition: bottom 0.5s ease-out;
-  @media (max-width: 767px) {
-    bottom: 50%;
-    text-align: center;
-    h3 {
-      font-size: 2rem;
-    }
-  }
-  &:hover ${ArticleImageParent} ${ArticleInside} {
-    -ms-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: all 3s;
-    -moz-transition: all 3s;
-    -o-transition: all 3s;
-    transition: all 3s;
-  }
-`
+const ArticleOverlay = styled.div``
 
-const OverlayContainer = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  overflow: hidden;
-
-  &:hover ${ArticleOverlay} {
-    bottom: 20px;
-    -webkit-transition: bottom 0.5s ease-out;
-    -moz-transition: bottom 0.5s ease-out;
-    -o-transition: bottom 0.5s ease-out;
-    transition: bottom 0.5s ease-out;
-    @media (max-width: 767px) {
-      bottom: 50%;
-    }
-  }
-`
+const OverlayContainer = styled.div``
 
 const OverlainContainerMobile = styled.div`
-  position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  overflow: hidden;
 `
 
 const TitleMobile = styled.h3`
@@ -173,15 +114,23 @@ const TitleMobile = styled.h3`
   width: 90%;
 `
 
+const ArticleTitle = styled.h3`
+  text-decoration: none;
+  padding-top: 20px;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+`
+
 const ArticleDescription = styled.div`
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 300;
-  color: #ffffff;
+  color: #333333;
   height: 100px;
   max-height: 100px;
   display: block;
   padding-top: 20px;
+  text-decoration: none;
   @media (max-width: 767px) {
     font-size: 1.2rem;
   }

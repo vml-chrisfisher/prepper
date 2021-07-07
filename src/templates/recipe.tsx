@@ -1,25 +1,25 @@
-import styled from '@emotion/styled';
-import dateformat from 'dateformat';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React, { useEffect } from 'react';
-import Helmet from 'react-helmet';
-import LazyLoad from 'react-lazy-load';
-import { useDispatch, useSelector } from 'react-redux';
-import Bookmark from '../components/common/buttons/bookmark';
-import FeaturedContentRow from '../components/featuredContentRow';
-import FeatureContentRowProps from '../components/featuredContentRow/interface';
-import Footer from '../components/footer';
-import GeneralContentRow from '../components/generalContentRow';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Sidebar from '../components/header/profile_login_create_account';
-import Layout from '../components/layout';
-import MainContainer from '../components/layout/mainContainer';
-import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions';
-import { getAccessToken, getUserId } from '../store/ducks/profile/selectors';
-import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions';
-import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors';
+import styled from '@emotion/styled'
+import dateformat from 'dateformat'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React, { useEffect } from 'react'
+import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
+import { useDispatch, useSelector } from 'react-redux'
+import Bookmark from '../components/common/buttons/bookmark'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
+import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
+import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
+import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
+import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
+import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
 import {
   RecipeProps,
   AllContentfulRecipe,
@@ -73,9 +73,10 @@ const RecipeTemplate = (props: RecipeProps) => {
   const BodyCopyTwoColumn = styled.div`
     color: #464646;
     column-count: 2;
-    font-size: 1em;
+    font-size: 0.875em;
     font-family: 'Roboto', sans-serif;
-    line-height: 2em;
+    font-weight: 100;
+    line-height: 2.5em;
     padding-top: 1.875em;
     padding-bottom: 1.875em;
     text-align: justify;
@@ -238,13 +239,24 @@ const RecipeTemplate = (props: RecipeProps) => {
   const dispatch = useDispatch()
 
   const onRecipeClick = (event: React.MouseEvent) => {
-    event.preventDefault();
+    event.preventDefault()
     console.log(userId)
     if (userId) {
       if (isSelected) {
         dispatch(onTryDeleteRecipe({ userId: userId, recipeId: recipeId, recipeName: post.title }))
       } else {
-        dispatch(onTryAddRecipe({ userId: userId, recipeId: recipeId, recipeName: post.title }))
+        dispatch(
+          onTryAddRecipe({
+            userId: userId,
+            recipeId: recipeId,
+            recipeName: post.title,
+            recipeSlug: post.slug,
+            recipeDescription: post.bodyCopy,
+            recipeImagePath: post.heroImage.file,
+            recipeImageMeta: post.heroImage.description,
+            recipeBasePath: 'recipe',
+          }),
+        )
       }
     } else {
       // show pop up for new account or login
@@ -363,7 +375,7 @@ const RecipeTemplate = (props: RecipeProps) => {
 
   return (
     <Layout>
-      <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
+      <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
       <Helmet>
         {/* The description that appears under the title of your website appears on search engines results */}
         <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />

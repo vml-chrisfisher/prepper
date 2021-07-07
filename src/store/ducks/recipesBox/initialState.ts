@@ -1,12 +1,7 @@
-export interface ModifiedRecipeArticle {
-  id: string,
-  type: string,
-  name: string,
-  action: string
-}
+import { ModifiedRecipeArticle, RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
 
 export default {
-  recipes: Array<ModifiedRecipeArticle>(),
-  articles: Array<ModifiedRecipeArticle>(),
-  lastModified: Array<ModifiedRecipeArticle>()
+  recipes: Array<RecipeBoxRecipe>(),
+  articles: Array<RecipeBoxArticle>(),
+  lastModified: Array<ModifiedRecipeArticle>(),
 }

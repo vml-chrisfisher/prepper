@@ -1,22 +1,16 @@
-import styled from '@emotion/styled';
-import { Link, navigate } from 'gatsby';
-import React, { PureComponent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions';
-import { onFetchProfile } from '../../store/ducks/profile/actions';
-import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors';
-import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions';
-import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types';
-import {
-  HeaderMenuType,
-  HeaderProps,
-  HeaderState,
-  ProductCategory,
-  ProductFamily
-  } from './interface';
-import HeaderNoticationContainer from './notifications';
-import ProfileIcon from './profileIcon';
-import SearchContainer from './search/container';
+import styled from '@emotion/styled'
+import { Link, navigate } from 'gatsby'
+import React, { PureComponent, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions'
+import { onFetchProfile } from '../../store/ducks/profile/actions'
+import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors'
+import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
+import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
+import HeaderNoticationContainer from './notifications'
+import ProfileIcon from './profileIcon'
+import SearchContainer from './search/container'
 import {
   fetch,
   onCategorySelected,
@@ -49,14 +43,14 @@ const Header = (props: HeaderProps) => {
   const [menuUp, setMenuUp] = useState(true)
   const [menuType, setMenuType] = useState(HeaderMenuType.PLANTS)
 
-  const userId = useSelector(getUserId);
-  const accessToken = useSelector(getAccessToken);
+  const userId = useSelector(getUserId)
+  const accessToken = useSelector(getAccessToken)
 
   useEffect(() => {
-    console.log("YOYO: ", userId, accessToken)
-    if(userId && accessToken) {
+    console.log('YOYO: ', userId, accessToken)
+    if (userId && accessToken) {
       dispatch(onTryFetchRecipesBox(userId))
-      dispatch(onRelogin({userId: userId, accessToken: accessToken}))
+      dispatch(onRelogin({ userId: userId, accessToken: accessToken }))
     }
   }, [userId, accessToken])
 
@@ -281,7 +275,7 @@ const Header = (props: HeaderProps) => {
     cursor: pointer;
     display: inline-block;
     fill: ${props => {
-      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+      return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     height: 20px;
     margin-right: 25px;
@@ -297,13 +291,13 @@ const Header = (props: HeaderProps) => {
     cursor: pointer;
     display: inline-block;
     fill: ${props => {
-      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+      return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     height: 20px;
     margin-right: 25px;
     margin-top: 20px;
     stroke: ${props => {
-      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+      return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     stroke-width: 0.5;
     stroke-miterlimit: 10;
@@ -392,9 +386,13 @@ const Header = (props: HeaderProps) => {
       padding-left: 20px;
     }
   `
-  const NavigationContainer = styled.div`
+  const NavigationContainer = styled.div<ThemeProps>`
     display: flex;
     width: 100%;
+    background-color: ${props => {
+      console.log(props.theme)
+      return props.theme === 'white' ? '#FFFFFF' : 'transparent'
+    }};
   `
   const NavigationColumn = styled.div`
     flex-grow: 1;
@@ -418,7 +416,7 @@ const Header = (props: HeaderProps) => {
   const NavigationItem = styled(props => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
-      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+      return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
     font-size: 0.6em;
@@ -445,7 +443,7 @@ const Header = (props: HeaderProps) => {
   const NavigationItemFunctionLink = styled(props => <div {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
-      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+      return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
     font-size: 0.6em;
@@ -469,11 +467,10 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-
   const NavigationItemRight = styled(props => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
-      return props.theme === 'white' ? '#FFFFFF' : '#464646'
+      return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
     font-size: 0.6em;
@@ -502,7 +499,7 @@ const Header = (props: HeaderProps) => {
   return (
     <header>
       <NavigationHeader role="navigation" showProfile={showHeaderProfile}>
-        <NavigationContainer>
+        <NavigationContainer theme={themeValue}>
           <NavigationColumn>
             <Navigation>
               {/* <li>
@@ -587,9 +584,8 @@ const Header = (props: HeaderProps) => {
                 </SVGLink>
               </li>
               <li>
-                <SVGLink
-                >
-                  <ProfileIcon onClick={onProfileClick} theme={themeValue}/>
+                <SVGLink>
+                  <ProfileIcon onClick={onProfileClick} theme={themeValue} />
                 </SVGLink>
               </li>
             </NavigationRight>
@@ -640,7 +636,7 @@ const Header = (props: HeaderProps) => {
                     }}
                     onClick={() => {
                       const link = `/plants/${category.name.toLowerCase().replace(' ', '+')}`
-                      navigate(link);
+                      navigate(link)
                     }}
                   >
                     {category.name}

@@ -9,6 +9,7 @@ import HeaderContainer from '../components/header/container'
 import { HeaderTheme } from '../components/header/interface'
 import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
+import SectionHeader from '../components/sectionHeader'
 import { RecipesEdge, RecipesProps } from '../page-interfaces/recipes'
 
 class RecipeIndex extends React.Component<RecipesProps> {
@@ -28,7 +29,7 @@ class RecipeIndex extends React.Component<RecipesProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-`
+    `
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []
@@ -56,7 +57,7 @@ class RecipeIndex extends React.Component<RecipesProps> {
 
     return (
       <Layout>
-        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
+        <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <MainContainer>
           <Helmet title="Recipes | Knife & Fish">
             <link rel="canonical" href="https://wwww.knifeandfish.com/recipes"></link>

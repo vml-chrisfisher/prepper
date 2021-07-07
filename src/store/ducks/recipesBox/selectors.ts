@@ -1,3 +1,5 @@
+import { ModifiedRecipeArticle, RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
+
 export const getRecipesBox = (state: any) => state?.recipesBox || {}
 
 export const getRecipesBoxRecipes = (state: any) => {
@@ -10,25 +12,24 @@ export const getRecipesBoxArticles = (state: any) => {
 
 export const getRecipeBoxIsRecipeSelected = (state: any, recipeId: string) => {
   if (getRecipesBoxRecipes(state)) {
-    const recipesFound = getRecipesBoxRecipes(state)?.filter((recipe: string) => {
-      return recipe === recipeId
+    const recipesFound = getRecipesBoxRecipes(state)?.filter((recipe: RecipeBoxRecipe) => {
+      return recipe.recipeId === recipeId
     })
 
     return recipesFound && recipesFound?.length > 0
   } else {
-    return false;
+    return false
   }
-
 }
 
 export const getRecipesBoxIsArticleSelected = (state: any, articleId: string) => {
   if (getRecipesBoxArticles(state)) {
-    const articlesFound = getRecipesBoxArticles(state)?.filter((article: string) => {
-      return article === articleId
+    const articlesFound = getRecipesBoxArticles(state)?.filter((article: RecipeBoxArticle) => {
+      return article.articleId === articleId
     })
 
-    return articlesFound && articlesFound?.length > 0;
+    return articlesFound && articlesFound?.length > 0
   } else {
-    return false;
+    return false
   }
 }

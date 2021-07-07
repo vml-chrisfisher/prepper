@@ -1,28 +1,28 @@
-import styled from '@emotion/styled';
-import dateformat from 'dateformat';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React, { useEffect } from 'react';
-import Helmet from 'react-helmet';
-import LazyLoad from 'react-lazy-load';
-import { useDispatch, useSelector } from 'react-redux';
-import ArticleSection from '../components/articleSection';
-import ArticleSecionInterface from '../components/articleSection/interface';
-import Bookmark from '../components/common/buttons/bookmark';
-import FeaturedContentRow from '../components/featuredContentRow';
-import FeatureContentRowProps from '../components/featuredContentRow/interface';
-import Footer from '../components/footer';
-import GeneralContentRow from '../components/generalContentRow';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Sidebar from '../components/header/profile_login_create_account';
-import Layout from '../components/layout';
-import MainContainer from '../components/layout/mainContainer';
-import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions';
-import { getUserId } from '../store/ducks/profile/selectors';
-import { onTryAddArticle, onTryDeleteArticle, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions';
-import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors';
-import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article';
+import styled from '@emotion/styled'
+import dateformat from 'dateformat'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React, { useEffect } from 'react'
+import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
+import { useDispatch, useSelector } from 'react-redux'
+import ArticleSection from '../components/articleSection'
+import ArticleSecionInterface from '../components/articleSection/interface'
+import Bookmark from '../components/common/buttons/bookmark'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
+import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
+import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
+import { getUserId } from '../store/ducks/profile/selectors'
+import { onTryAddArticle, onTryDeleteArticle, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
+import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors'
+import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 
 const ArticleTemplate = (props: ArticleProps) => {
   useEffect(() => {
@@ -31,85 +31,84 @@ const ArticleTemplate = (props: ArticleProps) => {
     }
   })
 
-
   const Title = styled.h1`
-      padding: 0 0 0.4em 0;
+    padding: 0 0 0.4em 0;
 
-      @media (max-width: 767px) {
-        font-size: 3.5em;
-        padding: 0;
-      }
-    `
+    @media (max-width: 767px) {
+      font-size: 3.5em;
+      padding: 0;
+    }
+  `
 
   const CreateDate = styled.div`
-      text-align: center;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1em;
-      padding-bottom: 3.125em;
-    `
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    padding-bottom: 3.125em;
+  `
 
   const TagContainer = styled.div`
-      display: inline-block;
-      width: 100%;
-      padding-right: 4%;
+    display: inline-block;
+    width: 100%;
+    padding-right: 4%;
 
-      @media (max-width: 767px) {
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
+    @media (max-width: 767px) {
+      padding-left: 10%;
+      width: 80%;
+    }
+  `
 
   const TagStyled = styled.p`
-      color: #464646;
-      display: inline-block;
-      font-size: 0.75em;
-      font-family: 'Roboto', sans-serif;
-      padding-right: 20px;
-      text-transform: uppercase;
-    `
+    color: #464646;
+    display: inline-block;
+    font-size: 0.75em;
+    font-family: 'Roboto', sans-serif;
+    padding-right: 20px;
+    text-transform: uppercase;
+  `
 
   const BodyCopy = styled.div`
-      color: #464646;
-      column-count: 2;
-      font-size: 1em;
-      font-family: 'Roboto', sans-serif;
-      line-height: 2em;
-      padding-top: 1.875em;
-      padding-bottom: 1.875em;
-      text-align: justify;
+    color: #464646;
+    column-count: 2;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    line-height: 2em;
+    padding-top: 1.875em;
+    padding-bottom: 1.875em;
+    text-align: justify;
 
-      @media (max-width: 767px) {
-        column-count: 1;
-        padding-left: 10%;
-        width: 80%;
-      }
-    `
+    @media (max-width: 767px) {
+      column-count: 1;
+      padding-left: 10%;
+      width: 80%;
+    }
+  `
 
   const ArticleMainContainer = styled.div`
-      background-color: #fff;
-      position: absolute;
-      top: 15.625em;
+    background-color: #fff;
+    position: absolute;
+    top: 15.625em;
 
-      @media (max-width: 767px) {
-        top: 6em;
-      }
-    `
+    @media (max-width: 767px) {
+      top: 6em;
+    }
+  `
 
   const Col2Full = styled.div`
-      width: 16.66%;
+    width: 16.66%;
 
-      @media (max-width: 767px) {
-        width: 100%;
-      }
-    `
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  `
 
   const Col8Full = styled.div`
-      width: 66.66%;
+    width: 66.66%;
 
-      @media (max-width: 767px) {
-        width: 100%;
-      }
-    `
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  `
 
   const SocialBar = styled.div`
     display: flex;
@@ -213,18 +212,29 @@ const ArticleTemplate = (props: ArticleProps) => {
 
   const userId = useSelector(getUserId)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const isSelected = useSelector(state => getRecipesBoxIsArticleSelected(state, articleId))
 
   const onArticleBookmarkClick = (event: React.MouseEvent) => {
     event.preventDefault()
-    console.log("ARTICLE USER ID: ", userId)
+    console.log('ARTICLE USER ID: ', userId)
     if (userId) {
       if (isSelected) {
         dispatch(onTryDeleteArticle({ userId: userId, articleId: articleId, articleName: post.title }))
       } else {
-        dispatch(onTryAddArticle({ userId: userId, articleId: articleId, articleName: post.title }))
+        dispatch(
+          onTryAddArticle({
+            userId: userId,
+            articleId: articleId,
+            articleName: post.title,
+            articleSlug: post.slug,
+            articleDescription: post.bodyCopy,
+            articleImagePath: post.heroImage.file,
+            articleImageMeta: post.heroImage.description,
+            articleBasePath: 'article',
+          }),
+        )
       }
     } else {
       // show pop up for new account or login
@@ -233,14 +243,13 @@ const ArticleTemplate = (props: ArticleProps) => {
   }
 
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
-  const heroHeight =
-    (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
+  const heroHeight = (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
   const bannerHeight =
     (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
   return (
     <Layout>
-      <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
+      <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
       <Helmet>
         {/* The description that appears under the title of your website appears on search engines results */}
         <meta name="description" content={post.bodyCopy.childMarkdownRemark.rawMarkdownBody} />

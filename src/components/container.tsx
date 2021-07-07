@@ -38,10 +38,10 @@ export default ({ children }) => (
         }
 
         h1 {
-          font-size: 4.5em;
+          font-size: 3em;
           font-weight: normal;
           font-family: 'Playfair Display', serif;
-          letter-spacing: 1px;
+          letter-spacing: -2.5px;
           line-height: 1em;
           text-align: center;
           margin: 0;
@@ -51,6 +51,7 @@ export default ({ children }) => (
           font-size: 2.65em;
           font-weight: normal;
           font-family: 'Playfair Display', serif;
+          letter-spacing: -2.5px;
           line-height: 1.25em;
           margin: 0;
         }

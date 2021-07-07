@@ -1,6 +1,7 @@
-import axios from 'axios';
-import { actionChannel, call, put } from 'redux-saga/effects';
-import { RECIPEBOX } from './types';
+import axios from 'axios'
+import { actionChannel, call, put } from 'redux-saga/effects'
+import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
+import { RECIPEBOX } from './types'
 
 const fetchRecipesBox = (userId: string) => {
   console.log(userId)
@@ -11,9 +12,9 @@ export function* fetchRecipesBoxAsync(action: any) {
   yield put({
     type: RECIPEBOX.FETCHING_RECIPEBOX,
   })
-  console.log("ACTION: ", action.payload)
+  console.log('ACTION: ', action.payload)
   const userId = action.payload
-  console.log("SAGA USERID: ", userId)
+  console.log('SAGA USERID: ', userId)
   if (userId) {
     try {
       const fetchResponse = yield call(fetchRecipesBox, userId)
@@ -40,8 +41,8 @@ export function* fetchRecipesBoxAsync(action: any) {
   }
 }
 
-const submitRecipeBoxRecipeAdd = (creditials: { recipeId: string }) => {
-  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/recipe/add', creditials)
+const submitRecipeBoxRecipeAdd = (payload: RecipeBoxRecipe) => {
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/recipe/add', payload)
 }
 
 export function* submitRecipeBoxRecipeAddAsync(action: any) {
@@ -49,22 +50,18 @@ export function* submitRecipeBoxRecipeAddAsync(action: any) {
     type: RECIPEBOX.ADDING_RECIPE,
   })
 
-  const { userId, recipeId, recipeName } = action.payload
-  const creditials = { userId, recipeId }
+  const { userId, recipeId } = action.payload
   if (userId && recipeId) {
     try {
-      yield call(submitRecipeBoxRecipeAdd, creditials)
+      yield call(submitRecipeBoxRecipeAdd, action.payload as RecipeBoxRecipe)
 
       yield put({
         type: RECIPEBOX.ADD_RECIPE_SUCCESS,
-        payload: {
-          recipeId: recipeId,
-          recipeName: recipeName
-        },
+        payload: action.payload,
       })
       yield put({
         type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-        payload: userId
+        payload: userId,
       })
     } catch (error) {
       console.log('LOGIN ERROR: ', error)
@@ -100,7 +97,7 @@ export function* submitRecipeBoxRecipeDeleteAsync(action: any) {
       })
       yield put({
         type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-        payload: userId
+        payload: userId,
       })
     } catch (error) {
       console.log('LOGIN ERROR: ', error)
@@ -115,8 +112,8 @@ export function* submitRecipeBoxRecipeDeleteAsync(action: any) {
   }
 }
 
-const submitRecipeBoxArticlesAdd = (creditials: { articleId: string }) => {
-  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/article/add', creditials)
+const submitRecipeBoxArticlesAdd = (payload: RecipeBoxArticle) => {
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/article/add', payload)
 }
 
 export function* submitRecipeBoxArticleAddAsync(action: any) {
@@ -124,22 +121,18 @@ export function* submitRecipeBoxArticleAddAsync(action: any) {
     type: RECIPEBOX.ADDING_ARTICLE,
   })
 
-  const { userId, articleId, articleName } = action.payload
-  const creditials = { userId, articleId }
+  const { userId, articleId } = action.payload
   if (userId && articleId) {
     try {
-      yield call(submitRecipeBoxArticlesAdd, creditials)
+      yield call(submitRecipeBoxArticlesAdd, action.payload as RecipeBoxArticle)
 
       yield put({
         type: RECIPEBOX.ADD_ARTICLE_SUCCESS,
-        payload: {
-          articleId: articleId,
-          articleName: articleName
-        },
+        payload: action.payload,
       })
       yield put({
         type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-        payload: userId
+        payload: userId,
       })
     } catch (error) {
       yield put({
@@ -174,7 +167,7 @@ export function* submitRecipeBoxArticleDeleteAsync(action: any) {
       })
       yield put({
         type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-        payload: userId
+        payload: userId,
       })
     } catch (error) {
       console.log('LOGIN ERROR: ', error)

@@ -7,10 +7,10 @@ import { RandomFourSummaryProps } from './interface'
 const createTwoGridOption1 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col6Full>
+      <Col6Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[0]} />
       </Col6Full>
-      <Col6Full>
+      <Col6Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[1]} />
       </Col6Full>
     </div>
@@ -20,10 +20,10 @@ const createTwoGridOption1 = (chunk: ArticleSummaryInterface[]) => {
 const createTwoGridOption2 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col12Full>
+      <Col12Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[0]} />
       </Col12Full>
-      <Col12Full>
+      <Col12Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[1]} />
       </Col12Full>
     </div>
@@ -33,13 +33,13 @@ const createTwoGridOption2 = (chunk: ArticleSummaryInterface[]) => {
 const createThreeGridOption3 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col4Full>
+      <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[0]} />
       </Col4Full>
-      <Col4Full>
+      <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[1]} />
       </Col4Full>
-      <Col4Full>
+      <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[2]} />
       </Col4Full>
     </div>
@@ -49,16 +49,16 @@ const createThreeGridOption3 = (chunk: ArticleSummaryInterface[]) => {
 const createFourGridOption1 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col6Full>
+      <Col6Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[0]} />
       </Col6Full>
-      <Col6Full>
+      <Col6Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[1]} />
       </Col6Full>
-      <Col6Full>
+      <Col6Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[2]} />
       </Col6Full>
-      <Col6Full>
+      <Col6Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[3]} />
       </Col6Full>
     </div>
@@ -68,16 +68,16 @@ const createFourGridOption1 = (chunk: ArticleSummaryInterface[]) => {
 const createFourGridOption2 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[0]} />
       </Col3Full>
-      <Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[1]} />
       </Col3Full>
-      <Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[2]} />
       </Col3Full>
-      <Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[3]} />
       </Col3Full>
     </div>
@@ -87,16 +87,16 @@ const createFourGridOption2 = (chunk: ArticleSummaryInterface[]) => {
 const createFourGridOption3 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
-      <Col12Full>
+      <Col12Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[0]} />
       </Col12Full>
-      <Col4Full>
+      <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[1]} />
       </Col4Full>
-      <Col4Full>
+      <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[2]} />
       </Col4Full>
-      <Col4Full>
+      <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[3]} />
       </Col4Full>
     </div>
@@ -140,7 +140,7 @@ const createGrid = (chunk: ArticleSummaryInterface[]) => {
     case 3:
       return createThreeGridOption3(chunk)
     case 4:
-      option = Math.floor(Math.random() * (3 - 0 + 1))
+      option = Math.floor(Math.random() * (1 - 0 + 1))
       return option === 0
         ? createFourGridOption1(chunk)
         : option === 1

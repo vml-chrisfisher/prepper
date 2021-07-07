@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React from 'react';
-import FeatureContentRowDetailProps from './interface';
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import React from 'react'
+import FeatureContentRowDetailProps from './interface'
 
 interface ThemeProps {
   theme: string
@@ -67,7 +67,7 @@ const FeatureDescription = styled.div<ThemeProps>`
   padding-bottom: 20px;
 `
 
-const FeatureButton = styled.Link<ThemeProps>`
+const FeatureButton = styled(props => <Link {...props} />)<ThemeProps>`
   background-color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};
