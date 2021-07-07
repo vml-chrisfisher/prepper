@@ -1,8 +1,7 @@
-import initialState from './initialState'
-import { RECIPEBOX } from './types'
+import initialState from './initialState';
+import { RECIPEBOX } from './types';
 
 const loginReducers = (state = initialState, action: { type?: string; payload?: any }) => {
-  console.log(action)
   switch (action?.type) {
     case RECIPEBOX.ADD_RECIPE_SUCCESS:
       return { ...state, lastModified: [...state.lastModified, { ...action.payload, type: 'recipe', action: 'add' }] }

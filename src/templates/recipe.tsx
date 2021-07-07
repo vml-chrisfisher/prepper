@@ -1,25 +1,25 @@
-import styled from '@emotion/styled'
-import dateformat from 'dateformat'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import React, { useEffect } from 'react'
-import Helmet from 'react-helmet'
-import LazyLoad from 'react-lazy-load'
-import { useDispatch, useSelector } from 'react-redux'
-import Bookmark from '../components/common/buttons/bookmark'
-import FeaturedContentRow from '../components/featuredContentRow'
-import FeatureContentRowProps from '../components/featuredContentRow/interface'
-import Footer from '../components/footer'
-import GeneralContentRow from '../components/generalContentRow'
-import HeaderContainer from '../components/header/container'
-import { HeaderTheme } from '../components/header/interface'
-import Sidebar from '../components/header/profile_login_create_account'
-import Layout from '../components/layout'
-import MainContainer from '../components/layout/mainContainer'
-import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
-import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
-import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
-import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
+import styled from '@emotion/styled';
+import dateformat from 'dateformat';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import React, { useEffect } from 'react';
+import Helmet from 'react-helmet';
+import LazyLoad from 'react-lazy-load';
+import { useDispatch, useSelector } from 'react-redux';
+import Bookmark from '../components/common/buttons/bookmark';
+import FeaturedContentRow from '../components/featuredContentRow';
+import FeatureContentRowProps from '../components/featuredContentRow/interface';
+import Footer from '../components/footer';
+import GeneralContentRow from '../components/generalContentRow';
+import HeaderContainer from '../components/header/container';
+import { HeaderTheme } from '../components/header/interface';
+import Sidebar from '../components/header/profile_login_create_account';
+import Layout from '../components/layout';
+import MainContainer from '../components/layout/mainContainer';
+import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions';
+import { getAccessToken, getUserId } from '../store/ducks/profile/selectors';
+import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions';
+import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors';
 import {
   RecipeProps,
   AllContentfulRecipe,
@@ -240,7 +240,6 @@ const RecipeTemplate = (props: RecipeProps) => {
 
   const onRecipeClick = (event: React.MouseEvent) => {
     event.preventDefault()
-    console.log(userId)
     if (userId) {
       if (isSelected) {
         dispatch(onTryDeleteRecipe({ userId: userId, recipeId: recipeId, recipeName: post.title }))

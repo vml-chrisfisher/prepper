@@ -1,16 +1,22 @@
-import styled from '@emotion/styled'
-import { Link, navigate } from 'gatsby'
-import React, { PureComponent, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions'
-import { onFetchProfile } from '../../store/ducks/profile/actions'
-import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors'
-import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions'
-import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
-import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
-import HeaderNoticationContainer from './notifications'
-import ProfileIcon from './profileIcon'
-import SearchContainer from './search/container'
+import styled from '@emotion/styled';
+import { Link, navigate } from 'gatsby';
+import React, { PureComponent, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions';
+import { onFetchProfile } from '../../store/ducks/profile/actions';
+import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors';
+import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions';
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types';
+import {
+  HeaderMenuType,
+  HeaderProps,
+  HeaderState,
+  ProductCategory,
+  ProductFamily
+  } from './interface';
+import HeaderNoticationContainer from './notifications';
+import ProfileIcon from './profileIcon';
+import SearchContainer from './search/container';
 import {
   fetch,
   onCategorySelected,
@@ -47,7 +53,6 @@ const Header = (props: HeaderProps) => {
   const accessToken = useSelector(getAccessToken)
 
   useEffect(() => {
-    console.log('YOYO: ', userId, accessToken)
     if (userId && accessToken) {
       dispatch(onTryFetchRecipesBox(userId))
       dispatch(onRelogin({ userId: userId, accessToken: accessToken }))
@@ -390,7 +395,6 @@ const Header = (props: HeaderProps) => {
     display: flex;
     width: 100%;
     background-color: ${props => {
-      console.log(props.theme)
       return props.theme === 'white' ? '#FFFFFF' : 'transparent'
     }};
   `

@@ -1,10 +1,9 @@
-import axios from 'axios'
-import { actionChannel, call, put } from 'redux-saga/effects'
-import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
-import { RECIPEBOX } from './types'
+import axios from 'axios';
+import { actionChannel, call, put } from 'redux-saga/effects';
+import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces';
+import { RECIPEBOX } from './types';
 
 const fetchRecipesBox = (userId: string) => {
-  console.log(userId)
   return axios.get(`https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/${userId}`)
 }
 
@@ -12,9 +11,7 @@ export function* fetchRecipesBoxAsync(action: any) {
   yield put({
     type: RECIPEBOX.FETCHING_RECIPEBOX,
   })
-  console.log('ACTION: ', action.payload)
   const userId = action.payload
-  console.log('SAGA USERID: ', userId)
   if (userId) {
     try {
       const fetchResponse = yield call(fetchRecipesBox, userId)
@@ -29,7 +26,6 @@ export function* fetchRecipesBoxAsync(action: any) {
       //   payload: userId
       // })
     } catch (error) {
-      console.log('RECIPE BOX FETCH ERROR:', error)
       yield put({
         type: RECIPEBOX.FETCHED_RECIPEBOX_FAILURE,
       })

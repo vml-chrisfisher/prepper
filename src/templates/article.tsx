@@ -1,28 +1,28 @@
-import styled from '@emotion/styled'
-import dateformat from 'dateformat'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import React, { useEffect } from 'react'
-import Helmet from 'react-helmet'
-import LazyLoad from 'react-lazy-load'
-import { useDispatch, useSelector } from 'react-redux'
-import ArticleSection from '../components/articleSection'
-import ArticleSecionInterface from '../components/articleSection/interface'
-import Bookmark from '../components/common/buttons/bookmark'
-import FeaturedContentRow from '../components/featuredContentRow'
-import FeatureContentRowProps from '../components/featuredContentRow/interface'
-import Footer from '../components/footer'
-import GeneralContentRow from '../components/generalContentRow'
-import HeaderContainer from '../components/header/container'
-import { HeaderTheme } from '../components/header/interface'
-import Sidebar from '../components/header/profile_login_create_account'
-import Layout from '../components/layout'
-import MainContainer from '../components/layout/mainContainer'
-import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
-import { getUserId } from '../store/ducks/profile/selectors'
-import { onTryAddArticle, onTryDeleteArticle, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
-import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors'
-import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
+import styled from '@emotion/styled';
+import dateformat from 'dateformat';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import React, { useEffect } from 'react';
+import Helmet from 'react-helmet';
+import LazyLoad from 'react-lazy-load';
+import { useDispatch, useSelector } from 'react-redux';
+import ArticleSection from '../components/articleSection';
+import ArticleSecionInterface from '../components/articleSection/interface';
+import Bookmark from '../components/common/buttons/bookmark';
+import FeaturedContentRow from '../components/featuredContentRow';
+import FeatureContentRowProps from '../components/featuredContentRow/interface';
+import Footer from '../components/footer';
+import GeneralContentRow from '../components/generalContentRow';
+import HeaderContainer from '../components/header/container';
+import { HeaderTheme } from '../components/header/interface';
+import Sidebar from '../components/header/profile_login_create_account';
+import Layout from '../components/layout';
+import MainContainer from '../components/layout/mainContainer';
+import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions';
+import { getUserId } from '../store/ducks/profile/selectors';
+import { onTryAddArticle, onTryDeleteArticle, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions';
+import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors';
+import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article';
 
 const ArticleTemplate = (props: ArticleProps) => {
   useEffect(() => {
@@ -218,7 +218,6 @@ const ArticleTemplate = (props: ArticleProps) => {
 
   const onArticleBookmarkClick = (event: React.MouseEvent) => {
     event.preventDefault()
-    console.log('ARTICLE USER ID: ', userId)
     if (userId) {
       if (isSelected) {
         dispatch(onTryDeleteArticle({ userId: userId, articleId: articleId, articleName: post.title }))

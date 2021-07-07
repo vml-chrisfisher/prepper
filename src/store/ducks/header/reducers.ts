@@ -40,7 +40,6 @@ const headerReducers = (state = initialState, action: HeaderAction) => {
     case PROFILE_STEPS.START_CREATE_PROFILE:
       return { ...state, showHeaderProfile: SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION }
     case HEADER_NOTIFICATION_TYPES.SHOW_RECIPES_BOX_LOGIN_REGISTER_NOTIFICATION: 
-    console.log("MADE IT")
       return { ...state, showRecipesBoxLoginRegisterNotification: true}
     default:
       return state

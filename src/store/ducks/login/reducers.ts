@@ -12,7 +12,6 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
     case LOGIN_STEPS.LOGIN_FAILURE:
       return { ...state, loginStep: LOGIN_STEPS.LOGIN_FAILURE }
     case LOGIN_STEPS.RELOGIN:
-      console.log(action.payload)
       return {
         ...state,
         loginStep: LOGIN_STEPS.LOGIN_SUCCESS,
@@ -27,7 +26,6 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
         userId: action.payload.userData[0].user_id,
       }
       case LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS:
-        console.log("SUCCESS LOCAL: ", action)
         return {
           ...state,
           loginStep: LOGIN_STEPS.LOGIN_SUCCESS,

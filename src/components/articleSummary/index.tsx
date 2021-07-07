@@ -1,13 +1,12 @@
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
-import React from 'react'
-import LazyLoad from 'react-lazy-load'
-import ArticleSummaryInterface from './interface'
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React from 'react';
+import LazyLoad from 'react-lazy-load';
+import ArticleSummaryInterface from './interface';
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
 const ArticleSummary = (props: ArticleSummaryInterface) => {
-  console.log(props)
   const copyLength = props.description.length < 200 ? props.description.length : 200
   const copyRaw = props.description.substr(0, copyLength)
   const lastPeriod = copyRaw.lastIndexOf('.')

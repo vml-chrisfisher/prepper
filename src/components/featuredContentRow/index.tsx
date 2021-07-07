@@ -1,13 +1,14 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import ArticleSummary from '../articleSummary'
-import ArticleSummaryVertical from '../articleSummaryVertical'
-import FeatureContentRowDetail from './featuredContentRowDetail'
-import FeatureContentRowProps from './interface'
+import styled from '@emotion/styled';
+import React from 'react';
+import ArticleSummary from '../articleSummary';
+import ArticleSummaryVertical from '../articleSummaryVertical';
+import FeatureContentRowDetail from './featuredContentRowDetail';
+import FeatureContentRowProps from './interface';
 
 const FeaturedContentRow = (props: FeatureContentRowProps) => {
-  console.log('IN: ', props)
   return (
+    <>
+    {props.features && (
     <FeatureContainer className="row">
       <Col3Full className="col3">
         <ArticleSummaryVertical {...props.features[0]} />
@@ -22,6 +23,8 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
         <FeatureContentRowDetail {...props.details} />
       </Col3Full>
     </FeatureContainer>
+    )}
+    </>
   )
 }
 

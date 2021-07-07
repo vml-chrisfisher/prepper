@@ -36,13 +36,11 @@ export function* submitLoginAsync(action: any) {
       if (isBrowser) {
         localStorage.setItem('hasLoggedInBefore', 'true')
       }
-      console.log(loginResponse)
       yield put({
         type: LOGIN_STEPS.LOGIN_SUCCESS,
         payload: loginResponse.data.message,
       })
     } catch (error) {
-      console.log('LOGIN ERROR: ', error)
       yield put({
         type: LOGIN_STEPS.LOGIN_FAILURE,
       })
@@ -76,7 +74,6 @@ const localStorageLogin = () => {
 export function* localStorageLoginAsync(action: any) {
   try {
     const loginResponse = yield call(localStorageLogin)
-    console.log(loginResponse)
     yield put({
       type: LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS,
       payload: loginResponse

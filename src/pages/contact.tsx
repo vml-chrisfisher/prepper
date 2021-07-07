@@ -1,16 +1,16 @@
-import styled from '@emotion/styled'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import React from 'react'
-import Helmet from 'react-helmet'
-import ContactHero from '../components/ContactHero'
-import ContactTabs from '../components/contactTabs'
-import Footer from '../components/footer'
-import HeaderContainer from '../components/header/container'
-import { HeaderTheme } from '../components/header/interface'
-import Layout from '../components/layout'
-import { ContactEdge } from '../page-interfaces/contact'
-import styles from './blog.css'
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import React from 'react';
+import Helmet from 'react-helmet';
+import ContactHero from '../components/ContactHero';
+import ContactTabs from '../components/contactTabs';
+import Footer from '../components/footer';
+import HeaderContainer from '../components/header/container';
+import { HeaderTheme } from '../components/header/interface';
+import Layout from '../components/layout';
+import { ContactEdge } from '../page-interfaces/contact';
+import styles from './blog.css';
 
 class ContactIndex extends React.Component {
   componentDidMount() {
@@ -22,7 +22,6 @@ class ContactIndex extends React.Component {
   render() {
     const posts: ContactEdge[] = get(this, 'props.data.allContentfulContactLayout.edges')
     const layout: ContactEdge = posts[0]
-    console.log(layout)
 
     const StoryContainer = styled.div`
       position: relative;
@@ -43,7 +42,6 @@ class ContactIndex extends React.Component {
         width: 80%;
       }
 `
-    console.log(layout.node.recipeCopy.content[0].content[0].value)
     return (
       <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />

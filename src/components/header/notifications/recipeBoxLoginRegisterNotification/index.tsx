@@ -15,7 +15,6 @@ const RecipesboxLoginRegisterNotification = () => {
             setTimeout(() => {
                 setFadeIn(true)
             }, 500)
-        console.log("THERE")
         return () => {
             setFadeIn(false)
             setTimeout(() => {

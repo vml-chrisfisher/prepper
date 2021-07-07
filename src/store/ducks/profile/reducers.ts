@@ -28,7 +28,6 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
     case PROFILE_STEPS.CREATING_PROFILE:
       return { ...state, createProfileStep: PROFILE_STEPS.CREATING_PROFILE }
     case LOGIN_STEPS.RELOGIN:
-      console.log(action.payload)
       return {
         ...state,
         accessToken: action.payload.accessToken,
@@ -54,8 +53,6 @@ const profileReducers = (state = initialState, action: { type?: string; payload?
       }
     case LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS:
       const accessToken = action.payload.accessToken;
-      const decoded = jwt_decode(accessToken);
-      console.log(decoded)
       return {
         ...state,
         accessToken: action.payload.accessToken,
