@@ -49,7 +49,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
         </OverlayContainer>
         <OverlainContainerMobile className="hidden-lg">
           <TitleMobile>{props.title}</TitleMobile>
-          {props.description && <ArticleDescription>{props.description}</ArticleDescription>}
+          {copy && <ArticleDescription>{copy}</ArticleDescription>}
         </OverlainContainerMobile>
       </Link>
     </Article>
@@ -126,15 +126,13 @@ const ArticleDescription = styled.div`
   font-size: 12px;
   font-weight: 300;
   color: #333333;
-  height: 100px;
-  max-height: 100px;
   display: block;
   padding-top: 20px;
   text-decoration: none;
   @media (max-width: 767px) {
     font-size: 12px;
     padding-top: 5px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 `
 
