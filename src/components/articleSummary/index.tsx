@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React from 'react';
-import LazyLoad from 'react-lazy-load';
-import ArticleSummaryInterface from './interface';
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import React from 'react'
+import LazyLoad from 'react-lazy-load'
+import ArticleSummaryInterface from './interface'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
@@ -49,6 +49,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
         </OverlayContainer>
         <OverlainContainerMobile className="hidden-lg">
           <TitleMobile>{props.title}</TitleMobile>
+          {props.description && <ArticleDescription>{props.description}</ArticleDescription>}
         </OverlainContainerMobile>
       </Link>
     </Article>
@@ -105,11 +106,10 @@ const OverlainContainerMobile = styled.div`
 `
 
 const TitleMobile = styled.h3`
-  color: #fff;
+  color: #333333;
   font-size: 2.75em;
-  padding-top: 30%;
-  padding-left: 5%;
   text-align: center;
+  letter-spacing: -2.5px;
   width: 90%;
 `
 
