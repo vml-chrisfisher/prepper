@@ -107,9 +107,10 @@ const OverlainContainerMobile = styled.div`
 
 const TitleMobile = styled.h3`
   color: #333333;
-  font-size: 2.75em;
-  text-align: center;
-  letter-spacing: -2.5px;
+  font-size: 18px;
+  text-align: left;
+  letter-spacing: -0.5px;
+  padding-top: 20px;
   width: 90%;
 `
 
@@ -131,7 +132,9 @@ const ArticleDescription = styled.div`
   padding-top: 20px;
   text-decoration: none;
   @media (max-width: 767px) {
-    font-size: 1.2rem;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 30px;
   }
 `
 
