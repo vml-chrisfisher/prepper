@@ -1,22 +1,16 @@
-import styled from '@emotion/styled';
-import { Link, navigate } from 'gatsby';
-import React, { PureComponent, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions';
-import { onFetchProfile } from '../../store/ducks/profile/actions';
-import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors';
-import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions';
-import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types';
-import {
-  HeaderMenuType,
-  HeaderProps,
-  HeaderState,
-  ProductCategory,
-  ProductFamily
-  } from './interface';
-import HeaderNoticationContainer from './notifications';
-import ProfileIcon from './profileIcon';
-import SearchContainer from './search/container';
+import styled from '@emotion/styled'
+import { Link, navigate } from 'gatsby'
+import React, { PureComponent, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { onLoginSuccess, onRelogin } from '../../store/ducks/login/actions'
+import { onFetchProfile } from '../../store/ducks/profile/actions'
+import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors'
+import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions'
+import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
+import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
+import HeaderNoticationContainer from './notifications'
+import ProfileIcon from './profileIcon'
+import SearchContainer from './search/container'
 import {
   fetch,
   onCategorySelected,
@@ -498,15 +492,67 @@ const Header = (props: HeaderProps) => {
     }
   `
 
+  const MobileNavigation = styled.ul`
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    padding-left: 20px;
+    padding-top: 0px;
+    margin: 0;
+    font-size: 1.25em;
+  `
+
+  const MobileNavigationItem = styled(props => <Link {...props} />)`
+    font-family: 'Roboto', sans-serif;
+    color: #464646;
+    text-decoration: none;
+    font-size: 0.6em;
+    font-weight: 100;
+    transition: color 1s ease;
+    margin-right: 40px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    display: block;
+    padding-top: 25px;
+    width: 48px;
+    height: 48px;
+  `
+
+  const MobileLogoContainer = styled.div`
+    background-color: #fff;
+    position: fixed;
+    text-align: right;
+    padding-right: 20px;
+    width: 100%;
+    z-index: 999;
+  `
+
+  const MobileLogoLink = styled(props => <Link {...props} />)`
+    text-decoration: none;
+  `
+
+  const MobileLogoImage = styled(props => <amp-img {...props} />)`
+    display: inline-block;
+    padding-right: 20px;
+    width: 100px;
+  `
+
   const themeValue = props.theme
   const showHeaderProfile = props.showHeaderProfile
+
   return (
-    <header>
-      <NavigationHeader role="navigation" showProfile={showHeaderProfile}>
-        <NavigationContainer theme={themeValue}>
-          <NavigationColumn>
-            <Navigation>
-              {/* <li>
+    <>
+      <header className="hidden-sm">
+        <NavigationHeader role="navigation" showProfile={showHeaderProfile}>
+          <NavigationContainer theme={themeValue}>
+            <NavigationColumn>
+              <Navigation>
+                {/* <li>
               <NavigationItem
                 theme={themeValue}
                 onClick={() => {
@@ -516,45 +562,45 @@ const Header = (props: HeaderProps) => {
                 Plants
               </NavigationItem>
             </li> */}
-              <li>
-                <NavigationItemFunctionLink
-                  theme={themeValue}
-                  onClick={() => {
-                    onRecipesClick()
-                  }}
-                >
-                  Recipes
-                </NavigationItemFunctionLink>
-              </li>
-              <li>
-                <NavigationItem theme={themeValue} to="/articles">
-                  Articles
-                </NavigationItem>
-              </li>
-              <li>
-                <NavigationItem theme={themeValue} to="/shop">
-                  Shop
-                </NavigationItem>
-              </li>
-            </Navigation>
-          </NavigationColumn>
-          <NavigationColumn>
-            <LogoContainer>
-              <div>
-                <LogoLink to="/">
-                  <LogoImage
-                    alt="Knife and Fish Logo"
-                    src={
-                      '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
-                    }
-                  />
-                </LogoLink>
-              </div>
-            </LogoContainer>
-          </NavigationColumn>
-          <NavigationColumn>
-            <NavigationRight>
-              {/* <li>
+                <li>
+                  <NavigationItemFunctionLink
+                    theme={themeValue}
+                    onClick={() => {
+                      onRecipesClick()
+                    }}
+                  >
+                    Recipes
+                  </NavigationItemFunctionLink>
+                </li>
+                <li>
+                  <NavigationItem theme={themeValue} to="/articles">
+                    Articles
+                  </NavigationItem>
+                </li>
+                <li>
+                  <NavigationItem theme={themeValue} to="/shop">
+                    Shop
+                  </NavigationItem>
+                </li>
+              </Navigation>
+            </NavigationColumn>
+            <NavigationColumn>
+              <LogoContainer>
+                <div>
+                  <LogoLink to="/">
+                    <LogoImage
+                      alt="Knife and Fish Logo"
+                      src={
+                        '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
+                      }
+                    />
+                  </LogoLink>
+                </div>
+              </LogoContainer>
+            </NavigationColumn>
+            <NavigationColumn>
+              <NavigationRight>
+                {/* <li>
               <NavigationItem
                 theme={themeValue}
                 onClick={() => {
@@ -564,168 +610,211 @@ const Header = (props: HeaderProps) => {
                 Plants
               </NavigationItem>
             </li> */}
-              <li>
-                <NavigationItemRight to="/story" theme={themeValue}>
-                  About
-                </NavigationItemRight>
-              </li>
-              <li>
-                <SVGLink
-                  onClick={(event: React.MouseEvent) => {
-                    onSearchClick(event)
-                  }}
-                >
-                  <NavigationItemIcon theme={themeValue}>
-                    <path
-                      d="M16.3,13.8c-0.3-0.3-0.8-0.5-1.3-0.5c-0.3,0-0.7,0.1-1,0.3l-1.7-1.7c1.2-1.3,1.8-3,1.8-4.8
+                <li>
+                  <NavigationItemRight to="/story" theme={themeValue}>
+                    About
+                  </NavigationItemRight>
+                </li>
+                <li>
+                  <SVGLink
+                    onClick={(event: React.MouseEvent) => {
+                      onSearchClick(event)
+                    }}
+                  >
+                    <NavigationItemIcon theme={themeValue}>
+                      <path
+                        d="M16.3,13.8c-0.3-0.3-0.8-0.5-1.3-0.5c-0.3,0-0.7,0.1-1,0.3l-1.7-1.7c1.2-1.3,1.8-3,1.8-4.8
 	c0-1.9-0.7-3.7-2.1-5C10.8,0.7,9,0,7.1,0C3.2,0,0,3.2,0,7.1c0,1.9,0.7,3.7,2.1,5c2.7,2.7,7,2.8,9.8,0.2l1.7,1.7
 	c-0.4,0.7-0.4,1.6,0.2,2.2l3.2,3.2c0.3,0.3,0.8,0.5,1.3,0.5c0.5,0,0.9-0.2,1.3-0.5c0.7-0.7,0.7-1.8,0-2.5c0,0,0,0,0,0L16.3,13.8z
 	 M2.6,11.6c-2.5-2.5-2.5-6.5,0-9s6.5-2.5,9,0s2.5,6.5,0,9c-1.2,1.2-2.8,1.9-4.5,1.9C5.4,13.5,3.8,12.8,2.6,11.6L2.6,11.6z M19,19
 	c-0.4,0.4-1.1,0.4-1.5,0l-3.2-3.2c-0.4-0.4-0.4-1.1,0-1.5c0.2-0.2,0.5-0.3,0.7-0.3c0.3,0,0.5,0.1,0.7,0.3l3.2,3.2
 	C19.3,17.9,19.3,18.5,19,19L19,19z"
-                    />
-                  </NavigationItemIcon>
-                </SVGLink>
-              </li>
-              <li>
-                <SVGLink>
-                  <ProfileIcon onClick={onProfileClick} theme={themeValue} />
-                </SVGLink>
-              </li>
-            </NavigationRight>
-          </NavigationColumn>
-        </NavigationContainer>
-      </NavigationHeader>
-      <HeaderOuter {...{ isUp: menuUp }} className="row">
-        <HeaderInner12 {...{ isMenu: menuType === HeaderMenuType.PLANTS }} className="col12">
-          <Col3Full className="col3">
-            <HeaderClose
-              onClick={() => {
-                onCloseClick()
-              }}
-            >
-              X
-            </HeaderClose>
-            <HeaderMainNav>
-              <ul>
-                <HeaderNavHeaderLi>
-                  <Link to="/plants">Plants</Link>
-                </HeaderNavHeaderLi>
-                {props.data?.map((top: ProductFamily, index: number) => {
+                      />
+                    </NavigationItemIcon>
+                  </SVGLink>
+                </li>
+                <li>
+                  <SVGLink>
+                    <ProfileIcon onClick={onProfileClick} theme={themeValue} />
+                  </SVGLink>
+                </li>
+              </NavigationRight>
+            </NavigationColumn>
+          </NavigationContainer>
+        </NavigationHeader>
+        <HeaderOuter {...{ isUp: menuUp }} className="row">
+          <HeaderInner12 {...{ isMenu: menuType === HeaderMenuType.PLANTS }} className="col12">
+            <Col3Full className="col3">
+              <HeaderClose
+                onClick={() => {
+                  onCloseClick()
+                }}
+              >
+                X
+              </HeaderClose>
+              <HeaderMainNav>
+                <ul>
+                  <HeaderNavHeaderLi>
+                    <Link to="/plants">Plants</Link>
+                  </HeaderNavHeaderLi>
+                  {props.data?.map((top: ProductFamily, index: number) => {
+                    return (
+                      <HeaderNavItem
+                        key={`header-nav-item-${index}`}
+                        onClick={() => {
+                          dispatch(onFamilySelected(top.productId))
+                        }}
+                      >
+                        {top.name}
+                      </HeaderNavItem>
+                    )
+                  })}
+                </ul>
+              </HeaderMainNav>
+            </Col3Full>
+            <DetailSection6 className="col6">
+              <Columns>
+                {props.categories?.map((category: ProductCategory, index: number) => {
                   return (
-                    <HeaderNavItem
-                      key={`header-nav-item-${index}`}
+                    <HeaderDetailItemFunction
+                      key={`header-detail-item-${index}`}
+                      onMouseOver={() => {
+                        dispatch(onCategorySelected(category.productId))
+                      }}
+                      onMouseOut={() => {
+                        dispatch(onCategorySelected())
+                      }}
                       onClick={() => {
-                        dispatch(onFamilySelected(top.productId))
+                        const link = `/plants/${category.name.toLowerCase().replace(' ', '+')}`
+                        navigate(link)
                       }}
                     >
-                      {top.name}
-                    </HeaderNavItem>
+                      {category.name}
+                    </HeaderDetailItemFunction>
                   )
                 })}
-              </ul>
-            </HeaderMainNav>
-          </Col3Full>
-          <DetailSection6 className="col6">
-            <Columns>
-              {props.categories?.map((category: ProductCategory, index: number) => {
-                return (
-                  <HeaderDetailItemFunction
-                    key={`header-detail-item-${index}`}
-                    onMouseOver={() => {
-                      dispatch(onCategorySelected(category.productId))
-                    }}
-                    onMouseOut={() => {
-                      dispatch(onCategorySelected())
-                    }}
-                    onClick={() => {
-                      const link = `/plants/${category.name.toLowerCase().replace(' ', '+')}`
-                      navigate(link)
-                    }}
-                  >
-                    {category.name}
-                  </HeaderDetailItemFunction>
-                )
-              })}
-            </Columns>
-          </DetailSection6>
-          <DetailSection23 className="col3">
-            {props.categoryDetail?.imagePath && (
-              <HeaderNavDetailImg src={props.categoryDetail.imagePath} alt={props.categoryDetail.copy} />
-            )}
-            {props.categoryDetail?.copy && (
-              <HeaderNavDetailP className="darkText">{props.categoryDetail.copy}</HeaderNavDetailP>
-            )}
-          </DetailSection23>
-        </HeaderInner12>
+              </Columns>
+            </DetailSection6>
+            <DetailSection23 className="col3">
+              {props.categoryDetail?.imagePath && (
+                <HeaderNavDetailImg src={props.categoryDetail.imagePath} alt={props.categoryDetail.copy} />
+              )}
+              {props.categoryDetail?.copy && (
+                <HeaderNavDetailP className="darkText">{props.categoryDetail.copy}</HeaderNavDetailP>
+              )}
+            </DetailSection23>
+          </HeaderInner12>
 
-        <HeaderInner3 {...{ isMenu: menuType === HeaderMenuType.ARTICLES }} className="col3">
-          <Col12Full className="col3">
-            <HeaderClose
-              onClick={() => {
-                onCloseClick()
-              }}
-            >
-              X
-            </HeaderClose>
-            <HeaderMainNav style={{ paddingLeft: '70px' }}>
-              <HeaderNavHeader>
-                <Link to="/articles">Articles</Link>
-              </HeaderNavHeader>
-              <div className="row">
-                <div className="col6">
-                  <HeaderDetailItem to="/articles/soil">Soil</HeaderDetailItem>
-                  <HeaderDetailItem to="/articles/planting">Planting</HeaderDetailItem>
-                  <HeaderDetailItem to="/articles/gardening">Gardening</HeaderDetailItem>
-                  <HeaderDetailItem to="/articles/harvesting">Harvesting</HeaderDetailItem>
-                  <HeaderDetailItem to="/articles/storage">Storage</HeaderDetailItem>
+          <HeaderInner3 {...{ isMenu: menuType === HeaderMenuType.ARTICLES }} className="col3">
+            <Col12Full className="col3">
+              <HeaderClose
+                onClick={() => {
+                  onCloseClick()
+                }}
+              >
+                X
+              </HeaderClose>
+              <HeaderMainNav style={{ paddingLeft: '70px' }}>
+                <HeaderNavHeader>
+                  <Link to="/articles">Articles</Link>
+                </HeaderNavHeader>
+                <div className="row">
+                  <div className="col6">
+                    <HeaderDetailItem to="/articles/soil">Soil</HeaderDetailItem>
+                    <HeaderDetailItem to="/articles/planting">Planting</HeaderDetailItem>
+                    <HeaderDetailItem to="/articles/gardening">Gardening</HeaderDetailItem>
+                    <HeaderDetailItem to="/articles/harvesting">Harvesting</HeaderDetailItem>
+                    <HeaderDetailItem to="/articles/storage">Storage</HeaderDetailItem>
+                  </div>
                 </div>
-              </div>
-            </HeaderMainNav>
-          </Col12Full>
-        </HeaderInner3>
+              </HeaderMainNav>
+            </Col12Full>
+          </HeaderInner3>
 
-        <HeaderInner4 {...{ isMenu: menuType === HeaderMenuType.RECIPES }} className="col3">
-          <Col12Full className="col12">
-            <HeaderClose
-              onClick={() => {
-                onCloseClick()
-              }}
-            >
-              X
-            </HeaderClose>
-            <HeaderMainNav style={{ paddingLeft: '70px' }}>
-              <HeaderNavHeader>
-                <Link to="/recipes">Recipes</Link>
-              </HeaderNavHeader>
-              <div className="row">
-                <Col6Full className="col6">
-                  <HeaderDetailItem style={{ color: '#C5724B', fontWeight: 'bold' }} to="/recipes">
-                    All
-                  </HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/appetizer">Appetizer</HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/condiment">Condiment</HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/dessert">Dessert</HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/drink">Drink</HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/main">Main</HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/side">Side</HeaderDetailItem>
-                  <HeaderDetailItem to="/recipes/snack">Snack</HeaderDetailItem>
-                </Col6Full>
-                {/* <Col6Full className="col6">
+          <HeaderInner4 {...{ isMenu: menuType === HeaderMenuType.RECIPES }} className="col3">
+            <Col12Full className="col12">
+              <HeaderClose
+                onClick={() => {
+                  onCloseClick()
+                }}
+              >
+                X
+              </HeaderClose>
+              <HeaderMainNav style={{ paddingLeft: '70px' }}>
+                <HeaderNavHeader>
+                  <Link to="/recipes">Recipes</Link>
+                </HeaderNavHeader>
+                <div className="row">
+                  <Col6Full className="col6">
+                    <HeaderDetailItem style={{ color: '#C5724B', fontWeight: 'bold' }} to="/recipes">
+                      All
+                    </HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/appetizer">Appetizer</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/condiment">Condiment</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/dessert">Dessert</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/drink">Drink</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/main">Main</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/side">Side</HeaderDetailItem>
+                    <HeaderDetailItem to="/recipes/snack">Snack</HeaderDetailItem>
+                  </Col6Full>
+                  {/* <Col6Full className="col6">
                     <HeaderDetailItem to="/recipes/breakfast">Charcuterie</HeaderDetailItem>
                     <HeaderDetailItem to="/recipes/breakfast">Baking</HeaderDetailItem>
                     <HeaderDetailItem to="/recipes/breakfast">Pickling</HeaderDetailItem>
                     <HeaderDetailItem to="/recipes/breakfast">Fermentation</HeaderDetailItem>
                     <HeaderDetailItem to="/recipes/breakfast">Condiments</HeaderDetailItem>
                   </Col6Full> */}
-              </div>
-            </HeaderMainNav>
-          </Col12Full>
-        </HeaderInner4>
-      </HeaderOuter>
-      <SearchContainer></SearchContainer>
-      <HeaderNoticationContainer></HeaderNoticationContainer>
-    </header>
+                </div>
+              </HeaderMainNav>
+            </Col12Full>
+          </HeaderInner4>
+        </HeaderOuter>
+        <SearchContainer></SearchContainer>
+        <HeaderNoticationContainer></HeaderNoticationContainer>
+      </header>
+      <header className="hidden-lg">
+        <nav role="navigation">
+          <MobileNavigation>
+            {/* <li>
+              <NavigationItem
+                theme={themeValue}
+                onClick={() => {
+                  this.onSeedsClick()
+                }}
+              >
+                Plants
+              </NavigationItem>
+            </li> */}
+            <li>
+              <MobileNavigationItem to="/recipes">Recipes</MobileNavigationItem>
+            </li>
+            <li>
+              <MobileNavigationItem to="/articles">Articles</MobileNavigationItem>
+            </li>
+          </MobileNavigation>
+        </nav>
+        <MobileLogoContainer>
+          <div>
+            <MobileLogoLink to="/">
+              <MobileLogoImage
+                width="100"
+                height="75"
+                alt="Knife and Fish Logo"
+                src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
+              >
+                <noscript>
+                  <img
+                    src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
+                    width="100"
+                    height="75"
+                  />
+                </noscript>
+              </MobileLogoImage>
+            </MobileLogoLink>
+          </div>
+        </MobileLogoContainer>
+      </header>
+    </>
   )
 }
 
