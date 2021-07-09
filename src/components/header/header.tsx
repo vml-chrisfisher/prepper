@@ -536,8 +536,7 @@ const Header = (props: HeaderProps) => {
     text-decoration: none;
   `
 
-  const MobileLogoImage = styled(props => <amp-img {...props} />)`
-    display: inline-block;
+  const MobileLogoImage = styled.img`
     padding-right: 20px;
     width: 100px;
   `
@@ -791,28 +790,22 @@ const Header = (props: HeaderProps) => {
             <li>
               <MobileNavigationItem to="/articles">Articles</MobileNavigationItem>
             </li>
+            <li>
+              <MobileLogoContainer>
+                <div>
+                  <MobileLogoLink to="/">
+                    <MobileLogoImage
+                      width="100"
+                      height="75"
+                      alt="Knife and Fish Logo"
+                      src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
+                    />
+                  </MobileLogoLink>
+                </div>
+              </MobileLogoContainer>
+            </li>
           </MobileNavigation>
         </nav>
-        <MobileLogoContainer>
-          <div>
-            <MobileLogoLink to="/">
-              <MobileLogoImage
-                width="100"
-                height="75"
-                alt="Knife and Fish Logo"
-                src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
-              >
-                <noscript>
-                  <img
-                    src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
-                    width="100"
-                    height="75"
-                  />
-                </noscript>
-              </MobileLogoImage>
-            </MobileLogoLink>
-          </div>
-        </MobileLogoContainer>
       </header>
     </>
   )
