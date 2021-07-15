@@ -1,22 +1,26 @@
-import { all, takeEvery } from 'redux-saga/effects';
-import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas';
-import { HEADER_ACTION_TYPES } from './ducks/header/types';
-import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas';
-import { CREATE_HOUSEHOLD_FROM } from './ducks/household/types';
-import { localStorageLoginAsync, submitLoginAsync } from './ducks/login/sagas';
-import { LOGIN_STEPS } from './ducks/login/types';
-import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas';
-import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types';
-import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas';
-import { PROFILE_STEPS } from './ducks/profile/types';
-import { RECIPEBOX } from './ducks/recipesBox/types';
-import { submitSearchAsync } from './ducks/search/sagas';
-import { SEARCH_ACTION_TYPES } from './ducks/search/types';
+import { all, takeEvery } from 'redux-saga/effects'
+import { onSubmitContactRecipe } from './ducks/contact/action'
+import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
+import { HEADER_ACTION_TYPES } from './ducks/header/types'
+import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas'
+import { CREATE_HOUSEHOLD_FROM } from './ducks/household/types'
+import { localStorageLoginAsync, submitLoginAsync } from './ducks/login/sagas'
+import { LOGIN_STEPS } from './ducks/login/types'
+import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
+import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
+import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
+import { PROFILE_STEPS } from './ducks/profile/types'
+import { RECIPEBOX } from './ducks/recipesBox/types'
+import { submitSearchAsync } from './ducks/search/sagas'
+import { SEARCH_ACTION_TYPES } from './ducks/search/types'
 import {
   fetchRecipesBoxAsync,
   submitRecipeBoxArticleAddAsync,
+  submitRecipeBoxArticleAddViewAsync,
   submitRecipeBoxArticleDeleteAsync,
   submitRecipeBoxRecipeAddAsync,
+  submitRecipeBoxRecipeAddCookedAsync,
+  submitRecipeBoxRecipeAddViewAsync,
   submitRecipeBoxRecipeDeleteAsync,
 } from './ducks/recipesBox/sagas'
 import {
@@ -94,6 +98,14 @@ function* watchRecipeBoxAddRecipe() {
   yield takeEvery(RECIPEBOX.TRY_ADD_RECIPE, submitRecipeBoxRecipeAddAsync)
 }
 
+function* watchRecipeAddView() {
+  yield takeEvery(RECIPEBOX.TRY_ADD_ARTICLE_VIEW, submitRecipeBoxRecipeAddViewAsync)
+}
+
+function* watchRecipeAddCooked() {
+  yield takeEvery(RECIPEBOX.TRY_ADD_RECIPE_COOKED, submitRecipeBoxRecipeAddCookedAsync)
+}
+
 function* watchRecipeBoxDeleteRecipe() {
   yield takeEvery(RECIPEBOX.TRY_DELETE_RECIPE, submitRecipeBoxRecipeDeleteAsync)
 }
@@ -104,6 +116,10 @@ function* watchRecipeBoxAddArticle() {
 
 function* watchRecipeBoxDeleteArticle() {
   yield takeEvery(RECIPEBOX.TRY_DELETE_ARTICLE, submitRecipeBoxArticleDeleteAsync)
+}
+
+function* watchArticleAddView() {
+  yield takeEvery(RECIPEBOX.TRY_ADD_ARTICLE_VIEW, submitRecipeBoxArticleAddViewAsync)
 }
 
 function* watchLocalStorageLogin() {
@@ -120,7 +136,10 @@ export default function* rootSaga() {
     watchPartnershipContact(),
     watchProfile(),
     watchRecipeBoxAddRecipe(),
+    watchRecipeAddView(),
+    watchRecipeAddCooked(),
     watchRecipeBoxDeleteRecipe(),
+    watchArticleAddView(),
     watchRecipeContact(),
     watchRemoveRecipe(),
     watchSearch(),
@@ -129,6 +148,6 @@ export default function* rootSaga() {
     watchUploadRecipe(),
     watchRecipeBoxAddArticle(),
     watchRecipeBoxDeleteArticle(),
-    watchLocalStorageLogin()
+    watchLocalStorageLogin(),
   ])
 }

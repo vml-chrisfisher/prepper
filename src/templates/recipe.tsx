@@ -1,25 +1,26 @@
-import styled from '@emotion/styled';
-import dateformat from 'dateformat';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React, { useEffect } from 'react';
-import Helmet from 'react-helmet';
-import LazyLoad from 'react-lazy-load';
-import { useDispatch, useSelector } from 'react-redux';
-import Bookmark from '../components/common/buttons/bookmark';
-import FeaturedContentRow from '../components/featuredContentRow';
-import FeatureContentRowProps from '../components/featuredContentRow/interface';
-import Footer from '../components/footer';
-import GeneralContentRow from '../components/generalContentRow';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Sidebar from '../components/header/profile_login_create_account';
-import Layout from '../components/layout';
-import MainContainer from '../components/layout/mainContainer';
-import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions';
-import { getAccessToken, getUserId } from '../store/ducks/profile/selectors';
-import { onTryAddRecipe, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions';
-import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors';
+import styled from '@emotion/styled'
+import dateformat from 'dateformat'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React, { useEffect } from 'react'
+import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
+import { useDispatch, useSelector } from 'react-redux'
+import Bookmark from '../components/common/buttons/bookmark'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
+import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
+import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
+import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
+import { onTryAddRecipe, onTryAddRecipeView, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
+import { RecipeBoxRecipe } from '../store/ducks/recipesBox/interfaces'
+import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
 import {
   RecipeProps,
   AllContentfulRecipe,
@@ -218,6 +219,27 @@ const RecipeTemplate = (props: RecipeProps) => {
   const bannerHeight =
     (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
+  const userId = useSelector(getUserId)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (userId) {
+      const article: RecipeBoxRecipe = {
+        userId: userId,
+        recipeId: recipeId,
+        recipeName: post.title,
+        recipeSlug: post.slug,
+        recipeDescription: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+        recipeImagePath: post.bannerImage.file.url,
+        recipeImageMeta: post.bannerImage.description,
+        recipeBasePath: 'recipe',
+        date: new Date().toUTCString(),
+      }
+      dispatch(onTryAddRecipeView(article))
+    }
+  })
+
   const keywords = new Array<string>()
   keywords.push(post.mealType)
   if (post.proteinType && post.proteinType.length > 0) {
@@ -233,10 +255,6 @@ const RecipeTemplate = (props: RecipeProps) => {
   expirationDateRaw.setFullYear(expirationDateRaw.getFullYear())
 
   const isSelected = useSelector(state => getRecipeBoxIsRecipeSelected(state, recipeId))
-
-  const userId = useSelector(getUserId)
-
-  const dispatch = useDispatch()
 
   const onRecipeClick = (event: React.MouseEvent) => {
     event.preventDefault()

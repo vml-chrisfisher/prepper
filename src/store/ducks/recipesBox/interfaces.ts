@@ -14,6 +14,7 @@ export interface RecipeBoxRecipe {
   recipeImagePath: string
   recipeImageMeta: string
   recipeBasePath: string
+  date: string
 }
 
 export interface RecipeBoxArticle {
@@ -25,4 +26,5 @@ export interface RecipeBoxArticle {
   articleImagePath: string
   articleImageMeta: string
   articleBasePath: string
+  date: string
 }

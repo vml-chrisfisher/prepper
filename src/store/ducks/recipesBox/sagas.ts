@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { actionChannel, call, put } from 'redux-saga/effects';
-import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces';
-import { RECIPEBOX } from './types';
+import axios from 'axios'
+import { actionChannel, call, put } from 'redux-saga/effects'
+import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
+import { RECIPEBOX } from './types'
 
 const fetchRecipesBox = (userId: string) => {
   return axios.get(`https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/${userId}`)
@@ -68,6 +68,74 @@ export function* submitRecipeBoxRecipeAddAsync(action: any) {
   } else {
     yield put({
       type: RECIPEBOX.ADD_RECIPE_FAILURE,
+    })
+  }
+}
+
+const submitRecipeBoxRecipeAddView = (payload: RecipeBoxRecipe) => {
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/recipe/addView', payload)
+}
+
+export function* submitRecipeBoxRecipeAddViewAsync(action: any) {
+  yield put({
+    type: RECIPEBOX.ADDING_ADD_RECIPE_VIEW,
+  })
+
+  const { userId, recipeId } = action.payload
+  if (userId && recipeId) {
+    try {
+      yield call(submitRecipeBoxRecipeAddView, action.payload as RecipeBoxRecipe)
+
+      yield put({
+        type: RECIPEBOX.ADD_RECIPE_VIEW_SUCCESS,
+        payload: action.payload,
+      })
+      yield put({
+        type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
+        payload: userId,
+      })
+    } catch (error) {
+      yield put({
+        type: RECIPEBOX.ADD_RECIPE_VIEW_FAILURE,
+      })
+    }
+  } else {
+    yield put({
+      type: RECIPEBOX.ADD_RECIPE_VIEW_FAILURE,
+    })
+  }
+}
+
+const submitRecipeBoxRecipeAddCooked = (payload: RecipeBoxRecipe) => {
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/recipe/addCooked', payload)
+}
+
+export function* submitRecipeBoxRecipeAddCookedAsync(action: any) {
+  yield put({
+    type: RECIPEBOX.ADDING_ADD_RECIPE_COOKED,
+  })
+
+  const { userId, recipeId } = action.payload
+  if (userId && recipeId) {
+    try {
+      yield call(submitRecipeBoxRecipeAddCooked, action.payload as RecipeBoxRecipe)
+
+      yield put({
+        type: RECIPEBOX.ADD_RECIPE_COOKED_SUCCESS,
+        payload: action.payload,
+      })
+      yield put({
+        type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
+        payload: userId,
+      })
+    } catch (error) {
+      yield put({
+        type: RECIPEBOX.ADD_RECIPE_COOKED_FAILURE,
+      })
+    }
+  } else {
+    yield put({
+      type: RECIPEBOX.ADD_RECIPE_COOKED_FAILURE,
     })
   }
 }
@@ -174,6 +242,40 @@ export function* submitRecipeBoxArticleDeleteAsync(action: any) {
   } else {
     yield put({
       type: RECIPEBOX.DELETE_ARTICLE_FAILURE,
+    })
+  }
+}
+
+const submitRecipeBoxArticleAddView = (payload: RecipeBoxArticle) => {
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/recipesBox/article/addView', payload)
+}
+
+export function* submitRecipeBoxArticleAddViewAsync(action: any) {
+  yield put({
+    type: RECIPEBOX.ADDING_ADD_ARTICLE_VIEW,
+  })
+
+  const { userId, articleId } = action.payload
+  if (userId && articleId) {
+    try {
+      yield call(submitRecipeBoxArticleAddView, action.payload as RecipeBoxArticle)
+
+      yield put({
+        type: RECIPEBOX.ADD_ARTICLE_VIEW_SUCCESS,
+        payload: action.payload,
+      })
+      yield put({
+        type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
+        payload: userId,
+      })
+    } catch (error) {
+      yield put({
+        type: RECIPEBOX.ADD_ARTICLE_VIEW_FAILURE,
+      })
+    }
+  } else {
+    yield put({
+      type: RECIPEBOX.ADD_ARTICLE_VIEW_FAILURE,
     })
   }
 }

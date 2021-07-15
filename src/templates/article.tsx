@@ -1,28 +1,34 @@
-import styled from '@emotion/styled';
-import dateformat from 'dateformat';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React, { useEffect } from 'react';
-import Helmet from 'react-helmet';
-import LazyLoad from 'react-lazy-load';
-import { useDispatch, useSelector } from 'react-redux';
-import ArticleSection from '../components/articleSection';
-import ArticleSecionInterface from '../components/articleSection/interface';
-import Bookmark from '../components/common/buttons/bookmark';
-import FeaturedContentRow from '../components/featuredContentRow';
-import FeatureContentRowProps from '../components/featuredContentRow/interface';
-import Footer from '../components/footer';
-import GeneralContentRow from '../components/generalContentRow';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Sidebar from '../components/header/profile_login_create_account';
-import Layout from '../components/layout';
-import MainContainer from '../components/layout/mainContainer';
-import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions';
-import { getUserId } from '../store/ducks/profile/selectors';
-import { onTryAddArticle, onTryDeleteArticle, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions';
-import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors';
-import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article';
+import styled from '@emotion/styled'
+import dateformat from 'dateformat'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React, { useEffect } from 'react'
+import Helmet from 'react-helmet'
+import LazyLoad from 'react-lazy-load'
+import { useDispatch, useSelector } from 'react-redux'
+import ArticleSection from '../components/articleSection'
+import ArticleSecionInterface from '../components/articleSection/interface'
+import Bookmark from '../components/common/buttons/bookmark'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
+import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
+import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
+import { getUserId } from '../store/ducks/profile/selectors'
+import {
+  onTryAddArticle,
+  onTryAddArticleView,
+  onTryDeleteArticle,
+  onTryDeleteRecipe,
+} from '../store/ducks/recipesBox/actions'
+import { RecipeBoxArticle } from '../store/ducks/recipesBox/interfaces'
+import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors'
+import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 
 const ArticleTemplate = (props: ArticleProps) => {
   useEffect(() => {
@@ -139,6 +145,27 @@ const ArticleTemplate = (props: ArticleProps) => {
     return tag.tag
   })
 
+  const userId = useSelector(getUserId)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (userId) {
+      const article: RecipeBoxArticle = {
+        userId: userId,
+        articleId: articleId,
+        articleName: post.title,
+        articleSlug: post.slug,
+        articleDescription: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+        articleImagePath: post.bannerImage.file.url,
+        articleImageMeta: post.bannerImage.description,
+        articleBasePath: 'article',
+        date: new Date().toUTCString(),
+      }
+      dispatch(onTryAddArticleView(article))
+    }
+  })
+
   const structuredDataArticle = `{
       "@context": "http://schema.org",
       "@type": "NewsArticle",
@@ -209,10 +236,6 @@ const ArticleTemplate = (props: ArticleProps) => {
       }
     }),
   }
-
-  const userId = useSelector(getUserId)
-
-  const dispatch = useDispatch()
 
   const isSelected = useSelector(state => getRecipesBoxIsArticleSelected(state, articleId))
 
