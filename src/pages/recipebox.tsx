@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
+import * as Scroll from 'react-scroll'
+import { animateScroll as scroll, Element, Events, Link, scroller, scrollSpy } from 'react-scroll'
 import { ArticleSummaryInterface, ArticleSummaryNode } from '../components/articleSummary/interface'
 import Footer from '../components/footer'
 import HeaderContainer from '../components/header/container'
@@ -20,6 +22,8 @@ class RecipeBoxIndex extends React.Component<ArticlesProps> {
   }
 
   render() {
+    const Element = Scroll.Element
+    const scroller = Scroll.scroller
     const MainContainer = styled.div`
       background-color: #fff;
       position: absolute;
@@ -135,6 +139,20 @@ class RecipeBoxIndex extends React.Component<ArticlesProps> {
       }
     })
 
+    const onSectionFilterClick = (section: string) => {
+      const element = document.getElementById(section)
+      if (element) {
+        const headerOffset = 75
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }
+    }
+
     while (postsCopy.length > 0) {
       chunked.push(postsCopy.splice(0, chunkSize))
     }
@@ -154,15 +172,22 @@ class RecipeBoxIndex extends React.Component<ArticlesProps> {
                   <SidebarList>
                     <TopLevel>Recipes</TopLevel>
                     <SeconddaryList>
-                      <SecondLevel>Recently Viewed</SecondLevel>
-                      <SecondLevel>Recently Added</SecondLevel>
-                      <SecondLevel>Most Cooked</SecondLevel>
+                      <SecondLevel onClick={() => onSectionFilterClick('recipes-recently-viewed')}>
+                        Recently Viewed
+                      </SecondLevel>
+                      <SecondLevel onClick={() => onSectionFilterClick('recipes-recently-added')}>
+                        Recently Added
+                      </SecondLevel>
+                      <SecondLevel onClick={() => onSectionFilterClick('RecipesMostCooked')}>Most Cooked</SecondLevel>
                     </SeconddaryList>
                     <TopLevel>Articles</TopLevel>
                     <SeconddaryList>
-                      <SecondLevel>Recently Viewed</SecondLevel>
-                      <SecondLevel>Recently Added</SecondLevel>
-                      <SecondLevel>Most Cooked</SecondLevel>
+                      <SecondLevel onClick={() => onSectionFilterClick('articles-recently-viewed')}>
+                        Recently Viewed
+                      </SecondLevel>
+                      <SecondLevel onClick={() => onSectionFilterClick('articles-recently-added')}>
+                        Recently Added
+                      </SecondLevel>
                     </SeconddaryList>
                     <FilterBy>Filter By</FilterBy>
                     <SeconddaryList>
@@ -192,7 +217,7 @@ class RecipeBoxIndex extends React.Component<ArticlesProps> {
                   ></SectionHeader>
                   <RandomFourSummary key={`articles-chuck-0`} chunk={chunked[1]}></RandomFourSummary>
                 </section>
-                <section id="recipes-mostly-cooked">
+                <section id="RecipesMostCooked">
                   <SectionHeader
                     title="Most Cooked"
                     description="A description about recently view recipes. This will be a great paragraph about your recently view recipes.  We make this a glorious paragraph. It will be amazing."

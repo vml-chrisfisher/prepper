@@ -20,15 +20,15 @@ import Layout from '../components/layout'
 import MainContainer from '../components/layout/mainContainer'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getUserId } from '../store/ducks/profile/selectors'
+import { RecipeBoxArticle } from '../store/ducks/recipesBox/interfaces'
+import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors'
+import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 import {
   onTryAddArticle,
   onTryAddArticleView,
   onTryDeleteArticle,
   onTryDeleteRecipe,
 } from '../store/ducks/recipesBox/actions'
-import { RecipeBoxArticle } from '../store/ducks/recipesBox/interfaces'
-import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors'
-import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 
 const ArticleTemplate = (props: ArticleProps) => {
   useEffect(() => {
@@ -412,15 +412,15 @@ const ArticleTemplate = (props: ArticleProps) => {
                           />
                         </InstagramSocialIcon>
                       </a>
+                      <Bookmark
+                        isSelected={isSelected}
+                        selectedCaption="Remove From Recipesbox"
+                        unselectedCaption="Add To RecipesBox"
+                        onClick={(event: React.MouseEvent) => {
+                          onArticleBookmarkClick(event)
+                        }}
+                      />
                     </SocialBar>
-                    <Bookmark
-                      isSelected={isSelected}
-                      selectedCaption="Remove From Recipesbox"
-                      unselectedCaption="Add To RecipesBox"
-                      onClick={(event: React.MouseEvent) => {
-                        onArticleBookmarkClick(event)
-                      }}
-                    />
                   </div>
                 </div>
               </div>

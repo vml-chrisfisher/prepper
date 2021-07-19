@@ -236,7 +236,7 @@ const RecipeTemplate = (props: RecipeProps) => {
         recipeBasePath: 'recipe',
         date: new Date().toUTCString(),
       }
-      dispatch(onTryAddRecipeView(article))
+      // dispatch(onTryAddRecipeView(article))
     }
   })
 
@@ -532,15 +532,15 @@ const RecipeTemplate = (props: RecipeProps) => {
                           />
                         </InstagramSocialIcon>
                       </a>
+                      <Bookmark
+                        isSelected={isSelected}
+                        selectedCaption="Remove From Recipesbox"
+                        unselectedCaption="Add To RecipesBox"
+                        onClick={(event: React.MouseEvent) => {
+                          onRecipeClick(event)
+                        }}
+                      />
                     </SocialBar>
-                    <Bookmark
-                      isSelected={isSelected}
-                      selectedCaption="Remove From Recipesbox"
-                      unselectedCaption="Add To RecipesBox"
-                      onClick={(event: React.MouseEvent) => {
-                        onRecipeClick(event)
-                      }}
-                    />
                   </div>
                 </div>
               </div>
