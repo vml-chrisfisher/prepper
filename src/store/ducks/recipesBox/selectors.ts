@@ -1,18 +1,21 @@
-import { ModifiedRecipeArticle, RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
+import { ModifiedRecipeArticle, RecipeBoxArticle, RecipeBoxRecipe, RecipesBox } from './interfaces'
 
-export const getRecipesBox = (state: any) => state?.recipesBox || {}
+export const getRecipesBox = (state: any) => {
+  return (state?.recipesBox as RecipesBox) || ({} as RecipesBox)
+}
 
 export const getRecipesBoxRecipes = (state: any) => {
-  return getRecipesBox(state).recipes
+  return getRecipesBox(state).Recipes
 }
 
 export const getRecipesBoxArticles = (state: any) => {
-  return getRecipesBox(state).articles
+  return getRecipesBox(state).Articles
 }
 
 export const getRecipeBoxIsRecipeSelected = (state: any, recipeId: string) => {
-  if (getRecipesBoxRecipes(state)) {
-    const recipesFound = getRecipesBoxRecipes(state)?.filter((recipe: RecipeBoxRecipe) => {
+  console.log('IN SEL: ', getRecipesBoxRecipes(state))
+  if (getRecipesBoxRecipes(state)?.All) {
+    const recipesFound = getRecipesBoxRecipes(state)?.All.filter((recipe: RecipeBoxRecipe) => {
       return recipe.recipeId === recipeId
     })
 
@@ -23,8 +26,8 @@ export const getRecipeBoxIsRecipeSelected = (state: any, recipeId: string) => {
 }
 
 export const getRecipesBoxIsArticleSelected = (state: any, articleId: string) => {
-  if (getRecipesBoxArticles(state)) {
-    const articlesFound = getRecipesBoxArticles(state)?.filter((article: RecipeBoxArticle) => {
+  if (getRecipesBoxArticles(state)?.All) {
+    const articlesFound = getRecipesBoxArticles(state)?.All.filter((article: RecipeBoxArticle) => {
       return article.articleId === articleId
     })
 
@@ -32,4 +35,24 @@ export const getRecipesBoxIsArticleSelected = (state: any, articleId: string) =>
   } else {
     return false
   }
+}
+
+export const getRecipesBoxRecipesRecentlyViewed = (state: any) => {
+  getRecipesBox(state).Recipes.RecentlyViewed
+}
+
+export const getRecipesBoxRecipesRecentlyAdded = (state: any) => {
+  getRecipesBox(state).Recipes.RecentlyAdded
+}
+
+export const getRecipesBoxRecipesMostCooked = (state: any) => {
+  getRecipesBox(state).Recipes.MostCooked
+}
+
+export const getRecipesBoxArticlesRecentlyViewed = (state: any) => {
+  getRecipesBox(state).Articles.RecentlyViewed
+}
+
+export const getRecipeBoxArticlesRecentlyAdded = (state: any) => {
+  getRecipesBox(state).Articles.RecentlyAdded
 }

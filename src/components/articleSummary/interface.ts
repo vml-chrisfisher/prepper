@@ -19,5 +19,10 @@ export interface ArticleSummaryNode {
       }
       title: string
     }
+    bodyCopy: {
+      childMarkdownRemark: {
+        rawMarkdownBody: string
+      }
+    }
   }
 }

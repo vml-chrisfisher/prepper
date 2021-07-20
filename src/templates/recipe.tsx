@@ -236,7 +236,7 @@ const RecipeTemplate = (props: RecipeProps) => {
         recipeBasePath: 'recipe',
         date: new Date().toUTCString(),
       }
-      // dispatch(onTryAddRecipeView(article))
+      dispatch(onTryAddRecipeView(article))
     }
   })
 
@@ -254,9 +254,7 @@ const RecipeTemplate = (props: RecipeProps) => {
   const expirationDateRaw = new Date(post.updatedAt)
   expirationDateRaw.setFullYear(expirationDateRaw.getFullYear())
 
-  const isSelected = useSelector(state => getRecipeBoxIsRecipeSelected(state, recipeId))
-
-  const onRecipeClick = (event: React.MouseEvent) => {
+  const onRecipeClick = (event: React.MouseEvent, isSelected: boolean) => {
     event.preventDefault()
     if (userId) {
       if (isSelected) {
@@ -533,11 +531,9 @@ const RecipeTemplate = (props: RecipeProps) => {
                         </InstagramSocialIcon>
                       </a>
                       <Bookmark
-                        isSelected={isSelected}
-                        selectedCaption="Remove From Recipesbox"
-                        unselectedCaption="Add To RecipesBox"
-                        onClick={(event: React.MouseEvent) => {
-                          onRecipeClick(event)
+                        idToFollow={recipeId}
+                        onClick={(event: React.MouseEvent, isSelected: boolean) => {
+                          onRecipeClick(event, isSelected)
                         }}
                       />
                     </SocialBar>

@@ -10,8 +10,7 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
   const copyLength = props.description.length < 200 ? props.description.length : 200
   const copyRaw = props.description.substr(0, copyLength)
   const lastPeriod = copyRaw.lastIndexOf('.')
-  const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
-
+  const copy = lastPeriod !== -1 ? copyRaw.substr(0, lastPeriod + 1) : `${copyRaw} ...`
   return (
     <Article key={props.slug}>
       <Link style={{ textDecoration: 'none' }} to={`/${props.basePath}/${props.slug}`}>
@@ -44,12 +43,12 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
         <OverlayContainer className="hidden-sm">
           <ArticleOverlay>
             <ArticleTitle>{props.title}</ArticleTitle>
-            {props.description && <ArticleDescription>{props.description}</ArticleDescription>}
+            <ArticleDescription dangerouslySetInnerHTML={{ __html: copy }}></ArticleDescription>
           </ArticleOverlay>
         </OverlayContainer>
         <OverlainContainerMobile className="hidden-lg">
           <TitleMobile>{props.title}</TitleMobile>
-          {copy && <ArticleDescription>{copy}</ArticleDescription>}
+          {copy && <ArticleDescription dangerouslySetInnerHTML={{ __html: copy }}></ArticleDescription>}
         </OverlainContainerMobile>
       </Link>
     </Article>
@@ -128,6 +127,7 @@ const ArticleDescription = styled.div`
   color: #333333;
   display: block;
   padding-top: 20px;
+  padding-right: 20px;
   text-decoration: none;
   @media (max-width: 767px) {
     font-size: 12px;

@@ -52,6 +52,7 @@ const FeatureTitle = styled.h2<ThemeProps>`
   }};
   text-align: center;
   padding-bottom: 20px;
+  font-size: 24px;
 `
 
 const FeatureDescription = styled.div<ThemeProps>`
@@ -59,7 +60,7 @@ const FeatureDescription = styled.div<ThemeProps>`
   margin-left: 10%;
   width: 80%;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 100;
   color: ${props => {
     return props.theme === 'white' ? '#FFFFFF' : '#464646'
   }};

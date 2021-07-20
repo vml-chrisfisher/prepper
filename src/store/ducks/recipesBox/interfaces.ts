@@ -1,3 +1,21 @@
+export interface RecipesBox {
+  Recipes: RecipeBoxRecipes
+  Articles: RecipeBoxArticles
+}
+
+export interface RecipeBoxRecipes {
+  All: Array<RecipeBoxRecipe>
+  RecentlyViewed: Array<RecipeBoxRecipe>
+  RecentlyAdded: Array<RecipeBoxRecipe>
+  MostCooked: Array<RecipeBoxRecipe>
+}
+
+export interface RecipeBoxArticles {
+  All: Array<RecipeBoxArticle>
+  RecentlyViewed: Array<RecipeBoxArticle>
+  RecentlyAdded: Array<RecipeBoxArticle>
+}
+
 export interface ModifiedRecipeArticle {
   id: string
   type: string

@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { actionChannel, call, put } from 'redux-saga/effects'
+import { actionChannel, call, put, select } from 'redux-saga/effects'
 import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
+import { getRecipeBoxIsRecipeSelected, getRecipesBoxIsArticleSelected } from './selectors'
 import { RECIPEBOX } from './types'
 
 const fetchRecipesBox = (userId: string) => {
@@ -8,6 +9,7 @@ const fetchRecipesBox = (userId: string) => {
 }
 
 export function* fetchRecipesBoxAsync(action: any) {
+  console.log('FETCHING RECIPE BOX')
   yield put({
     type: RECIPEBOX.FETCHING_RECIPEBOX,
   })
@@ -77,32 +79,39 @@ const submitRecipeBoxRecipeAddView = (payload: RecipeBoxRecipe) => {
 }
 
 export function* submitRecipeBoxRecipeAddViewAsync(action: any) {
-  yield put({
-    type: RECIPEBOX.ADDING_ADD_RECIPE_VIEW,
-  })
-
   const { userId, recipeId } = action.payload
-  if (userId && recipeId) {
-    try {
-      yield call(submitRecipeBoxRecipeAddView, action.payload as RecipeBoxRecipe)
 
-      yield put({
-        type: RECIPEBOX.ADD_RECIPE_VIEW_SUCCESS,
-        payload: action.payload,
-      })
-      yield put({
-        type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-        payload: userId,
-      })
-    } catch (error) {
+  const state = yield select()
+  const isSelected = getRecipeBoxIsRecipeSelected(state, recipeId)
+  console.log('IN: ', isSelected, recipeId)
+
+  if (isSelected) {
+    yield put({
+      type: RECIPEBOX.ADDING_ADD_RECIPE_VIEW,
+    })
+
+    if (userId && recipeId) {
+      try {
+        yield call(submitRecipeBoxRecipeAddView, action.payload as RecipeBoxRecipe)
+
+        yield put({
+          type: RECIPEBOX.ADD_RECIPE_VIEW_SUCCESS,
+          payload: action.payload,
+        })
+        yield put({
+          type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
+          payload: userId,
+        })
+      } catch (error) {
+        yield put({
+          type: RECIPEBOX.ADD_RECIPE_VIEW_FAILURE,
+        })
+      }
+    } else {
       yield put({
         type: RECIPEBOX.ADD_RECIPE_VIEW_FAILURE,
       })
     }
-  } else {
-    yield put({
-      type: RECIPEBOX.ADD_RECIPE_VIEW_FAILURE,
-    })
   }
 }
 
@@ -251,31 +260,36 @@ const submitRecipeBoxArticleAddView = (payload: RecipeBoxArticle) => {
 }
 
 export function* submitRecipeBoxArticleAddViewAsync(action: any) {
-  yield put({
-    type: RECIPEBOX.ADDING_ADD_ARTICLE_VIEW,
-  })
-
   const { userId, articleId } = action.payload
-  if (userId && articleId) {
-    try {
-      yield call(submitRecipeBoxArticleAddView, action.payload as RecipeBoxArticle)
+  const state = yield select()
+  const isSelected = getRecipesBoxIsArticleSelected(state, articleId)
 
-      yield put({
-        type: RECIPEBOX.ADD_ARTICLE_VIEW_SUCCESS,
-        payload: action.payload,
-      })
-      yield put({
-        type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-        payload: userId,
-      })
-    } catch (error) {
+  if (isSelected) {
+    yield put({
+      type: RECIPEBOX.ADDING_ADD_ARTICLE_VIEW,
+    })
+
+    if (userId && articleId) {
+      try {
+        yield call(submitRecipeBoxArticleAddView, action.payload as RecipeBoxArticle)
+
+        yield put({
+          type: RECIPEBOX.ADD_ARTICLE_VIEW_SUCCESS,
+          payload: action.payload,
+        })
+        yield put({
+          type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
+          payload: userId,
+        })
+      } catch (error) {
+        yield put({
+          type: RECIPEBOX.ADD_ARTICLE_VIEW_FAILURE,
+        })
+      }
+    } else {
       yield put({
         type: RECIPEBOX.ADD_ARTICLE_VIEW_FAILURE,
       })
     }
-  } else {
-    yield put({
-      type: RECIPEBOX.ADD_ARTICLE_VIEW_FAILURE,
-    })
   }
 }

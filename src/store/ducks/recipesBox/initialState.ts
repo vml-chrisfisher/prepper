@@ -1,7 +1,14 @@
-import { ModifiedRecipeArticle, RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
+import {
+  ModifiedRecipeArticle,
+  RecipeBoxArticle,
+  RecipeBoxArticles,
+  RecipeBoxRecipe,
+  RecipeBoxRecipes,
+} from './interfaces'
+import { getRecipeBoxIsRecipeSelected } from './selectors'
 
 export default {
-  recipes: Array<RecipeBoxRecipe>(),
-  articles: Array<RecipeBoxArticle>(),
+  Recipes: {} as RecipeBoxRecipes,
+  Articles: {} as RecipeBoxArticles,
   lastModified: Array<ModifiedRecipeArticle>(),
 }

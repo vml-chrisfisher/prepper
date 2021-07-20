@@ -20,6 +20,7 @@ export default ({ element }) => {
   sagaMiddleware.run(rootSaga)
 
   store.dispatch(tryLocalStorageLogin())
+  
   return <Provider store={store}>{element}</Provider>
 }
 

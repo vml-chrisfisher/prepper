@@ -99,7 +99,7 @@ function* watchRecipeBoxAddRecipe() {
 }
 
 function* watchRecipeAddView() {
-  yield takeEvery(RECIPEBOX.TRY_ADD_ARTICLE_VIEW, submitRecipeBoxRecipeAddViewAsync)
+  yield takeEvery(RECIPEBOX.TRY_ADD_RECIPE_VIEW, submitRecipeBoxRecipeAddViewAsync)
 }
 
 function* watchRecipeAddCooked() {

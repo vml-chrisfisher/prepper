@@ -21,14 +21,8 @@ import MainContainer from '../components/layout/mainContainer'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getUserId } from '../store/ducks/profile/selectors'
 import { RecipeBoxArticle } from '../store/ducks/recipesBox/interfaces'
-import { getRecipesBoxIsArticleSelected } from '../store/ducks/recipesBox/selectors'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
-import {
-  onTryAddArticle,
-  onTryAddArticleView,
-  onTryDeleteArticle,
-  onTryDeleteRecipe,
-} from '../store/ducks/recipesBox/actions'
+import { onTryAddArticle, onTryAddArticleView, onTryDeleteArticle } from '../store/ducks/recipesBox/actions'
 
 const ArticleTemplate = (props: ArticleProps) => {
   useEffect(() => {
@@ -237,9 +231,7 @@ const ArticleTemplate = (props: ArticleProps) => {
     }),
   }
 
-  const isSelected = useSelector(state => getRecipesBoxIsArticleSelected(state, articleId))
-
-  const onArticleBookmarkClick = (event: React.MouseEvent) => {
+  const onArticleBookmarkClick = (event: React.MouseEvent, isSelected: boolean) => {
     event.preventDefault()
     if (userId) {
       if (isSelected) {
@@ -413,11 +405,9 @@ const ArticleTemplate = (props: ArticleProps) => {
                         </InstagramSocialIcon>
                       </a>
                       <Bookmark
-                        isSelected={isSelected}
-                        selectedCaption="Remove From Recipesbox"
-                        unselectedCaption="Add To RecipesBox"
-                        onClick={(event: React.MouseEvent) => {
-                          onArticleBookmarkClick(event)
+                        idToFollow={articleId}
+                        onClick={(event: React.MouseEvent, isSelected: boolean) => {
+                          onArticleBookmarkClick(event, isSelected)
                         }}
                       />
                     </SocialBar>
