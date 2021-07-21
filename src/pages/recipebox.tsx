@@ -3,8 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React, { useEffect, useState } from 'react'
 import Helmet from 'react-helmet'
-import { useSelector } from 'react-redux'
-import * as Scroll from 'react-scroll'
 import { ArticleSummaryInterface, ArticleSummaryNode } from '../components/articleSummary/interface'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowDetailProps from '../components/featuredContentRow/featuredContentRowDetail/interface'
@@ -17,9 +15,7 @@ import RandomFourSummary from '../components/randomFourSummary'
 import SectionHeader from '../components/sectionHeader'
 import { ArticlesEdge, ArticlesProps } from '../page-interfaces/articles'
 import { RecipeBoxArticle, RecipeBoxRecipe } from '../store/ducks/recipesBox/interfaces'
-import { getRecipesBoxRecipesRecentlyViewed } from '../store/ducks/recipesBox/selectors'
 import { useAppSelector } from '../store/hooks'
-import { AppState } from '../store/rootReducer'
 
 const RecipeBoxIndex = (props: ArticlesProps) => {
   useEffect(() => {
@@ -29,8 +25,6 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   })
 
   const [secondarySelectedMenu, setSecondarySelectedMenu] = useState('')
-  const Element = Scroll.Element
-  const scroller = Scroll.scroller
 
   interface SecondayProps {
     isSelected: boolean
@@ -143,7 +137,7 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
     text-transform: uppercase;
   `
 
-  const createPostsCopy = (posts: ArticlesEdge[]) => {
+  const createPostsCopy = (posts: ArticleSummaryNode[]) => {
     return posts?.map((post: ArticleSummaryNode) => {
       return {
         description: post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
@@ -156,7 +150,7 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
     })
   }
 
-  const createRecipesCopy = (posts: ArticlesEdge[]) => {
+  const createRecipesCopy = (posts: ArticleSummaryNode[]) => {
     return posts?.map((post: ArticleSummaryNode) => {
       return {
         description: post.node.bodyCopy.childMarkdownRemark.rawMarkdownBody,
@@ -207,18 +201,16 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   const createRecipeChunks = (posts: RecipeBoxRecipe[]) => {
     const chunk = 4
     const chunked: ArticleSummaryInterface[][] = []
-    const copy = posts.map((recipe: RecipeBoxRecipe) => {
-      const copyLength = recipe.recipeDescription.length < 250 ? recipe.recipeDescription.length : 250
-      const copyRaw = recipe.recipeDescription.substr(0, copyLength)
-      const lastPeriod = copyRaw.lastIndexOf('.')
-      const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
+    const copy: ArticleSummaryInterface[] = posts.map((recipe: RecipeBoxRecipe) => {
       return {
         basePath: 'recipe',
-        description: copy,
+        description: recipe.recipeDescription,
         imagePath: recipe.recipeImagePath,
         imageDescription: recipe.recipeImageMeta,
         slug: recipe.recipeSlug,
         title: recipe.recipeName,
+        lastTimeViewed: recipe.lastTimeViewed,
+        lastTimeCooked: recipe.lastTimeCooked,
       }
     })
 
@@ -231,18 +223,15 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   const createArticleChunks = (posts: RecipeBoxArticle[]) => {
     const chunk = 4
     const chunked: ArticleSummaryInterface[][] = []
-    const copy = posts.map((article: RecipeBoxArticle) => {
-      const copyLength = article.articleDescription.length < 250 ? article.articleDescription.length : 250
-      const copyRaw = article.articleDescription.substr(0, copyLength)
-      const lastPeriod = copyRaw.lastIndexOf('.')
-      const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
+    const copy: ArticleSummaryInterface[] = posts.map((article: RecipeBoxArticle) => {
       return {
-        basePath: 'recipe',
-        description: copy,
+        basePath: 'article',
+        description: article.articleDescription,
         imagePath: article.articleImagePath,
         imageDescription: article.articleImageMeta,
         slug: article.articleSlug,
         title: article.articleName,
+        lastTimeViewed: article.lastTimeViewed,
       }
     })
 
@@ -252,9 +241,8 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
     return chunked
   }
 
-  const allChunkSize1 = 4
   const recipesRecentlyViewed = useAppSelector(state => state.recipesBox.Recipes.RecentlyViewed)
-  let recipesRecentlyViewedChunked: ArticleSummaryInterface[][]
+  let recipesRecentlyViewedChunked: ArticleSummaryInterface[][] = []
   if (recipesRecentlyViewed) {
     if (recipesRecentlyViewed.length > 4) {
       recipesRecentlyViewedChunked = createRecipeChunks(recipesRecentlyViewed.splice(0, 4))
@@ -264,7 +252,7 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   }
 
   const recipesRecentlyAdded = useAppSelector(state => state.recipesBox.Recipes.RecentlyAdded)
-  let recipeRecentlyAddedChunked: ArticleSummaryInterface[][]
+  let recipeRecentlyAddedChunked: ArticleSummaryInterface[][] = []
   if (recipesRecentlyAdded) {
     if (recipesRecentlyAdded.length > 4) {
       recipeRecentlyAddedChunked = createRecipeChunks(recipesRecentlyAdded.splice(0, 4))
@@ -274,7 +262,7 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   }
 
   const recipesMostCooked = useAppSelector(state => state.recipesBox.Recipes.MostCooked)
-  let recipesMostCookedChunked: ArticleSummaryInterface[][]
+  let recipesMostCookedChunked: ArticleSummaryInterface[][] = []
   if (recipesMostCooked) {
     if (recipesMostCooked.length > 4) {
       recipesMostCookedChunked = createRecipeChunks(recipesMostCooked.splice(0, 4))
@@ -284,14 +272,14 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   }
 
   const recipesAll = useAppSelector(state => state.recipesBox.Recipes.All)
-  let allRecipeChunked: ArticleSummaryInterface[][]
+  let allRecipeChunked: ArticleSummaryInterface[][] = []
   if (recipesAll) {
     allRecipeChunked = createRecipeChunks(recipesAll)
   }
   const allChunkSize = 4
 
   const articledRecentlyViewed = useAppSelector(state => state.recipesBox.Articles.RecentlyViewed)
-  let articlesRecentlyViewChunked: ArticleSummaryInterface[][]
+  let articlesRecentlyViewChunked: ArticleSummaryInterface[][] = []
   if (articledRecentlyViewed) {
     if (articledRecentlyViewed.length > 4) {
       articlesRecentlyViewChunked = createArticleChunks(articledRecentlyViewed.splice(0, 4))
@@ -301,7 +289,7 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   }
 
   const articlesRecentlyAdded = useAppSelector(state => state.recipesBox.Articles.RecentlyAdded)
-  let articlesRecentlyAddedChunked: ArticleSummaryInterface[][]
+  let articlesRecentlyAddedChunked: ArticleSummaryInterface[][] = []
   if (articlesRecentlyAdded) {
     if (articlesRecentlyAdded.length > 4) {
       articlesRecentlyAddedChunked = createArticleChunks(articlesRecentlyAdded.splice(0, 4))
@@ -311,7 +299,7 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   }
 
   const articlesAll = useAppSelector(state => state.recipesBox.Articles.All)
-  let allArticleChunked: ArticleSummaryInterface[][]
+  let allArticleChunked: ArticleSummaryInterface[][] = []
   if (articlesAll) {
     allArticleChunked = createArticleChunks(articlesAll)
   }

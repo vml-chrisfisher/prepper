@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React, { PureComponent } from 'react';
-import Helmet from 'react-helmet';
-import FooterProps from './interface';
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import React, { PureComponent } from 'react'
+import Helmet from 'react-helmet'
+import FooterProps from './interface'
 
 class FooterAMP extends PureComponent {
   render() {
@@ -182,7 +182,7 @@ class FooterAMP extends PureComponent {
             </div>
             <div className="col6">
               <div className="footer-bottom-link-container">
-                {/* <FooterLinkBottom theme={themeValue} href="/plants">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="/plants">
                   Plants
                 </FooterLinkBottom> */}
                 <Link className="footer-link-bottom" to="/recipes">
@@ -191,19 +191,19 @@ class FooterAMP extends PureComponent {
                 <Link className="footer-link-bottom" to="/contact">
                   Contact Us
                 </Link>
-                {/* <FooterLinkBottom theme={themeValue} href="/shipping">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="/shipping">
                   Shipping
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="/returns">
+                <FooterLinkBottom pageTheme={themeValue} href="/returns">
                   Returns
                 </FooterLinkBottom> */}
-                {/* <FooterLinkBottom theme={themeValue} href="/privacy">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="/privacy">
                   Privacy
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="/terms">
+                <FooterLinkBottom pageTheme={themeValue} href="/terms">
                   Terms
                 </FooterLinkBottom> */}
-                {/* <FooterLinkBottom theme={themeValue} href="careers">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="careers">
                   Careers
                 </FooterLinkBottom> */}
                 <Link className="footer-link-bottom" to="/sitemap.xml">

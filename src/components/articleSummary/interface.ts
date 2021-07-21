@@ -7,6 +7,8 @@ export interface ArticleSummaryInterface {
   imagePath: string
   imageDescription: string
   basePath: string
+  lastTimeViewed?: string
+  lastTimeCooked?: string
 }
 
 export interface ArticleSummaryNode {

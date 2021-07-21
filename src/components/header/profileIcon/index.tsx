@@ -1,37 +1,37 @@
-import styled from '@emotion/styled';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getProfileNameFirstLetter, getUserId } from '../../../store/ducks/profile/selectors';
-import ProfileIconProps from './interface';
+import styled from '@emotion/styled'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { getProfileNameFirstLetter, getUserId } from '../../../store/ducks/profile/selectors'
+import ProfileIconProps from './interface'
 
 const ProfileIcon = (props: ProfileIconProps) => {
-    const { onClick, theme } = props
-    const themeValue = props.theme
-    const userId: string = useSelector(getUserId)
-    const userFirstLetter = useSelector(getProfileNameFirstLetter)
+  const { onClick, theme } = props
+  const themeValue = props.theme
+  const userId: string = useSelector(getUserId)
+  const userFirstLetter = useSelector(getProfileNameFirstLetter)
 
-    interface ThemeProps {
-        theme: string
-    }
+  interface ThemeProps {
+    pageTheme: string
+  }
 
-    const ButtonContainer = styled.button`
+  const ButtonContainer = styled.button`
     background-color: transparent;
     border: none;
     cursor: pointer;
-    `
+  `
 
-    const NavigationItemProfileIcon = styled.svg<ThemeProps>`
+  const NavigationItemProfileIcon = styled.svg<ThemeProps>`
     cursor: pointer;
     display: inline-block;
     fill: ${props => {
-            return props.theme === 'white' ? '#FFFFFF' : '#464646'
-        }};
+      return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
+    }};
     height: 20px;
     margin-right: 25px;
     margin-top: 20px;
     stroke: ${props => {
-            return props.theme === 'white' ? '#FFFFFF' : '#464646'
-        }};
+      return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
+    }};
     stroke-width: 0.5;
     stroke-miterlimit: 10;
     width: 20px;
@@ -41,36 +41,39 @@ const ProfileIcon = (props: ProfileIconProps) => {
       transition: fill 1s ease;
     }
   `
-    const SVGProfileContainer = styled.svg`
-        width: 30px;
-        height: 30px;
-        padding-top: 15px;
-    `
+  const SVGProfileContainer = styled.svg`
+    width: 30px;
+    height: 30px;
+    padding-top: 15px;
+  `
 
-    const SVGProfileCircle = styled.circle`
-        fill: #CE2525;
-    `
+  const SVGProfileCircle = styled.circle`
+    fill: #ce2525;
+  `
 
-    const SVGProfileLetter = styled.text`
-        fill:#FFFFFF;
-        font-family:'PlayfairDisplay-Regular';
-        font-size: 18px;
-    `
+  const SVGProfileLetter = styled.text`
+    fill: #ffffff;
+    font-family: 'PlayfairDisplay-Regular';
+    font-size: 18px;
+  `
 
-    return (
-        <ButtonContainer onClick={(event: React.MouseEvent) => {
-            onClick(event)
-        }}>
-            {!userId && (<NavigationItemProfileIcon theme={themeValue}>
-                <rect
-                    x="8"
-                    y="16.8"
-                    transform="matrix(1.396295e-03 -1 1 1.396295e-03 -9.6291 25.7124)"
-                    width="0.1"
-                    height="1.8"
-                />
-                <path
-                    d="M16,4c0-0.6-0.2-1.2-0.6-1.8c-0.3-0.4-0.7-0.7-1.1-1c-0.4-0.3-0.9-0.5-1.4-0.6c-1.1-0.3-2.1-0.2-2.9,0.4
+  return (
+    <ButtonContainer
+      onClick={(event: React.MouseEvent) => {
+        onClick(event)
+      }}
+    >
+      {!userId && (
+        <NavigationItemProfileIcon pageTheme={themeValue}>
+          <rect
+            x="8"
+            y="16.8"
+            transform="matrix(1.396295e-03 -1 1 1.396295e-03 -9.6291 25.7124)"
+            width="0.1"
+            height="1.8"
+          />
+          <path
+            d="M16,4c0-0.6-0.2-1.2-0.6-1.8c-0.3-0.4-0.7-0.7-1.1-1c-0.4-0.3-0.9-0.5-1.4-0.6c-1.1-0.3-2.1-0.2-2.9,0.4
 	C9.8,0.8,9.6,0.6,9.4,0.5C8.9,0.2,8.4,0,7.8,0C7,0,6.3,0.1,5.6,0.4C5.3,0.6,5,0.7,4.8,1C3.7,1,2.7,1.2,1.9,1.7
 	c-0.7,0.4-1.2,1-1.6,1.7C0.1,4,0,4.7,0,5.3c0,0.3,0.1,0.6,0.2,0.9c0.1,0.3,0.3,0.5,0.4,0.8C1,7.3,1.3,7.6,1.8,7.7
 	C2,7.8,2.3,7.8,2.5,7.8c0.2,0,0.5,0,0.7-0.1c-0.2,0.7-0.4,1.3-0.6,2c-0.2,0.5-0.1,1.1,0.3,1.6l0,0c0,0.1,0.1,0.1,0.2,0.1h0
@@ -94,19 +97,21 @@ const ProfileIcon = (props: ProfileIconProps) => {
 	L2,4.9c0.5,0.3,1,0.5,1.5,0.6c0.1,0.7,0,1.4-0.2,2.2c-1,0.3-1.9,0-2.5-0.7C0,6-0.1,4.6,0.4,3.4C1.1,2,2.7,1.1,4.7,1.1
 	C4.4,1.3,4.2,1.6,4,1.9l0.1,0C4.8,0.6,6.5,0,7.7,0.1C9,0.2,10,0.8,10.4,1.7l0.1,0C10.3,1.5,10.2,1.2,10,1c1.7-1.1,4.1-0.3,5.3,1.2
 	c0.9,1.2,0.8,2.5-0.3,3.5L15,5.8c0.2-0.2,0.4-0.4,0.5-0.6C16.1,5.8,15.8,6.6,15.4,7.1L15.4,7.1z"
-                />
-            </NavigationItemProfileIcon>)}
-            {userId && (
-                <SVGProfileContainer viewBox="0 0 30 30">
-                    <g>
-                    <SVGProfileCircle cx="15" cy="15" r="15"></SVGProfileCircle>
-                    <SVGProfileLetter x="15" y="15" alignmentBaseline="middle" textAnchor="middle">{userFirstLetter}</SVGProfileLetter>
-                    </g>
-                </SVGProfileContainer>
-            )}
-
-        </ButtonContainer>
-    )
+          />
+        </NavigationItemProfileIcon>
+      )}
+      {userId && (
+        <SVGProfileContainer viewBox="0 0 30 30">
+          <g>
+            <SVGProfileCircle cx="15" cy="15" r="15"></SVGProfileCircle>
+            <SVGProfileLetter x="15" y="15" alignmentBaseline="middle" textAnchor="middle">
+              {userFirstLetter}
+            </SVGProfileLetter>
+          </g>
+        </SVGProfileContainer>
+      )}
+    </ButtonContainer>
+  )
 }
 
-export default ProfileIcon;
+export default ProfileIcon

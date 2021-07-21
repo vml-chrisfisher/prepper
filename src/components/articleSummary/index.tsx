@@ -2,40 +2,108 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
-import ArticleSummaryInterface from './interface'
+import { ArticleSummaryInterface } from './interface'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
 const ArticleSummary = (props: ArticleSummaryInterface) => {
-  console.log('PROPS: ', props)
-  const copyLength = props.description.length < 200 ? props.description.length : 200
-  const copyRaw = props.description.substr(0, copyLength)
-  const lastPeriod = copyRaw.lastIndexOf('.')
-  const copy = lastPeriod !== -1 ? copyRaw.substr(0, lastPeriod + 1) : `${copyRaw} ...`
+  const { title, description, slug, imagePath, imageDescription, basePath, lastTimeViewed, lastTimeCooked } = props
+
+  const createCopy = (description: string) => {
+    if (description.length === 0) {
+      return ''
+    }
+    const copyLength = description.length < 200 ? description.length : 200
+    const copyRaw = description.substr(0, copyLength)
+    const lastPeriod = copyRaw.lastIndexOf('.')
+    const copy = lastPeriod !== -1 ? copyRaw.substr(0, lastPeriod + 1) : `${copyRaw} ...`
+    return copy
+  }
+
+  const getReadableMonth = (monthNumber: number) => {
+    switch (monthNumber) {
+      case 0:
+        return 'January'
+      case 1:
+        return 'February'
+      case 2:
+        return 'March'
+      case 3:
+        return 'April'
+      case 4:
+        return 'May'
+      case 5:
+        return 'June'
+      case 6:
+        return 'July'
+      case 7:
+        return 'August'
+      case 8:
+        return 'September'
+      case 9:
+        return 'October'
+      case 10:
+        return 'November'
+      case 11:
+        return 'December'
+    }
+  }
+
+  const getReadableHour = (hourNumber: number) => {
+    return hourNumber > 12 ? hourNumber - 12 : hourNumber
+  }
+
+  const getReadableAMPM = (hourNumber: number) => {
+    return hourNumber > 12 ? 'PM' : 'AM'
+  }
+
+  const createReadableDate = (date: Date) => {
+    const today: Date = new Date()
+    if (
+      today.getDate() === date.getDate() &&
+      today.getMonth() === date.getMonth() &&
+      today.getFullYear() === date.getFullYear()
+    ) {
+      return `Today at ${getReadableHour(date.getHours())}:${date.getMinutes()} ${getReadableAMPM(date.getHours())}`
+    }
+
+    if (
+      today.getDate() - 1 === date.getDate() &&
+      today.getMonth() === date.getMonth() &&
+      today.getFullYear() === date.getFullYear()
+    ) {
+      return `Yesterday at ${getReadableHour(date.getHours())}:${date.getMinutes()} ${getReadableAMPM(date.getHours())}`
+    }
+
+    return `${getReadableMonth(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`
+  }
+
+  const copy = createCopy(description)
+
   return (
-    <Article key={props.slug}>
-      <Link style={{ textDecoration: 'none' }} to={`/${props.basePath}/${props.slug}`}>
+    <Article key={slug}>
+      <Link style={{ textDecoration: 'none' }} to={`/${basePath}/${slug}`}>
         <ArticleImageParent>
           <ArticleInside>
             <LazyLoad once offset={100}>
               <picture>
                 <source
                   type="image/webp"
-                  srcSet={`${props.imagePath}?fm=webp&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  srcSet={`${imagePath}?fm=webp&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
                     windowWidthHalf,
                   )}&fit=fill`}
                 />
                 <source
                   type="image/jpg"
-                  srcSet={`${props.imagePath}?fm=jpg&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  srcSet={`${imagePath}?fm=jpg&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
                     windowWidthHalf,
                   )}&fit=fill`}
                 />
                 <img
-                  src={`${props.imagePath}?fm=jpg&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
+                  src={`${imagePath}?fm=jpg&q=70&w=${Math.round(windowWidthHalf)}&h=${Math.round(
                     windowWidthHalf,
                   )}&fit=fill`}
-                  alt={props.imageDescription}
+                  alt={imageDescription}
                 />
               </picture>
             </LazyLoad>
@@ -43,12 +111,24 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
         </ArticleImageParent>
         <OverlayContainer className="hidden-sm">
           <ArticleOverlay>
-            <ArticleTitle>{props.title}</ArticleTitle>
+            <ArticleTitle>{title}</ArticleTitle>
             <ArticleDescription dangerouslySetInnerHTML={{ __html: copy }}></ArticleDescription>
+            {lastTimeViewed && !lastTimeCooked && (
+              <div>
+                <DateCaption>Last View On:</DateCaption>
+                <DateValue>{createReadableDate(new Date(Date.parse(lastTimeViewed)))}</DateValue>
+              </div>
+            )}
+            {lastTimeCooked && (
+              <div>
+                <DateCaption>Last Cooked On:</DateCaption>
+                <DateValue>{createReadableDate(new Date(Date.parse(lastTimeCooked)))}</DateValue>
+              </div>
+            )}
           </ArticleOverlay>
         </OverlayContainer>
         <OverlainContainerMobile className="hidden-lg">
-          <TitleMobile>{props.title}</TitleMobile>
+          <TitleMobile>{title}</TitleMobile>
           {copy && <ArticleDescription dangerouslySetInnerHTML={{ __html: copy }}></ArticleDescription>}
         </OverlainContainerMobile>
       </Link>
@@ -119,6 +199,7 @@ const ArticleTitle = styled.h3`
   padding-top: 20px;
   font-size: 18px;
   letter-spacing: -0.5px;
+  min-height: 56px;
 `
 
 const ArticleDescription = styled.div`
@@ -127,8 +208,38 @@ const ArticleDescription = styled.div`
   font-weight: 300;
   color: #333333;
   display: block;
-  padding-top: 20px;
   padding-right: 20px;
+  text-decoration: none;
+  min-height: 100px;
+  @media (max-width: 767px) {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
+`
+
+const DateCaption = styled.div`
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333333;
+  display: block;
+  padding-top: 7px;
+  text-decoration: none;
+  @media (max-width: 767px) {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
+`
+
+const DateValue = styled.div`
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: #333333;
+  display: block;
+  padding-top: 0px;
   text-decoration: none;
   @media (max-width: 767px) {
     font-size: 12px;

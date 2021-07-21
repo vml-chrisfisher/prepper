@@ -21,7 +21,7 @@ import MainContainer from '../components/layout/mainContainer'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getUserId } from '../store/ducks/profile/selectors'
 import { onTryAddArticle, onTryAddArticleView, onTryDeleteArticle } from '../store/ducks/recipesBox/actions'
-import { RecipeBoxArticle } from '../store/ducks/recipesBox/interfaces'
+import { RecipeBoxArticle, RecipeBoxArticlePayload } from '../store/ducks/recipesBox/interfaces'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
 
 const ArticleTemplate = (props: ArticleProps) => {
@@ -145,7 +145,7 @@ const ArticleTemplate = (props: ArticleProps) => {
 
   useEffect(() => {
     if (userId) {
-      const article: RecipeBoxArticle = {
+      const article: RecipeBoxArticlePayload = {
         userId: userId,
         articleId: articleId,
         articleName: post.title,
@@ -154,7 +154,7 @@ const ArticleTemplate = (props: ArticleProps) => {
         articleImagePath: post.bannerImage.file.url,
         articleImageMeta: post.bannerImage.description,
         articleBasePath: 'article',
-        date: new Date().toUTCString(),
+        date: new Date().toString(),
       }
       dispatch(onTryAddArticleView(article))
     }
@@ -247,6 +247,7 @@ const ArticleTemplate = (props: ArticleProps) => {
             articleImagePath: post.heroImage.file.url,
             articleImageMeta: post.heroImage.description,
             articleBasePath: 'article',
+            date: new Date().toString(),
           }),
         )
       }

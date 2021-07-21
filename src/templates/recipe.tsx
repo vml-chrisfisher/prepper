@@ -19,7 +19,7 @@ import MainContainer from '../components/layout/mainContainer'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
 import { onTryAddRecipe, onTryAddRecipeView, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
-import { RecipeBoxRecipe } from '../store/ducks/recipesBox/interfaces'
+import { RecipeBoxRecipe, RecipeBoxRecipePayload } from '../store/ducks/recipesBox/interfaces'
 import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
 import {
   RecipeProps,
@@ -225,7 +225,7 @@ const RecipeTemplate = (props: RecipeProps) => {
 
   useEffect(() => {
     if (userId) {
-      const article: RecipeBoxRecipe = {
+      const article: RecipeBoxRecipePayload = {
         userId: userId,
         recipeId: recipeId,
         recipeName: post.title,
@@ -270,6 +270,7 @@ const RecipeTemplate = (props: RecipeProps) => {
             recipeImagePath: post.heroImage.file.url,
             recipeImageMeta: post.heroImage.description,
             recipeBasePath: 'recipe',
+            date: new Date().toUTCString(),
           }),
         )
       }

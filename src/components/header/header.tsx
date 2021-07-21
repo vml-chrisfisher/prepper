@@ -29,7 +29,7 @@ interface MenuProps {
 }
 
 interface ThemeProps {
-  theme: string
+  pageTheme: string
 }
 
 interface SubMenuProps {
@@ -549,12 +549,12 @@ const Header = (props: HeaderProps) => {
     <>
       <header className="hidden-sm">
         <NavigationHeader role="navigation" showProfile={showHeaderProfile}>
-          <NavigationContainer theme={themeValue}>
+          <NavigationContainer pageTheme={themeValue}>
             <NavigationColumn>
               <Navigation>
                 {/* <li>
               <NavigationItem
-                theme={themeValue}
+                pageTheme={themeValue}
                 onClick={() => {
                   this.onSeedsClick()
                 }}
@@ -564,7 +564,7 @@ const Header = (props: HeaderProps) => {
             </li> */}
                 <li>
                   <NavigationItemFunctionLink
-                    theme={themeValue}
+                    pageTheme={themeValue}
                     onClick={() => {
                       onRecipesClick()
                     }}
@@ -573,12 +573,12 @@ const Header = (props: HeaderProps) => {
                   </NavigationItemFunctionLink>
                 </li>
                 <li>
-                  <NavigationItem theme={themeValue} to="/articles">
+                  <NavigationItem pageTheme={themeValue} to="/articles">
                     Articles
                   </NavigationItem>
                 </li>
                 <li>
-                  <NavigationItem theme={themeValue} to="/shop">
+                  <NavigationItem pageTheme={themeValue} to="/shop">
                     Shop
                   </NavigationItem>
                 </li>
@@ -602,7 +602,7 @@ const Header = (props: HeaderProps) => {
               <NavigationRight>
                 {/* <li>
               <NavigationItem
-                theme={themeValue}
+                pageTheme={themeValue}
                 onClick={() => {
                   this.onSeedsClick()
                 }}
@@ -611,12 +611,12 @@ const Header = (props: HeaderProps) => {
               </NavigationItem>
             </li> */}
                 <li>
-                  <NavigationItemRight style={{ paddingTop: '20px' }} to="/recipebox" theme={themeValue}>
+                  <NavigationItemRight style={{ paddingTop: '20px' }} to="/recipebox" pageTheme={themeValue}>
                     <RecipeBoxIcon />
                   </NavigationItemRight>
                 </li>
                 <li>
-                  <NavigationItemRight to="/story" theme={themeValue}>
+                  <NavigationItemRight to="/story" pageTheme={themeValue}>
                     About
                   </NavigationItemRight>
                 </li>
@@ -626,7 +626,7 @@ const Header = (props: HeaderProps) => {
                       onSearchClick(event)
                     }}
                   >
-                    <NavigationItemIcon theme={themeValue}>
+                    <NavigationItemIcon pageTheme={themeValue}>
                       <path
                         d="M16.3,13.8c-0.3-0.3-0.8-0.5-1.3-0.5c-0.3,0-0.7,0.1-1,0.3l-1.7-1.7c1.2-1.3,1.8-3,1.8-4.8
 	c0-1.9-0.7-3.7-2.1-5C10.8,0.7,9,0,7.1,0C3.2,0,0,3.2,0,7.1c0,1.9,0.7,3.7,2.1,5c2.7,2.7,7,2.8,9.8,0.2l1.7,1.7
@@ -640,7 +640,7 @@ const Header = (props: HeaderProps) => {
                 </li>
                 <li>
                   <SVGLink>
-                    <ProfileIcon onClick={onProfileClick} theme={themeValue} />
+                    <ProfileIcon onClick={onProfileClick} pageTheme={themeValue} />
                   </SVGLink>
                 </li>
               </NavigationRight>
@@ -782,7 +782,7 @@ const Header = (props: HeaderProps) => {
           <MobileNavigation>
             {/* <li>
               <NavigationItem
-                theme={themeValue}
+                pageTheme={themeValue}
                 onClick={() => {
                   this.onSeedsClick()
                 }}

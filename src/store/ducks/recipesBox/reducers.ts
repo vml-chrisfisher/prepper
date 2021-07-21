@@ -6,7 +6,6 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
     case RECIPEBOX.ADD_RECIPE_SUCCESS:
       return { ...state, lastModified: [...state.lastModified, { ...action.payload, type: 'recipe', action: 'add' }] }
     case RECIPEBOX.FETCHED_RECIPEBOX_SUCCESS:
-      console.log('SUCCESS REDUCER: ', action.payload)
       return {
         ...state,
         Recipes: action.payload.data.recipeBox.Recipes,

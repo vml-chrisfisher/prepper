@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React, { PureComponent } from 'react';
-import LazyLoad from 'react-lazy-load';
-import FooterProps from './interface';
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import React, { PureComponent } from 'react'
+import LazyLoad from 'react-lazy-load'
+import FooterProps from './interface'
 
 interface ThemeProps {
-  theme: string
+  pageTheme: string
 }
 
 class Footer extends PureComponent<FooterProps> {
@@ -16,29 +16,29 @@ class Footer extends PureComponent<FooterProps> {
         <FooterColumnsContainer className="row">
           <FooterColumn className="col3" />
           <FooterColumn className="col3">
-            <FooterTitle theme={themeValue}>Articles</FooterTitle>
-            <FooterParagraph theme={themeValue}>
+            <FooterTitle pageTheme={themeValue}>Articles</FooterTitle>
+            <FooterParagraph pageTheme={themeValue}>
               From learning the best knife to buy or how to cut an onion correctly.
             </FooterParagraph>
-            <FooterLinkMain theme={themeValue} href="/articles">
+            <FooterLinkMain pageTheme={themeValue} href="/articles">
               Read One
             </FooterLinkMain>
           </FooterColumn>
           <FooterColumn className="col3">
-            <FooterTitle theme={themeValue}>Recipes</FooterTitle>
-            <FooterParagraph theme={themeValue}>
+            <FooterTitle pageTheme={themeValue}>Recipes</FooterTitle>
+            <FooterParagraph pageTheme={themeValue}>
               Creating a meal, creates conversations and brings people to together. Let us help you.
             </FooterParagraph>
-            <FooterLinkMain theme={themeValue} href="/recipes">
+            <FooterLinkMain pageTheme={themeValue} href="/recipes">
               Get Recipes
             </FooterLinkMain>
           </FooterColumn>
           <FooterColumn className="col3">
-            <FooterTitle theme={themeValue}>Story</FooterTitle>
-            <FooterParagraph theme={themeValue}>
+            <FooterTitle pageTheme={themeValue}>Story</FooterTitle>
+            <FooterParagraph pageTheme={themeValue}>
               From a love to a mission to help everyone learn how to cook to one signature dish.
             </FooterParagraph>
-            <FooterLinkMain theme={themeValue} href="/story">
+            <FooterLinkMain pageTheme={themeValue} href="/story">
               Read
             </FooterLinkMain>
           </FooterColumn>
@@ -86,31 +86,31 @@ class Footer extends PureComponent<FooterProps> {
             </div>
             <div className="col6">
               <FooterBottomLinkContainer>
-                {/* <FooterLinkBottom theme={themeValue} href="/plants">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="/plants">
                   Plants
                 </FooterLinkBottom> */}
-                <FooterLinkBottom theme={themeValue} to="/recipes">
+                <FooterLinkBottom pageTheme={themeValue} to="/recipes">
                   Recipes
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} to="/contact">
+                <FooterLinkBottom pageTheme={themeValue} to="/contact">
                   Contact Us
                 </FooterLinkBottom>
-                {/* <FooterLinkBottom theme={themeValue} href="/shipping">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="/shipping">
                   Shipping
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="/returns">
+                <FooterLinkBottom pageTheme={themeValue} href="/returns">
                   Returns
                 </FooterLinkBottom> */}
-                {/* <FooterLinkBottom theme={themeValue} href="/privacy">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="/privacy">
                   Privacy
                 </FooterLinkBottom>
-                <FooterLinkBottom theme={themeValue} href="/terms">
+                <FooterLinkBottom pageTheme={themeValue} href="/terms">
                   Terms
                 </FooterLinkBottom> */}
-                {/* <FooterLinkBottom theme={themeValue} href="careers">
+                {/* <FooterLinkBottom pageTheme={themeValue} href="careers">
                   Careers
                 </FooterLinkBottom> */}
-                <FooterLinkBottom theme={themeValue} to="/sitemap.xml">
+                <FooterLinkBottom pageTheme={themeValue} to="/sitemap.xml">
                   Sitemap
                 </FooterLinkBottom>
               </FooterBottomLinkContainer>
@@ -150,7 +150,7 @@ const FooterColumn = styled.div`
 
 const FooterTitle = styled.div<ThemeProps>`
   color: ${props => {
-    return props.theme === 'white' ? '#FFFFFF' : '#464646'
+    return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
   }};
   font-size: 1.5em;
   letter-spacing: -0.5px;
@@ -162,7 +162,7 @@ const FooterTitle = styled.div<ThemeProps>`
 
 const FooterParagraph = styled.div<ThemeProps>`
   color: ${props => {
-    return props.theme === 'white' ? '#FFFFFF' : '#464646'
+    return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
   }};
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
@@ -178,10 +178,10 @@ const FooterParagraph = styled.div<ThemeProps>`
 
 const FooterLinkMain = styled.a<ThemeProps>`
   border-bottom: ${props => {
-    return props.theme === 'white' ? '#FFFFFF solid .5px' : '#464646 solid .5px'
+    return props.pageTheme === 'white' ? '#FFFFFF solid .5px' : '#464646 solid .5px'
   }};
   color: ${props => {
-    return props.theme === 'white' ? '#FFFFFF' : '#464646'
+    return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
   }};
   cursor: pointer;
   display: inline-block;
@@ -218,7 +218,7 @@ const FooterBottomLinkContainer = styled.div`
 
 const FooterLinkBottom = styled(props => <Link {...props} />)<ThemeProps>`
   color: ${props => {
-    return props.theme === 'white' ? '#FFFFFF' : '#464646'
+    return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
   }};
   cursor: pointer;
   display: inline-block;

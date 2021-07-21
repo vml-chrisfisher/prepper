@@ -1,21 +1,15 @@
-import styled from '@emotion/styled';
-import { Link } from 'gatsby';
-import React, { PureComponent } from 'react';
-import Helmet from 'react-helmet';
-import {
-  HeaderMenuType,
-  HeaderProps,
-  HeaderState,
-  ProductCategory,
-  ProductFamily
-  } from './interface';
+import styled from '@emotion/styled'
+import { Link } from 'gatsby'
+import React, { PureComponent } from 'react'
+import Helmet from 'react-helmet'
+import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 
 interface MenuProps {
   isUp: boolean
 }
 
 interface ThemeProps {
-  theme: string
+  pageTheme: string
 }
 
 interface SubMenuProps {
@@ -97,7 +91,7 @@ class HeaderAMP extends PureComponent {
           <ul className="navigation">
             {/* <li>
               <NavigationItem
-                theme={themeValue}
+                pageTheme={themeValue}
                 onClick={() => {
                   this.onSeedsClick()
                 }}
