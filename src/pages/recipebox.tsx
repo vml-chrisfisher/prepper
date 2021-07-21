@@ -16,15 +16,10 @@ import Layout from '../components/layout'
 import RandomFourSummary from '../components/randomFourSummary'
 import SectionHeader from '../components/sectionHeader'
 import { ArticlesEdge, ArticlesProps } from '../page-interfaces/articles'
-import { RecipeBoxRecipe } from '../store/ducks/recipesBox/interfaces'
-import {
-  getRecipeBoxArticlesRecentlyAdded,
-  getRecipesBoxArticlesRecentlyViewed,
-  getRecipesBoxRecipesMostCooked,
-  getRecipesBoxRecipesRecentlyAdded,
-  getRecipesBoxRecipesRecentlyViewed,
-} from '../store/ducks/recipesBox/selectors'
+import { RecipeBoxArticle, RecipeBoxRecipe } from '../store/ducks/recipesBox/interfaces'
+import { getRecipesBoxRecipesRecentlyViewed } from '../store/ducks/recipesBox/selectors'
 import { useAppSelector } from '../store/hooks'
+import { AppState } from '../store/rootReducer'
 
 const RecipeBoxIndex = (props: ArticlesProps) => {
   useEffect(() => {
@@ -209,12 +204,97 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
     }
   }
 
+  const createRecipeChunks = (posts: RecipeBoxRecipe[]) => {
+    const chunk = 4
+    const chunked: ArticleSummaryInterface[][] = []
+    const copy = posts.map((recipe: RecipeBoxRecipe) => {
+      const copyLength = recipe.recipeDescription.length < 250 ? recipe.recipeDescription.length : 250
+      const copyRaw = recipe.recipeDescription.substr(0, copyLength)
+      const lastPeriod = copyRaw.lastIndexOf('.')
+      const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
+      return {
+        basePath: 'recipe',
+        description: copy,
+        imagePath: recipe.recipeImagePath,
+        imageDescription: recipe.recipeImageMeta,
+        slug: recipe.recipeSlug,
+        title: recipe.recipeName,
+      }
+    })
+
+    while (copy.length > 0) {
+      chunked.push(copy.splice(0, chunk))
+    }
+    return chunked
+  }
+
+  const createArticleChunks = (posts: RecipeBoxArticle[]) => {
+    const chunk = 4
+    const chunked: ArticleSummaryInterface[][] = []
+    const copy = posts.map((article: RecipeBoxArticle) => {
+      const copyLength = article.articleDescription.length < 250 ? article.articleDescription.length : 250
+      const copyRaw = article.articleDescription.substr(0, copyLength)
+      const lastPeriod = copyRaw.lastIndexOf('.')
+      const copy = lastPeriod ? copyRaw.substr(0, lastPeriod + 1) : copyRaw
+      return {
+        basePath: 'recipe',
+        description: copy,
+        imagePath: article.articleImagePath,
+        imageDescription: article.articleImageMeta,
+        slug: article.articleSlug,
+        title: article.articleName,
+      }
+    })
+
+    while (copy.length > 0) {
+      chunked.push(copy.splice(0, chunk))
+    }
+    return chunked
+  }
+
+  const allChunkSize1 = 4
   const recipesRecentlyViewed = useAppSelector(state => state.recipesBox.Recipes.RecentlyViewed)
+  let recipesRecentlyViewedChunked: ArticleSummaryInterface[][]
+  if (recipesRecentlyViewed) {
+    recipesRecentlyViewedChunked = createRecipeChunks(recipesRecentlyViewed)
+  }
+
   const recipesRecentlyAdded = useAppSelector(state => state.recipesBox.Recipes.RecentlyAdded)
+  let recipeRecentlyAddedChunked: ArticleSummaryInterface[][]
+  if (recipesRecentlyAdded) {
+    recipeRecentlyAddedChunked = createRecipeChunks(recipesRecentlyAdded)
+  }
+
   const recipesMostCooked = useAppSelector(state => state.recipesBox.Recipes.MostCooked)
+  let recipesMostCookedChunked: ArticleSummaryInterface[][]
+  if (recipesMostCooked) {
+    recipesMostCookedChunked = createRecipeChunks(recipesMostCooked)
+  }
+
+  const recipesAll = useAppSelector(state => state.recipesBox.Recipes.All)
+  let allRecipeChunked: ArticleSummaryInterface[][]
+  if (recipesAll) {
+    allRecipeChunked = createRecipeChunks(recipesAll)
+  }
+  const allChunkSize = 4
 
   const articledRecentlyViewed = useAppSelector(state => state.recipesBox.Articles.RecentlyViewed)
+  let articlesRecentlyViewChunked: ArticleSummaryInterface[][]
+  if (articledRecentlyViewed) {
+    articlesRecentlyViewChunked = createArticleChunks(articledRecentlyViewed)
+  }
+
   const articlesRecentlyAdded = useAppSelector(state => state.recipesBox.Articles.RecentlyAdded)
+  let articlesRecentlyAddedChunked: ArticleSummaryInterface[][]
+  if (articlesRecentlyAdded) {
+    articlesRecentlyAddedChunked = createArticleChunks(articlesRecentlyAdded)
+  }
+
+  const articlesAll = useAppSelector(state => state.recipesBox.Articles.All)
+  let allArticleChunked: ArticleSummaryInterface[][]
+  if (articlesAll) {
+    allArticleChunked = createArticleChunks(articlesAll)
+  }
 
   const featureRowRecentlyAdded = (chunks: any, basePath: string, details: FeatureContentRowDetailProps) => {
     const props: FeatureContentRowProps = {
@@ -258,6 +338,12 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                     >
                       Most Cooked
                     </SecondLevel>
+                    <SecondLevel
+                      isSelected={secondarySelectedMenu === 'RecipesAll'}
+                      onClick={() => onSectionFilterClick('RecipesAll')}
+                    >
+                      All
+                    </SecondLevel>
                   </SeconddaryList>
                   <TopLevel>Articles</TopLevel>
                   <SeconddaryList>
@@ -272,6 +358,12 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                       onClick={() => onSectionFilterClick('ArticlesRecentlyAdded')}
                     >
                       Recently Added
+                    </SecondLevel>
+                    <SecondLevel
+                      isSelected={secondarySelectedMenu === 'ArticlesAll'}
+                      onClick={() => onSectionFilterClick('ArticlesAll')}
+                    >
+                      All
                     </SecondLevel>
                   </SeconddaryList>
                   <FilterBy>Filter By</FilterBy>
@@ -290,13 +382,19 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
 
               <section id="RecipesRecentlyViewed">
                 <SectionHeader
-                  title="Recently View"
+                  title="Recently Viewed"
                   description="It is easy to go down the rabbit hole of searching for recipes.  All of those tasty recipes that you added to your Recipe Box and keep looking at are all right here."
                 ></SectionHeader>
-                {recipesRecentlyViewed?.length > 0 && (
-                  <RandomFourSummary key={`articles-chuck-0`} chunk={recipesChunked[0]}></RandomFourSummary>
-                )}
-                {!(recipesRecentlyViewed?.length > 0) &&
+                {recipesRecentlyViewedChunked?.length > 0 &&
+                  recipesRecentlyViewedChunked.map((chunk: ArticleSummaryInterface[], index: number) => {
+                    return (
+                      <RandomFourSummary
+                        key={`recipes-chunk-${index}`}
+                        {...{ chunk, straight: true }}
+                      ></RandomFourSummary>
+                    )
+                  })}
+                {!(recipesRecentlyViewedChunked?.length > 0) &&
                   featureRowRecentlyAdded(recipesChunked[0], 'recipes', {
                     title: 'Recipes to Explore',
                     description: 'Lets get your Recipe Box going.  Explore our recipes and add your favorites.',
@@ -311,10 +409,16 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                   title="Recently Added"
                   description="Keep on tagging those recipes on your Sunday morning.  We will keep them all here, all a swipe away."
                 ></SectionHeader>
-                {recipesRecentlyAdded?.length > 0 && (
-                  <RandomFourSummary key={`articles-chuck-0`} chunk={recipesChunked[1]}></RandomFourSummary>
-                )}
-                {!(recipesRecentlyAdded?.length > 0) &&
+                {recipeRecentlyAddedChunked?.length > 0 &&
+                  recipeRecentlyAddedChunked?.map((chunk: ArticleSummaryInterface[], index: number) => {
+                    return (
+                      <RandomFourSummary
+                        key={`recipes-chunk-${index}`}
+                        {...{ chunk, straight: true }}
+                      ></RandomFourSummary>
+                    )
+                  })}
+                {!(recipeRecentlyAddedChunked?.length > 0) &&
                   featureRowRecentlyAdded(recipesChunked[1], 'recipe', {
                     title: 'Add Some of These',
                     description: 'All of those great recipes that keep making your taste buds ',
@@ -329,10 +433,16 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                   title="Most Cooked"
                   description="Remember all of those delicious recipes that you can&amp;t remember a year later.  We keep track of them right here."
                 ></SectionHeader>
-                {recipesMostCooked?.length > 0 && (
-                  <RandomFourSummary key={`articles-chuck-0`} chunk={recipesChunked[2]}></RandomFourSummary>
-                )}
-                {!(recipesMostCooked?.length > 0) &&
+                {recipesMostCookedChunked?.length > 0 &&
+                  recipesMostCookedChunked?.map((chunk: ArticleSummaryInterface[], index: number) => {
+                    return (
+                      <RandomFourSummary
+                        key={`recipes-chunk-${index}`}
+                        {...{ chunk, straight: true }}
+                      ></RandomFourSummary>
+                    )
+                  })}
+                {!(recipesMostCookedChunked?.length > 0) &&
                   featureRowRecentlyAdded(recipesChunked[2], 'recipe', {
                     title: 'Your Greatest Hits',
                     description: 'No better place to keep track of all of the great recipes you have cooked than here.',
@@ -342,6 +452,24 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                     theme: HeaderTheme.DARK,
                   })}
               </section>
+              {allRecipeChunked && allRecipeChunked.length > 0 && (
+                <section id="RecipesAll">
+                  <SectionHeader
+                    title="All"
+                    description="Remember all of those delicious recipes that you can&amp;t remember a year later.  We keep track of them right here."
+                  ></SectionHeader>
+                  <div>
+                    {allRecipeChunked.map((chunk: ArticleSummaryInterface[], index: number) => {
+                      return (
+                        <RandomFourSummary
+                          key={`recipes-chunk-${index}`}
+                          {...{ chunk, straight: true }}
+                        ></RandomFourSummary>
+                      )
+                    })}
+                  </div>
+                </section>
+              )}
               <div></div>
               <SubHeader>Articles</SubHeader>
               <section id="ArticlesRecentlyViewed">
@@ -349,10 +477,16 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                   title="Recently View"
                   description="We love learning about all things food.  Gardening, knife skills or the sciene of a pan sauce.  We love it all and here all them that you have looked at."
                 ></SectionHeader>
-                {articledRecentlyViewed?.length > 0 && (
-                  <RandomFourSummary key={`articles-chuck-0`} chunk={chunked[0]}></RandomFourSummary>
-                )}
-                {!(articledRecentlyViewed?.length > 0) &&
+                {articlesRecentlyViewChunked?.length > 0 &&
+                  articlesRecentlyViewChunked?.map((chunk: ArticleSummaryInterface[], index: number) => {
+                    return (
+                      <RandomFourSummary
+                        key={`recipes-chunk-${index}`}
+                        {...{ chunk, straight: true }}
+                      ></RandomFourSummary>
+                    )
+                  })}
+                {!(articlesRecentlyViewChunked?.length > 0) &&
                   featureRowRecentlyAdded(chunked[0], 'article', {
                     title: 'Lets learn somethings together.',
                     description: 'sdfdsf',
@@ -367,10 +501,16 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                   title="Recently Added"
                   description="Remember that article about tomatoes you saved the other day.  We kept it and you can always pull it up right back here."
                 ></SectionHeader>
-                {articlesRecentlyAdded?.length > 0 && (
-                  <RandomFourSummary key={`articles-chuck-0`} chunk={chunked[1]}></RandomFourSummary>
-                )}
-                {!(articledRecentlyViewed?.length > 0) &&
+                {articlesRecentlyAddedChunked?.length > 0 &&
+                  articlesRecentlyAddedChunked?.map((chunk: ArticleSummaryInterface[], index: number) => {
+                    return (
+                      <RandomFourSummary
+                        key={`recipes-chunk-${index}`}
+                        {...{ chunk, straight: true }}
+                      ></RandomFourSummary>
+                    )
+                  })}
+                {!(articlesRecentlyAddedChunked?.length > 0) &&
                   featureRowRecentlyAdded(chunked[1], 'article', {
                     title: 'Magazine dog ears in one place',
                     description: 'sdfdsf',
@@ -380,6 +520,24 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
                     theme: HeaderTheme.DARK,
                   })}
               </section>
+              {allArticleChunked && allArticleChunked.length > 0 && (
+                <section id="ArticlesAll">
+                  <SectionHeader
+                    title="All"
+                    description="Remember all of those delicious recipes that you can&amp;t remember a year later.  We keep track of them right here."
+                  ></SectionHeader>
+                  <div>
+                    {allArticleChunked.map((chunk: ArticleSummaryInterface[], index: number) => {
+                      return (
+                        <RandomFourSummary
+                          key={`articles-chunk-${index}`}
+                          {...{ chunk, straight: true }}
+                        ></RandomFourSummary>
+                      )
+                    })}
+                  </div>
+                </section>
+              )}
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
 import ArticleSummary from '../articleSummary'
-import ArticleSummaryInterface from '../articleSummary/interface'
+import { ArticleSummaryInterface } from '../articleSummary/interface'
 import { RandomFourSummaryProps } from './interface'
 
 const createTwoGridOption1 = (chunk: ArticleSummaryInterface[]) => {
@@ -122,7 +122,7 @@ const createFourGridOption4 = (chunk: ArticleSummaryInterface[]) => {
   )
 }
 
-const createGrid = (chunk: ArticleSummaryInterface[]) => {
+const createGrid = (chunk: ArticleSummaryInterface[], straight: boolean) => {
   let option
   switch (chunk.length) {
     case 1:
@@ -140,6 +140,9 @@ const createGrid = (chunk: ArticleSummaryInterface[]) => {
     case 3:
       return createThreeGridOption3(chunk)
     case 4:
+      if (straight) {
+        createFourGridOption2(chunk)
+      }
       option = Math.floor(Math.random() * (1 - 0 + 1))
       return option === 0
         ? createFourGridOption1(chunk)
@@ -153,7 +156,9 @@ const createGrid = (chunk: ArticleSummaryInterface[]) => {
   }
 }
 
-const RandomFourSummary = (props: RandomFourSummaryProps) => <Wrapper>{createGrid(props.chunk)}</Wrapper>
+const RandomFourSummary = (props: RandomFourSummaryProps) => (
+  <Wrapper>{createGrid(props.chunk, props.straight)}</Wrapper>
+)
 
 const Wrapper = styled.div`
   width: 100%;

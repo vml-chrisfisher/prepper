@@ -7,6 +7,7 @@ import ArticleSummaryInterface from './interface'
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
 const ArticleSummary = (props: ArticleSummaryInterface) => {
+  console.log('PROPS: ', props)
   const copyLength = props.description.length < 200 ? props.description.length : 200
   const copyRaw = props.description.substr(0, copyLength)
   const lastPeriod = copyRaw.lastIndexOf('.')

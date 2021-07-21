@@ -10,6 +10,7 @@ import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/ty
 import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
 import HeaderNoticationContainer from './notifications'
 import ProfileIcon from './profileIcon'
+import RecipeBoxIcon from './recipeBoxIcon'
 import SearchContainer from './search/container'
 import {
   fetch,
@@ -609,6 +610,11 @@ const Header = (props: HeaderProps) => {
                 Plants
               </NavigationItem>
             </li> */}
+                <li>
+                  <NavigationItemRight style={{ paddingTop: '20px' }} to="/recipebox" theme={themeValue}>
+                    <RecipeBoxIcon />
+                  </NavigationItemRight>
+                </li>
                 <li>
                   <NavigationItemRight to="/story" theme={themeValue}>
                     About

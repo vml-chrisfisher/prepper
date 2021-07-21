@@ -67,7 +67,9 @@ class RecipeIndex extends React.Component<RecipesProps> {
           <div className="wrapper">
             <div>
               {chunked.map((chunk: ArticleSummaryInterface[], index: number) => {
-                return <RandomFourSummary key={`recipes-chunk-${index}`} {...{ chunk }}></RandomFourSummary>
+                return (
+                  <RandomFourSummary key={`recipes-chunk-${index}`} {...{ chunk, straight: false }}></RandomFourSummary>
+                )
               })}
             </div>
           </div>

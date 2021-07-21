@@ -29,7 +29,7 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
       @media (max-width: 767px) {
         top: 6em;
       }
-`
+    `
     const posts: RecipesEdge[] = get(this, 'props.data.allContentfulRecipe.edges')
     const chunkSize = 4
     const chunked: ArticleSummaryInterface[][] = []
@@ -66,7 +66,9 @@ class RecipeMealTypeTemplate extends React.Component<RecipeProps> {
           <div className="wrapper">
             <div>
               {chunked.map((chunk: ArticleSummaryInterface[], index: number) => {
-                return <RandomFourSummary key={`recipes-chunk-${index}`} {...{ chunk }}></RandomFourSummary>
+                return (
+                  <RandomFourSummary key={`recipes-chunk-${index}`} {...{ chunk, straight: false }}></RandomFourSummary>
+                )
               })}
             </div>
           </div>

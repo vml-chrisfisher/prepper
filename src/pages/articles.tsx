@@ -58,7 +58,12 @@ class ArticlesIndex extends React.Component<ArticlesProps> {
           <div className="wrapper">
             <div>
               {chunked.map((chunk: ArticleSummaryInterface[], index: number) => {
-                return <RandomFourSummary key={`articles-chuck-${index}`} {...{ chunk }}></RandomFourSummary>
+                return (
+                  <RandomFourSummary
+                    key={`articles-chuck-${index}`}
+                    {...{ chunk, straight: false }}
+                  ></RandomFourSummary>
+                )
               })}
             </div>
           </div>

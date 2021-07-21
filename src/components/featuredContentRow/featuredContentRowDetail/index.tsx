@@ -23,7 +23,7 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
             theme={themeValue}
             dangerouslySetInnerHTML={{ __html: props.description }}
           ></FeatureDescription>
-          <FeatureButton href={props.slug} theme={themeValue}>
+          <FeatureButton to={props.slug} theme={themeValue}>
             {props.buttonCaption}
           </FeatureButton>
         </DetailContainer>

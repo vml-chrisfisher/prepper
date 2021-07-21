@@ -20,9 +20,9 @@ import Layout from '../components/layout'
 import MainContainer from '../components/layout/mainContainer'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getUserId } from '../store/ducks/profile/selectors'
+import { onTryAddArticle, onTryAddArticleView, onTryDeleteArticle } from '../store/ducks/recipesBox/actions'
 import { RecipeBoxArticle } from '../store/ducks/recipesBox/interfaces'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
-import { onTryAddArticle, onTryAddArticleView, onTryDeleteArticle } from '../store/ducks/recipesBox/actions'
 
 const ArticleTemplate = (props: ArticleProps) => {
   useEffect(() => {
@@ -243,8 +243,8 @@ const ArticleTemplate = (props: ArticleProps) => {
             articleId: articleId,
             articleName: post.title,
             articleSlug: post.slug,
-            articleDescription: post.bodyCopy,
-            articleImagePath: post.heroImage.file,
+            articleDescription: post.bodyCopy.childMarkdownRemark.rawMarkdownBody,
+            articleImagePath: post.heroImage.file.url,
             articleImageMeta: post.heroImage.description,
             articleBasePath: 'article',
           }),
