@@ -256,19 +256,31 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   const recipesRecentlyViewed = useAppSelector(state => state.recipesBox.Recipes.RecentlyViewed)
   let recipesRecentlyViewedChunked: ArticleSummaryInterface[][]
   if (recipesRecentlyViewed) {
-    recipesRecentlyViewedChunked = createRecipeChunks(recipesRecentlyViewed)
+    if (recipesRecentlyViewed.length > 4) {
+      recipesRecentlyViewedChunked = createRecipeChunks(recipesRecentlyViewed.splice(0, 4))
+    } else {
+      recipesRecentlyViewedChunked = createRecipeChunks(recipesRecentlyViewed)
+    }
   }
 
   const recipesRecentlyAdded = useAppSelector(state => state.recipesBox.Recipes.RecentlyAdded)
   let recipeRecentlyAddedChunked: ArticleSummaryInterface[][]
   if (recipesRecentlyAdded) {
-    recipeRecentlyAddedChunked = createRecipeChunks(recipesRecentlyAdded)
+    if (recipesRecentlyAdded.length > 4) {
+      recipeRecentlyAddedChunked = createRecipeChunks(recipesRecentlyAdded.splice(0, 4))
+    } else {
+      recipeRecentlyAddedChunked = createRecipeChunks(recipesRecentlyAdded)
+    }
   }
 
   const recipesMostCooked = useAppSelector(state => state.recipesBox.Recipes.MostCooked)
   let recipesMostCookedChunked: ArticleSummaryInterface[][]
   if (recipesMostCooked) {
-    recipesMostCookedChunked = createRecipeChunks(recipesMostCooked)
+    if (recipesMostCooked.length > 4) {
+      recipesMostCookedChunked = createRecipeChunks(recipesMostCooked.splice(0, 4))
+    } else {
+      recipesMostCookedChunked = createRecipeChunks(recipesMostCooked)
+    }
   }
 
   const recipesAll = useAppSelector(state => state.recipesBox.Recipes.All)
@@ -281,13 +293,21 @@ const RecipeBoxIndex = (props: ArticlesProps) => {
   const articledRecentlyViewed = useAppSelector(state => state.recipesBox.Articles.RecentlyViewed)
   let articlesRecentlyViewChunked: ArticleSummaryInterface[][]
   if (articledRecentlyViewed) {
-    articlesRecentlyViewChunked = createArticleChunks(articledRecentlyViewed)
+    if (articledRecentlyViewed.length > 4) {
+      articlesRecentlyViewChunked = createArticleChunks(articledRecentlyViewed.splice(0, 4))
+    } else {
+      articlesRecentlyViewChunked = createArticleChunks(articledRecentlyViewed)
+    }
   }
 
   const articlesRecentlyAdded = useAppSelector(state => state.recipesBox.Articles.RecentlyAdded)
   let articlesRecentlyAddedChunked: ArticleSummaryInterface[][]
   if (articlesRecentlyAdded) {
-    articlesRecentlyAddedChunked = createArticleChunks(articlesRecentlyAdded)
+    if (articlesRecentlyAdded.length > 4) {
+      articlesRecentlyAddedChunked = createArticleChunks(articlesRecentlyAdded.splice(0, 4))
+    } else {
+      articlesRecentlyAddedChunked = createArticleChunks(articlesRecentlyAdded)
+    }
   }
 
   const articlesAll = useAppSelector(state => state.recipesBox.Articles.All)

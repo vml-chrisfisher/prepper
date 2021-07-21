@@ -17,6 +17,19 @@ const createTwoGridOption1 = (chunk: ArticleSummaryInterface[]) => {
   )
 }
 
+const createTwoGridOptionStraight = (chunk: ArticleSummaryInterface[]) => {
+  return (
+    <div>
+      <Col3Full style={{ paddingBottom: '30px' }}>
+        <ArticleSummary {...chunk[0]} />
+      </Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
+        <ArticleSummary {...chunk[1]} />
+      </Col3Full>
+    </div>
+  )
+}
+
 const createTwoGridOption2 = (chunk: ArticleSummaryInterface[]) => {
   return (
     <div>
@@ -42,6 +55,22 @@ const createThreeGridOption3 = (chunk: ArticleSummaryInterface[]) => {
       <Col4Full style={{ paddingBottom: '30px' }}>
         <ArticleSummary {...chunk[2]} />
       </Col4Full>
+    </div>
+  )
+}
+
+const createThreeGridOptionStraight = (chunk: ArticleSummaryInterface[]) => {
+  return (
+    <div>
+      <Col3Full style={{ paddingBottom: '30px' }}>
+        <ArticleSummary {...chunk[0]} />
+      </Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
+        <ArticleSummary {...chunk[1]} />
+      </Col3Full>
+      <Col3Full style={{ paddingBottom: '30px' }}>
+        <ArticleSummary {...chunk[2]} />
+      </Col3Full>
     </div>
   )
 }
@@ -126,6 +155,13 @@ const createGrid = (chunk: ArticleSummaryInterface[], straight: boolean) => {
   let option
   switch (chunk.length) {
     case 1:
+      if (straight) {
+        return (
+          <Col3Full>
+            <ArticleSummary {...chunk[0]}></ArticleSummary>
+          </Col3Full>
+        )
+      }
       return (
         <div>
           <Col6Full>
@@ -135,13 +171,19 @@ const createGrid = (chunk: ArticleSummaryInterface[], straight: boolean) => {
         </div>
       )
     case 2:
+      if (straight) {
+        return createTwoGridOptionStraight(chunk)
+      }
       option = Math.floor(Math.random() * (1 - 0 + 1))
       return option === 0 ? createTwoGridOption1(chunk) : createTwoGridOption2(chunk)
     case 3:
+      if (straight) {
+        return createThreeGridOptionStraight(chunk)
+      }
       return createThreeGridOption3(chunk)
     case 4:
       if (straight) {
-        createFourGridOption2(chunk)
+        return createFourGridOption2(chunk)
       }
       option = Math.floor(Math.random() * (1 - 0 + 1))
       return option === 0
