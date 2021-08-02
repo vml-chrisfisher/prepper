@@ -1,7 +1,3 @@
-import { useSelector } from 'react-redux'
-import { AppState as store } from '../../rootReducer'
-import { RecipeBoxArticle, RecipeBoxRecipe } from './interfaces'
-import { getRecipeBoxIsRecipeSelected, getRecipesBoxIsArticleSelected } from './selectors'
 import { RECIPEBOX } from './types'
 
 export const onTryFetchRecipesBox = (payload: any) => ({
@@ -40,5 +36,29 @@ export const onTryDeleteArticle = (payload: any) => ({
 
 export const onTryAddArticleView = (payload: any) => ({
   type: RECIPEBOX.TRY_ADD_ARTICLE_VIEW,
+  payload,
+})
+
+export const onTryFetchRecentlyAddedRecipesRecommendations = (payload: any) => ({
+  type: RECIPEBOX.TRY_FETCH_RECENTLY_ADDED_RECIPES_RECOMMENDATIONS,
+  payload,
+})
+export const onTryFetchRecentlyViewedRecipesRecommendations = (payload: any) => ({
+  type: RECIPEBOX.TRY_FETCH_RECENTLY_VIEWED_RECIPES_RECOMMENDATIONS,
+  payload,
+})
+
+export const onTryFetchMostedCookedRecipesRecommendations = (payload: any) => ({
+  type: RECIPEBOX.TRY_FETCH_MOST_COOKED_RECIPES_RECOMMENDATIONS,
+  payload,
+})
+
+export const onTryFetchRecentlyAddedArticlesRecommendations = (payload: any) => ({
+  type: RECIPEBOX.TRY_FETCH_RECENTLY_ADDED_ARTICLES_RECOMMENDATIONS,
+  payload,
+})
+
+export const onTryFetchRecentlyViewedArticlesRecommendations = (payload: any) => ({
+  type: RECIPEBOX.TRY_FETCH_RECENTLY_VIEWED_ARTICLES_RECOMMENDATIONS,
   payload,
 })

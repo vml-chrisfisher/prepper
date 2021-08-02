@@ -18,8 +18,11 @@ import { HeaderTheme } from '../components/header/interface'
 import Sidebar from '../components/header/profile_login_create_account'
 import Layout from '../components/layout'
 import MainContainer from '../components/layout/mainContainer'
+import RatingBar from '../components/ratingBar'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getUserId } from '../store/ducks/profile/selectors'
+import Rating from '../store/ducks/ratings/interface'
+import { getArticleRating } from '../store/ducks/ratings/selectors'
 import { onTryAddArticle, onTryAddArticleView, onTryDeleteArticle } from '../store/ducks/recipesBox/actions'
 import { RecipeBoxArticle, RecipeBoxArticlePayload } from '../store/ducks/recipesBox/interfaces'
 import { AllContentfulArticle, ArticleProps, ArticleTag } from '../template-interfaces/article'
@@ -129,6 +132,10 @@ const ArticleTemplate = (props: ArticleProps) => {
     }
   `
 
+  const RatingBarContainer = styled.div`
+    padding-top: 30px;
+  `
+
   const post: AllContentfulArticle = get(props, 'data.contentfulArticle')
   const postCreate = dateformat(post.createdAt, 'fullDate')
   const expirationDateRaw = new Date(post.updatedAt)
@@ -140,6 +147,8 @@ const ArticleTemplate = (props: ArticleProps) => {
   })
 
   const userId = useSelector(getUserId)
+
+  const rating: Rating = useSelector(state => getArticleRating(state, articleId))
 
   const dispatch = useDispatch()
 
@@ -357,7 +366,15 @@ const ArticleTemplate = (props: ArticleProps) => {
               <div className="col2"></div>
               <div className="col8">
                 <div className="row">
-                  <div className="col6 col-12-sm"></div>
+                  <div className="col6 col-12-sm">
+                    <RatingBarContainer>
+                      <RatingBar
+                        rating={rating.rating}
+                        numberOfRatings={rating.numberOfRatings}
+                        articleId={rating.id}
+                      ></RatingBar>
+                    </RatingBarContainer>
+                  </div>
                   <div className="col6 col-12-sm">
                     <SocialBar>
                       <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">

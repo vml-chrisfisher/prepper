@@ -14,6 +14,10 @@ import { RECIPEBOX } from './ducks/recipesBox/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
 import {
+  fetchMostCookedRecipesRecommendationsAsync,
+  fetchRecentlyAddedArticlesRecommendationsAsync,
+  fetchRecentlyAddedRecipesRecommendationsAsync,
+  fetchRecentlyViewedRecipesRecommendationsAsync,
   fetchRecipesBoxAsync,
   submitRecipeBoxArticleAddAsync,
   submitRecipeBoxArticleAddViewAsync,
@@ -126,6 +130,38 @@ function* watchLocalStorageLogin() {
   yield takeEvery(LOGIN_STEPS.TRY_LOCAL_STORAGE_LOGIN, localStorageLoginAsync)
 }
 
+function* watchRecentlyAddedRecipesRecommendations() {
+  yield takeEvery(
+    RECIPEBOX.TRY_FETCH_RECENTLY_ADDED_RECIPES_RECOMMENDATIONS,
+    fetchRecentlyAddedRecipesRecommendationsAsync,
+  )
+}
+
+function* watchRecentlyViewedRecipesRecommendations() {
+  yield takeEvery(
+    RECIPEBOX.TRY_FETCH_RECENTLY_VIEWED_RECIPES_RECOMMENDATIONS,
+    fetchRecentlyViewedRecipesRecommendationsAsync,
+  )
+}
+
+function* watchMostCookedRecipesRecommendations() {
+  yield takeEvery(RECIPEBOX.TRY_FETCH_MOST_COOKED_RECIPES_RECOMMENDATIONS, fetchMostCookedRecipesRecommendationsAsync)
+}
+
+function* watchRecentlyAddedArticlesRecommendations() {
+  yield takeEvery(
+    RECIPEBOX.TRY_FETCH_RECENTLY_ADDED_ARTICLES_RECOMMENDATIONS,
+    fetchRecentlyAddedArticlesRecommendationsAsync,
+  )
+}
+
+function* watchRecentlyViewedArticlesRecommendation() {
+  yield takeEvery(
+    RECIPEBOX.TRY_FETCH_RECENTLY_VIEWED_ARTICLES_RECOMMENDATIONS,
+    fetchRecentlyViewedRecipesRecommendationsAsync,
+  )
+}
+
 export default function* rootSaga() {
   yield all([
     watchCreateHouseholdFromSurvey(),
@@ -149,5 +185,10 @@ export default function* rootSaga() {
     watchRecipeBoxAddArticle(),
     watchRecipeBoxDeleteArticle(),
     watchLocalStorageLogin(),
+    watchRecentlyAddedRecipesRecommendations(),
+    watchRecentlyViewedRecipesRecommendations(),
+    watchMostCookedRecipesRecommendations(),
+    watchRecentlyAddedArticlesRecommendations(),
+    watchRecentlyViewedArticlesRecommendation(),
   ])
 }

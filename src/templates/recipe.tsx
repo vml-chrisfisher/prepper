@@ -16,8 +16,11 @@ import { HeaderTheme } from '../components/header/interface'
 import Sidebar from '../components/header/profile_login_create_account'
 import Layout from '../components/layout'
 import MainContainer from '../components/layout/mainContainer'
+import RatingBar from '../components/ratingBar'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
+import Rating from '../store/ducks/ratings/interface'
+import { getRecipeRating } from '../store/ducks/ratings/selectors'
 import { onTryAddRecipe, onTryAddRecipeView, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
 import { RecipeBoxRecipe, RecipeBoxRecipePayload } from '../store/ducks/recipesBox/interfaces'
 import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
@@ -209,6 +212,10 @@ const RecipeTemplate = (props: RecipeProps) => {
       fill: #f24e11;
     }
   `
+  const RatingBarContainer = styled.div`
+    padding-top: 30px;
+  `
+
   let step = 0
   const post: AllContentfulRecipe = get(props, 'data.contentfulRecipe')
   const postCreate = dateformat(post.createdAt, 'fullDate')
@@ -219,9 +226,11 @@ const RecipeTemplate = (props: RecipeProps) => {
   const bannerHeight =
     (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
 
+  const dispatch = useDispatch()
+
   const userId = useSelector(getUserId)
 
-  const dispatch = useDispatch()
+  const rating: Rating = useSelector(state => getRecipeRating(state, recipeId))
 
   useEffect(() => {
     if (userId) {
@@ -483,7 +492,15 @@ const RecipeTemplate = (props: RecipeProps) => {
               <div className="col2"></div>
               <div className="col8">
                 <div className="row">
-                  <div className="col6 col-12-sm"></div>
+                  <div className="col6 col-12-sm">
+                    <RatingBarContainer>
+                      <RatingBar
+                        rating={rating.rating}
+                        numberOfRatings={rating.numberOfRatings}
+                        recipeId={rating.id}
+                      ></RatingBar>
+                    </RatingBarContainer>
+                  </div>
                   <div className="col6 col-12-sm">
                     <SocialBar>
                       <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">

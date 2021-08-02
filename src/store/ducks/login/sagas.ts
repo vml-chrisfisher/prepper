@@ -1,15 +1,8 @@
-import axios from 'axios';
-import {
-  all,
-  call,
-  put,
-  takeEvery
-  } from 'redux-saga/effects';
-import { isBrowser } from '../../../utils/auth';
-import { onTryFetchRecipesBox } from '../recipesBox/actions';
-import { RECIPEBOX } from '../recipesBox/types';
-import { LOGIN_STEPS } from './types';
-
+import axios from 'axios'
+import { call, put } from 'redux-saga/effects'
+import { isBrowser } from '../../../utils/auth'
+import { RECIPEBOX } from '../recipesBox/types'
+import { LOGIN_STEPS } from './types'
 
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>(resolve => {
@@ -54,7 +47,7 @@ export function* submitLoginAsync(action: any) {
 
 const localStorageLogin = () => {
   return new Promise<{} | void>((resolve, reject) => {
-      const knifeAndFishLocalStorage = isBrowser ? localStorage.getItem('knifeAndFish') : undefined
+    const knifeAndFishLocalStorage = isBrowser ? localStorage.getItem('knifeAndFish') : undefined
     if (knifeAndFishLocalStorage) {
       const json = JSON.parse(knifeAndFishLocalStorage)
       const userId = json.userId
@@ -63,7 +56,7 @@ const localStorageLogin = () => {
       resolve({
         userId: userId,
         accessToken: accessToken,
-        name: name
+        name: name,
       })
     } else {
       reject()
@@ -76,11 +69,11 @@ export function* localStorageLoginAsync(action: any) {
     const loginResponse = yield call(localStorageLogin)
     yield put({
       type: LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS,
-      payload: loginResponse
+      payload: loginResponse,
     })
     yield put({
       type: RECIPEBOX.TRY_FETCH_RECIPEBOX,
-      payload: loginResponse.userId
+      payload: loginResponse.userId,
     })
   } catch (error) {
     console.log(error)
