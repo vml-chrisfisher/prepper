@@ -1,15 +1,21 @@
 import { all, takeEvery } from 'redux-saga/effects'
-import { onSubmitContactRecipe } from './ducks/contact/action'
 import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
 import { HEADER_ACTION_TYPES } from './ducks/header/types'
-import { createHouseholdFromNewsletterAsync, createHouseholdFromSurveyAsync } from './ducks/household/sagas'
+import { createHouseholdFromSurveyAsync } from './ducks/household/sagas'
 import { CREATE_HOUSEHOLD_FROM } from './ducks/household/types'
 import { localStorageLoginAsync, submitLoginAsync } from './ducks/login/sagas'
 import { LOGIN_STEPS } from './ducks/login/types'
 import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
 import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
-import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
+import { fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE_STEPS } from './ducks/profile/types'
+import {
+  fetachAllArticleRatingsAsync,
+  fetachAllRecipeRatingsAsync,
+  submitArticleRatingAsync,
+  submitRecipeRatingAsync,
+} from './ducks/ratings/sagas'
+import { RATINGS } from './ducks/ratings/types'
 import { RECIPEBOX } from './ducks/recipesBox/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
@@ -162,6 +168,22 @@ function* watchRecentlyViewedArticlesRecommendation() {
   )
 }
 
+function* watchAddRecipeRating() {
+  yield takeEvery(RATINGS.TRY_ADD_RECIPE_RATING, submitRecipeRatingAsync)
+}
+
+function* watchAddArticleRating() {
+  yield takeEvery(RATINGS.TRY_ADD_ARTICLE_RATING, submitArticleRatingAsync)
+}
+
+function watchFetchAllRecipeRatings() {
+  yield takeEvery(RATINGS.TRY_FETCH_ALL_RECIPE_RATINGS, fetachAllRecipeRatingsAsync)
+}
+
+function* watchFetchAllArticleRatings() {
+  yield takeEvery(RATINGS.TRY_FETCH_ALL_ARTICLE_RATINGS, fetachAllArticleRatingsAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchCreateHouseholdFromSurvey(),
@@ -190,5 +212,9 @@ export default function* rootSaga() {
     watchMostCookedRecipesRecommendations(),
     watchRecentlyAddedArticlesRecommendations(),
     watchRecentlyViewedArticlesRecommendation(),
+    watchAddRecipeRating(),
+    watchAddArticleRating(),
+    watchFetchAllRecipeRatings(),
+    watchFetchAllArticleRatings(),
   ])
 }

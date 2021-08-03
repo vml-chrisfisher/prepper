@@ -6,7 +6,7 @@ export const onTryAddRecipeRating = (payload: any) => ({
 })
 
 export const onTryFetchRecipeRating = (payload: any) => ({
-  type: RATINGS.TRY_FETCH_RECIPE_RATING,
+  type: RATINGS.TRY_FETCH_ALL_RECIPE_RATINGS,
 })
 
 export const onTryAddArticleRating = (payload: any) => ({
@@ -15,6 +15,6 @@ export const onTryAddArticleRating = (payload: any) => ({
 })
 
 export const onTryFetchArticleRating = (payload: any) => ({
-  type: RATINGS.TRY_FETCH_ARTICLE_RATING,
+  type: RATINGS.TRY_FETCH_ALL_ARTICLE_RATINGS,
   payload,
 })

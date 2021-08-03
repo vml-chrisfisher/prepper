@@ -33,11 +33,11 @@ const RatingBar = (props: RatingBarProps) => {
 
   const onStarRatingClick = (position: number) => {
     if (articleId) {
-      dispatch(onTryAddArticleRating({ id: articleId, rating: position }))
+      dispatch(onTryAddArticleRating({ recipeId: articleId, rating: position }))
     }
 
     if (recipeId) {
-      dispatch(onTryAddRecipeRating({ id: recipeId, rating: position }))
+      dispatch(onTryAddRecipeRating({ articleId: recipeId, rating: position }))
     }
   }
 
