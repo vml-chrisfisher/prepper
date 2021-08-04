@@ -1,4 +1,4 @@
-import * as actions from './actions'
+import * as actions from './action'
 import initialState from './initialState'
 import reducers from './reducers'
 import * as sagas from './sagas'

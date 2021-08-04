@@ -7,6 +7,8 @@ const ratingsReducers = (state = initialState, action: { type?: string; payload?
       return { ...state, recipes: action.payload }
     case RATINGS.FETCH_ALL_ARTICLE_RATINGS_SUCCESS:
       return { ...state, articles: action.payload }
+    default:
+      return state
   }
 }
 

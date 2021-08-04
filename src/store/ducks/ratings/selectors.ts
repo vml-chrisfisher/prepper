@@ -1,3 +1,4 @@
+import { filter } from 'lodash'
 import Rating from './interface'
 
 export const getRatings = (state: any) => {
@@ -13,17 +14,31 @@ export const getAllArticleRatings = (state: any) => {
 }
 
 export const getRecipeRating = (state: any, recipeId: string) => {
-  const needle = getAllRecipeRatings(state).find((recipeRating: Rating) => {
-    recipeRating.id === recipeId
+  const filtered = getAllArticleRatings(state).filter((articleRating: any) => {
+    return articleRating.DocumentId === recipeId
   })
 
-  return needle ? needle : { id: recipeId, rating: 0, numberOfRatings: 0 }
+  if (filtered.length) {
+    const total = filtered.reduce((a: any, b: any) => {
+      return a + b.Rating
+    }, 0)
+
+    return { id: recipeId, rating: total / filtered.length, numberOfRatings: filtered.length }
+  }
+  return { id: recipeId, rating: 1, numberOfRatings: 0 }
 }
 
 export const getArticleRating = (state: any, articleId: string) => {
-  const needle = getAllArticleRatings(state).find((articleRating: Rating) => {
-    articleRating.id === articleId
+  const filtered = getAllArticleRatings(state).filter((articleRating: any) => {
+    return articleRating.DocumentId === articleId
   })
 
-  return needle ? needle : { id: articleId, rating: 0, numberOfRatings: 0 }
+  if (filtered.length) {
+    const total = filtered.reduce((a: any, b: any) => {
+      return a + b.Rating
+    }, 0)
+
+    return { id: articleId, rating: total / filtered.length, numberOfRatings: filtered.length }
+  }
+  return { id: articleId, rating: 1, numberOfRatings: 0 }
 }

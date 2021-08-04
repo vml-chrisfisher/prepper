@@ -8,6 +8,7 @@ import householdReducers from './ducks/household/reducers'
 import loginReducer from './ducks/login/reducers'
 import newsletterReducers from './ducks/newsletter/reducers'
 import profileReducer from './ducks/profile/reducers'
+import ratingsReducers from './ducks/ratings/reducers'
 import recipesBoxReducers from './ducks/recipesBox/reducers'
 import shipmentsReducers from './ducks/shipments/reducers'
 import sidebarActionReducers from './ducks/sidebar/actions/reducers'
@@ -22,6 +23,7 @@ export const reducers = combineReducers({
   household: householdReducers,
   login: loginReducer,
   profile: profileReducer,
+  ratings: ratingsReducers,
   recipesBox: recipesBoxReducers,
   sidebar,
   sidebarActions: sidebarActionReducers,

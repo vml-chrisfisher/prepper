@@ -77,8 +77,8 @@ export function* localStorageLoginAsync(action: any) {
     })
   } catch (error) {
     console.log(error)
-    // yield put({
-    //   type: LOGIN_STEPS.LOCAL_STORAGE_LOGIN_FAILURE
-    // })
+    yield put({
+      type: LOGIN_STEPS.LOCAL_STORAGE_LOGIN_FAILURE,
+    })
   }
 }

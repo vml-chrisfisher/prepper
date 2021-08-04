@@ -21,6 +21,7 @@ import MainContainer from '../components/layout/mainContainer'
 import RatingBar from '../components/ratingBar'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
 import { getUserId } from '../store/ducks/profile/selectors'
+import { onTryFetchArticleRating } from '../store/ducks/ratings/action'
 import Rating from '../store/ducks/ratings/interface'
 import { getArticleRating } from '../store/ducks/ratings/selectors'
 import { onTryAddArticle, onTryAddArticleView, onTryDeleteArticle } from '../store/ducks/recipesBox/actions'
@@ -137,9 +138,10 @@ const ArticleTemplate = (props: ArticleProps) => {
   `
 
   const post: AllContentfulArticle = get(props, 'data.contentfulArticle')
+  console.log('POST: ', post)
   const postCreate = dateformat(post.createdAt, 'fullDate')
   const expirationDateRaw = new Date(post.updatedAt)
-  const articleId = post.id
+  const articleId = post.contentful_id
   expirationDateRaw.setFullYear(expirationDateRaw.getFullYear())
 
   const tags = post.tags.map((tag: ArticleTag) => {
@@ -147,8 +149,6 @@ const ArticleTemplate = (props: ArticleProps) => {
   })
 
   const userId = useSelector(getUserId)
-
-  const rating: Rating = useSelector(state => getArticleRating(state, articleId))
 
   const dispatch = useDispatch()
 
@@ -165,7 +165,6 @@ const ArticleTemplate = (props: ArticleProps) => {
         articleBasePath: 'article',
         date: new Date().toString(),
       }
-      dispatch(onTryAddArticleView(article))
     }
   })
 
@@ -368,11 +367,7 @@ const ArticleTemplate = (props: ArticleProps) => {
                 <div className="row">
                   <div className="col6 col-12-sm">
                     <RatingBarContainer>
-                      <RatingBar
-                        rating={rating.rating}
-                        numberOfRatings={rating.numberOfRatings}
-                        articleId={rating.id}
-                      ></RatingBar>
+                      <RatingBar articleId={articleId}></RatingBar>
                     </RatingBarContainer>
                   </div>
                   <div className="col6 col-12-sm">
@@ -481,6 +476,7 @@ export const pageQuery = graphql`
       slug
       createdAt
       updatedAt
+      contentful_id
       id
       heroImage {
         description

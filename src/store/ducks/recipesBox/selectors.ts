@@ -13,7 +13,6 @@ export const getRecipesBoxArticles = (state: any) => {
 }
 
 export const getRecipeBoxIsRecipeSelected = (state: any, recipeId: string) => {
-  console.log('IN SEL: ', getRecipesBoxRecipes(state))
   if (getRecipesBoxRecipes(state)?.All) {
     const recipesFound = getRecipesBoxRecipes(state)?.All.filter((recipe: RecipeBoxRecipe) => {
       return recipe.recipeId === recipeId

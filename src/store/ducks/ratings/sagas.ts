@@ -3,7 +3,7 @@ import axios from 'axios'
 import { RATINGS } from './types'
 
 const submitRecipeRating = (payload: { recipeId: string; rating: number }) => {
-  return axios.post('', payload)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/ratings/recipe', payload)
 }
 
 export function* submitRecipeRatingAsync(action: any) {
@@ -39,7 +39,7 @@ export function* submitRecipeRatingAsync(action: any) {
 }
 
 const fetchAllRecipeRatings = () => {
-  return axios.get('')
+  return axios.get('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/ratings/recipes')
 }
 
 export function* fetchAllRecipeRatingsAsync(action: any) {
@@ -52,7 +52,7 @@ export function* fetchAllRecipeRatingsAsync(action: any) {
 
     yield put({
       type: RATINGS.FETCH_ALL_RECIPE_RATINGS_SUCCESS,
-      payload: fetchRatingsResponse,
+      payload: fetchRatingsResponse.data.ratings,
     })
   } catch (error) {
     yield put({
@@ -62,7 +62,7 @@ export function* fetchAllRecipeRatingsAsync(action: any) {
 }
 
 const submitArticleRating = (payload: { articleId: string; rating: number }) => {
-  return axios.post('', payload)
+  return axios.post('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/ratings/article', payload)
 }
 
 export function* submitArticleRatingAsync(action: any) {
@@ -98,7 +98,7 @@ export function* submitArticleRatingAsync(action: any) {
 }
 
 const fetchAllArticleRatings = () => {
-  return axios.get('')
+  return axios.get('https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/ratings/articles')
 }
 
 export function* fetchAllArticleRatingsAsync(action: any) {
@@ -108,10 +108,11 @@ export function* fetchAllArticleRatingsAsync(action: any) {
 
   try {
     const fetchRatingsResponse = yield call(fetchAllArticleRatings)
+    console.log('RESPONSE: ', fetchRatingsResponse.data.ratings)
 
     yield put({
       type: RATINGS.FETCH_ALL_ARTICLE_RATINGS_SUCCESS,
-      payload: fetchRatingsResponse,
+      payload: fetchRatingsResponse.data.ratings,
     })
   } catch (error) {
     yield put({

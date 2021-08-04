@@ -221,7 +221,7 @@ const RecipeTemplate = (props: RecipeProps) => {
   const postCreate = dateformat(post.createdAt, 'fullDate')
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1200
   const bodyLong = post.bodyCopy.childMarkdownRemark.rawMarkdownBody.length > 200
-  const recipeId = post.id
+  const recipeId = post.contentful_id
   const heroHeight = (post.heroImage.file.details.image.height * windowWidth) / post.heroImage.file.details.image.width
   const bannerHeight =
     (post.bannerImage.file.details.image.height * windowWidth) / post.bannerImage.file.details.image.width
@@ -229,8 +229,6 @@ const RecipeTemplate = (props: RecipeProps) => {
   const dispatch = useDispatch()
 
   const userId = useSelector(getUserId)
-
-  const rating: Rating = useSelector(state => getRecipeRating(state, recipeId))
 
   useEffect(() => {
     if (userId) {
@@ -494,11 +492,7 @@ const RecipeTemplate = (props: RecipeProps) => {
                 <div className="row">
                   <div className="col6 col-12-sm">
                     <RatingBarContainer>
-                      <RatingBar
-                        rating={rating.rating}
-                        numberOfRatings={rating.numberOfRatings}
-                        recipeId={rating.id}
-                      ></RatingBar>
+                      <RatingBar recipeId={recipeId}></RatingBar>
                     </RatingBarContainer>
                   </div>
                   <div className="col6 col-12-sm">
@@ -694,7 +688,7 @@ export const pageQuery = graphql`
       }
       createdAt
       updatedAt
-      id
+      contentful_id
       heroImage {
         description
         file {

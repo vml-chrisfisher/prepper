@@ -8,7 +8,6 @@ const RatingStar = (props: RatingStarProps) => {
   }
 
   const { rating, position, onHover, isPartHover, onMouseOut, onStarClick } = props
-  console.log(isPartHover)
   const fillAmount =
     isPartHover === 'filled'
       ? 1
@@ -25,6 +24,7 @@ const RatingStar = (props: RatingStarProps) => {
     width: 14px;
     float: left;
     padding-right: 4px;
+    cursor: pointer;
   `
 
   const OutlineContainer = styled.div`

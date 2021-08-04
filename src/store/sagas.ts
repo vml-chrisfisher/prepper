@@ -9,16 +9,16 @@ import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
 import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
 import { fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE_STEPS } from './ducks/profile/types'
-import {
-  fetachAllArticleRatingsAsync,
-  fetachAllRecipeRatingsAsync,
-  submitArticleRatingAsync,
-  submitRecipeRatingAsync,
-} from './ducks/ratings/sagas'
 import { RATINGS } from './ducks/ratings/types'
 import { RECIPEBOX } from './ducks/recipesBox/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
+import {
+  fetchAllArticleRatingsAsync,
+  fetchAllRecipeRatingsAsync,
+  submitArticleRatingAsync,
+  submitRecipeRatingAsync,
+} from './ducks/ratings/sagas'
 import {
   fetchMostCookedRecipesRecommendationsAsync,
   fetchRecentlyAddedArticlesRecommendationsAsync,
@@ -176,12 +176,12 @@ function* watchAddArticleRating() {
   yield takeEvery(RATINGS.TRY_ADD_ARTICLE_RATING, submitArticleRatingAsync)
 }
 
-function watchFetchAllRecipeRatings() {
-  yield takeEvery(RATINGS.TRY_FETCH_ALL_RECIPE_RATINGS, fetachAllRecipeRatingsAsync)
+function* watchFetchAllRecipeRatings() {
+  yield takeEvery(RATINGS.TRY_FETCH_ALL_RECIPE_RATINGS, fetchAllRecipeRatingsAsync)
 }
 
 function* watchFetchAllArticleRatings() {
-  yield takeEvery(RATINGS.TRY_FETCH_ALL_ARTICLE_RATINGS, fetachAllArticleRatingsAsync)
+  yield takeEvery(RATINGS.TRY_FETCH_ALL_ARTICLE_RATINGS, fetchAllArticleRatingsAsync)
 }
 
 export default function* rootSaga() {
