@@ -512,6 +512,78 @@ export default ({ children }) => (
             width: 98%;
           }
         }
+
+        /* Customize the label (the container) */
+        .input-container {
+          display: block;
+          position: relative;
+          padding-left: 20px;
+          margin-bottom: 20px;
+          cursor: pointer;
+          color: #333333;
+          font-family: 'Roboto', sans-serif;
+          font-size: 12px;
+          font-weight: 100;
+          font-weight: 100;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .input-container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+          position: absolute;
+          top: 2px;
+          left: 0;
+          height: 12px;
+          width: 12px;
+          background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .input-container:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .input-container input:checked ~ .checkmark {
+          background-color: #2196f3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+          content: '';
+          position: absolute;
+          display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .input-container input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .input-container .checkmark:after {
+          left: 4px;
+          top: 1px;
+          width: 2px;
+          height: 6px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
       `}
     />
     <div>{children}</div>
