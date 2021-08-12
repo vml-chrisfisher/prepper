@@ -1,7 +1,7 @@
-import { Billing } from '../billing/interface'
-import { EmailPreferences } from '../emailPreferences/interfaces'
-import { GroceriesPreferences, GroceryList } from '../groceries/interfaces'
-import { Shipments } from '../shipments/interfaces'
+import { Billing } from '../billing/interface';
+import { EmailPreferences } from '../emailPreferences/interfaces';
+import { GroceriesPreferences, GroceryList } from '../groceries/interfaces';
+import { Shipments } from '../shipments/interfaces';
 
 export enum HOUSEHOLD_MEMBER_ROLE {
   FAMILY_OWNER = 'Family Owner',
@@ -20,6 +20,7 @@ export interface FoodLikeDislike {
 }
 
 export interface HouseholdMember {
+  id: string
   firstName?: string
   lastNamse?: string
   avatar?: string

@@ -1,10 +1,10 @@
-import styled from '@emotion/styled'
-import { Field } from 'formik'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { onFetchProfile } from '../../../../../store/ducks/profile/actions'
-import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types'
-import { AppState } from '../../../../../store/rootReducer'
+import styled from '@emotion/styled';
+import { Field } from 'formik';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onFetchProfile } from '../../../../../store/ducks/profile/actions';
+import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types';
+import { AppState } from '../../../../../store/rootReducer';
 
 const Profile = () => {
   interface SliderProps {
@@ -18,6 +18,7 @@ const Profile = () => {
   })
 
   const householdMembers = useSelector((state: AppState) => {
+    console.log(state)
     return state?.household?.householdMembers
   })
 
@@ -111,6 +112,7 @@ const Profile = () => {
   useEffect(() => {
     if (userId) {
       dispatch(onFetchProfile(userId))
+      
     }
   }, [userId])
 

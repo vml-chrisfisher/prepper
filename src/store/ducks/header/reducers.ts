@@ -1,5 +1,5 @@
 import { products } from '../../static/products';
-import { PROFILE_STEPS } from '../profile/types';
+import { PROFILE, PROFILE_STEPS } from '../profile/types';
 import { SIDEBAR_ACTION_TYPES } from '../sidebar/actions/types';
 import { SIDEBAR_ANIMATION_STEPS } from '../sidebar/animations/types';
 import { ProductCategoryDetail } from './../../../components/header/interface';
@@ -37,7 +37,7 @@ const headerReducers = (state = initialState, action: HeaderAction) => {
       return { ...state, showHeaderProfile: SIDEBAR_ANIMATION_STEPS.HIDE, showRecipesBoxLoginRegisterNotification: false }
     case HEADER_ACTION_TYPES.SHOW_PROFILE_QUESTIONS:
       return { ...state, showHeaderProfile: SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION }
-    case PROFILE_STEPS.START_CREATE_PROFILE:
+    case PROFILE.TRY_CREATE_NEW_PROFILE:
       return { ...state, showHeaderProfile: SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION }
     case HEADER_NOTIFICATION_TYPES.SHOW_RECIPES_BOX_LOGIN_REGISTER_NOTIFICATION: 
       return { ...state, showRecipesBoxLoginRegisterNotification: true}

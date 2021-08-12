@@ -6,10 +6,12 @@ export const isBrowser = typeof window !== 'undefined'
 
 
 const profileReducers = (state = initialState, action: { type?: string; payload?: any }) => {
+  console.log("ACTIONS: ", action?.type)
   switch (action?.type) {
     case PROFILE_STEPS.LOADING:
       return { ...state, profileStep: PROFILE_STEPS.LOADING }
     case PROFILE_STEPS.LOADING_SUCCESS:
+      console.log("GOT HERE")
       return { ...state, profileStep: PROFILE_STEPS.LOADING_SUCCESS }
     case PROFILE_STEPS.LOADING_FAILURE:
       return state

@@ -1,9 +1,12 @@
-import styled from '@emotion/styled'
-import { Field, Form, Formik } from 'formik'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { EmailPreferences } from '../../../store/ducks/emailPreferences/interfaces'
-import { EMAIL_SEND_FREQUENCY } from '../../../store/ducks/emailPreferences/types'
+import styled from '@emotion/styled';
+import { Field, Form, Formik } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onTryUpdateArticleEmailPreferences, onTryUpdateRecipeEmailPreferences, onTryUpdateRoundupEmailPreferences } from '../../../store/ducks/emailPreferences/actions';
+import { EmailPreferences } from '../../../store/ducks/emailPreferences/interfaces';
+import { EMAIL_SEND_FREQUENCY } from '../../../store/ducks/emailPreferences/types';
+import { getHouseholdId } from '../../../store/ducks/household/selectors';
+import { getUserId } from '../../../store/ducks/profile/selectors';
 
 const HouseholdNewsletterPreferences = (props: EmailPreferences) => {
   const Title = styled.h2`
@@ -12,43 +15,47 @@ const HouseholdNewsletterPreferences = (props: EmailPreferences) => {
     font-weight: 300;
     font-family: 'Playfair Display', serif;
     letter-spacing: -1px;
-  `
+    `
 
-  // const CheckboxLabel = styled.label`
-  // color: #333333;
-  // font-family: 'Roboto', sans-serif;
-  // font-size: 12px;
-  // font-weight: 100;
-  // font-weight: 100;
-  // display: inline-block;
-  // `
+    const dispatch = useDispatch()
 
-  // const CheckboxInput = styled.input`
-  // border-radius: 0px;
-  // box-sizing: border-box;
-  // border: 1px solid rgba(0,0,0,.15);
-  // border-radius: 0;
-  // outline: 0;
-  // background-color: transparent;
-  // `
+    const householdId = useSelector(getHouseholdId)
+    const userId = useSelector(getUserId)
 
   const onRecipesChange = (field: any, form: any, name: string, value: string) => {
+      let nextValue;
     if (field?.value?.includes(value)) {
-      const nextValue = field.value.filter(value => value !== value)
-      form.setFieldValue(name, nextValue)
+      nextValue = field.value.filter((value: string) => value !== value)
     } else {
-      const nextValue = field.value.concat(value)
-      form.setFieldValue(name, nextValue)
+      nextValue = field.value.concat(value)
+      
     }
-    console.log(form.values)
+    form.setFieldValue(name, nextValue)
+    console.log(nextValue, householdId)
+    console.log(form.values.recipeFrequency)
+    dispatch(onTryUpdateRecipeEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
   }
 
-  const onArticlesChange = (values: any) => {
-    console.log('ARTICLES CHANGE: ', values)
+  const onArticlesChange = (field: any, form: any, name: string, value: string) => {
+      let nextValue;
+    if (field?.value?.includes(value)) {
+        nextValue = field.value.filter((value: string) => value !== value)
+      } else {
+        nextValue = field.value.concat(value)
+      }
+      form.setFieldValue(name, nextValue)
+      dispatch(onTryUpdateArticleEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
   }
 
-  const onRoundChange = (values: any) => {
-    console.log('ROUNDUP CHANGE: ', values)
+  const onRoundChange = (field: any, form: any, name: string, value: string) => {
+      let nextValue;
+    if (field?.value?.includes(value)) {
+        nextValue = field.value.filter((value: string) => value !== value)
+      } else {
+        nextValue = field.value.concat(value)
+      }
+      form.setFieldValue(name, nextValue)
+      dispatch(onTryUpdateRoundupEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
   }
 
   const Checkbox = (props: {

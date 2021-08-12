@@ -1,11 +1,12 @@
-import styled from '@emotion/styled'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { showLogin, showRegister } from '../../../../store/ducks/sidebar/actions/actions'
-import { AppState } from '../../../../store/rootReducer'
-import Login from './login'
-import Profile from './profile'
-import RegisterAccount from './register'
+import styled from '@emotion/styled';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserId } from '../../../../store/ducks/profile/selectors';
+import { showLogin, showRegister } from '../../../../store/ducks/sidebar/actions/actions';
+import { AppState } from '../../../../store/rootReducer';
+import Login from './login';
+import Profile from './profile';
+import RegisterAccount from './register';
 
 const SidebarAccount = () => {
   interface TabProps {

@@ -1,18 +1,21 @@
-import { all, takeEvery } from 'redux-saga/effects'
-import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
-import { HEADER_ACTION_TYPES } from './ducks/header/types'
-import { createHouseholdFromSurveyAsync } from './ducks/household/sagas'
-import { CREATE_HOUSEHOLD_FROM } from './ducks/household/types'
-import { localStorageLoginAsync, submitLoginAsync } from './ducks/login/sagas'
-import { LOGIN_STEPS } from './ducks/login/types'
-import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
-import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
-import { fetchProfileAsync } from './ducks/profile/sagas'
-import { PROFILE_STEPS } from './ducks/profile/types'
-import { RATINGS } from './ducks/ratings/types'
-import { RECIPEBOX } from './ducks/recipesBox/types'
-import { submitSearchAsync } from './ducks/search/sagas'
-import { SEARCH_ACTION_TYPES } from './ducks/search/types'
+import { all, takeEvery } from 'redux-saga/effects';
+import { patchArticleEmailPreferenceAsync, patchRecipeEmailPreferenceAsync, patchRoundupEmailPreferencesAsync } from './ducks/emailPreferences/sagas';
+import { EMAIL_PREFERENCES } from './ducks/emailPreferences/types';
+import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas';
+import { HEADER_ACTION_TYPES } from './ducks/header/types';
+import { createHouseholdFromSurveyAsync, createNewHouseholdAsync, fetchHouseholdAsync } from './ducks/household/sagas';
+import { CREATE_HOUSEHOLD_FROM, HOUSEHOLD } from './ducks/household/types';
+import { localStorageLoginAsync, submitLoginAsync } from './ducks/login/sagas';
+import { LOGIN_STEPS } from './ducks/login/types';
+import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas';
+import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types';
+import { onTryCreateNewProfile } from './ducks/profile/actions';
+import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas';
+import { PROFILE, PROFILE_STEPS } from './ducks/profile/types';
+import { RATINGS } from './ducks/ratings/types';
+import { RECIPEBOX } from './ducks/recipesBox/types';
+import { submitSearchAsync } from './ducks/search/sagas';
+import { SEARCH_ACTION_TYPES } from './ducks/search/types';
 import {
   fetchAllArticleRatingsAsync,
   fetchAllRecipeRatingsAsync,
@@ -64,9 +67,9 @@ function* watchLogin() {
   yield takeEvery(LOGIN_STEPS.SUBMIT_LOGIN, submitLoginAsync)
 }
 
-function* watchProfile() {
-  yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
-}
+// function* watchProfile() {
+//   yield takeEvery(PROFILE_STEPS.LOAD, fetchProfileAsync)
+// }
 
 function* watchHelloContact() {
   yield takeEvery(CONTACT_HELLO_STEPS.SUBMIT_HELLO, submitHelloContactAsync)
@@ -88,8 +91,20 @@ function* watchPartnershipContact() {
 //   yield takeEvery(CREATE_HOUSEHOLD_FROM.NEWSLETTER, createHouseholdFromNewsletterAsync)
 // }
 
+function* watchCreateProfile() {
+  yield takeEvery(onTryCreateNewProfile, createProfileAsync)
+}
+
 function* watchCreateHouseholdFromSurvey() {
   yield takeEvery(CREATE_HOUSEHOLD_FROM.SURVEY, createHouseholdFromSurveyAsync)
+}
+
+function* watchCreateNewHousehold() {
+  yield takeEvery(HOUSEHOLD.TRY_CREATE_NEW_HOUSEHOLD, createNewHouseholdAsync)
+}
+
+function* watchFetchHousehold() {
+  yield takeEvery(HOUSEHOLD.TRY_FETCH_HOUSEHOLD, fetchHouseholdAsync)
 }
 
 function* watchUploadRecipe() {
@@ -184,15 +199,27 @@ function* watchFetchAllArticleRatings() {
   yield takeEvery(RATINGS.TRY_FETCH_ALL_ARTICLE_RATINGS, fetchAllArticleRatingsAsync)
 }
 
+function* watchPatchRecipeEmailPreference() {
+  yield takeEvery(EMAIL_PREFERENCES.TRY_UPDATE_RECIPE_EMAIL_PREFERENCES, patchRecipeEmailPreferenceAsync)
+}
+
+function* watchPatchArticleEmailPreference() {
+  yield takeEvery(EMAIL_PREFERENCES.TRY_UPDATE_ARTICLE_EMAIL_PREFERENCES, patchArticleEmailPreferenceAsync)
+}
+
+function* watchPatchRoundupEmailPreference() {
+  yield takeEvery(EMAIL_PREFERENCES.TRY_UPDATE_ROUNDUP_EMAIL_PREFERENCES, patchRoundupEmailPreferencesAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchCreateHouseholdFromSurvey(),
+    watchFetchHousehold(),
     watchFetchHeaderProductCategoryDetail(),
     watchFetchRecipesBox(),
     watchHelloContact(),
     watchLogin(),
     watchPartnershipContact(),
-    watchProfile(),
     watchRecipeBoxAddRecipe(),
     watchRecipeAddView(),
     watchRecipeAddCooked(),
@@ -216,5 +243,10 @@ export default function* rootSaga() {
     watchAddArticleRating(),
     watchFetchAllRecipeRatings(),
     watchFetchAllArticleRatings(),
+    watchPatchRecipeEmailPreference(),
+    watchPatchArticleEmailPreference(),
+    watchPatchRoundupEmailPreference(),
+    watchCreateProfile(),
+    watchCreateNewHousehold()
   ])
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore as reduxCreateStore, Store } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { promiseMiddleware } from '@adobe/redux-saga-promise'
 import rootSaga from './src/store/sagas';
 import { reducers as rootReducer } from './src/store/rootReducer'
 import { tryLocalStorageLogin } from './src/store/ducks/login/actions';
@@ -16,7 +17,7 @@ export default ({ element }) => {
   const initialState = {}
 
   const sagaMiddleware = createSagaMiddleware()
-  const store = reduxCreateStore(rootReducer, applyMiddleware(sagaMiddleware))
+  const store = reduxCreateStore(rootReducer, applyMiddleware(promiseMiddleware, sagaMiddleware))
   sagaMiddleware.run(rootSaga)
 
   store.dispatch(tryLocalStorageLogin())
