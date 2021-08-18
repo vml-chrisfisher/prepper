@@ -10,7 +10,6 @@ const fetchRecipesBox = (userId: string) => {
 }
 
 export function* fetchRecipesBoxAsync(action: any) {
-  console.log('FETCHING RECIPE BOX')
   yield put({
     type: RECIPEBOX.FETCHING_RECIPEBOX,
   })
@@ -63,7 +62,6 @@ export function* submitRecipeBoxRecipeAddAsync(action: any) {
         payload: userId,
       })
     } catch (error) {
-      console.log('LOGIN ERROR: ', error)
       yield put({
         type: RECIPEBOX.ADD_RECIPE_FAILURE,
       })
@@ -84,7 +82,6 @@ export function* submitRecipeBoxRecipeAddViewAsync(action: any) {
 
   const state = yield select()
   const isSelected = getRecipeBoxIsRecipeSelected(state, recipeId)
-  console.log('IN: ', isSelected, recipeId)
 
   if (isSelected) {
     yield put({
@@ -226,7 +223,6 @@ export function* submitRecipeBoxRecipeDeleteAsync(action: any) {
         payload: userId,
       })
     } catch (error) {
-      console.log('LOGIN ERROR: ', error)
       yield put({
         type: RECIPEBOX.DELETE_RECIPE_FAILURE,
       })
@@ -350,7 +346,6 @@ export function* submitRecipeBoxArticleDeleteAsync(action: any) {
         payload: userId,
       })
     } catch (error) {
-      console.log('LOGIN ERROR: ', error)
       yield put({
         type: RECIPEBOX.DELETE_ARTICLE_FAILURE,
       })

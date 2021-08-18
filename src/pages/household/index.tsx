@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
 import Helmet from 'react-helmet'
 import { useSelector } from 'react-redux'
 import Footer from '../../components/footer'
@@ -16,7 +18,6 @@ import { getHouseholdData } from '../../store/ducks/household/selectors'
 
 const Household = () => {
   const household = useSelector(getHouseholdData)
-  console.log(household)
   const MainContainer = styled.div`
     background-color: #fff;
     position: absolute;
@@ -29,7 +30,7 @@ const Household = () => {
   `
   return (
     <Layout>
-      <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
+      <HeaderContainer {...{ theme: HeaderTheme.LIGHT, showHeaderProfile: false }} />
       <MainContainer>
         <Helmet title="Articles | Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com/articles"></link>

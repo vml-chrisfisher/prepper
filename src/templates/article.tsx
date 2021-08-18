@@ -138,7 +138,6 @@ const ArticleTemplate = (props: ArticleProps) => {
   `
 
   const post: AllContentfulArticle = get(props, 'data.contentfulArticle')
-  console.log('POST: ', post)
   const postCreate = dateformat(post.createdAt, 'fullDate')
   const expirationDateRaw = new Date(post.updatedAt)
   const articleId = post.contentful_id

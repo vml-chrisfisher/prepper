@@ -27,6 +27,7 @@ export interface AllContentfulRecipe {
       rawMarkdownBody: string
     }
   }
+  contentful_id: string
   createdAt: string
   updatedAt: string
   heroImage: RecipeBannerImage

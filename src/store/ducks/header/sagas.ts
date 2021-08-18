@@ -41,7 +41,6 @@ export function* fetchHeaderProductCategoryDetailAsync(action: any) {
         copy: categoryRaw.fields.description,
       })
     } catch (error) {
-      console.log('ERROR: ', error)
       yield put({
         type: HEADER_ACTION_TYPES.CATEGORY_DETAILS_FETCHED,
         imagePath: 'fail.jpg',

@@ -197,7 +197,6 @@ const NewsletterSignup = () => {
           <SignupParagraph>Sign up to our newsletter and get the our latest news.</SignupParagraph>
           <Formik initialValues={initialValues} onSubmit={onSubmit}>
             {({ errors, touched }) => {
-              console.log(errors)
               return (
                 <Form>
                   {errors.newsletterEmail ? <FormError>{errors.newsletterEmail}</FormError> : <></>}

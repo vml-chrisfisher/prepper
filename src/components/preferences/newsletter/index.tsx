@@ -1,12 +1,16 @@
-import styled from '@emotion/styled';
-import { Field, Form, Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { onTryUpdateArticleEmailPreferences, onTryUpdateRecipeEmailPreferences, onTryUpdateRoundupEmailPreferences } from '../../../store/ducks/emailPreferences/actions';
-import { EmailPreferences } from '../../../store/ducks/emailPreferences/interfaces';
-import { EMAIL_SEND_FREQUENCY } from '../../../store/ducks/emailPreferences/types';
-import { getHouseholdId } from '../../../store/ducks/household/selectors';
-import { getUserId } from '../../../store/ducks/profile/selectors';
+import styled from '@emotion/styled'
+import { Field, Form, Formik } from 'formik'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  onTryUpdateArticleEmailPreferences,
+  onTryUpdateRecipeEmailPreferences,
+  onTryUpdateRoundupEmailPreferences,
+} from '../../../store/ducks/emailPreferences/actions'
+import { EmailPreferences } from '../../../store/ducks/emailPreferences/interfaces'
+import { EMAIL_SEND_FREQUENCY } from '../../../store/ducks/emailPreferences/types'
+import { getHouseholdId } from '../../../store/ducks/household/selectors'
+import { getUserId } from '../../../store/ducks/profile/selectors'
 
 const HouseholdNewsletterPreferences = (props: EmailPreferences) => {
   const Title = styled.h2`
@@ -15,47 +19,44 @@ const HouseholdNewsletterPreferences = (props: EmailPreferences) => {
     font-weight: 300;
     font-family: 'Playfair Display', serif;
     letter-spacing: -1px;
-    `
+  `
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    const householdId = useSelector(getHouseholdId)
-    const userId = useSelector(getUserId)
+  const householdId = useSelector(getHouseholdId)
+  const userId = useSelector(getUserId)
 
   const onRecipesChange = (field: any, form: any, name: string, value: string) => {
-      let nextValue;
+    let nextValue
     if (field?.value?.includes(value)) {
       nextValue = field.value.filter((value: string) => value !== value)
     } else {
       nextValue = field.value.concat(value)
-      
     }
     form.setFieldValue(name, nextValue)
-    console.log(nextValue, householdId)
-    console.log(form.values.recipeFrequency)
     dispatch(onTryUpdateRecipeEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
   }
 
   const onArticlesChange = (field: any, form: any, name: string, value: string) => {
-      let nextValue;
+    let nextValue
     if (field?.value?.includes(value)) {
-        nextValue = field.value.filter((value: string) => value !== value)
-      } else {
-        nextValue = field.value.concat(value)
-      }
-      form.setFieldValue(name, nextValue)
-      dispatch(onTryUpdateArticleEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
+      nextValue = field.value.filter((value: string) => value !== value)
+    } else {
+      nextValue = field.value.concat(value)
+    }
+    form.setFieldValue(name, nextValue)
+    dispatch(onTryUpdateArticleEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
   }
 
   const onRoundChange = (field: any, form: any, name: string, value: string) => {
-      let nextValue;
+    let nextValue
     if (field?.value?.includes(value)) {
-        nextValue = field.value.filter((value: string) => value !== value)
-      } else {
-        nextValue = field.value.concat(value)
-      }
-      form.setFieldValue(name, nextValue)
-      dispatch(onTryUpdateRoundupEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
+      nextValue = field.value.filter((value: string) => value !== value)
+    } else {
+      nextValue = field.value.concat(value)
+    }
+    form.setFieldValue(name, nextValue)
+    dispatch(onTryUpdateRoundupEmailPreferences({ preference: nextValue, householdId: householdId, userId: userId }))
   }
 
   const Checkbox = (props: {

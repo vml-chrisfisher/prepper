@@ -1,21 +1,25 @@
-import { all, takeEvery } from 'redux-saga/effects';
-import { patchArticleEmailPreferenceAsync, patchRecipeEmailPreferenceAsync, patchRoundupEmailPreferencesAsync } from './ducks/emailPreferences/sagas';
-import { EMAIL_PREFERENCES } from './ducks/emailPreferences/types';
-import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas';
-import { HEADER_ACTION_TYPES } from './ducks/header/types';
-import { createHouseholdFromSurveyAsync, createNewHouseholdAsync, fetchHouseholdAsync } from './ducks/household/sagas';
-import { CREATE_HOUSEHOLD_FROM, HOUSEHOLD } from './ducks/household/types';
-import { localStorageLoginAsync, submitLoginAsync } from './ducks/login/sagas';
-import { LOGIN_STEPS } from './ducks/login/types';
-import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas';
-import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types';
-import { onTryCreateNewProfile } from './ducks/profile/actions';
-import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas';
-import { PROFILE, PROFILE_STEPS } from './ducks/profile/types';
-import { RATINGS } from './ducks/ratings/types';
-import { RECIPEBOX } from './ducks/recipesBox/types';
-import { submitSearchAsync } from './ducks/search/sagas';
-import { SEARCH_ACTION_TYPES } from './ducks/search/types';
+import { all, takeEvery } from 'redux-saga/effects'
+import {
+  patchArticleEmailPreferenceAsync,
+  patchRecipeEmailPreferenceAsync,
+  patchRoundupEmailPreferencesAsync,
+} from './ducks/emailPreferences/sagas'
+import { EMAIL_PREFERENCES } from './ducks/emailPreferences/types'
+import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
+import { HEADER_ACTION_TYPES } from './ducks/header/types'
+import { createHouseholdFromSurveyAsync, createNewHouseholdAsync, fetchHouseholdAsync } from './ducks/household/sagas'
+import { CREATE_HOUSEHOLD_FROM, HOUSEHOLD } from './ducks/household/types'
+import { localStorageLoginAsync, logoutAsync, submitLoginAsync } from './ducks/login/sagas'
+import { LOGIN_STEPS, LOGOUT } from './ducks/login/types'
+import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
+import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
+import { onTryCreateNewProfile } from './ducks/profile/actions'
+import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
+import { PROFILE, PROFILE_STEPS } from './ducks/profile/types'
+import { RATINGS } from './ducks/ratings/types'
+import { RECIPEBOX } from './ducks/recipesBox/types'
+import { submitSearchAsync } from './ducks/search/sagas'
+import { SEARCH_ACTION_TYPES } from './ducks/search/types'
 import {
   fetchAllArticleRatingsAsync,
   fetchAllRecipeRatingsAsync,
@@ -65,6 +69,10 @@ function* watchSearch() {
 
 function* watchLogin() {
   yield takeEvery(LOGIN_STEPS.SUBMIT_LOGIN, submitLoginAsync)
+}
+
+function* watchLogout() {
+  yield takeEvery(LOGOUT.TRY_LOGOUT, logoutAsync)
 }
 
 // function* watchProfile() {
@@ -213,40 +221,41 @@ function* watchPatchRoundupEmailPreference() {
 
 export default function* rootSaga() {
   yield all([
+    watchAddArticleRating(),
+    watchAddRecipeRating(),
+    watchArticleAddView(),
     watchCreateHouseholdFromSurvey(),
+    watchCreateNewHousehold(),
+    watchCreateProfile(),
+    watchFetchAllArticleRatings(),
+    watchFetchAllRecipeRatings(),
     watchFetchHousehold(),
     watchFetchHeaderProductCategoryDetail(),
     watchFetchRecipesBox(),
     watchHelloContact(),
+    watchLocalStorageLogin(),
     watchLogin(),
+    watchLogout(),
+    watchMostCookedRecipesRecommendations(),
     watchPartnershipContact(),
-    watchRecipeBoxAddRecipe(),
-    watchRecipeAddView(),
+    watchPatchArticleEmailPreference(),
+    watchPatchRecipeEmailPreference(),
+    watchPatchRoundupEmailPreference(),
+    watchRecentlyAddedArticlesRecommendations(),
+    watchRecentlyAddedRecipesRecommendations(),
+    watchRecentlyViewedArticlesRecommendation(),
+    watchRecentlyViewedRecipesRecommendations(),
     watchRecipeAddCooked(),
+    watchRecipeAddView(),
+    watchRecipeBoxAddArticle(),
+    watchRecipeBoxAddRecipe(),
+    watchRecipeBoxDeleteArticle(),
     watchRecipeBoxDeleteRecipe(),
-    watchArticleAddView(),
     watchRecipeContact(),
     watchRemoveRecipe(),
     watchSearch(),
     watchSubmitNewsletterEmail(),
     watchSuggestionContact(),
     watchUploadRecipe(),
-    watchRecipeBoxAddArticle(),
-    watchRecipeBoxDeleteArticle(),
-    watchLocalStorageLogin(),
-    watchRecentlyAddedRecipesRecommendations(),
-    watchRecentlyViewedRecipesRecommendations(),
-    watchMostCookedRecipesRecommendations(),
-    watchRecentlyAddedArticlesRecommendations(),
-    watchRecentlyViewedArticlesRecommendation(),
-    watchAddRecipeRating(),
-    watchAddArticleRating(),
-    watchFetchAllRecipeRatings(),
-    watchFetchAllArticleRatings(),
-    watchPatchRecipeEmailPreference(),
-    watchPatchArticleEmailPreference(),
-    watchPatchRoundupEmailPreference(),
-    watchCreateProfile(),
-    watchCreateNewHousehold()
   ])
 }

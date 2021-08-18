@@ -1,5 +1,5 @@
-import initialState from './initialState';
-import { LOGIN_STEPS } from './types';
+import initialState from './initialState'
+import { LOGIN_STEPS, LOGOUT } from './types'
 
 const loginReducers = (state = initialState, action: { type?: string; payload?: any }) => {
   switch (action?.type) {
@@ -25,13 +25,20 @@ const loginReducers = (state = initialState, action: { type?: string; payload?: 
         accessToken: action.payload.accessToken,
         userId: action.payload.userData[0].user_id,
       }
-      case LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS:
-        return {
-          ...state,
-          loginStep: LOGIN_STEPS.LOGIN_SUCCESS,
-          accessToken: action.payload.accessToken,
-          userId: action.payload.userId,
-        }
+    case LOGIN_STEPS.LOCAL_STORAGE_LOGIN_SUCCESS:
+      return {
+        ...state,
+        loginStep: LOGIN_STEPS.LOGIN_SUCCESS,
+        accessToken: action.payload.accessToken,
+        userId: action.payload.userId,
+      }
+    case LOGOUT.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        loginStep: LOGIN_STEPS.DEFAULT,
+        accessToken: undefined,
+        userId: undefined,
+      }
     default:
       return state
   }

@@ -1,16 +1,16 @@
-import styled from '@emotion/styled';
-import { Field, Form, Formik } from 'formik';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
-import { EmailPreferences } from '../../../../../store/ducks/emailPreferences/interfaces';
-import { EMAIL_SEND_FREQUENCY } from '../../../../../store/ducks/emailPreferences/types';
-import { onTryCreateHousehold, onTryFetchHousehold } from '../../../../../store/ducks/household/actions';
-import { Household, HOUSEHOLD_MEMBER_ROLE, HouseholdMember } from '../../../../../store/ducks/household/interfaces';
-import { onTryCreateNewProfile } from '../../../../../store/ducks/profile/actions';
-import { ProfileSubmit } from '../../../../../store/ducks/profile/interface';
-import { PROFILE, PROFILE_STEPS } from '../../../../../store/ducks/profile/types';
-import { AppState } from '../../../../../store/rootReducer';
+import styled from '@emotion/styled'
+import { Field, Form, Formik } from 'formik'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import * as Yup from 'yup'
+import { EmailPreferences } from '../../../../../store/ducks/emailPreferences/interfaces'
+import { EMAIL_SEND_FREQUENCY } from '../../../../../store/ducks/emailPreferences/types'
+import { onTryCreateHousehold, onTryFetchHousehold } from '../../../../../store/ducks/household/actions'
+import { Household, HOUSEHOLD_MEMBER_ROLE, HouseholdMember } from '../../../../../store/ducks/household/interfaces'
+import { onTryCreateNewProfile } from '../../../../../store/ducks/profile/actions'
+import { ProfileSubmit } from '../../../../../store/ducks/profile/interface'
+import { PROFILE, PROFILE_STEPS } from '../../../../../store/ducks/profile/types'
+import { AppState } from '../../../../../store/rootReducer'
 
 const RegisterAccount = () => {
   interface SliderProps {
@@ -138,9 +138,15 @@ const RegisterAccount = () => {
     padding-bottom: 0px;
   `
 
-  const createHousehold = (firstName: string, lastName: string, email: string, userId: string, passwordLength: number) => {
+  const createHousehold = (
+    firstName: string,
+    lastName: string,
+    email: string,
+    userId: string,
+    passwordLength: number,
+  ) => {
     const household: Household = {} as Household
-    household.name = lastName;
+    household.name = lastName
 
     const emailPreferences: EmailPreferences = {} as EmailPreferences
     emailPreferences.recipes = EMAIL_SEND_FREQUENCY.DAILY
@@ -153,7 +159,7 @@ const RegisterAccount = () => {
     member.emailAddress = email
     member.id = userId
     member.firstName = firstName
-    member.lastNamse = lastName
+    member.lastName = lastName
     member.passwordLength = passwordLength
     member.role = HOUSEHOLD_MEMBER_ROLE.FAMILY_OWNER
     household.householdMembers = [member]
@@ -162,32 +168,23 @@ const RegisterAccount = () => {
   }
 
   const onSubmit = async (values: Values, { setSubmitting }) => {
-
     const { registerFirstName, registerLastName, registerEmail, registerPassword } = values
-    console.log("submit")
     setSubmitting(true)
     try {
       const response = await dispatch(
-        onTryCreateNewProfile(
-          {
-            registerFirstName,
-            registerLastName,
-            registerEmail,
-            registerPassword,
-          }
-        ),
+        onTryCreateNewProfile({
+          registerFirstName,
+          registerLastName,
+          registerEmail,
+          registerPassword,
+        }),
       )
-      console.log("YOU: ", response)
       const { firstName, lastName, email, userId } = response.data
       const household = createHousehold(firstName, lastName, email, userId, registerPassword.length)
-      console.log("IN COMPONENT: ", household)
       dispatch(onTryCreateHousehold(household))
-
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error)
     }
-
   }
 
   interface Values {
@@ -209,19 +206,20 @@ const RegisterAccount = () => {
   const t: Yup.StringSchema
 
   const registerValidationSchema = Yup.object().shape({
-    registerFirstName: Yup.string()
-      .required('First name is required'),
-    registerLastName: Yup.string()
-      .required('Last name is required'),
+    registerFirstName: Yup.string().required('First name is required'),
+    registerLastName: Yup.string().required('Last name is required'),
     registerEmail: Yup.string()
       .email('We need a valid email address to even to start to think about logging you in.')
       .required('Email required'),
     registerPassword: Yup.string()
-      .matches(/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/, 'Your password must be at 8 character long, include one capital letter, one lowercase letter and atleast one special character.')
+      .matches(
+        /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+        'Your password must be at 8 character long, include one capital letter, one lowercase letter and atleast one special character.',
+      )
       .required('We need your password.'),
     registerConfirmPassword: Yup.string()
       .oneOf([Yup.ref('registerPassword'), null], 'Passwords do not match')
-      .required('Confirm password is required.')
+      .required('Confirm password is required.'),
   })
 
   return (
@@ -229,16 +227,16 @@ const RegisterAccount = () => {
       <Slider position={sliderPosition}>
         <Container>
           <Formik initialValues={initialValues} validationSchema={registerValidationSchema} onSubmit={onSubmit}>
-            {(form) => {
-              console.log(form)
+            {form => {
               return (
-                <Form onSubmit={(e) => {
-                  console.log(e)
-                  e.stopPropagation()
-                  e.preventDefault()
-                  form.setSubmitting(false)
-                  form.handleSubmit()
-                }}>
+                <Form
+                  onSubmit={e => {
+                    e.stopPropagation()
+                    e.preventDefault()
+                    form.setSubmitting(false)
+                    form.handleSubmit()
+                  }}
+                >
                   {form.errors.registerFirstName && form.touched.registerFirstName ? (
                     <FormError>{form.errors.registerFirstName}</FormError>
                   ) : (
@@ -264,10 +262,28 @@ const RegisterAccount = () => {
                   ) : (
                     <></>
                   )}
-                  <FormInput id="registerFirstName" autoComplete="given-name" name="registerFirstName" type="input" placeholder="First Name" />
-                  <FormInput id="registerLastName" autoComplete="family-name" name="registerLastName" type="input" placeholder="Last Name" />
+                  <FormInput
+                    id="registerFirstName"
+                    autoComplete="given-name"
+                    name="registerFirstName"
+                    type="input"
+                    placeholder="First Name"
+                  />
+                  <FormInput
+                    id="registerLastName"
+                    autoComplete="family-name"
+                    name="registerLastName"
+                    type="input"
+                    placeholder="Last Name"
+                  />
                   <FormInput id="registerEmail" autoComplete="email" name="registerEmail" placeholder="Email Address" />
-                  <FormInput id="registerPassword" type="password" autoComplete="off" name="registerPassword" placeholder="Password" />
+                  <FormInput
+                    id="registerPassword"
+                    type="password"
+                    autoComplete="off"
+                    name="registerPassword"
+                    placeholder="Password"
+                  />
                   <FormInput
                     id="registerConfirmPassword"
                     name="registerConfirmPassword"
@@ -275,20 +291,26 @@ const RegisterAccount = () => {
                     placeholder="Confirm Password"
                     autoComplete="off"
                   />
-                  {!form.isSubmitting && <Legal>
-                    Your password must be at 8 character long, include one capital letter, one lowercase letter and at
-                    least one special character.
-                  </Legal>}
-                  {form.isSubmitting && <LegalSubmitting>
-                    Your password must be at 8 character long, include one capital letter, one lowercase letter and at
-                    least one special character.
-                  </LegalSubmitting>}
+                  {!form.isSubmitting && (
+                    <Legal>
+                      Your password must be at 8 character long, include one capital letter, one lowercase letter and at
+                      least one special character.
+                    </Legal>
+                  )}
+                  {form.isSubmitting && (
+                    <LegalSubmitting>
+                      Your password must be at 8 character long, include one capital letter, one lowercase letter and at
+                      least one special character.
+                    </LegalSubmitting>
+                  )}
 
                   {!form.isSubmitting && <PrimaryButton type="submit">Create Account</PrimaryButton>}
-                  {form.isSubmitting && <div>
-                    <StatusSpinner src="/spinner.svg" />
-                    <Status>Creating your account.</Status>
-                  </div>}
+                  {form.isSubmitting && (
+                    <div>
+                      <StatusSpinner src="/spinner.svg" />
+                      <Status>Creating your account.</Status>
+                    </div>
+                  )}
                 </Form>
               )
             }}

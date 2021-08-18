@@ -1,10 +1,13 @@
-import styled from '@emotion/styled';
-import { Field } from 'formik';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { onFetchProfile } from '../../../../../store/ducks/profile/actions';
-import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types';
-import { AppState } from '../../../../../store/rootReducer';
+import styled from '@emotion/styled'
+import { Field } from 'formik'
+import { Link } from 'gatsby'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { HOUSEHOLD } from '../../../../../store/ducks/household/types'
+import { onTryLogout } from '../../../../../store/ducks/login/actions'
+import { onFetchProfile } from '../../../../../store/ducks/profile/actions'
+import { PROFILE_STEPS } from '../../../../../store/ducks/profile/types'
+import { AppState } from '../../../../../store/rootReducer'
 
 const Profile = () => {
   interface SliderProps {
@@ -18,7 +21,6 @@ const Profile = () => {
   })
 
   const householdMembers = useSelector((state: AppState) => {
-    console.log(state)
     return state?.household?.householdMembers
   })
 
@@ -27,10 +29,6 @@ const Profile = () => {
     switch (length) {
       case 1:
         return 'person'
-      case 0:
-      case undefined:
-      case null:
-        return ''
       default:
         return 'people'
     }
@@ -112,25 +110,25 @@ const Profile = () => {
   useEffect(() => {
     if (userId) {
       dispatch(onFetchProfile(userId))
-      
     }
   }, [userId])
 
   const sliderPosition = useSelector((state: AppState) => {
-    const step = state?.profile?.profileStep
+    const step = state?.household?.sidebarStep
     switch (step) {
-      case PROFILE_STEPS.LOADING:
+      case HOUSEHOLD.TRY_FETCH_HOUSEHOLD:
+      case HOUSEHOLD.FETCHING_HOUSEHOLD:
         return 0
-      case PROFILE_STEPS.UPDATING:
-        return 0
-      case PROFILE_STEPS.LOADING_SUCCESS:
-        return 1
-      case PROFILE_STEPS.UPDATING_SUCCESS:
+      case HOUSEHOLD.FETCH_HOUSEHOLD_SUCCESS:
         return 1
       default:
         return 0
     }
   })
+
+  const onSignOutClick = () => {
+    dispatch(onTryLogout())
+  }
 
   const Wrapper = styled.div`
     width: 100%;
@@ -170,6 +168,27 @@ const Profile = () => {
     }
   `
 
+  const PrimaryButtonLink = styled(props => <Link {...props} />)`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 7px;
+    margin-bottom: 29px;
+    text-align: left;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 100%;
+    &:hover > div:nth-child(1) {
+      background-color: #f4f2f2;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    &:hover > div:nth-child(2) {
+      background-color: #f4f2f2;
+      transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  `
+
   const Category = styled.div`
     color: #333333;
     font-family: 'Playfair Display', serif;
@@ -177,6 +196,19 @@ const Profile = () => {
     font-weight: normal;
     padding-bottom: 0px;
     letter-spacing: 0px;
+    padding-left: 0px;
+    user-select: none;
+  `
+
+  const CategoryLink = styled.div`
+    color: #333333;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: normal;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    letter-spacing: 0px;
+    user-select: none;
   `
 
   const CategoryDetail = styled.div`
@@ -188,12 +220,26 @@ const Profile = () => {
     letter-spacing: 0px;
   `
 
+  const CategoryDetailLink = styled.div`
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #484848;
+    font-weight: 500;
+    letter-spacing: 0px;
+    padding-left: 15px;
+    padding-bottom: 6px;
+    user-select: none;
+    width: 100%;
+  `
+
   const CategoryDetailHighlight = styled.div`
     display: inline-block;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     color: #f24e11;
     font-weight: 300;
+    user-select: none;
   `
 
   const StatusSpinner = styled.img`
@@ -223,15 +269,15 @@ const Profile = () => {
           <Status>Loading your household.</Status>
         </Container>
         <Container>
-          <PrimaryButton>
-            <Category>Household</Category>
-            {householdMembers && householdMembers.length && (
-              <CategoryDetail>
+          <PrimaryButtonLink to="/household">
+            <CategoryLink>Household</CategoryLink>
+            {householdMembers && (
+              <CategoryDetailLink>
                 {householdMembers?.length} {householdMembersPronoun} in your household.
-              </CategoryDetail>
+              </CategoryDetailLink>
             )}
-          </PrimaryButton>
-          <PrimaryButton>
+          </PrimaryButtonLink>
+          {/* <PrimaryButton>
             <Category>Shipments</Category>
             {nextShipmentDate && (
               <>
@@ -247,17 +293,18 @@ const Profile = () => {
                 {groceries?.length}&nbsp;{groceriesPronoun} in your grocery list
               </CategoryDetail>
             )}
-          </PrimaryButton>
-          <PrimaryButton>
-            <Category>Preferences</Category>
+          </PrimaryButton> */}
+          <PrimaryButtonLink to="household">
+            <CategoryLink>Preferences</CategoryLink>
             {preferencesEmail && (
               <>
-                <CategoryDetail>Sending emails to:&nbsp;</CategoryDetail>
-                <CategoryDetailHighlight>{preferencesEmail}</CategoryDetailHighlight>
+                <CategoryDetailLink>
+                  Sending emails to:&nbsp; <CategoryDetailHighlight>{preferencesEmail}</CategoryDetailHighlight>
+                </CategoryDetailLink>
               </>
             )}
-          </PrimaryButton>
-          <PrimaryButton>
+          </PrimaryButtonLink>
+          {/* <PrimaryButton>
             <Category>Billing</Category>
             {nextBillingDate && (
               <>
@@ -265,8 +312,8 @@ const Profile = () => {
                 <CategoryDetailHighlight>{nextBillingDate}</CategoryDetailHighlight>
               </>
             )}
-          </PrimaryButton>
-          <PrimaryButton>
+          </PrimaryButton> */}
+          <PrimaryButton onClick={onSignOutClick}>
             <Category>Sign Out</Category>
           </PrimaryButton>
         </Container>

@@ -1,8 +1,8 @@
-import axios from 'axios';
-import { call, put } from 'redux-saga/effects';
-import { isBrowser } from '../../../utils/auth';
-import { RECIPEBOX } from '../recipesBox/types';
-import { LOGIN_STEPS } from './types';
+import axios from 'axios'
+import { call, put } from 'redux-saga/effects'
+import { isBrowser } from '../../../utils/auth'
+import { RECIPEBOX } from '../recipesBox/types'
+import { LOGIN_STEPS, LOGOUT } from './types'
 
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>(resolve => {
@@ -28,7 +28,7 @@ export function* submitLoginAsync(action: any) {
       const loginResponse = yield call(submitLogin, creditials)
       if (isBrowser) {
         localStorage.setItem('hasLoggedInBefore', 'true')
-      } 
+      }
       yield put({
         type: LOGIN_STEPS.LOGIN_SUCCESS,
         payload: loginResponse.data.message,
@@ -76,9 +76,18 @@ export function* localStorageLoginAsync(action: any) {
       payload: loginResponse.userId,
     })
   } catch (error) {
-    console.log(error)
     yield put({
       type: LOGIN_STEPS.LOCAL_STORAGE_LOGIN_FAILURE,
     })
   }
+}
+
+export function* logoutAsync(action: any) {
+  if (isBrowser) {
+    localStorage.clear()
+  }
+
+  yield put({
+    type: LOGOUT.LOGOUT_SUCCESS,
+  })
 }

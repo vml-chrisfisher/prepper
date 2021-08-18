@@ -14,7 +14,7 @@ export const getAllArticleRatings = (state: any) => {
 }
 
 export const getRecipeRating = (state: any, recipeId: string) => {
-  const filtered = getAllArticleRatings(state).filter((articleRating: any) => {
+  const filtered = getAllRecipeRatings(state).filter((articleRating: any) => {
     return articleRating.DocumentId === recipeId
   })
 

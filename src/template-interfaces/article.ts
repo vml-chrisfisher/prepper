@@ -24,6 +24,7 @@ export interface AllContentfulArticle {
       rawMarkdownBody: string
     }
   }
+  contentful_id: string
   slug: string
   createdAt: string
   updatedAt: string

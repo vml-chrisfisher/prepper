@@ -24,13 +24,13 @@ const ProfileIcon = (props: ProfileIconProps) => {
     cursor: pointer;
     display: inline-block;
     fill: ${props => {
-      return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     height: 20px;
     margin-right: 25px;
-    margin-top: 20px;
+    margin-top: 19px;
     stroke: ${props => {
-      return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     stroke-width: 0.5;
     stroke-miterlimit: 10;

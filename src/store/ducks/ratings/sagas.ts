@@ -108,7 +108,6 @@ export function* fetchAllArticleRatingsAsync(action: any) {
 
   try {
     const fetchRatingsResponse = yield call(fetchAllArticleRatings)
-    console.log('RESPONSE: ', fetchRatingsResponse.data.ratings)
 
     yield put({
       type: RATINGS.FETCH_ALL_ARTICLE_RATINGS_SUCCESS,

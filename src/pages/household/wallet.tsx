@@ -10,7 +10,6 @@ import { getHouseholdData } from '../../store/ducks/household/selectors'
 
 const Wallet = () => {
   const household = useSelector(getHouseholdData)
-  console.log(household)
   const MainContainer = styled.div`
     background-color: #fff;
     position: absolute;

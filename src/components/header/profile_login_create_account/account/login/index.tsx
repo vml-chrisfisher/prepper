@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import { Field, Form, Formik } from 'formik';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
-import { onSubmitLogin } from '../../../../../store/ducks/login/actions';
-import { LOGIN_STEPS } from '../../../../../store/ducks/login/types';
-import { AppState } from '../../../../../store/rootReducer';
+import styled from '@emotion/styled'
+import { Field, Form, Formik } from 'formik'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import * as Yup from 'yup'
+import { onSubmitLogin } from '../../../../../store/ducks/login/actions'
+import { LOGIN_STEPS } from '../../../../../store/ducks/login/types'
+import { AppState } from '../../../../../store/rootReducer'
 
 const Login = () => {
   interface SliderProps {
@@ -128,7 +128,7 @@ const Login = () => {
     <Wrapper>
       <Slider position={sliderPosition}>
         <Container>
-          <Formik initialValues={initialValues} onSubmit={onSubmit}>
+          <Formik initialValues={initialValues} validationSchema={loginValidationSchema} onSubmit={onSubmit}>
             {({ errors, touched }) => {
               console.log(errors)
               return (
@@ -139,7 +139,13 @@ const Login = () => {
                   ) : (
                     <></>
                   )}
-                  <FormInput id="loginEmail" autoComplete="username" name="loginEmail" type="email" placeholder="Email Address" />
+                  <FormInput
+                    id="loginEmail"
+                    autoComplete="username"
+                    name="loginEmail"
+                    type="email"
+                    placeholder="Email Address"
+                  />
                   <FormInput
                     id="loginPassword"
                     name="loginPassword"

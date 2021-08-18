@@ -1,25 +1,14 @@
-import { buffers, eventChannel } from '@redux-saga/core';
-import * as AWS from 'aws-sdk';
-import { PutObjectRequest } from 'aws-sdk/clients/s3';
-import axios from 'axios';
-import { getUploadedRecipeBucketNames } from './selectors';
-import {
-  CONTACT_HELLO_STEPS,
-  CONTACT_PARTNERSHIP_STEPS,
-  CONTACT_RECIPE_STEPS,
-  CONTACT_SUGGESTION_STEPS
-  } from './types';
+import { buffers, eventChannel } from '@redux-saga/core'
+import * as AWS from 'aws-sdk'
+import { PutObjectRequest } from 'aws-sdk/clients/s3'
+import axios from 'axios'
+import { getUploadedRecipeBucketNames } from './selectors'
+import { CONTACT_HELLO_STEPS, CONTACT_PARTNERSHIP_STEPS, CONTACT_RECIPE_STEPS, CONTACT_SUGGESTION_STEPS } from './types'
 
 /* eslint no-empty-function: 0 */
 /* @typescript-eslint/no-empty-function: 0 */
 
-import {
-  all,
-  call,
-  put,
-  select,
-  take,
-  } from 'redux-saga/effects';
+import { call, put, select, take } from 'redux-saga/effects'
 
 const bucketName = 'knife-and-fish-user-recipes'
 
@@ -52,7 +41,6 @@ export function* submitHelloContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('HELLO ERROR: ', error)
       yield put({
         type: CONTACT_HELLO_STEPS.HELLO_SUBMIT_FAILURE,
       })
@@ -89,7 +77,6 @@ export function* submitRecipeContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('RECIPE ERROR: ', error)
       yield put({
         type: CONTACT_RECIPE_STEPS.RECIPE_SUBMIT_FAILURE,
       })
@@ -151,31 +138,30 @@ export function* uploadRecipeAsync(action: any) {
   }
 }
 
-const removeRecipe = (request: {Bucket: string, Key: string}) => {
+const removeRecipe = (request: { Bucket: string; Key: string }) => {
   s3.deleteObject(request, (err, data) => {
-
+    console.log(err, data)
   }).promise()
 }
 
 export function* removeRecipeAsync(action: any) {
-  const {fileName } = action.payload
+  const { fileName } = action.payload
 
   const deleteRequest = {
     Bucket: bucketName,
-    Key: fileName
+    Key: fileName,
   }
   try {
-    const response = yield call(removeRecipe, deleteRequest)
+    yield call(removeRecipe, deleteRequest)
 
     yield put({
       type: CONTACT_RECIPE_STEPS.REMOVE_RECIPE,
-      payload: fileName
+      payload: fileName,
     })
-  }
-  catch (error) {
+  } catch (error) {
     yield put({
       type: CONTACT_RECIPE_STEPS.REMOVE_RECIPE,
-      payload: fileName
+      payload: fileName,
     })
   }
 }
@@ -203,7 +189,6 @@ export function* submitSuggestionContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('SUGGESTION ERROR: ', error)
       yield put({
         type: CONTACT_SUGGESTION_STEPS.SUGGESTION_SUBMIT_FAILURE,
       })
@@ -230,8 +215,22 @@ export function* submitPartnershipContactAsync(action: any) {
   yield put({
     type: CONTACT_PARTNERSHIP_STEPS.SUBMITTING_PARTNERSHIP,
   })
-  const { partnershipName, partnershipCompany, partnershipEmail, partnershipPhone, partnershipWebsite, partnershipMessage } = action.payload
-  const payload = { partnershipName, partnershipCompany, partnershipEmail, partnershipPhone, partnershipWebsite, partnershipMessage }
+  const {
+    partnershipName,
+    partnershipCompany,
+    partnershipEmail,
+    partnershipPhone,
+    partnershipWebsite,
+    partnershipMessage,
+  } = action.payload
+  const payload = {
+    partnershipName,
+    partnershipCompany,
+    partnershipEmail,
+    partnershipPhone,
+    partnershipWebsite,
+    partnershipMessage,
+  }
   if (payload) {
     try {
       const response = yield call(submitContactPartnership, payload)
@@ -241,7 +240,6 @@ export function* submitPartnershipContactAsync(action: any) {
         payload: response.data.message,
       })
     } catch (error) {
-      console.log('PARTNERSHIP ERROR: ', error)
       yield put({
         type: CONTACT_PARTNERSHIP_STEPS.PARTNERSHIP_SUBMIT_FAILURE,
       })
