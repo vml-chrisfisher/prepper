@@ -8,7 +8,7 @@ import { onFetchProfile } from '../../store/ducks/profile/actions'
 import { getAccessToken, getUserId } from '../../store/ducks/profile/selectors'
 import { onTryFetchRecipesBox } from '../../store/ducks/recipesBox/actions'
 import { SIDEBAR_ANIMATION_STEPS } from '../../store/ducks/sidebar/animations/types'
-import { HeaderMenuType, HeaderProps, HeaderState, ProductCategory, ProductFamily } from './interface'
+import { HeaderMenuType, HeaderProps, HeaderState, HeaderTheme, ProductCategory, ProductFamily } from './interface'
 import HeaderNoticationContainer from './notifications'
 import ProfileIcon from './profileIcon'
 import RecipeBoxIcon from './recipeBoxIcon'
@@ -278,7 +278,7 @@ const Header = (props: HeaderProps) => {
     cursor: pointer;
     display: inline-block;
     fill: ${props => {
-      return props.theme === 'white' ? '#464646' : '#FFFFFF'
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     height: 20px;
     margin-right: 25px;
@@ -418,7 +418,8 @@ const Header = (props: HeaderProps) => {
   const NavigationItem = styled(props => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
-      return props.theme === 'white' ? '#464646' : '#FFFFFF'
+      console.log('HEADER THEME1: ', props)
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
     font-size: 0.6em;
@@ -445,7 +446,7 @@ const Header = (props: HeaderProps) => {
   const NavigationItemFunctionLink = styled(props => <div {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
-      return props.theme === 'white' ? '#464646' : '#FFFFFF'
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
     font-size: 0.6em;
@@ -472,13 +473,39 @@ const Header = (props: HeaderProps) => {
   const NavigationItemRight = styled(props => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
     color: ${props => {
-      return props.theme === 'white' ? '#464646' : '#FFFFFF'
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
     font-size: 0.6em;
     font-weight: 100;
     transition: color 1s ease;
     margin-right: 25px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    display: block;
+    padding-top: 25px;
+    width: 31px;
+    height: 48px;
+    &:hover {
+      color: #f24e11;
+      transition: color 1s ease;
+    }
+  `
+
+  const MobileNavigationItemRight = styled(props => <Link {...props} />)<ThemeProps>`
+    font-family: 'Roboto', sans-serif;
+    color: ${props => {
+      return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
+    }};
+    text-decoration: none;
+    font-size: 0.6em;
+    font-weight: 100;
+    transition: color 1s ease;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -504,6 +531,9 @@ const Header = (props: HeaderProps) => {
     padding-top: 0px;
     margin: 0;
     font-size: 1.25em;
+    position: fixed;
+    z-index: 9999;
+    background-color: #ffffff;
   `
 
   const MobileNavigationItem = styled(props => <Link {...props} />)`
@@ -530,9 +560,6 @@ const Header = (props: HeaderProps) => {
   const MobileLogoContainer = styled.div`
     background-color: #fff;
     position: fixed;
-    text-align: right;
-    padding-right: 20px;
-    width: 100%;
     z-index: 999;
   `
 
@@ -542,7 +569,7 @@ const Header = (props: HeaderProps) => {
 
   const MobileLogoImage = styled.img`
     padding-right: 20px;
-    width: 100px;
+    display: inline-block;
   `
 
   const themeValue = props.theme
@@ -550,7 +577,7 @@ const Header = (props: HeaderProps) => {
   return (
     <>
       <header className="hidden-sm">
-        <NavigationHeader role="navigation" showProfile={showHeaderProfile}>
+        <NavigationHeader role="navigation" showProfile={SIDEBAR_ANIMATION_STEPS.DEFAULT}>
           <NavigationContainer pageTheme={themeValue}>
             <NavigationColumn>
               <Navigation>
@@ -780,9 +807,11 @@ const Header = (props: HeaderProps) => {
         <HeaderNoticationContainer></HeaderNoticationContainer>
       </header>
       <header className="hidden-lg">
-        <nav role="navigation">
-          <MobileNavigation>
-            {/* <li>
+        <NavigationHeader role="navigation" showProfile={SIDEBAR_ANIMATION_STEPS.DEFAULT}>
+          <NavigationContainer pageTheme={'dark'}>
+            <NavigationColumn>
+              <Navigation>
+                {/* <li>
               <NavigationItem
                 pageTheme={themeValue}
                 onClick={() => {
@@ -792,28 +821,91 @@ const Header = (props: HeaderProps) => {
                 Plants
               </NavigationItem>
             </li> */}
-            <li>
-              <MobileNavigationItem to="/recipes">Recipes</MobileNavigationItem>
-            </li>
-            <li>
-              <MobileNavigationItem to="/articles">Articles</MobileNavigationItem>
-            </li>
-            <li>
-              <MobileLogoContainer>
+                <li>
+                  <NavigationItemFunctionLink
+                    pageTheme={HeaderTheme.LIGHT}
+                    onClick={() => {
+                      onRecipesClick()
+                    }}
+                  >
+                    Recipes
+                  </NavigationItemFunctionLink>
+                </li>
+                <li>
+                  <NavigationItem pageTheme={'white'} to="/articles">
+                    Articles
+                  </NavigationItem>
+                </li>
+                <li>
+                  <NavigationItem pageTheme={'white'} to="/shop">
+                    Shop
+                  </NavigationItem>
+                </li>
+              </Navigation>
+            </NavigationColumn>
+            <NavigationColumn>
+              <LogoContainer>
                 <div>
-                  <MobileLogoLink to="/">
-                    <MobileLogoImage
-                      width="100"
-                      height="75"
+                  <LogoLink to="/">
+                    <LogoImage
                       alt="Knife and Fish Logo"
-                      src="//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg"
+                      src={
+                        '//images.ctfassets.net/ce6fbxhy1t51/4rf552O0YO79rkWIvVg00Y/5d820bf870030801d3c4e9569d727b41/logo.svg'
+                      }
                     />
-                  </MobileLogoLink>
+                  </LogoLink>
                 </div>
-              </MobileLogoContainer>
-            </li>
-          </MobileNavigation>
-        </nav>
+              </LogoContainer>
+            </NavigationColumn>
+            <NavigationColumn>
+              <NavigationRight>
+                {/* <li>
+              <NavigationItem
+                pageTheme={themeValue}
+                onClick={() => {
+                  this.onSeedsClick()
+                }}
+              >
+                Plants
+              </NavigationItem>
+            </li> */}
+                <li>
+                  <MobileNavigationItemRight style={{ paddingTop: '20px' }} to="/recipebox" pageTheme={themeValue}>
+                    <RecipeBoxIcon />
+                  </MobileNavigationItemRight>
+                </li>
+                {/* <li>
+                  <MobileNavigationItemRight to="/story" pageTheme={'white'}>
+                    About
+                  </MobileNavigationItemRight>
+                </li> */}
+                <li>
+                  <SVGLink
+                    onClick={(event: React.MouseEvent) => {
+                      onSearchClick(event)
+                    }}
+                  >
+                    <NavigationItemIcon pageTheme={themeValue}>
+                      <path
+                        d="M16.3,13.8c-0.3-0.3-0.8-0.5-1.3-0.5c-0.3,0-0.7,0.1-1,0.3l-1.7-1.7c1.2-1.3,1.8-3,1.8-4.8
+	c0-1.9-0.7-3.7-2.1-5C10.8,0.7,9,0,7.1,0C3.2,0,0,3.2,0,7.1c0,1.9,0.7,3.7,2.1,5c2.7,2.7,7,2.8,9.8,0.2l1.7,1.7
+	c-0.4,0.7-0.4,1.6,0.2,2.2l3.2,3.2c0.3,0.3,0.8,0.5,1.3,0.5c0.5,0,0.9-0.2,1.3-0.5c0.7-0.7,0.7-1.8,0-2.5c0,0,0,0,0,0L16.3,13.8z
+	 M2.6,11.6c-2.5-2.5-2.5-6.5,0-9s6.5-2.5,9,0s2.5,6.5,0,9c-1.2,1.2-2.8,1.9-4.5,1.9C5.4,13.5,3.8,12.8,2.6,11.6L2.6,11.6z M19,19
+	c-0.4,0.4-1.1,0.4-1.5,0l-3.2-3.2c-0.4-0.4-0.4-1.1,0-1.5c0.2-0.2,0.5-0.3,0.7-0.3c0.3,0,0.5,0.1,0.7,0.3l3.2,3.2
+	C19.3,17.9,19.3,18.5,19,19L19,19z"
+                      />
+                    </NavigationItemIcon>
+                  </SVGLink>
+                </li>
+                <li>
+                  <SVGLink>
+                    <ProfileIcon onClick={onProfileClick} theme={themeValue} />
+                  </SVGLink>
+                </li>
+              </NavigationRight>
+            </NavigationColumn>
+          </NavigationContainer>
+        </NavigationHeader>
       </header>
     </>
   )

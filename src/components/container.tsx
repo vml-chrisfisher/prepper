@@ -224,8 +224,7 @@ export default ({ children }) => (
         @media (max-width: 767px) {
           .container {
             column-count: 1;
-            padding-left: 10%;
-            width: 80%;
+            width: 95%;
           }
         }
 
