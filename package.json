@@ -19,6 +19,7 @@
     "@adobe/redux-saga-promise": "^1.1.1",
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
+    "@emotion/styled-base": "^11.0.0",
     "@types/aws-sdk": "^2.7.0",
     "@types/dateformat": "^3.0.1",
     "@types/jwt-decode": "^3.1.0",
