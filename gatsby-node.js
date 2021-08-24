@@ -4,6 +4,17 @@ const Promise = require('bluebird')
 const path = require('path')
 const { resolve } = require('path')
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+       fallback: {
+         util: require.resolve("util/"),
+         fs: false
+       }
+    }
+  })
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 

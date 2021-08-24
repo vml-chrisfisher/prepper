@@ -25,7 +25,7 @@ export interface HeroImageFile {
 }
 
 export interface RichText {
-  content: Array<ContextArray>
+  raw: string
 }
 
 export interface ContextArray {

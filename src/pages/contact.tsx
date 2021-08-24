@@ -50,6 +50,11 @@ class ContactIndex extends React.Component {
       width: 100%;
       z-index: 100;
     `
+    console.log(
+      'YOYO: ',
+      JSON.parse(layout.node.title.raw),
+      JSON.parse(layout.node.title.raw).content[0].content[0].value,
+    )
     return (
       <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
@@ -61,16 +66,16 @@ class ContactIndex extends React.Component {
             <ContactHero
               {...{
                 heroPath: layout.node.heroImage.file.url,
-                title: layout.node.title.content[0].content[0].value,
-                copy: layout.node.copy.content[0].content[0].value,
+                title: JSON.parse(layout.node.title.raw).content[0].content[0].value,
+                copy: JSON.parse(layout.node.copy.raw).content[0].content[0].value,
                 helloTab: layout.node.helloTabName,
-                helloCopy: layout.node.helloCopy.content[0].content[0].value,
+                helloCopy: JSON.parse(layout.node.helloCopy.raw).content[0].content[0].value,
                 recipeTab: layout.node.recipeTabName,
-                recipeCopy: layout.node.recipeCopy.content[0].content[0].value,
+                recipeCopy: JSON.parse(layout.node.recipeCopy.raw).content[0].content[0].value,
                 suggestionTab: layout.node.suggestionTabName,
-                suggestionCopy: layout.node.suggestionCopy.content[0].content[0].value,
+                suggestionCopy: JSON.parse(layout.node.suggestionCopy.raw).content[0].content[0].value,
                 partnershipTab: layout.node.partnershipTabName,
-                partnershipCopy: layout.node.partnershipCopy.content[0].content[0].value,
+                partnershipCopy: JSON.parse(layout.node.partnershipCopy.raw).content[0].content[0].value,
               }}
             ></ContactHero>
 
