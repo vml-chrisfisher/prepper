@@ -1,21 +1,22 @@
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React from 'react';
-import Helmet from 'react-helmet';
-import { connect } from 'react-redux';
-import FeaturedContentRow from '../components/featuredContentRow';
-import FeatureContentRowProps from '../components/featuredContentRow/interface';
-import Footer from '../components/footer';
-import GeneralContentRow from '../components/generalContentRow';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Sidebar from '../components/header/profile_login_create_account';
-import HomeHero from '../components/homeHero';
-import Layout from '../components/layout';
-import MainContainer from '../components/layout/mainContainer';
-import VideoBackground from '../components/videoBackground';
-import { HomeEdge, HomeProps } from '../page-interfaces/home';
-import styles from './blog.css';
+import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React from 'react'
+import Helmet from 'react-helmet'
+import { connect } from 'react-redux'
+import FeaturedContentRow from '../components/featuredContentRow'
+import FeatureContentRowProps from '../components/featuredContentRow/interface'
+import Footer from '../components/footer'
+import GeneralContentRow from '../components/generalContentRow'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Sidebar from '../components/header/profile_login_create_account'
+import HomeHero from '../components/homeHero'
+import Layout from '../components/layout'
+import MainContainer from '../components/layout/mainContainer'
+import VideoBackground from '../components/videoBackground'
+import { HomeEdge, HomeProps } from '../page-interfaces/home'
+// import styles from './blog.css';
 
 class RootIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -89,6 +90,14 @@ class RootIndex extends React.Component<HomeProps> {
     //   }
     // `
 
+    const HomeContent = styled.div`
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    `
+
     return (
       <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
@@ -99,7 +108,7 @@ class RootIndex extends React.Component<HomeProps> {
           <div style={{ background: '#fff', display: 'list-item' }}>
             <VideoBackground {...{ videoPath, mobileVideoPath }} />
           </div>
-          <div className={styles.homeContent}>
+          <HomeContent>
             <div className="container">
               <HomeHero {...{ headline, searchPlaceholder, searchQuestion }}></HomeHero>
               {/* <FeaturedVegetableRow /> */}
@@ -108,7 +117,7 @@ class RootIndex extends React.Component<HomeProps> {
               <GeneralContentRow />
               <Footer {...{ theme: HeaderTheme.LIGHT }} />
             </div>
-          </div>
+          </HomeContent>
         </MainContainer>
         <Sidebar></Sidebar>
       </Layout>

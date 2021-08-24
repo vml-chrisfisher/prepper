@@ -32,7 +32,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-typescript-css-modules',
     `gatsby-remark-lazy-load`,
     `gatsby-plugin-sitemap`,
     {

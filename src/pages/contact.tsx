@@ -1,16 +1,16 @@
-import styled from '@emotion/styled';
-import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import React from 'react';
-import Helmet from 'react-helmet';
-import ContactHero from '../components/ContactHero';
-import ContactTabs from '../components/contactTabs';
-import Footer from '../components/footer';
-import HeaderContainer from '../components/header/container';
-import { HeaderTheme } from '../components/header/interface';
-import Layout from '../components/layout';
-import { ContactEdge } from '../page-interfaces/contact';
-import styles from './blog.css';
+import styled from '@emotion/styled'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import React from 'react'
+import Helmet from 'react-helmet'
+import ContactHero from '../components/ContactHero'
+import ContactTabs from '../components/contactTabs'
+import Footer from '../components/footer'
+import HeaderContainer from '../components/header/container'
+import { HeaderTheme } from '../components/header/interface'
+import Layout from '../components/layout'
+import { ContactEdge } from '../page-interfaces/contact'
+// import styles from './blog.css';
 
 class ContactIndex extends React.Component {
   componentDidMount() {
@@ -26,7 +26,7 @@ class ContactIndex extends React.Component {
     const StoryContainer = styled.div`
       position: relative;
       width: 100%;
-`
+    `
 
     const BodyCopy = styled.div`
       color: #464646;
@@ -41,14 +41,22 @@ class ContactIndex extends React.Component {
         padding-left: 10%;
         width: 80%;
       }
-`
+    `
+
+    const HomeContent = styled.div`
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    `
     return (
       <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com/contact"></link>
         </Helmet>
-        <div className={styles.homeContent}>
+        <HomeContent>
           <StoryContainer>
             <ContactHero
               {...{
@@ -68,7 +76,7 @@ class ContactIndex extends React.Component {
 
             <Footer {...{ theme: HeaderTheme.DARK }} />
           </StoryContainer>
-        </div>
+        </HomeContent>
       </Layout>
     )
   }
@@ -88,49 +96,25 @@ export const pageQuery = graphql`
           }
           helloTabName
           helloCopy {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
           recipeTabName
           recipeCopy {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
           suggestionTabName
           suggestionCopy {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
           partnershipTabName
           partnershipCopy {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
           copy {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
           title {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
         }
       }

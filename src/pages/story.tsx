@@ -10,7 +10,7 @@ import Layout from '../components/layout'
 import StoryHero from '../components/storyHero'
 import VideoStoryBackground from '../components/storyVideo'
 import { HomeEdge, HomeProps } from '../page-interfaces/home'
-import styles from './blog.css'
+// import styles from './blog.css'
 
 class StoryIndex extends React.Component<HomeProps> {
   componentDidMount() {
@@ -70,13 +70,21 @@ class StoryIndex extends React.Component<HomeProps> {
       }
     `
 
+    const HomeContent = styled.div`
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    `
+
     return (
       <Layout>
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com/story"></link>
         </Helmet>
-        <div className={styles.homeContent}>
+        <HomeContent>
           <StoryContainer>
             <VideoStoryBackground {...{ videoPath, mobileVideoPath }} />
             <StoryHero></StoryHero>
@@ -110,7 +118,7 @@ class StoryIndex extends React.Component<HomeProps> {
             </div>
             <Footer {...{ theme: HeaderTheme.DARK }} />
           </StoryContainer>
-        </div>
+        </HomeContent>
       </Layout>
     )
   }
