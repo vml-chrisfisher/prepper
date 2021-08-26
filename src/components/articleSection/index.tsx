@@ -96,6 +96,7 @@ const ArticleSection = (props: ArticleSectionInterface) => (
 
 const TwoColumns = styled.div`
   column-count: 2;
+  orphan: 3;
   color: #464646;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
