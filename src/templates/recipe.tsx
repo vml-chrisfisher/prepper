@@ -180,7 +180,7 @@ const RecipeTemplate = (props: RecipeProps) => {
     display: inline-block;
     font-size: 1.15em;
     font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     padding-bottom: 10px;
   `
 

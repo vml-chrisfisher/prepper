@@ -47,7 +47,8 @@ const ArticleTemplate = (props: ArticleProps) => {
   const CreateDate = styled.div`
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    font-size: 1em;
+    font-size: 0.875rem;
+    font-weight: 100;
     padding-bottom: 3.125em;
   `
 
@@ -74,8 +75,9 @@ const ArticleTemplate = (props: ArticleProps) => {
   const BodyCopy = styled.div`
     color: #464646;
     column-count: 2;
-    font-size: 1em;
+    font-size: 0.85em;
     font-family: 'Roboto', sans-serif;
+    font-weight: 100;
     line-height: 2em;
     padding-top: 1.875em;
     padding-bottom: 1.875em;
@@ -118,7 +120,7 @@ const ArticleTemplate = (props: ArticleProps) => {
     display: flex;
     flex-direction: row-reverse;
     height: 20px;
-    padding-top: 5em;
+    padding-top: 2em;
     padding-bottom: 10em;
   `
 

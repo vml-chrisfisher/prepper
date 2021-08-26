@@ -98,7 +98,8 @@ const TwoColumns = styled.div`
   column-count: 2;
   color: #464646;
   font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+  font-weight: 100;
+  font-size: 0.85em;
   line-height: 2em;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -115,7 +116,8 @@ const TwoColumns = styled.div`
 const OneColumn = styled.div`
   color: #464646;
   font-family: 'Roboto', sans-serif;
-  font-size: 1em;
+  font-size: 0.85em;
+  font-weight: 100;
   line-height: 2em;
   padding-bottom: 30px;
   padding-top: 30px;

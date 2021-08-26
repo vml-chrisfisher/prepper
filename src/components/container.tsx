@@ -66,8 +66,8 @@ export default ({ children }) => (
         }
 
         h4 {
-          font-size: 1.25em;
-          font-weight: 600;
+          font-size: 1.15em;
+          font-weight: 400;
           font-family: 'Roboto', sans-serif;
           letter-spacing: -0.5px;
           margin: 0;
