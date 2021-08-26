@@ -75,7 +75,7 @@ const ArticleTemplate = (props: ArticleProps) => {
   const BodyCopy = styled.div`
     color: #464646;
     column-count: 2;
-    font-size: 0.85em;
+    font-size: 1em;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     line-height: 2em;

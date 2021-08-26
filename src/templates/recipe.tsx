@@ -60,7 +60,7 @@ const RecipeTemplate = (props: RecipeProps) => {
 
   const BodyCopy = styled.div`
     color: #464646;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     line-height: 2em;
