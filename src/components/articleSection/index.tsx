@@ -99,7 +99,7 @@ const TwoColumns = styled.div`
   color: #464646;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  font-size: 0.85em;
+  font-size: 1em;
   line-height: 2em;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -116,7 +116,7 @@ const TwoColumns = styled.div`
 const OneColumn = styled.div`
   color: #464646;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.85em;
+  font-size: 1em;
   font-weight: 100;
   line-height: 2em;
   padding-bottom: 30px;
