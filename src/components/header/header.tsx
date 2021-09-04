@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { Mobile } from 'aws-sdk'
 import { Link, navigate } from 'gatsby'
 import React, { PureComponent, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -81,6 +82,20 @@ const Header = (props: HeaderProps) => {
     dispatch(onShowSearch())
   }
 
+  const onMobileMenuClick = (event: React.MouseEvent) => {
+    event.preventDefault()
+    const t: HTMLElement = document.getElementById('mobileHamburger') as HTMLElement
+    const c: HTMLElement = document.getElementById('mobileMenu') as HTMLElement
+    if (t.classList.contains('open')) {
+      t.classList.remove('open')
+      c.classList.remove('open')
+    } else {
+      t.classList.add('open')
+      c.classList.add('open')
+    }
+    console.log('EVENT:  ', event)
+  }
+
   const onProfileClick = (event: React.MouseEvent) => {
     event.preventDefault()
     if (window) {
@@ -106,12 +121,28 @@ const Header = (props: HeaderProps) => {
   //   }
   // })
 
+  const MobileMenu = styled.div`
+    height: 0vh;
+    max-height: 100vh;
+    background-color: #464646;
+    width: 100%;
+    position: fixed;
+    z-index: 9998;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+
+    &.open {
+      height: 100vh;
+      transition: all 0.5s ease-out;
+    }
+  `
+
   const NavigationHeader = styled.nav<MainContainerPositionProps>`
     background: transparent;
     position: fixed;
     z-index: 9999;
     top: 0;
-    left: ${props => {
+    left: ${(props) => {
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.DEFAULT || props.showProfile === SIDEBAR_ANIMATION_STEPS.HIDE) {
         return '0px'
       }
@@ -134,7 +165,7 @@ const Header = (props: HeaderProps) => {
     margin-left: 10%;
   `
 
-  const HeaderDetailItem = styled(props => <Link {...props} />)`
+  const HeaderDetailItem = styled((props) => <Link {...props} />)`
     color: #464646;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
@@ -151,7 +182,7 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const HeaderDetailItemFunction = styled(props => <span {...props} />)`
+  const HeaderDetailItemFunction = styled((props) => <span {...props} />)`
     color: #464646;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
@@ -257,11 +288,11 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const LogoLink = styled(props => <Link {...props} />)`
+  const LogoLink = styled((props) => <Link {...props} />)`
     text-decoration: none;
   `
 
-  const SVGLink = styled(props => <span {...props} />)`
+  const SVGLink = styled((props) => <span {...props} />)`
     width: 20px;
     height: 20px;
   `
@@ -277,7 +308,7 @@ const Header = (props: HeaderProps) => {
   const NavigationItemIcon = styled.svg<ThemeProps>`
     cursor: pointer;
     display: inline-block;
-    fill: ${props => {
+    fill: ${(props) => {
       return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     height: 20px;
@@ -293,13 +324,13 @@ const Header = (props: HeaderProps) => {
   const NavigationItemProfileIcon = styled.svg<ThemeProps>`
     cursor: pointer;
     display: inline-block;
-    fill: ${props => {
+    fill: ${(props) => {
       return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     height: 20px;
     margin-right: 25px;
     margin-top: 20px;
-    stroke: ${props => {
+    stroke: ${(props) => {
       return props.theme === 'white' ? '#464646' : '#FFFFFF'
     }};
     stroke-width: 0.5;
@@ -313,7 +344,7 @@ const Header = (props: HeaderProps) => {
   `
 
   const LogoText = styled.div<ThemeProps>`
-    color: ${props => {
+    color: ${(props) => {
       return props.theme === 'white' ? '#FFFFFF' : '#464646'
     }};
     font-size: 1.25em;
@@ -338,7 +369,7 @@ const Header = (props: HeaderProps) => {
   `
 
   const HeaderInner3 = styled.div<SubMenuProps>`
-  display: ${props => (props.isMenu ? 'block;' : 'none;')}
+  display: ${(props) => (props.isMenu ? 'block;' : 'none;')}
   width: 25%;
   padding: 0;
   background-color: #FFFFFF;
@@ -350,7 +381,7 @@ const Header = (props: HeaderProps) => {
 `
 
   const HeaderInner4 = styled.div<SubMenuProps>`
-  display: ${props => (props.isMenu ? 'block;' : 'none;')}
+  display: ${(props) => (props.isMenu ? 'block;' : 'none;')}
   width: 33%;
   padding: 0;
   background-color: #FFFFFF;
@@ -362,7 +393,7 @@ const Header = (props: HeaderProps) => {
 `
 
   const HeaderInner12 = styled.div<SubMenuProps>`
-  display: ${props => (props.isMenu ? 'block;' : 'none;')}
+  display: ${(props) => (props.isMenu ? 'block;' : 'none;')}
   width: 100%;
   padding: 0;
   background-color: #FFFFFF;
@@ -374,7 +405,7 @@ const Header = (props: HeaderProps) => {
     position: fixed;
     z-index: 99999;
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    transform: ${props => (props.isUp ? 'translateY(-100%)' : 'translateY(0%)')};
+    transform: ${(props) => (props.isUp ? 'translateY(-100%)' : 'translateY(0%)')};
   `
 
   const Navigation = styled.ul`
@@ -392,9 +423,11 @@ const Header = (props: HeaderProps) => {
   const NavigationContainer = styled.div<ThemeProps>`
     display: flex;
     width: 100%;
-    background-color: ${props => {
+    background-color: ${(props) => {
       return props.theme === 'white' ? '#FFFFFF' : 'transparent'
     }};
+    position: fixed;
+    z-index: 9999;
   `
   const NavigationColumn = styled.div`
     flex-grow: 1;
@@ -415,9 +448,9 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const NavigationItem = styled(props => <Link {...props} />)<ThemeProps>`
+  const NavigationItem = styled((props) => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
-    color: ${props => {
+    color: ${(props) => {
       console.log('HEADER THEME1: ', props)
       return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
@@ -443,9 +476,9 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const NavigationItemFunctionLink = styled(props => <div {...props} />)<ThemeProps>`
+  const NavigationItemFunctionLink = styled((props) => <div {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
-    color: ${props => {
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
@@ -470,9 +503,9 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const NavigationItemRight = styled(props => <Link {...props} />)<ThemeProps>`
+  const NavigationItemRight = styled((props) => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
-    color: ${props => {
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
@@ -497,9 +530,9 @@ const Header = (props: HeaderProps) => {
     }
   `
 
-  const MobileNavigationItemRight = styled(props => <Link {...props} />)<ThemeProps>`
+  const MobileNavigationItemRight = styled((props) => <Link {...props} />)<ThemeProps>`
     font-family: 'Roboto', sans-serif;
-    color: ${props => {
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
     }};
     text-decoration: none;
@@ -536,7 +569,7 @@ const Header = (props: HeaderProps) => {
     background-color: #ffffff;
   `
 
-  const MobileNavigationItem = styled(props => <Link {...props} />)`
+  const MobileNavigationItem = styled((props) => <Link {...props} />)`
     font-family: 'Roboto', sans-serif;
     color: #464646;
     text-decoration: none;
@@ -563,13 +596,109 @@ const Header = (props: HeaderProps) => {
     z-index: 999;
   `
 
-  const MobileLogoLink = styled(props => <Link {...props} />)`
+  const MobileLogoLink = styled((props) => <Link {...props} />)`
     text-decoration: none;
   `
 
   const MobileLogoImage = styled.img`
     padding-right: 20px;
     display: inline-block;
+  `
+
+  const MobileNavIcon = styled.div`
+    width: 35px;
+    height: 18px;
+    position: relative;
+    margin: 10px;
+    margin-top: 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 0px;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: 0.25s ease-in-out;
+      -moz-transition: 0.25s ease-in-out;
+      -o-transition: 0.25s ease-in-out;
+      transition: 0.25s ease-in-out;
+    }
+
+    span:nth-child(1) {
+      top: 0px;
+    }
+
+    span:nth-child(2),
+    span:nth-child(3) {
+      top: 9px;
+    }
+
+    span:nth-child(4) {
+      top: 18px;
+    }
+
+    &.open span:nth-child(1) {
+      top: 8px;
+      width: 0%;
+      left: 50%;
+    }
+
+    &.open span:nth-child(2) {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    &.open span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+
+    &.open span:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+  `
+
+  const MobileMenuContainer = styled.div`
+    margin-top: 60px;
+  `
+
+  const MobileListItem = styled.li`
+    list-style-type: none;
+  `
+
+  const MobileMenuItem = styled((props) => <Link {...props} />)`
+    margin-left: 10px;
+    width: 100%;
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: normal;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
   `
 
   const themeValue = props.theme
@@ -808,39 +937,38 @@ const Header = (props: HeaderProps) => {
       </header>
       <header className="hidden-lg">
         <NavigationHeader role="navigation" showProfile={SIDEBAR_ANIMATION_STEPS.DEFAULT}>
+          <MobileMenu id="mobileMenu">
+            <MobileMenuContainer>
+              <ul style={{ 'padding-left': '20px' }}>
+                <MobileListItem>
+                  <MobileMenuItem to="/recipes">Recipes</MobileMenuItem>
+                </MobileListItem>
+                <MobileListItem>
+                  <MobileMenuItem to="articles">Articles</MobileMenuItem>
+                </MobileListItem>
+                <MobileListItem>
+                  <MobileMenuItem to="/recipebox">Recipe Box</MobileMenuItem>
+                </MobileListItem>
+                <MobileListItem>
+                  <MobileMenuItem to="/story">About</MobileMenuItem>
+                </MobileListItem>
+              </ul>
+            </MobileMenuContainer>
+          </MobileMenu>
           <NavigationContainer pageTheme={'dark'}>
             <NavigationColumn>
               <Navigation>
-                {/* <li>
-              <NavigationItem
-                pageTheme={themeValue}
-                onClick={() => {
-                  this.onSeedsClick()
-                }}
-              >
-                Plants
-              </NavigationItem>
-            </li> */}
-                <li>
-                  <NavigationItemFunctionLink
-                    pageTheme={HeaderTheme.LIGHT}
-                    onClick={() => {
-                      onRecipesClick()
-                    }}
-                  >
-                    Recipes
-                  </NavigationItemFunctionLink>
-                </li>
-                <li>
-                  <NavigationItem pageTheme={'white'} to="/articles">
-                    Articles
-                  </NavigationItem>
-                </li>
-                <li>
-                  <NavigationItem pageTheme={'white'} to="/shop">
-                    Shop
-                  </NavigationItem>
-                </li>
+                <MobileNavIcon
+                  id="mobileHamburger"
+                  onClick={(event: React.MouseEvent) => {
+                    onMobileMenuClick(event)
+                  }}
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </MobileNavIcon>
               </Navigation>
             </NavigationColumn>
             <NavigationColumn>
@@ -857,53 +985,7 @@ const Header = (props: HeaderProps) => {
                 </div>
               </LogoContainer>
             </NavigationColumn>
-            <NavigationColumn>
-              <NavigationRight>
-                {/* <li>
-              <NavigationItem
-                pageTheme={themeValue}
-                onClick={() => {
-                  this.onSeedsClick()
-                }}
-              >
-                Plants
-              </NavigationItem>
-            </li> */}
-                <li>
-                  <MobileNavigationItemRight style={{ paddingTop: '20px' }} to="/recipebox" pageTheme={themeValue}>
-                    <RecipeBoxIcon />
-                  </MobileNavigationItemRight>
-                </li>
-                {/* <li>
-                  <MobileNavigationItemRight to="/story" pageTheme={'white'}>
-                    About
-                  </MobileNavigationItemRight>
-                </li> */}
-                <li>
-                  <SVGLink
-                    onClick={(event: React.MouseEvent) => {
-                      onSearchClick(event)
-                    }}
-                  >
-                    <NavigationItemIcon pageTheme={themeValue}>
-                      <path
-                        d="M16.3,13.8c-0.3-0.3-0.8-0.5-1.3-0.5c-0.3,0-0.7,0.1-1,0.3l-1.7-1.7c1.2-1.3,1.8-3,1.8-4.8
-	c0-1.9-0.7-3.7-2.1-5C10.8,0.7,9,0,7.1,0C3.2,0,0,3.2,0,7.1c0,1.9,0.7,3.7,2.1,5c2.7,2.7,7,2.8,9.8,0.2l1.7,1.7
-	c-0.4,0.7-0.4,1.6,0.2,2.2l3.2,3.2c0.3,0.3,0.8,0.5,1.3,0.5c0.5,0,0.9-0.2,1.3-0.5c0.7-0.7,0.7-1.8,0-2.5c0,0,0,0,0,0L16.3,13.8z
-	 M2.6,11.6c-2.5-2.5-2.5-6.5,0-9s6.5-2.5,9,0s2.5,6.5,0,9c-1.2,1.2-2.8,1.9-4.5,1.9C5.4,13.5,3.8,12.8,2.6,11.6L2.6,11.6z M19,19
-	c-0.4,0.4-1.1,0.4-1.5,0l-3.2-3.2c-0.4-0.4-0.4-1.1,0-1.5c0.2-0.2,0.5-0.3,0.7-0.3c0.3,0,0.5,0.1,0.7,0.3l3.2,3.2
-	C19.3,17.9,19.3,18.5,19,19L19,19z"
-                      />
-                    </NavigationItemIcon>
-                  </SVGLink>
-                </li>
-                <li>
-                  <SVGLink>
-                    <ProfileIcon onClick={onProfileClick} theme={themeValue} />
-                  </SVGLink>
-                </li>
-              </NavigationRight>
-            </NavigationColumn>
+            <NavigationColumn></NavigationColumn>
           </NavigationContainer>
         </NavigationHeader>
       </header>
