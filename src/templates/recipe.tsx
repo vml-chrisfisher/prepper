@@ -433,6 +433,12 @@ const RecipeTemplate = (props: RecipeProps) => {
 
         {/* Structured data */}
         <script type="application/ld+json">{structuredDataArticle}</script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6045517989994393"
+          crossOrigin="anonymous"
+        ></script>
+
         <link rel="canonical" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`}></link>
         <link rel="amphtml" href={`https://www.knifeandfish.com/recipe/amp/${post.slug}`} />
         {/* The title of your current page */}
@@ -490,12 +496,12 @@ const RecipeTemplate = (props: RecipeProps) => {
               <div className="col2"></div>
               <div className="col8">
                 <div className="row">
-                  <div className="col6 col-12-sm">
+                  <div className="col6">
                     <RatingBarContainer>
-                      <RatingBar recipeId={recipeId}></RatingBar>
+                      <RatingBar isSummary={false} recipeId={recipeId}></RatingBar>
                     </RatingBarContainer>
                   </div>
-                  <div className="col6 col-12-sm">
+                  <div className="col6">
                     <SocialBar>
                       <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
                         <InstagramSocialIcon>

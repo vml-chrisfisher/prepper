@@ -2,12 +2,23 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import React from 'react'
 import LazyLoad from 'react-lazy-load'
+import RatingBar from '../ratingBar'
 import { ArticleSummaryInterface } from './interface'
 
 const windowWidthHalf = typeof window !== 'undefined' ? window.innerWidth / 2 : 600
 
 const ArticleSummary = (props: ArticleSummaryInterface) => {
-  const { title, description, slug, imagePath, imageDescription, basePath, lastTimeViewed, lastTimeCooked } = props
+  const {
+    title,
+    description,
+    slug,
+    imagePath,
+    imageDescription,
+    basePath,
+    lastTimeViewed,
+    lastTimeCooked,
+    contenfulId,
+  } = props
 
   const createCopy = (description: string) => {
     if (description.length === 0) {
@@ -113,6 +124,10 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
           <ArticleOverlay>
             <ArticleTitle>{title}</ArticleTitle>
             <ArticleDescription dangerouslySetInnerHTML={{ __html: copy }}></ArticleDescription>
+            <RatingBarContainer>
+              {basePath === 'recipe' && <RatingBar isSummary={true} recipeId={contenfulId}></RatingBar>}
+              {basePath === 'article' && <RatingBar isSummary={true} articleId={contenfulId}></RatingBar>}
+            </RatingBarContainer>
             {lastTimeViewed && !lastTimeCooked && (
               <div>
                 <DateCaption>Last View On:</DateCaption>
@@ -135,6 +150,10 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
     </Article>
   )
 }
+
+const RatingBarContainer = styled.div`
+  padding-top: 0px;
+`
 
 const ArticleInside = styled.div`
   display: block;
@@ -210,7 +229,7 @@ const ArticleDescription = styled.div`
   display: block;
   padding-right: 20px;
   text-decoration: none;
-  min-height: 100px;
+  min-height: 75px;
   @media (max-width: 767px) {
     font-size: 12px;
     padding-top: 5px;

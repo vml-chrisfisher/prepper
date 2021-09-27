@@ -34,6 +34,7 @@ export interface RecipesNode {
   preparationType: string
   slug: string
   title: string
+  contentful_id: string
 }
 
 export interface RecipesBannerImage {

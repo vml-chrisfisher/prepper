@@ -9,6 +9,7 @@ export interface ArticleSummaryInterface {
   basePath: string
   lastTimeViewed?: string
   lastTimeCooked?: string
+  contenfulId: string
 }
 
 export interface ArticleSummaryNode {
@@ -26,5 +27,6 @@ export interface ArticleSummaryNode {
         rawMarkdownBody: string
       }
     }
+    contentful_id: string
   }
 }

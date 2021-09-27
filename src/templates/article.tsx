@@ -310,6 +310,12 @@ const ArticleTemplate = (props: ArticleProps) => {
 
         {/* Structured data */}
         <script type="application/ld+json">{structuredDataArticle}</script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6045517989994393"
+          crossOrigin="anonymous"
+        ></script>
+
         <link rel="canonical" href={`https://www.knifeandfish.com/article/${post.slug}`}></link>
         {/* The title of your current page */}
         <title>{post.title} | Knife &amp; Fish</title>
@@ -368,7 +374,7 @@ const ArticleTemplate = (props: ArticleProps) => {
                 <div className="row">
                   <div className="col6 col-12-sm">
                     <RatingBarContainer>
-                      <RatingBar articleId={articleId}></RatingBar>
+                      <RatingBar isSummary={false} articleId={articleId}></RatingBar>
                     </RatingBarContainer>
                   </div>
                   <div className="col6 col-12-sm">

@@ -13,11 +13,11 @@ import {
 } from '../../store/ducks/ratings/action'
 
 const RatingBar = (props: RatingBarProps) => {
-  const { articleId, recipeId } = props
+  const { articleId, recipeId, isSummary } = props
 
   const dispatch = useDispatch()
 
-  const rating: Rating = useSelector(state => {
+  const rating: Rating = useSelector((state) => {
     if (articleId) {
       return getArticleRating(state, articleId)
     }
@@ -38,28 +38,32 @@ const RatingBar = (props: RatingBarProps) => {
   const ReviewCaption = styled.span`
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
-    padding-left: 7px;
   `
 
   const StarsContainer = styled.div`
     display: inline-block;
     margin-top: 5px;
+    width: 100%;
   `
 
   const onHover = (position: number) => {
-    setHoverPosition(position)
+    if (!isSummary) {
+      setHoverPosition(position)
+    }
   }
 
   const onMouseOut = () => {
-    setHoverPosition(-1)
+    if (!isSummary) {
+      setHoverPosition(-1)
+    }
   }
 
   const onStarRatingClick = (position: number) => {
-    if (articleId) {
+    if (articleId && !isSummary) {
       dispatch(onTryAddArticleRating({ articleId: articleId, rating: position }))
     }
 
-    if (recipeId) {
+    if (recipeId && !isSummary) {
       dispatch(onTryAddRecipeRating({ recipeId: recipeId, rating: position }))
     }
   }
@@ -128,8 +132,10 @@ const RatingBar = (props: RatingBarProps) => {
           }
         ></RatingStar>
       </StarsContainer>
-      {rating.numberOfRatings < 10 && <ReviewCaption>Be one of the first to rate this recipe</ReviewCaption>}
-      {rating.numberOfRatings > 9 && <ReviewCaption>{`${rating.numberOfRatings} reviews`}</ReviewCaption>}
+      {rating.numberOfRatings < 10 && !isSummary && (
+        <ReviewCaption>Be one of the first to rate this recipe</ReviewCaption>
+      )}
+      {rating.numberOfRatings > 9 && !isSummary && <ReviewCaption>{`${rating.numberOfRatings} reviews`}</ReviewCaption>}
     </>
   )
 }

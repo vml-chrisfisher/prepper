@@ -48,6 +48,7 @@ class RecipeIndex extends React.Component<RecipesProps> {
         imageDescription: post.node.bannerImage.title,
         slug: post.node.slug,
         title: post.node.title,
+        contenfulId: post.node.contentful_id,
       }
     })
 
@@ -57,6 +58,12 @@ class RecipeIndex extends React.Component<RecipesProps> {
 
     return (
       <Layout>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6045517989994393"
+          crossOrigin="anonymous"
+        ></script>
+
         <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <MainContainer>
           <Helmet title="Recipes | Knife & Fish">
@@ -98,6 +105,7 @@ export const pageQuery = graphql`
               rawMarkdownBody
             }
           }
+          contentful_id
           title
           slug
           mealType
