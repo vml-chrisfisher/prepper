@@ -100,6 +100,11 @@ class RootIndex extends React.Component<HomeProps> {
 
     return (
       <Layout>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6045517989994393"
+          crossOrigin="anonymous"
+        ></script>
         <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com"></link>
