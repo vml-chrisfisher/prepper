@@ -1,11 +1,11 @@
-import styled from '@emotion/styled';
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { HEADER_ACTION_TYPES } from '../../../store/ducks/header/types';
-import { showSidebarAccount, showSidebarCart } from '../../../store/ducks/sidebar/actions/actions';
-import { SIDEBAR_ANIMATION_STEPS } from '../../../store/ducks/sidebar/animations/types';
-import { AppState } from '../../../store/rootReducer';
-import SidebarAccount from './account';
+import styled from '@emotion/styled'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { HEADER_ACTION_TYPES } from '../../../store/ducks/header/types'
+import { showSidebarAccount, showSidebarCart } from '../../../store/ducks/sidebar/actions/actions'
+import { SIDEBAR_ANIMATION_STEPS } from '../../../store/ducks/sidebar/animations/types'
+import { AppState } from '../../../store/rootReducer'
+import SidebarAccount from './account'
 
 const Sidebar = () => {
   interface TabProps {
@@ -23,7 +23,7 @@ const Sidebar = () => {
   })
 
   const showAccount = useSelector((state: AppState) => {
-    return state.sidebar.showAccount 
+    return state.sidebar.showAccount
   })
   const showCart = useSelector((state: AppState) => {
     return state.sidebar.showCart
@@ -41,7 +41,7 @@ const Sidebar = () => {
     width: 300px;
     height: 100%;
     top: 0;
-    right: ${props => {
+    right: ${(props) => {
       if (props.showProfile === SIDEBAR_ANIMATION_STEPS.PROFILE_CREATION) {
         return '-300px'
       }
@@ -61,12 +61,13 @@ const Sidebar = () => {
     width: 50px;
     height: 50px;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 70px;
   `
 
   const TabContainer = styled.div`
     padding-left: 40px;
     display: inline-block;
+    padding-top: 70px;
   `
 
   const Tab = styled.button<TabProps>`
@@ -75,7 +76,7 @@ const Sidebar = () => {
     cursor: pointer;
     padding-right: 20px;
     padding-top: 17px;
-    font-weight: ${props => {
+    font-weight: ${(props) => {
       return props.isSelected ? '500' : '100'
     }};
     color: #333333;
@@ -88,7 +89,7 @@ const Sidebar = () => {
   `
 
   const SubContainer = styled.div<TabProps>`
-    display: ${props => {
+    display: ${(props) => {
       return props.isSelected ? 'block' : 'none'
     }};
     padding-top: 20px;
