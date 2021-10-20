@@ -140,7 +140,7 @@ const Profile = () => {
     display: flex;
     height: 100%;
     width: 200%;
-    transform: ${props => {
+    transform: ${(props) => {
       return 'translateX(' + props.position * -50 + '%)'
     }};
     transition-property: transform;
@@ -168,7 +168,7 @@ const Profile = () => {
     }
   `
 
-  const PrimaryButtonLink = styled(props => <Link {...props} />)`
+  const PrimaryButtonLink = styled((props) => <Link {...props} />)`
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -179,11 +179,11 @@ const Profile = () => {
     text-decoration: none;
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     width: 100%;
-    &:hover > div:nth-child(1) {
+    &:hover > div:nth-of-type(1) {
       background-color: #f4f2f2;
       transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     }
-    &:hover > div:nth-child(2) {
+    &:hover > div:nth-of-type(2) {
       background-color: #f4f2f2;
       transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     }

@@ -92,8 +92,8 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
   const copy = createCopy(description)
 
   return (
-    <Article key={slug}>
-      <Link style={{ textDecoration: 'none' }} to={`/${basePath}/${slug}`}>
+    <Link style={{ textDecoration: 'none', height: '100%', display: 'block' }} to={`/${basePath}/${slug}`}>
+      <Article key={slug}>
         <ArticleImageParent>
           <ArticleInside>
             <LazyLoad once offset={100}>
@@ -146,8 +146,8 @@ const ArticleSummary = (props: ArticleSummaryInterface) => {
           <TitleMobile>{title}</TitleMobile>
           {copy && <ArticleDescription dangerouslySetInnerHTML={{ __html: copy }}></ArticleDescription>}
         </OverlainContainerMobile>
-      </Link>
-    </Article>
+      </Article>
+    </Link>
   )
 }
 
@@ -219,6 +219,7 @@ const ArticleTitle = styled.h3`
   font-size: 18px;
   letter-spacing: -0.5px;
   min-height: 56px;
+  width: 90%;
 `
 
 const ArticleDescription = styled.div`

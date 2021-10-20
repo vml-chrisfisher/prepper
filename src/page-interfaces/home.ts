@@ -1,3 +1,5 @@
+import { BetaSignupInterface } from '../components/betaSignup/interface'
+
 export interface HomeProps {
   location: Location
   data: HomeData
@@ -28,6 +30,7 @@ export interface HomeNode {
   headline: HomeHeadline
   searchPlaceholder: string
   searchQuestion: string
+  betaHero: BetaSignupInterface
 }
 
 export interface HomeHeadline {

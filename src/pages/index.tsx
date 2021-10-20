@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import { connect } from 'react-redux'
+import BetaSignup from '../components/betaSignup'
 import FeaturedContentRow from '../components/featuredContentRow'
 import FeatureContentRowProps from '../components/featuredContentRow/interface'
 import Footer from '../components/footer'
@@ -33,6 +34,7 @@ class RootIndex extends React.Component<HomeProps> {
     const headline = 'Delicious<br>organic,<br>locally sourced</br>sustainable<br>meals for everyone.'
     const searchQuestion = post.node.searchQuestion
     const searchPlaceholder = post.node.searchPlaceholder
+    const betaSignupProps = post.node.betaHero
 
     const recipes = get(this, 'props.data.allContentfulRecipe.edges')
     const recipeFeatures: FeatureContentRowProps = {
@@ -41,8 +43,9 @@ class RootIndex extends React.Component<HomeProps> {
         description: 'Delicious<br>organic,<br>locally sourced</br>sustainable<br>meals for everyone.',
         buttonCaption: 'Find Recipes',
         slug: '/recipes',
-        theme: HeaderTheme.LIGHT,
-        backgroundColor: 'transparent',
+        theme: HeaderTheme.DARK,
+        backgroundColor: '#EC5433',
+        textColor: '#FFFFFF',
       },
       basePath: 'recipes',
       features: recipes.map((recipe: any) => {
@@ -64,8 +67,9 @@ class RootIndex extends React.Component<HomeProps> {
         description: 'From learning the best knife to buy or how to cut an onion correctly.',
         buttonCaption: 'Explore Articles',
         slug: '/articles',
-        theme: HeaderTheme.LIGHT,
-        backgroundColor: 'transparent',
+        theme: HeaderTheme.DARK,
+        backgroundColor: '#FBF9ED',
+        textColor: '#000000',
       },
       basePath: 'article',
       features: articles.map((article: any) => {
@@ -96,6 +100,7 @@ class RootIndex extends React.Component<HomeProps> {
       left: 0;
       width: 100%;
       z-index: 100;
+      background-color: #ffffff;
     `
 
     return (
@@ -105,22 +110,23 @@ class RootIndex extends React.Component<HomeProps> {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6045517989994393"
           crossOrigin="anonymous"
         ></script>
-        <HeaderContainer {...{ theme: HeaderTheme.DARK }} />
+        <HeaderContainer {...{ theme: HeaderTheme.LIGHT }} />
         <Helmet title="Knife & Fish">
           <link rel="canonical" href="https://www.knifeandfish.com"></link>
         </Helmet>
         <MainContainer id="mainContainer">
-          <div style={{ background: '#fff', display: 'list-item' }}>
+          {/* <div style={{ background: '#fff', display: 'list-item' }}>
             <VideoBackground {...{ videoPath, mobileVideoPath }} />
-          </div>
+          </div> */}
           <HomeContent>
             <div className="container">
-              <HomeHero {...{ headline, searchPlaceholder, searchQuestion }}></HomeHero>
+              {/* <HomeHero {...{ headline, searchPlaceholder, searchQuestion }}></HomeHero> */}
               {/* <FeaturedVegetableRow /> */}
+              <BetaSignup {...betaSignupProps} />
               <FeaturedContentRow {...recipeFeatures} />
               <FeaturedContentRow {...articleFeatures} />
               <GeneralContentRow />
-              <Footer {...{ theme: HeaderTheme.LIGHT }} />
+              <Footer {...{ theme: HeaderTheme.DARK }} />
             </div>
           </HomeContent>
         </MainContainer>
@@ -149,6 +155,20 @@ export const pageQuery = graphql`
           }
           searchPlaceholder
           searchQuestion
+          betaHero {
+            heroImage {
+              file {
+                url
+              }
+              description
+            }
+            portraitImage {
+              description
+              file {
+                url
+              }
+            }
+          }
         }
       }
     }

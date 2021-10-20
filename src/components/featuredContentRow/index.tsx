@@ -29,7 +29,9 @@ const FeaturedContentRow = (props: FeatureContentRowProps) => {
 }
 
 const Col3Full = styled.div`
-  width: 25%;
+  width: calc(25% - 6px);
+  border: 3px solid #ffffff;
+  display: inline-block;
   padding: 0;
   @media (max-width: 767px) {
     width: 100%;

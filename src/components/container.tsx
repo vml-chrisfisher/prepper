@@ -479,10 +479,37 @@ export default ({ children }) => (
           padding-bottom: 5px;
 
           &::placeholder {
-            color: #b4b2b2;
+            color: #ffffff;
             font-size: 14px;
             font-weight: 300;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Roboto', sans-serif;
+          }
+
+          @media (max-width: 767px) {
+            width: 100%;
+          }
+        }
+
+        .form--input-newsletter {
+          width: calc(40% - 20px);
+          height: 27px;
+          display: block;
+          background-color: transparent;
+          border: none;
+          border-bottom: solid 0.5px #fff;
+          font-size: 14px;
+          color: #333;
+          font-family: 'Roboto', sans-serif;
+          margin: 0 auto;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding-bottom: 5px;
+
+          &::placeholder {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 300;
+            font-family: 'Roboto', sans-serif;
           }
 
           @media (max-width: 767px) {

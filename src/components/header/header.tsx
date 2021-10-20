@@ -424,7 +424,7 @@ const Header = (props: HeaderProps) => {
     display: flex;
     width: 100%;
     background-color: ${(props) => {
-      return props.theme === 'white' ? '#FFFFFF' : 'transparent'
+      return props.pageTheme === 'white' ? '#FFFFFF' : 'transparent'
     }};
     position: fixed;
     z-index: 9999;
@@ -640,40 +640,40 @@ const Header = (props: HeaderProps) => {
       transition: 0.25s ease-in-out;
     }
 
-    span:nth-child(1) {
+    span:nth-of-type(1) {
       top: 0px;
     }
 
-    span:nth-child(2),
-    span:nth-child(3) {
+    span:nth-of-type(2),
+    span:nth-of-type(3) {
       top: 9px;
     }
 
-    span:nth-child(4) {
+    span:nth-of-type(4) {
       top: 18px;
     }
 
-    &.open span:nth-child(1) {
+    &.open span:nth-of-type(1) {
       top: 8px;
       width: 0%;
       left: 50%;
     }
 
-    &.open span:nth-child(2) {
+    &.open span:nth-of-type(2) {
       -webkit-transform: rotate(45deg);
       -moz-transform: rotate(45deg);
       -o-transform: rotate(45deg);
       transform: rotate(45deg);
     }
 
-    &.open span:nth-child(3) {
+    &.open span:nth-of-type(3) {
       -webkit-transform: rotate(-45deg);
       -moz-transform: rotate(-45deg);
       -o-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
 
-    &.open span:nth-child(4) {
+    &.open span:nth-of-type(4) {
       top: 18px;
       width: 0%;
       left: 50%;
@@ -939,7 +939,7 @@ const Header = (props: HeaderProps) => {
         <NavigationHeader role="navigation" showProfile={SIDEBAR_ANIMATION_STEPS.DEFAULT}>
           <MobileMenu id="mobileMenu">
             <MobileMenuContainer>
-              <ul style={{ 'padding-left': '20px' }}>
+              <ul style={{ paddingLeft: '20px' }}>
                 <MobileListItem>
                   <MobileMenuItem to="/recipes">Recipes</MobileMenuItem>
                 </MobileListItem>

@@ -4,6 +4,7 @@ export default interface FeatureContentRowDetailProps {
   description: string
   buttonCaption: string
   backgroundColor: string
+  textColor: string
   slug: string
   theme: HeaderTheme
 }

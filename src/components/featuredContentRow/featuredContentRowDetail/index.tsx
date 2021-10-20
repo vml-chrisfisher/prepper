@@ -7,6 +7,10 @@ interface ThemeProps {
   pageTheme: string
 }
 
+interface TextProps {
+  color: string
+}
+
 const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
   const themeValue = props.theme
 
@@ -14,9 +18,9 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
     <div>
       <FeatureContainer style={{ backgroundColor: props.backgroundColor }}>
         <DetailContainer>
-          <FeatureTitle pageTheme={themeValue}>{props.title}</FeatureTitle>
+          <FeatureTitle color={props.textColor}>{props.title}</FeatureTitle>
           <FeatureDescription
-            pageTheme={themeValue}
+            color={props.textColor}
             dangerouslySetInnerHTML={{ __html: props.description }}
           ></FeatureDescription>
           <FeatureButton to={props.slug} pageTheme={themeValue}>
@@ -30,7 +34,7 @@ const FeatureContentRowDetail = (props: FeatureContentRowDetailProps) => {
 
 const FeatureContainer = styled.div`
   margin-top: 0%;
-  padding-top: 150%;
+  padding-top: 169%;
   position: relative;
 `
 
@@ -42,36 +46,36 @@ const DetailContainer = styled.div`
   width: 100%;
 `
 
-const FeatureTitle = styled.h2<ThemeProps>`
-  color: ${props => {
-    return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
+const FeatureTitle = styled.h2<TextProps>`
+  color: ${(props) => {
+    return props.color
   }};
   text-align: center;
   padding-bottom: 20px;
   font-size: 24px;
 `
 
-const FeatureDescription = styled.div<ThemeProps>`
+const FeatureDescription = styled.div<TextProps>`
   font-family: 'Roboto', sans-serif;
   margin-left: 10%;
   width: 80%;
   font-size: 12px;
   font-weight: 100;
-  color: ${props => {
-    return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
+  color: ${(props) => {
+    return props.color
   }};
   text-align: center;
   padding-bottom: 20px;
 `
 
-const FeatureButton = styled(props => <Link {...props} />)<ThemeProps>`
-  background-color: ${props => {
+const FeatureButton = styled((props) => <Link {...props} />)<ThemeProps>`
+  background-color: ${(props) => {
     return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
   }};
   border: none;
   font-family: 'Roboto', sans-serif;
   font-size: 0.75em;
-  color: ${props => {
+  color: ${(props) => {
     return props.pageTheme === 'white' ? '#464646' : '#FFFFFF'
   }};
   text-align: center;
