@@ -288,6 +288,9 @@ const OverlayContainer = styled.div`
 const Title = styled.h2`
   margin: 0 auto;
   color: #ffffff;
+  @media (max-width: 767px) {
+    font-size: 2em;
+  }
 `
 
 const Description = styled.div`
@@ -299,6 +302,10 @@ const Description = styled.div`
   padding-top: 20px;
   width: 75%;
   margin: 0 auto;
+  @media (max-width: 767px) {
+    font-size: 0.7em;
+    line-height: 1rem;
+  }
 `
 
 export default BetaSignup
