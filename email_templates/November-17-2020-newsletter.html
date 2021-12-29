@@ -1,0 +1,411 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%" src="https://knifeandfish.s3.amazonaws.com/plant-newsletter.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 12</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Happy Wednesday,<br><br>
+
+                            It’s a little strange thinking about what's ahead. I can feel something on the horizon as we
+                            approach the rush at the end of the year. The calm before the storm, in other words. In a
+                            lot of ways, I want to get on with it, though apprehension surfaces based on recent history.
+                            Last weekend I was invited to leave the urban bubble and go to my first deer camp. The trip
+                            made me realize a few things: everyone is looking for normal and no one really knows what
+                            that originally was; a weekend away from the kids is always refreshing; most of us
+                            appreciate the slight bend of the middle that’s held us together. Those thoughts give me
+                            hope that this holiday season is shaping up to be something special. Our Thanksgiving menu
+                            is being finalized. All that’s left to do now is enjoy some downtime. Let’s get to it.
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/beef-short-rib-pepper-pot"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/pepperpot.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/beef-short-rib-pepper-pot">Beef Short Rib
+                                Pepper Pot</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            Pepper Pots have always been a favorite soup of mine that many don’t know about.
+                            Traditionally, when people think of the American slave trade, they forget about the trail
+                            that leads to the Caribbean and the pepper pot. It’s easy to connect the dots between a
+                            pepper pot and gumbo. This <a
+                                href="https://www.knifeandfish.com/recipe/beef-short-rib-pepper-pot">Beef Short Rib
+                                Pepper Pot</a> is buttery and perfect on top of some
+                            <a href="https://www.knifeandfish.com/recipe/mascarpone-cheese-grits/">Mascarpone cheese
+                                grits</a>. Scotch Bonnet peppers are traditionally added for spice. I lean towards
+                            adding a spiced okra relish.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.inc.com/jessica-stillman/google-amazon-biophilic-office-design.html"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/google-office.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.inc.com/jessica-stillman/google-amazon-biophilic-office-design.html">The
+                                Science of Why Google's New New York City Office Will Host Birds and Bees</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            It’s been interesting keeping tabs on the COP26 Summit and seeing the world coming back
+                            together for one cause. With deforestation as a high priority in the agreement, it felt
+                            appropriate to read <a
+                                href="https://www.inc.com/jessica-stillman/google-amazon-biophilic-office-design.html">The
+                                Science of Why Google's New New York City Office Will Host Birds and
+                                Bees</a>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.surlatable.com/cast-iron-spice-grater/6778609.html?mrkgadid=1&mrkgen=gpla&mrkgbflag=0&mrkgcat=cat&acctid=21700000001683301&dskeywordid=92700053755706499&lid=92700053755706499&ds_s_kwgid=58700005772058105&ds_s_inventory_feed_id=97700000008343482&dsproductgroupid=297785829761&product_id=6778609&merchid=5755698&prodctry=US&prodlang=en&channel=online&storeid=%7Bproduct_store_id%7D&device=m&network=g&matchtype=&locationid=%7Bloc_phyiscal_ms%7D&creative=45300852101&targetid=pla-297785829761&campaignid=206387981&adgroupid=9952900421&&affsrcid=AFF0005&utm_source=google&utm_medium=cpc&utm_term=&utm_campaign=206387981&creative=45300852101&device=m&matchtype=&gclid=Cj0KCQiAhMOMBhDhARIsAPVml-GhcvqSxVloy0xHbqaKuaJUfGzD6fWG_bXKJ_UH7aTymx912YLVxdUaAkOXEALw_wcB&gclsrc=aw.ds"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/spice-grinder.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://www.surlatable.com/cast-iron-spice-grater/6778609.html?mrkgadid=1&mrkgen=gpla&mrkgbflag=0&mrkgcat=cat&acctid=21700000001683301&dskeywordid=92700053755706499&lid=92700053755706499&ds_s_kwgid=58700005772058105&ds_s_inventory_feed_id=97700000008343482&dsproductgroupid=297785829761&product_id=6778609&merchid=5755698&prodctry=US&prodlang=en&channel=online&storeid=%7Bproduct_store_id%7D&device=m&network=g&matchtype=&locationid=%7Bloc_phyiscal_ms%7D&creative=45300852101&targetid=pla-297785829761&campaignid=206387981&adgroupid=9952900421&&affsrcid=AFF0005&utm_source=google&utm_medium=cpc&utm_term=&utm_campaign=206387981&creative=45300852101&device=m&matchtype=&gclid=Cj0KCQiAhMOMBhDhARIsAPVml-GhcvqSxVloy0xHbqaKuaJUfGzD6fWG_bXKJ_UH7aTymx912YLVxdUaAkOXEALw_wcB&gclsrc=aw.ds">Cast
+                                Iron<br>Spice Grinder</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Musing
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Grinding fresh spices will always help you elevate recipes. I’ve used an old coffee grinder
+                            for years. Though with most recipes only calling for a tablespoon or less to grind, this
+                            <a
+                                href="https://www.surlatable.com/cast-iron-spice-grater/6778609.html?mrkgadid=1&mrkgen=gpla&mrkgbflag=0&mrkgcat=cat&acctid=21700000001683301&dskeywordid=92700053755706499&lid=92700053755706499&ds_s_kwgid=58700005772058105&ds_s_inventory_feed_id=97700000008343482&dsproductgroupid=297785829761&product_id=6778609&merchid=5755698&prodctry=US&prodlang=en&channel=online&storeid=%7Bproduct_store_id%7D&device=m&network=g&matchtype=&locationid=%7Bloc_phyiscal_ms%7D&creative=45300852101&targetid=pla-297785829761&campaignid=206387981&adgroupid=9952900421&&affsrcid=AFF0005&utm_source=google&utm_medium=cpc&utm_term=&utm_campaign=206387981&creative=45300852101&device=m&matchtype=&gclid=Cj0KCQiAhMOMBhDhARIsAPVml-GhcvqSxVloy0xHbqaKuaJUfGzD6fWG_bXKJ_UH7aTymx912YLVxdUaAkOXEALw_wcB&gclsrc=aw.ds">Cast
+                                Iron Spice Grinder</a> seems more practical.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/marigold-raasay-sessions/1587967376"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/marigold.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/marigold-raasay-sessions/1587967376">Stu
+                                Larsen's<br>Marigold</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            I wouldn’t be surprised if you haven’t heard of Stu Larsen - a singer from Australia that’s
+                            lived as a nomad and only released a few albums. His latest album, <a
+                                href="https://music.apple.com/us/album/marigold-raasay-sessions/1587967376">Marigold</a>,
+                            listens like a
+                            release of feelings from a breakup and just wants to tug at you.<br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            All right, that’s it this week. Be well and make sure your people are, too.<br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

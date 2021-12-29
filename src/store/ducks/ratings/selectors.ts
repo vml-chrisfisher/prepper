@@ -19,13 +19,16 @@ export const getRecipeRating = (state: any, recipeId: string) => {
   })
 
   if (filtered.length) {
+    if (filtered.length < 10) {
+      return { id: recipeId, rating: 3, numberOfRatings: filtered.length }
+    }
     const total = filtered.reduce((a: any, b: any) => {
       return a + b.Rating
     }, 0)
 
     return { id: recipeId, rating: total / filtered.length, numberOfRatings: filtered.length }
   }
-  return { id: recipeId, rating: 1, numberOfRatings: 0 }
+  return { id: recipeId, rating: 3, numberOfRatings: 0 }
 }
 
 export const getArticleRating = (state: any, articleId: string) => {

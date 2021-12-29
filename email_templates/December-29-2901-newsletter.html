@@ -1,0 +1,404 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/storage-newsletter-header.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 18</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hi all,<br><br>
+
+                            I hope this Wednesday finds you taking a needed breath. It’s enthralling being in the middle
+                            of the holiday. The anticipation of family and friends. Planning of menu and the prep that
+                            comes along with it. Along with the proper way to endcap the year to friends near and far.
+                            And now it’s over. I look forward to this moment. It gives me time and the excuse to reset
+                            things in the kitchen. I tend to clean out the fridge. Resetting all of the open homemade
+                            pickling and jams with fresh jars. Taking stock of all of the many pieces of Parmesan I’ve
+                            accumulated over the months. Though it also gives me the excuse to take inventory of all my
+                            kitchen utensils. A good purge in the kitchen feels like it gives the house a good release
+                            off its shoulder. Which just feels needed after the holidays and the emotions that come with
+                            this time of year. This last year took me through spaces that needed to be confronted and
+                            allowed a solid base to be formed. It was finding who I was and opening up to that and
+                            releasing that partially through Knife and Fish. I can’t express my appreciation enough that
+                            you decided to jump on this train and have stayed with me. Next year feels like it will be a
+                            good space to move into and I can’t wait. With that let’s get to it for the last time this
+                            year.
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://marchsf.com/products/blackcreek-mercantile-and-trading-co-rosemary-cutting-board-oil?variant=32748426919981"><img
+                                    src="https://www.blackcreekmt.com/wp-content/uploads/2016/09/cutting-board-oil-2.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://marchsf.com/products/blackcreek-mercantile-and-trading-co-rosemary-cutting-board-oil?variant=32748426919981">Blackcreek Mercantile &
+                                Trading Co.</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Using
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            The luster on all of my walnut spoons and spatulas have needed a good oiling for a time.
+                            I’ve used walnut oil in the past though <a href="https://marchsf.com/products/blackcreek-mercantile-and-trading-co-rosemary-cutting-board-oil?variant=32748426919981">Blackcreek Mercantile & Trading Co. has their
+                            cutting board oil</a> that is more neutral. A small company that is all about small goods for
+                            the kitchen, most notably wooden spoons, cutting boards, and their proprietary blend of
+                            cutting board and knife oils.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://weckjars.com/"><img
+                                    src="https://weckjars.com/wp-content/uploads/2015/05/WeckJars_Header100x600_Spices_1800x.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://weckjars.com/">Weck Canning Jars</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Using
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Ball Canning jars have been the nostalgic canning jar though the rusting lids make them seem
+                            a bit off-putting. <a href="https://weckjars.com/">Weck jars</a> with their rubber seals have become my new standard and I
+                            haven't looked back.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.architecturaldigest.com/story/worlds-most-historic-hotels?_kx=DXnRio4_Z6drZxtX26Wk3xJyZaIHrteEwSyagRz834I4ca6_OiX-jy4nUZSgU9_p.fwLqkE"><img
+                                    src="https://media.architecturaldigest.com/photos/614e801f0adaea623a30a5c8/master/w_1600,c_limit/The%20Game%20Bird%20-%20Bar%20Area.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://www.architecturaldigest.com/story/worlds-most-historic-hotels?_kx=DXnRio4_Z6drZxtX26Wk3xJyZaIHrteEwSyagRz834I4ca6_OiX-jy4nUZSgU9_p.fwLqkE">
+                                Step Inside Some of the World's Most Historic Hotels</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            <a
+                                href="https://www.architecturaldigest.com/story/worlds-most-historic-hotels?_kx=DXnRio4_Z6drZxtX26Wk3xJyZaIHrteEwSyagRz834I4ca6_OiX-jy4nUZSgU9_p.fwLqkE">Step
+                                Inside Some of the World's Most Historic Hotels</a>. I’ve always been enthralled by
+                            architecture and find that inns and hotels offer an excuse to be extravagant but also remain
+                            grounded in reality as they are public spaces with many people passing through every day.
+                            The architecture of a good hotel must not only be versatile—meeting the demands of
+                            conferences, diplomats, weddings, and weary travelers all in one—but also timeless, a feat
+                            which is hard to achieve and is endlessly impressive. Architectural Digest is one of my
+                            guilty pleasures, and although there’s minimal reading to be done, this article touches on
+                            some of what makes America’s historic hotels so special. <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That’s it for this week and the year. Enjoy the rest of the year and be safe out there.<br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

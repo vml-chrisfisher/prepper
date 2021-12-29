@@ -1,0 +1,404 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%" src="https://knifeandfish.s3.amazonaws.com/lump-crab-portrait.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 15</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hello all,<br><br>
+
+                            Hope all is well. This last weekend was a busy one but one I’ve been counting down for a
+                            while. Saturday we had some of our closest friends. It had been three to four years to many
+                            that we had hosted a dinner party and for us, it was sadly missed. My cooking has shifted
+                            into a journey of Black and French cooking and techniques in search of what truly is Creole,
+                            beyond the classics. It was good to share where I am on that path. There is this drive in me
+                            that it is always pursuing this perfection in recipes and techniques. Finding balance in
+                            acid. Working on prep far enough in advance to keep the knife skills there. As if there is
+                            an ongoing seasonal menu that I am working to perfect. Maybe these dinner parties are my
+                            answer to a dream of a restaurant or maybe the precursor. I’m sure the first and not that
+                            latter. Either way, it keeps me striving and always hungry for knowledge of what it means to
+                            be that narrowness of Creole. That’s it, folks, keep hungry and let's get to it.
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/crab-cakes"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/crab.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/crab-cakes">Crab Cakes and a Menu</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Many people have asked how my journey for cooking is going. Maybe it's because I’m still
+                            searching, though, describing it still seems awkward. Sharing the menu from the dinner party
+                            seems like a good way to the pulse of this journey.<br><br>
+
+                            <span class="menuCoarse">First Course</span><br>
+                            Rabbit Rillette on Benne Seed Cracker<br>
+                            Smoked Trout Spread on Rye<br>
+                            Pickled Carrots<br><br>
+
+                            <span class="menuCoarse">Second Course</span><br>
+                            Coq au Vin Blanc Handpie<br><br>
+
+                            <span class="menuCoarse">Third Course</span><br>
+                            <a href="https://www.knifeandfish.com/recipe/crab-cakes/">Crab Cake</a> served on top of <a href="https://www.knifeandfish.com/recipe/green-gumbo-with-red-field-peas/">Green Gumbo</a><br><br>
+
+                            <span class="menuCoarse">Fourth Course</span><br>
+                            <a href="https://www.knifeandfish.com/recipe/beef-short-rib-pepper-pot">Beef Short Rib Pepperpot</a>, Hoe Cake with Scotch Bonner, Pickled Okra Relish
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://smithey.com/products/carbon-steel-farmhouse-skillet"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/farmangle_1080x.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://smithey.com/products/carbon-steel-farmhouse-skillet">Smithey
+                                Ironware Farmhouse Skillet</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Using
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Recently, I purchased the <a href="https://smithey.com/products/carbon-steel-farmhouse-skillet">Fieldhouse skillet</a> and <a href="https://smithey.com/collections/carbon-steel/products/carbon-steel-oval-roaster">oval roaster</a> from <a href="https://smithey.com/">Smithey Ironware</a>. Two
+                            pieces that I’ve been eyeing for some time now and not disappointed at all. While a bit
+                            pricey absolutely worth it.  Their <a href="https://smithey.com/collections/carbon-steel/products/roundroaster">round roaster</a> and <a href="https://smithey.com/collections/castiron/products/no-14-dual-handle-skillet">double handle skillet</a> are next on hit hitlist, along with a <a href="https://smithey.com/collections/castiron/products/5-5-qt-dutch-oven">dutch oven</a>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/artist/charles-wesley-godwin/1441994025"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/CWGalbum_front_jpeg_900x.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/artist/charles-wesley-godwin/1441994025">Charles Wesley Godwin</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            <a href="https://music.apple.com/us/artist/charles-wesley-godwin/1441994025">Charles Wesley Godwin</a>. Since the release of his first album <a href="https://music.apple.com/us/album/seneca/1447581155">Seneca</a> in 2019, I have been
+                            yearning for more releases from this artist. He has a way of bending Appalachian string
+                            music with a bit of rocking guitar in a way that simply works. The old-school Americana feel
+                            that he produces is second to none, and his <a hreef="https://music.apple.com/us/album/how-the-mighty-fall/1582654787">new album How the Mighty Fall</a> was one of my most
+                            awaited releases of this year. It was released a few weeks back and I have found myself
+                            putting this album on shuffle just about every time I get in the car. <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That’s it, folks. Be good and keep warm.<br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
