@@ -1,6 +1,6 @@
 import { CREATE_HOUSEHOLD_NEWLETTER_ASYNC_STEPS } from '../household/types'
 import initialState from './initialState'
-import { NEWSLETTER_ACTION_TYPES } from './types'
+import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES } from './types'
 
 const newsletterReducers = (state = initialState, action: { type?: string; payload?: any }) => {
   switch (action.type) {
@@ -12,6 +12,8 @@ const newsletterReducers = (state = initialState, action: { type?: string; paylo
       return { ...state, position: 2 }
     case NEWSLETTER_ACTION_TYPES.ADDED_FAILURE:
       return state
+    case NEWSLETTER_LINKID_TYPES.FETCH_SUCCESS:
+      return { ...state, linkId: action.payload?.linkId }
     default:
       return state
   }

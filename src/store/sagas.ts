@@ -1,9 +1,4 @@
 import { all, takeEvery } from 'redux-saga/effects'
-import {
-  patchArticleEmailPreferenceAsync,
-  patchRecipeEmailPreferenceAsync,
-  patchRoundupEmailPreferencesAsync,
-} from './ducks/emailPreferences/sagas'
 import { EMAIL_PREFERENCES } from './ducks/emailPreferences/types'
 import { fetchHeaderProductCategoryDetailAsync } from './ducks/header/sagas'
 import { HEADER_ACTION_TYPES } from './ducks/header/types'
@@ -11,8 +6,12 @@ import { createHouseholdFromSurveyAsync, createNewHouseholdAsync, fetchHousehold
 import { CREATE_HOUSEHOLD_FROM, HOUSEHOLD } from './ducks/household/types'
 import { localStorageLoginAsync, logoutAsync, submitLoginAsync } from './ducks/login/sagas'
 import { LOGIN_STEPS, LOGOUT } from './ducks/login/types'
-import { submitNewsletterEmailAsync } from './ducks/newsletter/sagas'
-import { NEWSLETTER_ACTION_TYPES } from './ducks/newsletter/types'
+import {
+  fetchNewsletterLinkIdAsync,
+  submitNewsletterEmailAsync,
+  submitNewsletterLinkIdAsync,
+} from './ducks/newsletter/sagas'
+import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES } from './ducks/newsletter/types'
 import { onTryCreateNewProfile } from './ducks/profile/actions'
 import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE, PROFILE_STEPS } from './ducks/profile/types'
@@ -20,6 +19,11 @@ import { RATINGS } from './ducks/ratings/types'
 import { RECIPEBOX } from './ducks/recipesBox/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
+import {
+  patchArticleEmailPreferenceAsync,
+  patchRecipeEmailPreferenceAsync,
+  patchRoundupEmailPreferencesAsync,
+} from './ducks/emailPreferences/sagas'
 import {
   fetchAllArticleRatingsAsync,
   fetchAllRecipeRatingsAsync,
@@ -219,6 +223,14 @@ function* watchPatchRoundupEmailPreference() {
   yield takeEvery(EMAIL_PREFERENCES.TRY_UPDATE_ROUNDUP_EMAIL_PREFERENCES, patchRoundupEmailPreferencesAsync)
 }
 
+function* watchFetchNewsletterLinkId() {
+  yield takeEvery(NEWSLETTER_LINKID_TYPES.TRY_FETCH, fetchNewsletterLinkIdAsync)
+}
+
+function* watchSubmitNewsletterLinkId() {
+  yield takeEvery(NEWSLETTER_LINKID_TYPES.TRY_SUBMIT, submitNewsletterLinkIdAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchAddArticleRating(),
@@ -231,6 +243,7 @@ export default function* rootSaga() {
     watchFetchAllRecipeRatings(),
     watchFetchHousehold(),
     watchFetchHeaderProductCategoryDetail(),
+    watchFetchNewsletterLinkId(),
     watchFetchRecipesBox(),
     watchHelloContact(),
     watchLocalStorageLogin(),
@@ -255,6 +268,7 @@ export default function* rootSaga() {
     watchRemoveRecipe(),
     watchSearch(),
     watchSubmitNewsletterEmail(),
+    watchSubmitNewsletterLinkId(),
     watchSuggestionContact(),
     watchUploadRecipe(),
   ])

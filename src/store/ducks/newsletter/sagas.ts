@@ -1,12 +1,13 @@
 import axios, { AxiosResponse } from 'axios'
 import { call, put } from 'redux-saga/effects'
+import { isBrowser } from '../../../utils/auth'
 import { EmailPreferences } from '../emailPreferences/interfaces'
 import { EMAIL_SEND_FREQUENCY } from '../emailPreferences/types'
 import { Household, HOUSEHOLD_MEMBER_ROLE, HouseholdMember } from '../household/interfaces'
-import { NEWSLETTER_ACTION_TYPES } from './types'
+import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES } from './types'
 
 const delay = (ms: number): Promise<void> => {
-  return new Promise<void>(resolve => {
+  return new Promise<void>((resolve) => {
     setTimeout(() => {
       resolve()
     }, ms)
@@ -61,5 +62,74 @@ export function* submitNewsletterEmailAsync(action: any) {
     }
   } else {
     yield put({ type: NEWSLETTER_ACTION_TYPES.ADDED_FAILURE, error: new Error('sdf') })
+  }
+}
+
+const fetchNewsletterLinkId = () => {
+  return new Promise<Record<string, unknown> | void>((resolve, reject) => {
+    const knifeAndFishLocalStorage = isBrowser ? localStorage.getItem('knifeAndFish') : undefined
+    if (knifeAndFishLocalStorage) {
+      const json = JSON.parse(knifeAndFishLocalStorage)
+      const linkId = json.linkId
+      resolve({
+        linkId: linkId,
+      })
+    } else {
+      reject()
+    }
+  })
+}
+
+export function* fetchNewsletterLinkIdAsync(action: any) {
+  try {
+    const fetchResponse = yield call(fetchNewsletterLinkId)
+    yield put({
+      type: NEWSLETTER_LINKID_TYPES.FETCH_SUCCESS,
+      payload: fetchResponse,
+    })
+  } catch (error) {
+    yield put({
+      type: NEWSLETTER_LINKID_TYPES.FETCH_FAILURE,
+    })
+  }
+}
+
+const submitNewsletterLinkId = (linkId: string) => {
+  return new Promise<Record<string, unknown> | void>((resolve, reject) => {
+    if (isBrowser) {
+      const knifeAndFishLocalStorage = localStorage.getItem('knifeAndFish')
+      if (knifeAndFishLocalStorage) {
+        const json = JSON.parse(knifeAndFishLocalStorage)
+        json.linkId = linkId
+        localStorage.setItem('knifeAndFish', JSON.stringify(json))
+        resolve({
+          linkId: linkId,
+        })
+      } else {
+        localStorage.setItem(
+          'knifeAndFish',
+          JSON.stringify({
+            linkId: linkId,
+          }),
+        )
+      }
+    } else {
+      reject()
+    }
+  })
+}
+
+export function* submitNewsletterLinkIdAsync(action: any) {
+  const { linkId } = action
+  try {
+    const fetchResponse = yield call(submitNewsletterLinkId, linkId)
+    yield put({
+      type: NEWSLETTER_LINKID_TYPES.SUBMIT_SUCCESS,
+      payload: fetchResponse,
+    })
+  } catch (error) {
+    yield put({
+      type: NEWSLETTER_LINKID_TYPES.SUBMIT_FAILURE,
+    })
   }
 }

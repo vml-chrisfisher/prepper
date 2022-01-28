@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
+import { useLocation } from '@reach/router'
 import dateformat from 'dateformat'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import queryString from 'query-string'
 import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 import LazyLoad from 'react-lazy-load'
@@ -18,12 +20,19 @@ import Layout from '../components/layout'
 import MainContainer from '../components/layout/mainContainer'
 import RatingBar from '../components/ratingBar'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
+import {
+  onTryNewsletterLinkIdFetch,
+  onTryNewsletterLinkIdSubmit,
+  onTryRecipeRatingsEmailSubmit,
+} from '../store/ducks/newsletter/actions'
+import { getNewsletterLinkId } from '../store/ducks/newsletter/selectors'
 import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
 import Rating from '../store/ducks/ratings/interface'
 import { getRecipeRating } from '../store/ducks/ratings/selectors'
 import { onTryAddRecipe, onTryAddRecipeView, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
 import { RecipeBoxRecipe, RecipeBoxRecipePayload } from '../store/ducks/recipesBox/interfaces'
 import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
+
 import {
   RecipeProps,
   AllContentfulRecipe,
@@ -229,6 +238,7 @@ const RecipeTemplate = (props: RecipeProps) => {
   const dispatch = useDispatch()
 
   const userId = useSelector(getUserId)
+  const linkId = useSelector(getNewsletterLinkId)
 
   useEffect(() => {
     if (userId) {
@@ -245,7 +255,24 @@ const RecipeTemplate = (props: RecipeProps) => {
       }
       dispatch(onTryAddRecipeView(article))
     }
+
+    const location = useLocation()
+    if (location.search) {
+      const queried = queryString.parse(location.search)
+      const { linkId } = queried
+      if (linkId) {
+        dispatch(onTryNewsletterLinkIdSubmit(linkId as string))
+      }
+    }
+
+    dispatch(onTryNewsletterLinkIdFetch())
   })
+
+  useEffect(() => {
+    if (linkId) {
+      dispatch(onTryRecipeRatingsEmailSubmit({ linkId: linkId, recipeId: recipeId }))
+    }
+  }, [linkId])
 
   const keywords = new Array<string>()
   keywords.push(post.mealType)
