@@ -14,6 +14,7 @@ const Footer = (props: FooterProps) => {
     padding-bottom: 100px;
     @media (max-width: 767px) {
       padding-top: 100px;
+      padding-bottom: 0px;
     }
   `
 
@@ -37,7 +38,7 @@ const Footer = (props: FooterProps) => {
   `
 
   const FooterTitle = styled.div<ThemeProps>`
-    color: ${props => {
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
     }};
     font-size: 1.5em;
@@ -49,7 +50,7 @@ const Footer = (props: FooterProps) => {
   `
 
   const FooterParagraph = styled.div<ThemeProps>`
-    color: ${props => {
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
     }};
     font-size: 12px;
@@ -65,10 +66,10 @@ const Footer = (props: FooterProps) => {
   `
 
   const FooterLinkMain = styled.a<ThemeProps>`
-    border-bottom: ${props => {
+    border-bottom: ${(props) => {
       return props.pageTheme === 'white' ? '#FFFFFF solid .5px' : '#464646 solid .5px'
     }};
-    color: ${props => {
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
     }};
     cursor: pointer;
@@ -104,8 +105,8 @@ const Footer = (props: FooterProps) => {
     }
   `
 
-  const FooterLinkBottom = styled(props => <Link {...props} />)<ThemeProps>`
-    color: ${props => {
+  const FooterLinkBottom = styled((props) => <Link {...props} />)<ThemeProps>`
+    color: ${(props) => {
       return props.pageTheme === 'white' ? '#FFFFFF' : '#464646'
     }};
     cursor: pointer;

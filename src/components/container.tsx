@@ -166,6 +166,7 @@ export default ({ children }) => (
 
         .col6sm {
           width: 46%;
+          display: inline-block;
         }
 
         .col7sm {
