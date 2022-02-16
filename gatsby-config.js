@@ -34,6 +34,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     `gatsby-remark-lazy-load`,
     `gatsby-plugin-sitemap`,
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

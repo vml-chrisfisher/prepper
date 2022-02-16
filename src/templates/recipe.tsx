@@ -20,11 +20,6 @@ import Layout from '../components/layout'
 import MainContainer from '../components/layout/mainContainer'
 import RatingBar from '../components/ratingBar'
 import { onShowRecipesBoxLoginRegisterNotifcation } from '../store/ducks/header/actions'
-import {
-  onTryNewsletterLinkIdFetch,
-  onTryNewsletterLinkIdSubmit,
-  onTryRecipeRatingsEmailSubmit,
-} from '../store/ducks/newsletter/actions'
 import { getNewsletterLinkId } from '../store/ducks/newsletter/selectors'
 import { getAccessToken, getUserId } from '../store/ducks/profile/selectors'
 import Rating from '../store/ducks/ratings/interface'
@@ -32,6 +27,11 @@ import { getRecipeRating } from '../store/ducks/ratings/selectors'
 import { onTryAddRecipe, onTryAddRecipeView, onTryDeleteRecipe } from '../store/ducks/recipesBox/actions'
 import { RecipeBoxRecipe, RecipeBoxRecipePayload } from '../store/ducks/recipesBox/interfaces'
 import { getRecipeBoxIsRecipeSelected } from '../store/ducks/recipesBox/selectors'
+import {
+  onTryNewsletterLinkIdFetch,
+  onTryNewsletterLinkIdSubmit,
+  onTryRecipeRatingsEmailSubmit,
+} from '../store/ducks/newsletter/actions'
 
 import {
   RecipeProps,
@@ -256,14 +256,14 @@ const RecipeTemplate = (props: RecipeProps) => {
       dispatch(onTryAddRecipeView(article))
     }
 
-    const location = useLocation()
-    if (location.search) {
-      const queried = queryString.parse(location.search)
-      const { linkId } = queried
-      if (linkId) {
-        dispatch(onTryNewsletterLinkIdSubmit(linkId as string))
-      }
-    }
+    // const location = useLocation()
+    // if (location.search) {
+    //   const queried = queryString.parse(location.search)
+    //   const { linkId } = queried
+    //   if (linkId) {
+    //     dispatch(onTryNewsletterLinkIdSubmit(linkId as string))
+    //   }
+    // }
 
     dispatch(onTryNewsletterLinkIdFetch())
   })

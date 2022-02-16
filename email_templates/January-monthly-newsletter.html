@@ -1,0 +1,542 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 0%;
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .subTitle a {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%" src="https://knifeandfish.s3.amazonaws.com/pexels-rachel-claire-4819577.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Monthly Newsletter No. 1</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hi all,<br><br>
+
+                            Usually I send out an email out on Wednesday, though I decided that some people would just rather hear about the going ons just once a month.  So first month of the year calls for the first monthly newsletter.
+                            A beautiful little summary of all the going ons.  Recipes. Music. Musing and random thoughts.  So with that bit, let's get to it.
+                            <br>
+
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td class="sectionTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/hanger-steak-au-poivre/?linkId=*|LINKID|*"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/steak-au-poive.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/hanger-steak-au-poivre/?linkId=*|LINKID|*">Steak au Poivre</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/hot-chocolate/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/5hSVvVRMMmV3swjeiv7iat/6e648a793438019335b5e9f435c66878/hot-chocolate.png?fm=jpg&q=70&w=600"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/hot-chocolate/?linkId=*|LINKID|*">Hot Chocolate</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/crispy-salt-and-pepper-chicken-wings/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/3GwFuQGUX0gQSNQi1dF0U8/c778014a4f9819cca1a3227b4ddef57d/crispy-salt-pepper-wings-portrait.jpg?fm=jpg&q=70&w=600"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/crispy-salt-and-pepper-chicken-wings/?linkId=*|LINKID|*">Crispy
+                                Salt
+                                and Pepper Chicken Wings</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.amazon.com/Black-Food-Stories-Diaspora-Cookbook/dp/1984859722/ref=sr_1_1?crid=12BJIIIRSIR4X&keywords=black+food&qid=1641278056&s=books&sprefix=black+food%2Cstripbooks%2C92&sr=1-1"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/black-food-cover.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://www.amazon.com/Black-Food-Stories-Diaspora-Cookbook/dp/1984859722/ref=sr_1_1?crid=12BJIIIRSIR4X&keywords=black+food&qid=1641278056&s=books&sprefix=black+food%2Cstripbooks%2C92&sr=1-1">
+                                Black Food - Stories, Art, and Recipes from Across the African Diaspora</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.amazon.com/Notes-Young-Black-Chef-Memoir/dp/1524732621"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/notes-from-a-black-chef.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://www.amazon.com/Notes-Young-Black-Chef-Memoir/dp/1524732621">
+                                Notes from a
+                                Young Black Chef: A Memoir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.amazon.com/Black-Girl-Baking-Wholesome-Upbringing/dp/1624145124"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/black-girl-baking.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://www.amazon.com/Black-Girl-Baking-Wholesome-Upbringing/dp/1624145124">
+                                Black Girl Baking</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.foodandwine.com/news/oyster-farmer-leaves-notes-for-thieves?utm_source=instagram&utm_medium=social&utm_campaign=foodandwine&utm_content=like2buy&utm_term=curalate_like2buy"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/oyster-farmer-stolen.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://www.foodandwine.com/news/oyster-farmer-leaves-notes-for-thieves?utm_source=instagram&utm_medium=social&utm_campaign=foodandwine&utm_content=like2buy&utm_term=curalate_like2buy">
+                                Farmers
+                                Are Slipping Notes into Shells to Catch Thieves</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://putthison.com/darn-it-a-guide-on-how-to-fix-holes-in-sweaters/?_kx=DXnRio4_Z6drZxtX26Wk3xJyZaIHrteEwSyagRz834I4ca6_OiX-jy4nUZSgU9_p.fwLqkE"><img
+                                    src="https://putthison.com/wp-content/uploads/2022/01/DSCF6656.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://putthison.com/darn-it-a-guide-on-how-to-fix-holes-in-sweaters/?_kx=DXnRio4_Z6drZxtX26Wk3xJyZaIHrteEwSyagRz834I4ca6_OiX-jy4nUZSgU9_p.fwLqkE">
+                                Repairing Sweaters</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://putthison.com/japans-shoeshine-champions-explain-proper-shoe-care/"><img
+                                    src="https://putthison.com/wp-content/uploads/2019/06/Gou-and-Naoki-working.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://putthison.com/japans-shoeshine-champions-explain-proper-shoe-care/">
+                                Japan’s Shoeshine Champions Explain Proper Shoe Care</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            Musing
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.seavees.com/products/mens-mammoth-boot-rugged-oiled-leather-black?_pos=6&_fid=132e05f6e&_ss=c"><img
+                                    src="https://cdn.shopify.com/s/files/1/0561/3333/products/mens_mammoth_boot_black_qtr.jpg?v=1634833485"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a
+                                href="https://www.seavees.com/products/mens-mammoth-boot-rugged-oiled-leather-black?_pos=6&_fid=132e05f6e&_ss=c">SeaVees
+                                Mammoth Boot
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.etsy.com/listing/648211301/olive-oil-bottle-ceramic-oil-dispenser?gbraid=0AAAAADtcfRILq7f3bVjoLXl3PwS_ghjnB&gpla=1&gao=1&&utm_source=google&utm_medium=cpc&utm_campaign=shopping_us_ps-b-home_and_living-kitchen_and_dining-dining_and_serving-serving_odds_and_ends-other&utm_custom1=_k_Cj0KCQiAubmPBhCyARIsAJWNpiOqUDHNpGuj2RvtcKHqnx3TEhTSKcu6Rgyd0YiQkwL3RAD7_pOr-OgaAvVtEALw_wcB_k_&utm_content=go_12566247314_121162421962_507300191933_aud-1184785539738:pla-307842590836_m__648211301_113057230&utm_custom2=12566247314&gbraid=0AAAAADtcfRILq7f3bVjoLXl3PwS_ghjnB&gclid=Cj0KCQiAubmPBhCyARIsAJWNpiOqUDHNpGuj2RvtcKHqnx3TEhTSKcu6Rgyd0YiQkwL3RAD7_pOr-OgaAvVtEALw_wcB"><img
+                                    src="https://i.etsystatic.com/5617429/r/il/16824a/2289782298/il_794xN.2289782298_1nvv.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a
+                                href="https://www.etsy.com/listing/648211301/olive-oil-bottle-ceramic-oil-dispenser?gbraid=0AAAAADtcfRILq7f3bVjoLXl3PwS_ghjnB&gpla=1&gao=1&&utm_source=google&utm_medium=cpc&utm_campaign=shopping_us_ps-b-home_and_living-kitchen_and_dining-dining_and_serving-serving_odds_and_ends-other&utm_custom1=_k_Cj0KCQiAubmPBhCyARIsAJWNpiOqUDHNpGuj2RvtcKHqnx3TEhTSKcu6Rgyd0YiQkwL3RAD7_pOr-OgaAvVtEALw_wcB_k_&utm_content=go_12566247314_121162421962_507300191933_aud-1184785539738:pla-307842590836_m__648211301_113057230&utm_custom2=12566247314&gbraid=0AAAAADtcfRILq7f3bVjoLXl3PwS_ghjnB&gclid=Cj0KCQiAubmPBhCyARIsAJWNpiOqUDHNpGuj2RvtcKHqnx3TEhTSKcu6Rgyd0YiQkwL3RAD7_pOr-OgaAvVtEALw_wcB">Olive
+                                Oil
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            Using
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.amazon.com/Aluminum-3-Piece-8-Inch-6-Inch-4-Inch/dp/B00AE6PXXE?ref_=ast_sto_dp&th=1&psc=1"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/wilton-cake-pans.jpeg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a
+                                href="https://www.amazon.com/Aluminum-3-Piece-8-Inch-6-Inch-4-Inch/dp/B00AE6PXXE?ref_=ast_sto_dp&th=1&psc=1">SWilton Round
+                                Cake Pans
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/artist/charles-wesley-godwin/1441994025"><img
+                                    src="https://knifeandfish.s3.amazonaws.com/charles-wesely.png"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://music.apple.com/us/artist/charles-wesley-godwin/1441994025">
+                                Charles Wesley Godwin</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/artist/nathaniel-rateliff-the-night-sweats/992852146"><img
+                                    src="https://relix.com/wp-content/uploads/2018/10/nathaniel_rateliff_the_night_sweats8-768x455.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://music.apple.com/us/artist/nathaniel-rateliff-the-night-sweats/992852146">
+                                Nathaniel Rateliff & The Night Sweats</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/plastic-soul/1440896153"><img
+                                    src="https://i.guim.co.uk/img/media/a10fbac52cf642defcdf5a15f9a04bb45d02d832/0_0_2000_1240/master/2000.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=1b5febf9dafe70b1a8373424ee63744c"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            <a href="https://music.apple.com/us/album/plastic-soul/1440896153">
+                                Mondo Cozmo</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Alright, that will do it this month. Stay safe and take care of each other out there.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
