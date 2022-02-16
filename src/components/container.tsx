@@ -154,6 +154,7 @@ export default ({ children }) => (
         .col3sm {
           width: 21%;
           padding-right: 4%;
+          display: inline-block;
         }
 
         .col4sm {
@@ -179,6 +180,7 @@ export default ({ children }) => (
 
         .col9sm {
           width: 71%;
+          display: inline-block;
         }
 
         .col10sm {

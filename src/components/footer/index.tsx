@@ -99,10 +99,6 @@ const Footer = (props: FooterProps) => {
   const FooterBottomLinkContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
-    @media (max-width: 767px) {
-      display: block;
-      padding-left: 5%;
-    }
   `
 
   const FooterLinkBottom = styled((props) => <Link {...props} />)<ThemeProps>`
@@ -129,9 +125,10 @@ const Footer = (props: FooterProps) => {
     @media (max-width: 767px) {
       padding-bottom: 0px;
       padding-right: 0px;
-      padding-top: 25px;
+      padding-top: 0px;
       display: block;
       font-size: 0.9em;
+      text-align: right;
       width: 100%;
     }
     &:hover {
@@ -173,7 +170,7 @@ const Footer = (props: FooterProps) => {
       </FooterColumnsContainer>
       <FooterBottomContainer className="row">
         <div className="col3" />
-        <div className="col9">
+        <div className="col9 hidden-sm">
           <div className="col4">
             <a aria-label="Knife and Fish Facebook" href="https://www.facebook.com/knifeandfish">
               <LazyLoad once offset={100}>
@@ -213,6 +210,80 @@ const Footer = (props: FooterProps) => {
             </a>
           </div>
           <div className="col6">
+            <FooterBottomLinkContainer>
+              {/* <FooterLinkBottom pageTheme={themeValue} href="/plants">
+                  Plants
+                </FooterLinkBottom> */}
+              <FooterLinkBottom pageTheme={theme} to="/recipes">
+                Recipes
+              </FooterLinkBottom>
+              <FooterLinkBottom pageTheme={theme} to="/contact">
+                Contact Us
+              </FooterLinkBottom>
+              {/* <FooterLinkBottom pageTheme={theme} href="/shipping">
+                  Shipping
+                </FooterLinkBottom>
+                <FooterLinkBottom pageTheme={theme} href="/returns">
+                  Returns
+                </FooterLinkBottom> */}
+              {/* <FooterLinkBottom pageTheme={theme} href="/privacy">
+                  Privacy
+                </FooterLinkBottom>
+                <FooterLinkBottom pageTheme={theme} href="/terms">
+                  Terms
+                </FooterLinkBottom> */}
+              {/* <FooterLinkBottom pageTheme={theme} href="careers">
+                  Careers
+                </FooterLinkBottom> */}
+              <FooterLinkBottom pageTheme={theme} to="/sitemap.xml">
+                Sitemap
+              </FooterLinkBottom>
+            </FooterBottomLinkContainer>
+          </div>
+        </div>
+
+        <div className="col9 hidden-lg">
+          <div className="col3sm">
+            <FooterBottomLinkContainer>
+              <a aria-label="Knife and Fish Facebook" href="https://www.facebook.com/knifeandfish">
+                <LazyLoad once offset={100}>
+                  <FooterSocialIcon
+                    alt="Knife andFish Facebook"
+                    src={
+                      theme === 'white'
+                        ? '//images.ctfassets.net/ce6fbxhy1t51/6yYrd2D1fVD8j7LtZ76sy/1ef98cc5c29e67cb01df9a60b4df9d42/facebook.svg'
+                        : '//images.ctfassets.net/ce6fbxhy1t51/6bnGfZilJNkJ7KzlI7L14i/9abc4692dd2b20b8395b6c691b24cf57/facebook_black.svg'
+                    }
+                  />
+                </LazyLoad>
+              </a>
+              <a aria-label="Knife and Fish Instagram" href="https://www.instagram.com/knifeandfish/">
+                <LazyLoad once offset={100}>
+                  <FooterSocialIcon
+                    alt="Knife and Fish Instagram"
+                    src={
+                      theme === 'white'
+                        ? '//images.ctfassets.net/ce6fbxhy1t51/2MNwT4CYIQUPMp540OF0HU/d9f43fa3de2e7f64ea068cc15af6c7c9/instagram.svg'
+                        : '//images.ctfassets.net/ce6fbxhy1t51/58h2K46VAOk5uTIUJBMcJN/496c458470edfb08cbcebe8b1540ee31/instagram_black.svg'
+                    }
+                  />
+                </LazyLoad>
+              </a>
+              <a aria-label="Knife and Fish Pinterest" href="https://www.pinterest.com/knifeandfish/">
+                <LazyLoad once offset={100}>
+                  <FooterSocialIcon
+                    alt="Knife and Fish Pinterest"
+                    src={
+                      theme === 'white'
+                        ? '//images.ctfassets.net/ce6fbxhy1t51/6PsbRIEHqAunj8DT6d9Qod/207e4a09ebe4d00b5dff6abe9b45893d/pinterest.svg'
+                        : '//images.ctfassets.net/ce6fbxhy1t51/3GAq3HqdGSYfQlZpcYd1z1/a96ede6a2f20f020b8500dd7de59a913/pinterest_black.svg'
+                    }
+                  />
+                </LazyLoad>
+              </a>
+            </FooterBottomLinkContainer>
+          </div>
+          <div className="col9sm">
             <FooterBottomLinkContainer>
               {/* <FooterLinkBottom pageTheme={themeValue} href="/plants">
                   Plants
