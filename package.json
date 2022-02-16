@@ -3,7 +3,7 @@
   "description": "Knife and Fish Blog",
   "version": "1.0.0",
   "engines": {
-    "node": "12.16.x"
+    "node": "14.19.x"
   },
   "author": "Stefan Judis <stefanjudis@gmail.com>",
   "bugs": {
@@ -32,6 +32,7 @@
     "core-js": "^3.16.2",
     "css-loader": "^6.2.0",
     "dateformat": "^4.5.1",
+    "deepmerge": "^4.2.2",
     "emotion": "^11.0.0",
     "formik": "^2.2.6",
     "gatsby": "^4.6.0",
