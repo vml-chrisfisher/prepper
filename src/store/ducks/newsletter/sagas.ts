@@ -4,7 +4,7 @@ import { isBrowser } from '../../../utils/auth'
 import { EmailPreferences } from '../emailPreferences/interfaces'
 import { EMAIL_SEND_FREQUENCY } from '../emailPreferences/types'
 import { Household, HOUSEHOLD_MEMBER_ROLE, HouseholdMember } from '../household/interfaces'
-import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES } from './types'
+import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES, RECIPE_RATINGS_EMAIL_TYPES } from './types'
 
 const delay = (ms: number): Promise<void> => {
   return new Promise<void>((resolve) => {
@@ -130,6 +130,42 @@ export function* submitNewsletterLinkIdAsync(action: any) {
   } catch (error) {
     yield put({
       type: NEWSLETTER_LINKID_TYPES.SUBMIT_FAILURE,
+    })
+  }
+}
+
+const submitRecipeRatingEmail = (payload: {
+  linkId: string
+  recipeId: string
+  imageUrl: string
+  recipeName: string
+}) => {
+  const { linkId, recipeId } = payload
+  const url = 'https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/email/rating/recipe'
+  return axios.post(
+    url,
+    {
+      linkId: linkId,
+      recipeId: recipeId,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  )
+}
+export function* submitRecipeRatingsEmailAsync(action: any) {
+  const { linkId, recipeId, imageUrl, recipeName } = action
+  try {
+    const fetchResponse = yield call(submitRecipeRatingEmail, { linkId, recipeId, imageUrl, recipeName })
+    yield put({
+      type: RECIPE_RATINGS_EMAIL_TYPES.SUBMIT_SUCCESS,
+      payload: fetchResponse,
+    })
+  } catch (error) {
+    yield put({
+      type: RECIPE_RATINGS_EMAIL_TYPES.SUBMIT_FAILURE,
     })
   }
 }

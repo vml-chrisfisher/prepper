@@ -250,6 +250,19 @@ const RecipeTemplate = (props: RecipeProps) => {
   const userId = useSelector(getUserId)
   const linkId = useSelector(getNewsletterLinkId)
 
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.search) {
+      const queried = queryString.parse(location.search)
+      const { linkId } = queried
+      if (linkId) {
+        dispatch(onTryNewsletterLinkIdSubmit(linkId as string))
+      }
+    }
+    dispatch(onTryNewsletterLinkIdFetch())
+  })
+
   useEffect(() => {
     if (userId) {
       const article: RecipeBoxRecipePayload = {
@@ -265,17 +278,6 @@ const RecipeTemplate = (props: RecipeProps) => {
       }
       dispatch(onTryAddRecipeView(article))
     }
-
-    // const location = useLocation()
-    // if (location.search) {
-    //   const queried = queryString.parse(location.search)
-    //   const { linkId } = queried
-    //   if (linkId) {
-    //     dispatch(onTryNewsletterLinkIdSubmit(linkId as string))
-    //   }
-    // }
-
-    dispatch(onTryNewsletterLinkIdFetch())
   })
 
   useEffect(() => {

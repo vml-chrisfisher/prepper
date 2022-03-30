@@ -1,0 +1,430 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-mat-brown-1395967.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 29</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hi All,<br><br>
+
+                            It’s been a bit though the family and I just wrapped up Spring Break. Which was a
+                            well-needed getaway with friends and allowed for some moments to release and just think.
+                            Easter is closing in and it’s one of the first feast meals that I look forward to. I think
+                            it’s more about the freshness of all of the Spring vegetables, with English peas always on
+                            the top of my list. Though later in the year we are co-hosting a progressive dinner and I’ve
+                            been working through a menu. I’ve been working through around 7 courses. Mostly small bites
+                            with a couple of larger courses. As you will see, I'm still working through the idea of some
+                            of them but would love to hear your thoughts.
+
+                            <span class="menuCoarse">Amuse-Bouche</span><br>
+                            Crispy Chicken Skin, Creme Fraiche, Honey, local caviar<br><br>
+
+                            <span class="menuCoarse">First Course</span><br>
+                            Duck Rillette with Seed Crackers<br>
+                            Ham Salad with Benne Seed Crackers<br><br>
+
+                            <span class="menuCoarse">Second course</span><br>
+                            Salad, tomatoes, crab, capers<br><br>
+
+                            <span class="menuCoarse">Third Course</span><br>
+                            Some type of refined mix of a shrimp boil and bouillabaisse - tomato consomme, confit, and
+                            cold smoked fennel, mussels, shrimp, andouille sausage<br><br>
+
+                            <span class="menuCoarse">Fourth</span><br>
+                            Hand pie with veloute sauce, roasted chicken sauteed carrots, and peas in pâte brisée.<br><br>
+
+                            <span class="menuCoarse">Fifth Course</span><br>
+                            Deconstructed gumbo - boiled shrimp, andouille, hot pickled okra, greens, gumbo roux gravy<br><br>
+
+                            <span class="menuCoarse">Sixth Course</span><br>
+                            Braised lamb on top of stewed tomatoes and a johnnycake as a bite with a peanut sauce along
+                            with Steak au Poivre, potato gratin<br><br>
+
+
+                            Let me know what you think and with that let’s get it going
+
+
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/home-cured-fresh-ham/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/2tQTsn0DXQyyPPBt24cvwi/0fd1510747a8a319dec8578aee2f0e2b/brined-ham-portrait.jpg?fm=webp&q=70&w=1382"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/home-cured-fresh-ham/?linkId=*|LINKID|*">
+                                Home Cured Fresh Ham
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            Easter always has me thinking about ham. If you ask me about a honey spiral cut ham, I may
+                            just walk away from you. I’ve been curing my own ham for years and I just won't go back to a
+                            store-bought cured ham, especially one with a glaze packet attached. This <a href="https://www.knifeandfish.com/recipe/home-cured-fresh-ham/?linkId=*|LINKID|*">Cured Fresh Ham recipe</a>
+                            takes some planning but is always comes out beautifully.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.amazon.com/Strategy-Conflict-New-Preface-Author/dp/0674840313"><img
+                                    src="https://d1b14unh5d6w7g.cloudfront.net/0674840313.01.S001.LXXXXXXX.jpg?Expires=1648616025&Signature=a0HNqRsrr-TlEp-gO2WswTrq6OZ6ClMrrf7r3mh~09u3gYHbshPg18phIbmWEHxOGLmr8iDeSGBg~gUQnO2bWTfEIF-c4UaQRiUaoH7a4uHXxKujd7-fFZW-lV7cMn6JdMIiDb9DcZ3fEGUFZenqQAXSl3C1Fl8pT4TVMTjQxAc_&Key-Pair-Id=APKAIUO27P366FGALUMQ"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.amazon.com/Strategy-Conflict-New-Preface-Author/dp/0674840313">
+                                The Strategy of Conflict by Thomas C Schelling</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            One can’t ignore the way currently being waged between Ukraine and Russia. Our role as big
+                            brother in this conflict is an interesting one, fighting a proxy war with Russia. So it was
+                            interesting to find out that our strategy is based on <a href="https://www.amazon.com/Strategy-Conflict-New-Preface-Author/dp/0674840313">The Strategy of Conflict, a series of
+                            essays by Thomas C. Schelling</a> on the game theory where two adversaries have limited moves
+                            beyond both sides lose. Fascinating and interesting that it was written in the 1950s for
+                            this exact scenario.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/homemade-lemonade-deluxe-version/1437183696"><img
+                                    src="https://static.qobuz.com/info/IMG/arton180196.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/homemade-lemonade-deluxe-version/1437183696">
+                                Theo Lawrence and The Hearts </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            I’m not sure how I found out about <a href="https://music.apple.com/us/album/homemade-lemonade-deluxe-version/1437183696">Theo Larence</a> but there is something about his voice.
+                            There is a hint of Brandon Flowers from the Killers in it and that’s never a bad thing, add
+                            that with the strong 70’s vibe and you have something straight out of a Tarantino movie.
+                            <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That’ll do it folks. Be good to each other.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

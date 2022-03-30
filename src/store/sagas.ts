@@ -6,12 +6,7 @@ import { createHouseholdFromSurveyAsync, createNewHouseholdAsync, fetchHousehold
 import { CREATE_HOUSEHOLD_FROM, HOUSEHOLD } from './ducks/household/types'
 import { localStorageLoginAsync, logoutAsync, submitLoginAsync } from './ducks/login/sagas'
 import { LOGIN_STEPS, LOGOUT } from './ducks/login/types'
-import {
-  fetchNewsletterLinkIdAsync,
-  submitNewsletterEmailAsync,
-  submitNewsletterLinkIdAsync,
-} from './ducks/newsletter/sagas'
-import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES } from './ducks/newsletter/types'
+import { NEWSLETTER_ACTION_TYPES, NEWSLETTER_LINKID_TYPES, RECIPE_RATINGS_EMAIL_TYPES } from './ducks/newsletter/types'
 import { onTryCreateNewProfile } from './ducks/profile/actions'
 import { createProfileAsync, fetchProfileAsync } from './ducks/profile/sagas'
 import { PROFILE, PROFILE_STEPS } from './ducks/profile/types'
@@ -19,6 +14,12 @@ import { RATINGS } from './ducks/ratings/types'
 import { RECIPEBOX } from './ducks/recipesBox/types'
 import { submitSearchAsync } from './ducks/search/sagas'
 import { SEARCH_ACTION_TYPES } from './ducks/search/types'
+import {
+  fetchNewsletterLinkIdAsync,
+  submitNewsletterEmailAsync,
+  submitNewsletterLinkIdAsync,
+  submitRecipeRatingsEmailAsync,
+} from './ducks/newsletter/sagas'
 import {
   patchArticleEmailPreferenceAsync,
   patchRecipeEmailPreferenceAsync,
@@ -231,6 +232,10 @@ function* watchSubmitNewsletterLinkId() {
   yield takeEvery(NEWSLETTER_LINKID_TYPES.TRY_SUBMIT, submitNewsletterLinkIdAsync)
 }
 
+function* watchSubmitRecipeRatingEmail() {
+  yield takeEvery(RECIPE_RATINGS_EMAIL_TYPES.TRY_SUBMIT, submitRecipeRatingsEmailAsync)
+}
+
 export default function* rootSaga() {
   yield all([
     watchAddArticleRating(),
@@ -267,6 +272,7 @@ export default function* rootSaga() {
     watchRecipeContact(),
     watchRemoveRecipe(),
     watchSearch(),
+    watchSubmitRecipeRatingEmail(),
     watchSubmitNewsletterEmail(),
     watchSubmitNewsletterLinkId(),
     watchSuggestionContact(),
