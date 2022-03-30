@@ -139,14 +139,16 @@ const submitRecipeRatingEmail = (payload: {
   recipeId: string
   imageUrl: string
   recipeName: string
+  userId: string
 }) => {
-  const { linkId, recipeId } = payload
+  const { linkId, recipeId, userId } = payload
   const url = 'https://1yp0zu5x88.execute-api.us-east-1.amazonaws.com/dev/email/rating/recipe'
   return axios.post(
     url,
     {
       linkId: linkId,
       recipeId: recipeId,
+      userId: userId,
     },
     {
       headers: {
@@ -156,9 +158,9 @@ const submitRecipeRatingEmail = (payload: {
   )
 }
 export function* submitRecipeRatingsEmailAsync(action: any) {
-  const { linkId, recipeId, imageUrl, recipeName } = action
+  const { linkId, recipeId, imageUrl, recipeName, userId } = action
   try {
-    const fetchResponse = yield call(submitRecipeRatingEmail, { linkId, recipeId, imageUrl, recipeName })
+    const fetchResponse = yield call(submitRecipeRatingEmail, { linkId, recipeId, imageUrl, recipeName, userId })
     yield put({
       type: RECIPE_RATINGS_EMAIL_TYPES.SUBMIT_SUCCESS,
       payload: fetchResponse,

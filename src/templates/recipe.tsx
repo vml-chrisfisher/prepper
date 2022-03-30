@@ -282,7 +282,7 @@ const RecipeTemplate = (props: RecipeProps) => {
 
   useEffect(() => {
     if (linkId) {
-      dispatch(onTryRecipeRatingsEmailSubmit({ linkId: linkId, recipeId: recipeId }))
+      dispatch(onTryRecipeRatingsEmailSubmit({ linkId: linkId, recipeId: recipeId, userId: userId }))
     }
   }, [linkId])
 
