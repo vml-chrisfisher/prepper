@@ -253,9 +253,11 @@ const RecipeTemplate = (props: RecipeProps) => {
   const location = useLocation()
 
   useEffect(() => {
+    console.log('HELLO: ', location)
     if (location.search) {
       const queried = queryString.parse(location.search)
-      const { linkId } = queried
+      console.log('QUERY: ', queried)
+      const linkId = queried.LINKID
       if (linkId) {
         dispatch(onTryNewsletterLinkIdSubmit(linkId as string))
       }
@@ -281,8 +283,16 @@ const RecipeTemplate = (props: RecipeProps) => {
   })
 
   useEffect(() => {
+    console.log('YOYO: ', linkId)
     if (linkId) {
-      dispatch(onTryRecipeRatingsEmailSubmit({ linkId: linkId, recipeId: recipeId, userId: userId }))
+      dispatch(
+        onTryRecipeRatingsEmailSubmit({
+          linkId: linkId,
+          recipeId: recipeId,
+          imageUrl: post.bannerImage.file.url,
+          recipeName: post.title,
+        }),
+      )
     }
   }, [linkId])
 

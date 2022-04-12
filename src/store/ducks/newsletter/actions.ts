@@ -17,7 +17,12 @@ export const onTryNewsletterLinkIdSubmit = (linkId: string) => ({
   linkId,
 })
 
-export const onTryRecipeRatingsEmailSubmit = (payload: { linkId: string; recipeId: string; userId: string }) => ({
+export const onTryRecipeRatingsEmailSubmit = (payload: {
+  linkId: string
+  recipeId: string
+  imageUrl: string
+  recipeName: string
+}) => ({
   type: RECIPE_RATINGS_EMAIL_TYPES.TRY_SUBMIT,
   payload,
 })

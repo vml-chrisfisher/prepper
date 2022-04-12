@@ -1,0 +1,422 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-karolina-grabowska-4386496.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 30</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hi All,<br><br>
+
+                            Happy Wednesday as usual. As of late, I’ve had this garden concept, I’ve been talking about
+                            in my head and planning how to move forward with it. I think it’s the idea that it should
+                            look and produce like the Victory Garden I remember watching on PBS when I was little.
+                            Everything just seemed to always be groomed perfectly. Though while talking to anyone that
+                            would listen about it, a friend of mine asked if I had heard about worm towers. While I had
+                            at first, I have gone down the rabbit hole on this one, and its composting that might fit my
+                            desire to do so and the need for my wife that it’s all done behind the scenes. And with that
+                            let’s get to it.
+
+
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/asparagus-english-peas-and-capers-salad/?linkId=*|LINKID|*"><img
+                                    src="https://karalydon.com/wp-content/uploads/2015/04/Asparagus-Pea-and-Feta-Salad-with-Lemon-Balm-Vinegar-1.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/asparagus-english-peas-and-capers-salad/?linkId=*|LINKID|*">
+                                Asparagus, English Peas, and Capers Salad
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Traders Joe’s is about the only place I know that consistently carries English Peas in the
+                            Spring. I’ve tweaked this <a href="https://www.knifeandfish.com/recipe/asparagus-english-peas-and-capers-salad/?linkId=*|LINKID|*">Asparagus, English Peas, and Capers Salad recipe</a> throughout the
+                            years, looking to find some that provided the salty balance this salad needed that was too
+                            heavy.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.theatlantic.com/newsletters/archive/2022/04/triple-peak-day-work-from-home/629457/?utm_campaign=later-linkinbio-theatlantic&utm_content=later-25895879&utm_medium=social&utm_source=linkin.bio"><img
+                                    src="https://cdn.theatlantic.com/thumbor/jtvgk_V1m0oCxFbynX_Q1Soyl50=/0x0:2000x1125/1952x1098/media/img/mt/2022/04/3rd_work_peak/original.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.theatlantic.com/newsletters/archive/2022/04/triple-peak-day-work-from-home/629457/?utm_campaign=later-linkinbio-theatlantic&utm_content=later-25895879&utm_medium=social&utm_source=linkin.bio">
+                                This Is What Happens When There Are Too Many Meetings by The Atlantic</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            An interesting read about how we as a society have slowly developed a third wave of
+                            productivity since the pandemic began. Though not necessarily good, <a href="https://www.theatlantic.com/newsletters/archive/2022/04/triple-peak-day-work-from-home/629457/?utm_campaign=later-linkinbio-theatlantic&utm_content=later-25895879&utm_medium=social&utm_source=linkin.bio">This Is What Happens
+                            When There Are Too Many Meetings</a> shines a light on how flexibility has not just shifted how
+                            and when we work but also how the 250% increase in meetings has forced this third wave.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/we-are/1548291743"><img
+                                    src="https://m.media-amazon.com/images/I/91aD8MrjBgL._SL1500_.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/we-are/1548291743">
+                                We Are The by Jon Batiste</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            If you have never heard of <a href="https://music.apple.com/us/album/we-are/1548291743">Jon Batiste</a> or hadn’t heard about him until he swept the Grammy’s
+                            the other night, <a href="https://music.apple.com/us/album/we-are/1548291743">We Are The is the album</a> to introduce yourself to him. Freedom will just
+                            make your soul want more and your body will want to jive. Watch the video for it and you
+                            will want to learn to as well.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/the-felice-brothers/1585992072"><img
+                                    src="https://www.rollingstone.com/wp-content/uploads/2019/05/FELICEPhoto-Jan-08-3-47-06-PM-1.jpg?resize=1800,1200&w=1200"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/the-felice-brothers/1585992072">
+                                The Felice Brothers </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            I’m not sure how I stumbled upon <a href="https://music.apple.com/us/album/the-felice-brothers/1585992072">The Felice Brothers</a> though when I first heard them, I swore
+                            I was listening to a Dylon side project where the depth of instruments was just deeper than
+                            normal. Their <a href="https://music.apple.com/us/album/the-felice-brothers/1585992072">self-titled album from 2018</a> is just amazing from front to back and their
+                            latest <a href="https://music.apple.com/us/album/from-dreams-to-dust/1561053143">From Dream to Dust</a> doesn’t disappoint as well.
+                            <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That’ll do it folks. Be good to each other.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
