@@ -1,0 +1,449 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-taryn-elliott-4457125.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 39</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hello All,<br><br>
+
+                            Another Happy Wednesday to everyone. If you are part of the Midwest right now you know of
+                            the heat wave we are experiencing right now. High temps and almost a consistent 100%
+                            humidity make for the true dog days of summer. However, that hasn’t stopped me from using
+                            the smoker, my father-in-law recently gifted me. It’s a Kamadodo Joe, cousin of the Green
+                            Egg, and the learning to dial it in seems to be a steeper learning curve. Though I’m all in.
+                            I’ve been trying to hone in a meal course we had on our recent trip to Charleston
+                            which was a simple jar of smoked oysters and saltines with a Plymouth gin martini. The
+                            concept and presentation were so simple though the execution and flavors were deep and
+                            crisp.<br><br>
+
+                            Both Gin and oysters fascinate me. They have deep geological heritage and their bespoke
+                            taste is so driven by it. Just in the US, the amount of different ones just on one coast
+                            seems to be endless but every one of them has a different brine, size, and feel to them.
+                            Sucking one down from the shell always pulls a little grit from the shell. One of the
+                            locations we are staying in in France is known for its oysters. On most trips, I’m usually
+                            ready to leave, when the time comes, though this goes around may be different. With that,
+                            let’s get to it.
+
+
+
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/smoked-oysters/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/1lSAcHkGw9yryso9r9CO1S/a046740f889f7f3d75e56b598b0355ef/smoked-oyster-portrait.jpg?fm=webp&q=70&w=1411"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/smoked-oysters/?linkId=*|LINKID|*">
+                                Smoked Oysters
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            <a href="https://www.knifeandfish.com/recipe/smoked-oysters/?linkId=*|LINKID|*">Smoked oysters</a> are a true treat. While there is definitely a camp that can’t get past the
+                            texture of a raw oyster, a <a href="https://www.knifeandfish.com/recipe/smoked-oysters/?linkId=*|LINKID|*">smoked oyster</a> is firmer and has allowed its brine to smoke back
+                            into the oyster. So add smoke and concentrate the oyster’s brine back into itself and it’s
+                            truly something to enjoy. Preserving them in olive oil will allow them to keep longer. I
+                            enjoy them simply on top of a saltine cracker, and a dab of hot sauce.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/plymouth-gin-martini/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/Kd3KEjFMIrjsjF8drI3UA/033daf65d9fdf0862b0700d012573cfc/plymouth-gin-martini-portrait.jpg?fm=webp&q=70&w=1431"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/plymouth-gin-martini/?linkId=*|LINKID|*">
+                                Plymouth Martini
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Drinking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            There are several types of gin though Plymouth gin is one of the few types of gin that is
+                            geologically guarded as well. Plymouth Gin can only be made in Plymouth, England. Funny
+                            enough, right now there is only one distillery there called the Plymouth Gin Co. Plymouth
+                            Gin tends to be a cleaner, drier gin and translates straight to a <a href="https://www.knifeandfish.com/recipe/plymouth-gin-martini/?linkId=*|LINKID|*">Plymouth Gin Martini</a>.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.guitarplayer.com/players/when-youre-a-guitar-player-you-can-really-hear-how-the-differences-matter-jack-white-talks-creativity-and-gear"><img
+                                    src="https://cdn.mos.cms.futurecdn.net/2HwqRXdiGm8t7gfRBmEFDe-970-80.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.guitarplayer.com/players/when-youre-a-guitar-player-you-can-really-hear-how-the-differences-matter-jack-white-talks-creativity-and-gear">
+                                “When You’re a Guitar Player, You Can Really Hear How the Differences Matter”: Jack
+                                White Talks Creativity and Gear
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            If you don’t understand the genius of <a href="https://www.guitarplayer.com/players/when-youre-a-guitar-player-you-can-really-hear-how-the-differences-matter-jack-white-talks-creativity-and-gear">Jack White</a>, his music and pure talent with the guitar
+                            then read no more. Though if you have any affinity for Jack White, what he has done for
+                            music, its preservation and the guitar as an instrument then <a href="https://www.guitarplayer.com/players/when-youre-a-guitar-player-you-can-really-hear-how-the-differences-matter-jack-white-talks-creativity-and-gear">“When You’re a Guitar Player,
+                            You Can Really Hear How the Differences Matter”</a> will draw you. Speaking about how much the
+                            details matter and how those details translate to sound in a way that only Jack White can
+                            explain is fascinating. It shows how craftsmanship goes beyond just one technique but about
+                            studying the craft as a whole is what makes the cream float to the top.
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/entering-heaven-alive/1624743251"><img
+                                    src="https://cdn.shopify.com/s/files/1/0441/1349/4174/products/Image_20211110_144600_1280x.jpg?v=1636577517"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/entering-heaven-alive/1624743251">
+                                Entering Heaven Alive by Jack White </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            I can’t say that I’ve been a true lover of Jack White’s music. But I have always had a
+                            respect for what Jack White represents in music. His talent goes beyond what could be listed
+                            as one of the Top 10 guitarists of all time. Bringing back the pressing of records along
+                            with the details of how instruments should be built. It’s truly impressive. <a href="https://music.apple.com/us/album/entering-heaven-alive/1624743251">Entering Heaven
+                            Alive is Jack White’s latest album</a> has a full release date in July. The early release
+                            tracks tend to represent something a bit more melancholy than what one would be used to from
+                            a Jack White album. Intrigued is what represents me right now.
+
+                            <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That’s it for now.  Be happy.
+                            Be safe out there.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

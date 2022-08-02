@@ -1,0 +1,434 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-andrew-shelley-6704486.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 33</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hi All,<br><br>
+
+                            Happy Wednesday as always! Allergies, possible sinus infection, 1 soccer practice, 1
+                            lacrosse practice, 2 hockey camps, 2 gymnastic classes, and 3 soccer games for us means
+                            Spring is in full run mode for us. Before we get too deep into it, the wife and I are
+                            sneaking off to Charleston for a quick getaway. We run a pretty fast house, so a little slow
+                            time with​​ just the two of us will be appreciated. Brookside Art Fair is this weekend. It
+                            tends to be one of the few events here that marks the beginning of Spring for Kansas City.
+                            With Adrienne staying back in Charleston a bit longer it will be a good distraction for the
+                            kids and me. With that let’s get to it.
+
+
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/smoked-beets-with-creme-fraiche-and-herbs-salad?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/1KA8l83ZnPoDOfN08QHvrY/2e30dca7eac5f7ef9b82b1a5fc411baf/roasted-beets-salad-portrait.jpg?fm=webp&q=70&w=1398"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/smoked-beets-with-creme-fraiche-and-herbs-salad?linkId=*|LINKID|*">
+                                Smoked Beets with Creme Fraiche and Herbs Salad
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            There has never been a beet I didn’t like. This <a href="https://www.knifeandfish.com/recipe/smoked-beets-with-creme-fraiche-and-herbs-salad?linkId=*|LINKID|*">Smoked Beets with Creme Fraiche and Herbs
+                            salad</a> is a play on the classic beets and goat cheese salad. Smoking the beets at a low
+                            temperature allows the sugars in the beets to caramelize and concentrate. Countered with the
+                            tang that comes from creme fraiche and balance just comes to play Beets can be a tough sell
+                            to some and if that’s the case, carrots work well with this recipe as well.
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.gardeningetc.com/news/cola-compost-heap-tip"><img
+                                    src="https://cdn.mos.cms.futurecdn.net/ZUN8nS7mxVCxwU6KgriRkF-1280-80.jpg.webp"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.gardeningetc.com/news/cola-compost-heap-tip">
+                                Using Cola On Your Compost Heap
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            We’ve all seen the video of Coke eating away at corrosion or even meat from a bone. So to
+                            find that its acid properties will actually help jumpstart the process of breaking down some
+                            of the plant material is a pleasant surprise and find. <a href="https://www.gardeningetc.com/news/cola-compost-heap-tip">Using Cola On Your Compost Heap</a>
+                            throws a bit of useful knowledge that will always play into the useless knowledge bucket as
+                            well.
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.yankodesign.com/2022/04/25/top-10-bicycles-designed-to-make-urban-commute-eco-friendly/?utm_source=rss&utm_medium=rss&utm_campaign=top-10-bicycles-designed-to-make-urban-commute-eco-friendly"><img
+                                    src="https://www.yankodesign.com/images/design_news/2022/03/this-flamboyant-all-wheel-drive-bicycle-breaks-the-norms-of-design/Stephan-Henrich-Infinity-Bicycle-2.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.yankodesign.com/2022/04/25/top-10-bicycles-designed-to-make-urban-commute-eco-friendly/?utm_source=rss&utm_medium=rss&utm_campaign=top-10-bicycles-designed-to-make-urban-commute-eco-friendly">
+                                Top 10 Bicycles Designed To Make Urban Commute Eco-Friendly
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            It’s hard to debate that biking is the most eco-friendly transportation we have to date.
+                            I’ve never been an avid biker, though having kids will get you on the kick again. <a href="https://www.yankodesign.com/2022/04/25/top-10-bicycles-designed-to-make-urban-commute-eco-friendly/?utm_source=rss&utm_medium=rss&utm_campaign=top-10-bicycles-designed-to-make-urban-commute-eco-friendly">Top 10
+                            Bicycles Designed To Make Urban Commute Eco-Friendly</a> shows bikes that are as beautiful as
+                            forwarded thinking.
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://music.apple.com/us/album/cotillions/1485474471"><img
+                                    src="https://ca-times.brightspotcdn.com/dims4/default/49b7c20/2147483647/strip/true/crop/1600x900+0+0/resize/840x473!/format/webp/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F53%2Fd0%2F2718f9556742cd2fc2dd147311f0%2Fla-et-ms-billy-corgan-on-smashing-pumpkins-wer-001"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://music.apple.com/us/album/cotillions/1485474471">
+                                Cotillions by William Patrick Corgan </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            In my book, Smashing Pumpkins and Stone Temple Pilots are two of the greatest bands in my
+                            history with Lenny Kravitz fulfilling the solo artist category. This last week, I found
+                            myself going back through a lot of that music and really falling down the rabbit hole with
+                            <a href="https://music.apple.com/us/album/cotillions/1485474471">Billy Corgan’s solo work</a>. <a href="https://music.apple.com/us/album/cotillions/1485474471">Cotillions</a> keep you close with Billy’s unique voice following
+                            melodies that you would have never found from the Pumpkin’s back in the day.
+                            <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That's it folks. Enjoy the weather and each other.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

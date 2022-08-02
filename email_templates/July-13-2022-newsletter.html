@@ -1,0 +1,427 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%" src="https://knifeandfish.s3.amazonaws.com/france-seafood.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 40</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hello All,<br><br>
+
+
+                            Two weeks in France and the Independence Day holiday adds up - it’s been a bit. Many of you
+                            have sent messages asking how France was. To keep it short, it was absolutely everything we
+                            wanted it to be. The saying “We did a lot of things and a lot of nothing” is an excellent
+                            summary. We both learned that a two week vacation is a more desirable timeframe. It allows
+                            you to thoroughly enjoy your time. You feel less inclined to quickly seek out all of the
+                            greatest hits and more inclined to soak it all in. The seafood was abundant and so was the
+                            wine, specifically red, lots of conversation, a bit of adventure, and lots and lots of
+                            cards.<br><br>
+
+                            Leaving was hard, but it gave me an appreciation of how the French have figured out the good
+                            parts of life. Things move slower. There was an overall sense of appreciating what they’ve
+                            perfected. It made me take pause at the basics of cooking - bread, butter, cheese, and just
+                            the simplicity of the Jambon-Beurre.<br><br>
+
+                            With summer in full swing, it was nice to come home to see the okra plants blooming and
+                            fruit starting to appear. I do regret not going full steam with a large garden, but I
+                            decided to make this year more of an experiment with my herbs and okra specifically.
+                            Regenerative farming has become an interest, and so thinking through those thoughts on a
+                            smaller scale is on the drawing board as well.<br><br>
+
+                            With this longer than normal lead-in, let’s get to it.
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/summer-tomato-tart/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/2Urh2sfMm0ewYGsV4Fph3e/c350bbedd8d64963364a321dc628b110/tomato-tart-portrait.jpg?fm=webp&q=70&w=1418"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/summer-tomato-tart/?linkId=*|LINKID|*">
+                                Summer Tomato Tart
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            With the summer vegetable harvest coming in, revisiting this <a
+                                href="https://www.knifeandfish.com/recipe/summer-tomato-tart/?linkId=*|LINKID|*">Summer
+                                Tomato Tart</a> seems
+                            appropriate. Allowing the tomatoes to dry out a bit, after being sliced, helps maintain the
+                            crust.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.npr.org/2020/07/20/891983089/lenny-kravitz-tiny-desk-home-concert"><img
+                                    src="https://www.rollingstone.com/wp-content/uploads/2018/09/2018-121_Lenny_Kravitz0381_3b.jpg?resize=1800,1200&w=1200"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.npr.org/2020/07/20/891983089/lenny-kravitz-tiny-desk-home-concert">
+                                Lenny Kravitz: Tiny Desk (Home) Concert
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Toward the beginning of the pandemic, <a
+                                href="https://www.npr.org/2020/07/20/891983089/lenny-kravitz-tiny-desk-home-concert">Lenny
+                                Kravitz did a small Tiny Desk Concert</a> in his
+                            home in the Bahamas. It’s only 3 songs, and they are not known as any of the greatest hits,
+                            but they are purely Lenny Kravitz.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.eater.com/22996588/blue-hill-stone-barns-dan-barber-restaurant-work-environment-ingredients"><img
+                                    src="https://cdn.vox-cdn.com/thumbor/7W4PXFJUTpC0rubRkJ4xBH6g4v0=/0x0:4788x3187/1720x0/filters:focal(0x0:4788x3187):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/23673228/GettyImages_1141067493.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://www.eater.com/22996588/blue-hill-stone-barns-dan-barber-restaurant-work-environment-ingredients">
+                                Chef’s Fable by Eater
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            If there was inspiration toward regenerative farming, it would have been the story behind
+                            Chef Dan Barber and Blue Hill at Stone Barns. His vision represented what the Farm to Table
+                            movement should be. Cooking with solely what came from the farm. Creating a farm whose
+                            ecosystem was enriched by the care of its animals, which then trickled down to rich soil,
+                            which then helped create rich fruits and veggies, and ultimately a rich food source for the
+                            restaurant and its animals. An aspiration that one would think was all too good or one that
+                            hadn’t shown its backside. Eater found that backside and the article <a
+                                href="https://www.eater.com/22996588/blue-hill-stone-barns-dan-barber-restaurant-work-environment-ingredients">“Chef’s
+                                Fable”</a> shows an operation that lost its way toward its vision. I can’t fault one for
+                            things
+                            mentioned in the article. The culture we live in sets such a high standard to be the new
+                            standard. Though forgiveness for mistakes is rarely taken.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="copy-top">
+                            That’s it for now. Be happy.
+                            Be safe out there.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

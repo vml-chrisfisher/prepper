@@ -1,0 +1,371 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-alina-vilchenko-2117239.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 32</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hello All,<br><br>
+
+                            Happy Wednesday to everyone as always. With the Easter holiday, the kids headed back to
+                            school after a 4.5-day weekend. Easter around here recently seems to be more on the colder
+                            side which tends not to be the memory of Easters from my youth. I give global warming and my
+                            memory equal parts in the difference. It has been nice to back to a quieter house during the
+                            day though my increase of back-to-back meetings has made it harder to focus during the short
+                            amount of work time that I do have. I recently found <a href="https://digg.com/productivity/link/best-music-for-focusing-tpHodxvqDZ">Music That Will Help You Focus While
+                            Working, According To Spotify Data</a>, and was happy to find out the genre and have started to
+                            implement it into my short work blocks. Who knows maybe this will influence this newsletter
+                            a bit. With that, let’s get to it.
+
+
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/ham-salad/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/3pxQujUHmTIO8XjaI5YBRP/d4d3e20a5c3b2d44f96fc52269ec7498/ham-salad-portrait.jpg?fm=webp&q=70&w=1319"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/ham-salad/?linkId=*|LINKID|*">
+                                Ham Salad
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            With a fridge sitting with a large Ziploc of Easter ham leftovers, <a href="https://www.knifeandfish.com/recipe/ham-salad/?linkId=*|LINKID|*">Ham Salad</a> is top of mind
+                            for everyone around here. Though think about swapping the ham out for chopped hard-boiled
+                            eggs.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/the-moon-and-stars-prescriptions-for-dreamers/1603730202"><img
+                                    src="https://i.guim.co.uk/img/media/a67262462ae8faec3b2509d2ed420aef809fcaa7/0_170_4368_2621/master/4368.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=c32b76fa9094e454c9ad4f97178a22c8"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/the-moon-and-stars-prescriptions-for-dreamers/1603730202">
+                                The Moon and Stars: Prescriptions For Dreams by Valerie June </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            From Memphis, TN <a href="https://music.apple.com/us/album/the-moon-and-stars-prescriptions-for-dreamers/1603730202">Valerie June</a> has a voice that only she can have. Raspy, whiney, and soulful
+                            <a href="https://music.apple.com/us/album/the-moon-and-stars-prescriptions-for-dreamers/1603730202">Valerie June</a> mixes blues, soul, and folk into something you can’t really fit into a genre.
+                            <a href="https://music.apple.com/us/album/the-moon-and-stars-prescriptions-for-dreamers/1603730202">The Moon and Stars: Prescriptions For Dreams</a> is everywhere but always just wonderful. Start
+                            at this album and just keep moving back, she is absolutely amazing.
+                            <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            That's it folks. Be good to each other and enjoy the plants coming up.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

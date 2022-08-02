@@ -1,0 +1,381 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-mark-stebnicki-4661877.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 37</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Helo All,<br><br>
+
+                            Happy Thursday everyone. Sending this on Thursday makes me feel at odds with myself. This
+                            newsletter began as a way for me to take on Knife and Fish in my own stride. So for me to
+                            miss not only a week but then to miss the second by a day, feels like a loss, in my book. I
+                            apologize for the hiccup but the flu came to me and then throw in the holiday weekend and
+                            things happened. Things are moving back to normal and it’s that thought that I’ve decided to
+                            concentrate on. Several of you have reached out about the progressive dinner and I couldn’t
+                            have been prouder of what I set out to create. I had some hits and some misses but in my
+                            mind, it’s progression forward that I’m happy with. Though to present something that feels
+                            like me and my exploration of the balance of French and Black cooking and its melding that
+                            created Creole just felt good. The Crispy Chicken Skins turned out amazing and I’ve added
+                            the recipe below. Beyond that, we are leaning full forward toward our trip to France. French
+                            cooking and culture pull at my soul just as much as Black cooking, so this trip feels
+                            needed. With that, let’s get going.
+
+
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/crispy-chicken-skins-with-hot-honey-creme-fraiche-and-a-bump-of-caviar"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/2FJbPZEgcFWO7pUlXVe65s/c5eb203ede225c5e1b2a7a601bdfe721/crispy-chicken-skin-portrait-final.jpg?fm=webp&q=70&w=1439"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://www.knifeandfish.com/recipe/crispy-chicken-skins-with-hot-honey-creme-fraiche-and-a-bump-of-caviar">
+                                Crispy Chicken Skins with Hot Honey, Creme Fraiche, and a Caviar Bump
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            There’s an old French recipe that takes potato chips and serves them with Creme Fraiche and
+                            Caviar. This spin takes that elegance and adds so much more but not too much. The <a href="https://www.knifeandfish.com/recipe/crispy-chicken-skins-with-hot-honey-creme-fraiche-and-a-bump-of-caviar">Crispy
+                            Chicken Skins</a> become the perfect vessel to serve this along with the balance of Hot Honey
+                            and Creme Fraiche. The Caviar bump just adds that much more.
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://music.apple.com/us/album/brightside-bonus-tracks/1616563831"><img
+                                    src="https://images.roughtrade.com/product/images/files/000/237/253/hero/418466435646-800.jpg?1645385260"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://music.apple.com/us/album/brightside-bonus-tracks/1616563831">
+                                Brightside Bonus Tracks by the Lumineers </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class=" subTitle">
+                            Listening
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            I’m a sucker for artists taking a selection of songs and spinning them into an acoustic
+                            version. The Lumineers added to the collection with <a href="https://music.apple.com/us/album/brightside-bonus-tracks/1616563831">Brightside Bonus Tracks</a>. While they have
+                            redone a couple of their more favorited tracks they decided to do a cover of The Cure’s Just
+                            Like Heaven. It truly just pulls you in wanting just that much more.
+                            <br><br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Alright, that will do it this time.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -44,7 +44,7 @@ const RegisterAccount = () => {
     display: flex;
     height: 100%;
     width: 200%;
-    transform: ${props => {
+    transform: ${(props) => {
       return 'translateX(' + props.position * -50 + '%)'
     }};
     transition-property: transform;
@@ -203,7 +203,7 @@ const RegisterAccount = () => {
     registerConfirmPassword: '',
   }
 
-  const t: Yup.StringSchema
+  // const t: Yup.StringSchema
 
   const registerValidationSchema = Yup.object().shape({
     registerFirstName: Yup.string().required('First name is required'),
@@ -227,10 +227,10 @@ const RegisterAccount = () => {
       <Slider position={sliderPosition}>
         <Container>
           <Formik initialValues={initialValues} validationSchema={registerValidationSchema} onSubmit={onSubmit}>
-            {form => {
+            {(form) => {
               return (
                 <Form
-                  onSubmit={e => {
+                  onSubmit={(e) => {
                     e.stopPropagation()
                     e.preventDefault()
                     form.setSubmitting(false)

@@ -1,0 +1,424 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%"
+                                src="https://knifeandfish.s3.amazonaws.com/pexels-eva-bronzini-5503338.jpg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 42</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Happy Wednesday,<br><br>
+
+                            Last Sunday, the clouds rolled in with a mild rain shower and a drop of 20 degrees. I
+                            happened to be outside when the shift occurred and it was well received. These lower temps
+                            are predicted to stay for a bit, which is great as I shift from planning to constructing a
+                            garden. In addition to 3 or 4 beds, I want to convert my 5-gallon bucket worm tower into a
+                            larger scale. If everything calculates correctly, I should be able to convert all of my
+                            yearly grass clippings and leaves into rich compost. Composting has always interested me,
+                            but the slow compost has always confused me, because they seem too difficult to actually get
+                            meaningful compost. Worm towers give you a visual of where things came from and where they
+                            are going. I’m sure this comes from my forever need for a feedback loop. <br><br>On
+                            that note, let's get to
+                            it.
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.knifeandfish.com/recipe/tomato-and-olive-salad-with-burrata/?linkId=*|LINKID|*"><img
+                                    src="https://images.ctfassets.net/ce6fbxhy1t51/5P6T7j2AoAXTxMPGhBbBc4/7bcaeb7d40ecaeb022314b64cd2fdd12/IMG_8345.JPG?fm=webp&q=70&w=1424"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.knifeandfish.com/recipe/tomato-and-olive-salad-with-burrata/?linkId=*|LINKID|*">
+                                Tomato and Olive Salad with Burrata
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Cooking
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            If there is a food that defines summer it is the tomato. The memory of biting into a freshly
+                            grown tomato with a bit of salt is one I love going back to every summer. This <a
+                                href="https://www.knifeandfish.com/recipe/tomato-and-olive-salad-with-burrata/?linkId=*|LINKID|*">Tomato
+                                and
+                                Olive Salad with Burrata</a> gets its salt and umami flavor from the olives and
+                            capers.<br><br>
+
+                            Let the tomatoes, olives, and capers meld their flavors together before serving. I like to
+                            pull the salad out of the refrigerator a couple of hours before serving. Also, a nice crack
+                            of fresh ground pepper on top of the burrata cheese is always delicious.
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.amazon.com/4lamps-DL844s-Fluorescent-Hydroponic-Fixture/dp/B00HEYCRI8"><img
+                                    src="https://i0.wp.com/homesteadandchill.com/wp-content/uploads/2020/12/using-grow-lights-seed-starting-leggy-seedlings.jpg?w=1152&ssl=1"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.amazon.com/4lamps-DL844s-Fluorescent-Hydroponic-Fixture/dp/B00HEYCRI8">
+                                Durolux T5 Ho Grow Light
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Buying
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            I took a second read of Growing Perennial Food: A Field Guide to Raising Resilient Herbs
+                            Fruits and Vegetables by Acadia Tucker and now that my list of fruits and veggies has grown,
+                            I’ve partly started looking at growing seedlings. Unfortunately, our south-facing windows
+                            are not conducive for growing seedlings, so I’ve been researching grow lights for the
+                            basement. The <a
+                                href="https://www.amazon.com/4lamps-DL844s-Fluorescent-Hydroponic-Fixture/dp/B00HEYCRI8">Durolux
+                                T5 Ho Grow Light</a> seems to be a crowd favorite, but I’m sure a visit to
+                            a local store will help immensely.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://www.amazon.com/Round-Jiffy-Peat-Pots-Deep/dp/B0057QYGAW/ref=as_li_ss_tl?tag=plantcaretoday-20"><img
+                                    src="https://m.media-amazon.com/images/I/71HeXojqYlL._AC_SX679_.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://www.amazon.com/Round-Jiffy-Peat-Pots-Deep/dp/B0057QYGAW/ref=as_li_ss_tl?tag=plantcaretoday-20">
+                                Jiffy Peat Pots
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Buying
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            Peat pots are needed with seedlings, and ordering via Amazon seems like a smart choice. I’ve
+                            never understood the plastic pots that usually get dumped in the recycling every year. I’ve
+                            used <a
+                                href="https://www.amazon.com/Round-Jiffy-Peat-Pots-Deep/dp/B0057QYGAW/ref=as_li_ss_tl?tag=plantcaretoday-20">Jiffy
+                                Peat Pots</a> in the past, and while the science tends to lean towards them not being
+                            as eco-friendly as we thought, it is still a step forward until I can find a better
+                            solution.
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td class="copy-top"><br><br>
+                            That’s it for this week. Enjoy the cooling weather if you're here in Kansas City.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

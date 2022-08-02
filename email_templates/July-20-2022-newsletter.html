@@ -1,0 +1,446 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond%7CRoboto" rel="stylesheet">
+
+
+
+
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'EngraversMTBold';
+            src: url(https://s3.amazonaws.com/crieger/emails/shared/EngraversMTBold.ttf) format("truetype");
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 48px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-title {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            letter-spacing: 0;
+            line-height: 35px;
+            padding-top: 5px;
+            padding-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 65px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            margin-left: 15%;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .menuCoarse {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: 35px;
+            letter-spacing: -3px;
+            line-height: 50px;
+            padding-top: 48px;
+            padding-bottom: 5px;
+            width: 70%;
+            max-width: 70%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sectionTitle a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .section-image a img {
+            width: 80%;
+            max-width: 80%;
+            margin-left: 10%;
+            padding-top: 100px;
+        }
+
+        .subTitle {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .eyebrow {
+            color: #333333;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .copy-top {
+            color: #333333;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: left;
+        }
+
+        .copy {
+            color: #333333;
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            padding-right: 20px;
+            text-align: center;
+            max-width: 70%;
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        .copy a {
+            color: #F24E11;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            line-height: 56px;
+            text-align: left;
+        }
+
+        .mainTitleTop {
+            padding-top: 100px;
+        }
+
+        .mainTitleBottom {
+            padding-bottom: 100px;
+        }
+
+        .disclaimer {
+            color: #745a34;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 200;
+            font-size: 18px;
+            line-height: 26px;
+            padding-left: 57px;
+            padding-right: 57px;
+        }
+
+        .line {
+            border-bottom: 1px solid #745a34;
+            padding-bottom: 3px;
+        }
+
+        .footer-container {
+            background-color: #333333;
+        }
+
+        .drink-responsibly {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'EngraversMTBold', 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: -1px;
+            line-height: 16px;
+            margin-left: 30px;
+            padding: 0;
+            text-align: left;
+            width: 173px;
+        }
+
+        .footer-links-container {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 42px;
+            padding: 0;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            display: inline-block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-weight: 200;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .social-link {
+            height: 22px;
+        }
+
+        .dotted-border {
+            border-bottom: #333333 dotted 1px;
+            display: block;
+            width: 75%;
+            margin: 30px auto;
+        }
+
+        .tan-container {
+            background-color: #E8DCC6;
+        }
+
+        .white-container {
+            background-color: #fff;
+        }
+
+        li {
+            padding-bottom: 30px;
+        }
+
+        .icon {
+            display: block;
+            width: 75px;
+            margin: 0 auto;
+            padding-top: 150px;
+        }
+
+        .link-button {
+            background-color: #f24e11;
+            color: #FFFFFF;
+            display: block;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 28px;
+            margin-left: 10%;
+            margin-top: 30px;
+            width: 80%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="bodyTable" style="height:100%;">
+        <tr>
+            <td align="center" valign="top">
+                <table style="margin-left:0px;" border="0" cellpadding="0" cellspacing="0" width="600"
+                    id="emailContainer">
+                    <tr>
+                        <td align="center">
+                            <img style="padding-bottom: 10px; padding-top: 30px;" width="100"
+                                src="https://knifeandfish.s3.amazonaws.com/logo.png_rectangle.png"
+                                alt="48e697e4-ee43-4663-8aac-a2531dc67b07.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="logo-title" style="padding-bottom:100px;">
+                            Knife &amp; Fish
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img style="width: 100%" src="https://knifeandfish.s3.amazonaws.com/okra.jpeg"
+                                alt="daac0158-ad8c-4643-85d6-963e1dbe4307.jpg">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleTop eyebrow" align="center">
+                            <span class="eyebrow">Knife &amp; Fish</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mainTitleBottom" align="center">
+                            <span class="title">Weekly Newsletter No. 41</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy-top">
+                            Hello All,<br><br>
+
+                            It’s another Wednesday. Cooking hasn’t been top of mind, but the space for next year's
+                            garden has been. The playground that occupied the space for years has started to come down
+                            and planning is at full throttle. Regenerative farming pared down to regenerative gardening
+                            has occupied my headspace lately. This involves timelines in half-year increments, a space I
+                            generally don’t work in. But it feels good to think long-term - managing grass clippings,
+                            planning permanent space, and food and green thinking. I learned a lot from this year’s pot
+                            planting, particularly regarding pot size and spacing. <br><br>On that note, let's get to
+                            it.
+                            <br>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.instagram.com/thegirlyblackfarmer/?hl=en&__coig_restricted=1"><img
+                                    src="https://cdn.shopify.com/s/files/1/0484/4414/5817/files/IMG-5701_900x.jpg?v=1600928407"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.instagram.com/thegirlyblackfarmer/?hl=en&__coig_restricted=1">
+                                @thegirlyblackfarmer
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Following
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            The story of Black farmers in America has always interested me. Historically, farmers were
+                            predominately Black. But as racism crept its way in, the Black farmer became another
+                            minority within our country. It’s heartening to see that Black farming is making a
+                            resurgence, and following the journey of the <a
+                                href="https://www.instagram.com/thegirlyblackfarmer/?hl=en&__coig_restricted=1">@thegirlyblackfarmer</a>
+                            on Instagram is inspiring.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.wellandgood.com/regenerative-gardening/"><img
+                                    src="https://www.wellandgood.com/wp-content/uploads/2021/06/GettyImages-521981107-1_2340x1754_true_75.jpg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.wellandgood.com/regenerative-gardening/">
+                                How to Practice Regenerative Agriculture in Your Own Home Garden by Erin Bunch
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            Finding articles from the Rodale Institute about Rengerative Agriculture has added a new
+                            spark to the ecosystem of my cooking. Having more knowledge about the food I cook has become
+                            fascinating to me. Reading <a href="https://www.wellandgood.com/regenerative-gardening/">How
+                                to Practice Regenerative Agriculture in Your Own Home Garden
+                                by Erin Bunch</a> has given me a lot of inspiration to launch my own little garden.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a
+                                href="https://extension.oregonstate.edu/gardening/soil-compost/sheet-mulching-aka-lasagna-composting-builds-soil-saves-time"><img
+                                    src="https://extension.oregonstate.edu/sites/default/files/styles/full/public/images/2018-06/sheet-mulch-3.png?itok=Gsi9fLte"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a
+                                href="https://extension.oregonstate.edu/gardening/soil-compost/sheet-mulching-aka-lasagna-composting-builds-soil-saves-time">
+                                Sheet Mulching
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+                            After researching a good amount, it seems like sheet mulching is a great way to convert the
+                            ground from lawn to rich gardening soil. <a
+                                href="https://extension.oregonstate.edu/gardening/soil-compost/sheet-mulching-aka-lasagna-composting-builds-soil-saves-time">Oregon
+                                State University has created a great
+                                step-by-step article on how to get this going</a>. Also known as lasagna composting, it
+                            simply
+                            layers organic materials - one being rich in carbon and the other rich in nitrogen. Simple
+                            and proven, which is a path I’ll always take.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="section-image">
+                            <a href="https://www.amazon.com/Growing-Perennial-Foods-Resilient-Vegetables/dp/0998862355"><img
+                                    src="https://d1b14unh5d6w7g.cloudfront.net/0998862355.01.S001.LXXXXXXX.jpg?Expires=1658294535&Signature=A92LVh4VPBFdyDipNCAiHqszJJh-IH82-Wgi7LuYNEnpXmyEQaweS0ji69MojMtrqstOvNFtL6m9s8oMAT8y-Enk3iuUTcjp1yGK-odydrQFCS58kiAZu-pea3OyvXyHHayTpVBFj3riO-HdqgFvMuLAY-Ow7IVYP9My443ksfo_&Key-Pair-Id=APKAIUO27P366FGALUMQ"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sectionTitle">
+                            <a href="https://www.amazon.com/Growing-Perennial-Foods-Resilient-Vegetables/dp/0998862355">
+                                Growing Perennial Food: A Field Guide to Raising Resilient Herbs Fruits and Vegetables
+                                by Acadia Tucker
+
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="subTitle">
+                            Reading
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="copy">
+
+                            Acadia Tucker is one of the experts on Regenerative Gardens and has written several books on
+                            the subject. Creating a garden that thrives throughout the array of Missouri seasons is an
+                            interesting idea that I think is worth pursuing. <a
+                                href="https://www.amazon.com/Growing-Perennial-Foods-Resilient-Vegetables/dp/0998862355">Growing
+                                Perennial Food: A Field Guide to
+                                Raising Resilient Herbs Fruits and Vegetables by Acadia Tucker</a> is a stepping stone
+                            to
+                            getting there, and I look forward to gaining knowledge.
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="copy-top">
+                            That’s it for this week. Stay hydrated, hiding from these extremely high temps seems
+                            impossible these days.
+                            <br><br>
+                            Cheers,<br>
+                            Chris
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
